@@ -103,6 +103,8 @@
 		89A7717F2C3BBF5E00C7068F /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				89A771872C3BC8AD00C7068F /* Login */,
+				89A771882C3BC8B400C7068F /* SignUp */,
 				89A771702C3B702400C7068F /* ContentView.swift */,
 			);
 			path = Feature;
@@ -127,6 +129,20 @@
 			children = (
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		89A771872C3BC8AD00C7068F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		89A771882C3BC8B400C7068F /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
