@@ -10,5 +10,7 @@ import Foundation
 enum NavigationBtnType {
     case back
     case home
+    case title
+    case mylike
     case location // 추후에 구현
 }

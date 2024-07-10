@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "graystar.svg",
+      "filename" : "heart.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "graystar 1.svg",
+      "filename" : "heart 1.svg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "graystar 2.svg",
+      "filename" : "heart 2.svg",
       "idiom" : "universal",
       "scale" : "3x"
     }
