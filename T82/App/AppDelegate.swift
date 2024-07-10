@@ -7,6 +7,6 @@
 
 import UIKit
 
-class AppDelegate{
+class AppDelegate {
     
 }
