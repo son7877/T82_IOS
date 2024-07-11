@@ -1,10 +1,3 @@
-//
-//  SignUpView.swift
-//  T82
-//
-//  Created by 안홍범 on 7/8/24.
-//
-
 import SwiftUI
 
 struct SignUpView: View {
@@ -12,9 +5,11 @@ struct SignUpView: View {
     @FocusState private var isFocused: Bool
     @State private var user: User = User(email: "", password: "", passwordCheck: "", name: "", birthday: Date(), phoneNum: "", address: "", addressDetail: "")
     @Environment(\.presentationMode) var presentationMode
-
+    @State private var passwordValidationMessage: String = ""
+    @State private var passwordCheckValidationMessage: String = ""
+    
     var body: some View {
-        CustomNavigationBar( // 커스텀 네비게이션 바 사용 방법
+        CustomNavigationBar(
             isDisplayLeftBtn: true,
             isDisplayRightBtn: false,
             isDisplayTitle: true,
@@ -28,9 +23,8 @@ struct SignUpView: View {
         )
         .padding()
         
-        ScrollView{
-            VStack
-            {
+        ScrollView {
+            VStack {
                 TextField("이메일", text: $user.email)
                     .textFieldStyle(.roundedBorder)
                     .padding()
@@ -46,6 +40,18 @@ struct SignUpView: View {
                     .tint(.customOrange)
                     .focused($isFocused)
                     .textInputAutocapitalization(.never)
+                    .onChange(of: user.password) { newValue, _ in
+                        passwordValidationMessage = Validation.validatePassword(newValue)
+                        passwordCheckValidationMessage = Validation.validatePasswordCheck(password: newValue, passwordCheck: user.passwordCheck)
+                    }
+                
+                if !passwordValidationMessage.isEmpty {
+                    Text(passwordValidationMessage)
+                        .foregroundColor(.red)
+                        .font(.system(size: 14))
+                        .padding([.leading, .trailing], 15)
+                        .frame(width: 300, alignment: .leading)
+                }
                 
                 SecureField("비밀번호 확인", text: $user.passwordCheck)
                     .textFieldStyle(.roundedBorder)
@@ -54,6 +60,17 @@ struct SignUpView: View {
                     .tint(.customOrange)
                     .focused($isFocused)
                     .textInputAutocapitalization(.never)
+                    .onChange(of: user.passwordCheck) { newValue, _ in
+                        passwordCheckValidationMessage = Validation.validatePasswordCheck(password: user.password, passwordCheck: newValue)
+                    }
+                
+                if !passwordCheckValidationMessage.isEmpty {
+                    Text(passwordCheckValidationMessage)
+                        .foregroundColor(.red)
+                        .font(.system(size: 14))
+                        .padding([.leading, .trailing], 15)
+                        .frame(width: 300, alignment: .leading)
+                }
                 
                 TextField("이름", text: $user.name)
                     .textFieldStyle(.roundedBorder)
@@ -111,7 +128,6 @@ struct SignUpView: View {
         .background(Color.customOrange)
         .foregroundColor(.white)
         .cornerRadius(20)
-
     }
 }
 
