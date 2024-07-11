@@ -1,10 +1,3 @@
-//
-//  CouponList.swift
-//  T82
-//
-//  Created by 안홍범 on 7/11/24.
-//
-
 import SwiftUI
 
 struct CouponList: View {
@@ -17,53 +10,69 @@ struct CouponList: View {
         Coupons(couponName: "7월 기념 쿠폰", discountType: 0.1, discountValue: 0)
     ]
     
-    var body: some View{
-        ZStack{
-            Rectangle()
-                .foregroundColor(.customgray0)
-                .frame(width: 340, height: 50)
-                .cornerRadius(15)
-                .padding()
-            
-            HStack{
-                Text("쿠폰 목록")
-                Image("coupon")
+    var body: some View {
+        VStack {
+            ZStack {
+                Rectangle()
+                    .foregroundColor(.customgray0)
+                    .frame(width: 340, height: 50)
+                    .cornerRadius(15)
+                    .padding()
                 
-                Button(
-                    action: {
-                    // 쿠폰 등록 모달 창 띄우기
-                },
-                    label: {
-                    Image("back")
-                        .rotationEffect(.degrees(180))
-                })
-                .padding(.leading, 180)
+                HStack {
+                    Text("쿠폰 목록")
+                        .padding(.leading, 20)
+                    Image("coupon")
+                    
+                    Spacer()
+                    
+                    Button(
+                        action: {
+                            // 쿠폰 등록 모달 창 띄우기
+                        },
+                        label: {
+                            Image("back")
+                                .rotationEffect(.degrees(180))
+                        })
+                        .padding(.trailing, 20)
+                }
+                .padding(.horizontal, 20)
             }
             
-        }
-        
-        // 쿠폰 예시
-        ScrollView{
-            HStack{
-                Text("\(couponList[0].couponName)")
-                Text("\(Int(couponList[0].discountType * 100))%")
-                Button(
-                    action: {
-                        // 쿠폰 적용
-                    },
-                    label: {
-                        Text("적용")
-                            .foregroundColor(.white)
-                            .padding(.vertical, 5)
-                            .padding(.horizontal, 10)
-                    })
-                .background(.customPink)
-                .cornerRadius(10)
+            // 쿠폰 리스트
+            ScrollView {
+                ForEach(couponList, id: \.couponName) { coupon in
+                    VStack {
+                        HStack {
+                            Text(coupon.couponName)
+                                .padding(.leading, 20)
+                            Spacer()
+                            Text("\(Int(coupon.discountType * 100))%")
+                                .padding(.trailing, 20)
+                            
+                            Button(
+                                action: {
+                                    // 적용중인 쿠폰 변경
+                                },
+                                label: {
+                                    Text("적용")
+                                        .foregroundColor(.white)
+                                        .padding(.vertical, 5)
+                                        .padding(.horizontal, 10)
+                                })
+                                .background(Color.customPink)
+                                .cornerRadius(10)
+                        }
+                        .padding(.leading, 20)
+                        .padding(.trailing, 40)
+                        
+                        Divider()
+                            .padding(.horizontal, 30)
+                            .padding(.vertical, 10)
+                            .foregroundColor(.customgray1)
+                    }
+                }
             }
-            Divider()
-                .padding(.horizontal, 30)
-                .padding(.vertical, 10)
-                .foregroundColor(.customgray1)
         }
     }
 }

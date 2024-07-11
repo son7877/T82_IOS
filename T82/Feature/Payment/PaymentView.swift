@@ -1,10 +1,3 @@
-//
-//  paymentView.swift
-//  T82
-//
-//  Created by 안홍범 on 7/11/24.
-//
-
 import SwiftUI
 
 struct PaymentView: View {
@@ -36,6 +29,7 @@ struct PaymentView: View {
                 destination: PaymentCompleteView(),
                 title: "결제하기"
             )
+
         }
     }
 }

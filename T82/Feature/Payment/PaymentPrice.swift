@@ -15,34 +15,48 @@ struct PaymentPrice: View{
         ZStack{
             Rectangle()
                 .foregroundColor(.customgray0)
-                .frame(width: 340, height: 50)
+                .frame(width: 340, height: 150)
                 .cornerRadius(15)
                 .padding()
             
-            HStack{
-                Text("할인 가격").padding(50)
-                Spacer()
-                Text("- \(Int(Double(selectedSection.price) * couponList[0].discountType)) 원")
-                    .padding(.horizontal, 50)
-                    .foregroundColor(.customPink)
+            VStack{
+                HStack{
+                    Text("판매 가격")
+                        .padding(.leading ,50)
+                        .font(.system(size: 20))
+                    Spacer()
+                    Text(" \(selectedSection.price) 원")
+                        .padding(.horizontal, 50)
+                        .font(.system(size: 20))
+                        .foregroundColor(.customPink)
+                }
+                
+                .padding(.vertical,5)
+                HStack{
+                    Text("할인 가격")
+                        .padding(.leading ,50)
+                        .font(.system(size: 20))
+                    Spacer()
+                    Text("- \(Int(Double(selectedSection.price) * couponList[0].discountType)) 원")
+                        .padding(.horizontal, 50)
+                        .font(.system(size: 20))
+                        .foregroundColor(.customPink)
+                }
+                .padding(.vertical,5)
+                
+                HStack{
+                    Text("결제 금액")
+                        .padding(.leading ,50)
+                        .font(.system(size: 20, weight: .bold))
+                    Spacer()
+                    Text("\(selectedSection.price - Int(Double(selectedSection.price) * couponList[0].discountType)) 원")
+                        .padding(.trailing,50)
+                        .font(.system(size: 20, weight: .heavy))
+                        .foregroundColor(.customPink)
+                }
+                .padding(.vertical,5)
             }
         }
-        
-        ZStack{
-            Rectangle()
-                .foregroundColor(.customgray0)
-                .frame(width: 340, height: 50)
-                .cornerRadius(15)
-                .padding()
-            
-            HStack{
-                Text("결제 금액").padding(50)
-                Spacer()
-                Text("\(selectedSection.price - Int(Double(selectedSection.price) * couponList[0].discountType)) 원")
-                    .padding(50)
-                    .font(.system(size: 15, weight: .bold))
-                    .foregroundColor(.customPink)
-            }
-        }
+        .padding(.vertical, 20)
     }
 }
