@@ -9,13 +9,25 @@ import SwiftUI
 
 struct SignUpView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "person")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-                .foregroundStyle(.tint)
+        VStack
+        {
+            CustomNavigationBar( // 커스텀 네비게이션 바 사용 방법
+                isDisplayLeftBtn: true,
+                isDisplayRightBtn: false,
+                isDisplayTitle: true,
+                leftBtnAction: {},
+                rightBtnAction: {},
+                lefttBtnType: .back,
+                rightBtnType: .mylike,
+                Title: "회원 가입"
+            )
+            .padding()
+            
+            
+            
+            
         }
-        .padding()
+        
     }
 }
 
