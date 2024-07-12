@@ -21,6 +21,10 @@
 		894482872C40BD48003F3EE4 /* CompletePrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894482862C40BD48003F3EE4 /* CompletePrice.swift */; };
 		8944828A2C40CC53003F3EE4 /* MyPageTabInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894482892C40CC53003F3EE4 /* MyPageTabInfo.swift */; };
 		8944828E2C40CCD0003F3EE4 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944828D2C40CCD0003F3EE4 /* MyPageView.swift */; };
+		894482902C40D17D003F3EE4 /* MyPageTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944828F2C40D17D003F3EE4 /* MyPageTabView.swift */; };
+		894482922C40D2FE003F3EE4 /* MyInfoEditingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894482912C40D2FE003F3EE4 /* MyInfoEditingView.swift */; };
+		894482942C40D343003F3EE4 /* MyTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894482932C40D343003F3EE4 /* MyTicketView.swift */; };
+		894482962C40D6A0003F3EE4 /* MyTicketDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894482952C40D6A0003F3EE4 /* MyTicketDetail.swift */; };
 		89A7716F2C3B702400C7068F /* T82App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A7716E2C3B702400C7068F /* T82App.swift */; };
 		89A771732C3B702500C7068F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89A771722C3B702500C7068F /* Assets.xcassets */; };
 		89A771762C3B702500C7068F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89A771752C3B702500C7068F /* Preview Assets.xcassets */; };
@@ -49,6 +53,10 @@
 		894482862C40BD48003F3EE4 /* CompletePrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletePrice.swift; sourceTree = "<group>"; };
 		894482892C40CC53003F3EE4 /* MyPageTabInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTabInfo.swift; sourceTree = "<group>"; };
 		8944828D2C40CCD0003F3EE4 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		8944828F2C40D17D003F3EE4 /* MyPageTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTabView.swift; sourceTree = "<group>"; };
+		894482912C40D2FE003F3EE4 /* MyInfoEditingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoEditingView.swift; sourceTree = "<group>"; };
+		894482932C40D343003F3EE4 /* MyTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketView.swift; sourceTree = "<group>"; };
+		894482952C40D6A0003F3EE4 /* MyTicketDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketDetail.swift; sourceTree = "<group>"; };
 		89A7716B2C3B702400C7068F /* T82.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T82.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A7716E2C3B702400C7068F /* T82App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T82App.swift; sourceTree = "<group>"; };
 		89A771722C3B702500C7068F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -94,6 +102,10 @@
 			isa = PBXGroup;
 			children = (
 				8944828D2C40CCD0003F3EE4 /* MyPageView.swift */,
+				8944828F2C40D17D003F3EE4 /* MyPageTabView.swift */,
+				894482912C40D2FE003F3EE4 /* MyInfoEditingView.swift */,
+				894482932C40D343003F3EE4 /* MyTicketView.swift */,
+				894482952C40D6A0003F3EE4 /* MyTicketDetail.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -355,6 +367,7 @@
 			files = (
 				894482722C3FB083003F3EE4 /* PaymentView.swift in Sources */,
 				894482792C3FC153003F3EE4 /* Sections.swift in Sources */,
+				894482942C40D343003F3EE4 /* MyTicketView.swift in Sources */,
 				89EAB4DA2C3D9BE3002B8515 /* CustomNavigationBar.swift in Sources */,
 				8944826E2C3FAF78003F3EE4 /* PasswordValidation.swift in Sources */,
 				8944828A2C40CC53003F3EE4 /* MyPageTabInfo.swift in Sources */,
@@ -370,11 +383,14 @@
 				8944827C2C3FD906003F3EE4 /* PaymentPrice.swift in Sources */,
 				89A771842C3BC16F00C7068F /* AppDelegate.swift in Sources */,
 				894482632C3F5839003F3EE4 /* LoginContent.swift in Sources */,
+				894482962C40D6A0003F3EE4 /* MyTicketDetail.swift in Sources */,
 				8944828E2C40CCD0003F3EE4 /* MyPageView.swift in Sources */,
 				894482802C3FD979003F3EE4 /* CouponList.swift in Sources */,
 				89A7716F2C3B702400C7068F /* T82App.swift in Sources */,
+				894482922C40D2FE003F3EE4 /* MyInfoEditingView.swift in Sources */,
 				894482772C3FB751003F3EE4 /* Coupons.swift in Sources */,
 				89EAB4DD2C3D9D76002B8515 /* User.swift in Sources */,
+				894482902C40D17D003F3EE4 /* MyPageTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
