@@ -1,10 +1,3 @@
-//
-//  MyInfoEditing.swift
-//  T82
-//
-//  Created by 안홍범 on 7/12/24.
-//
-
 import SwiftUI
 
 struct MyInfoEditingView: View {
@@ -121,8 +114,8 @@ struct MyInfoEditingView: View {
             Divider()
                 .padding(.horizontal, 30)
             
-            HStack(spacing: 50){
-                Text("전화번호")
+            HStack(spacing: 35){
+                Text("휴대폰 번호")
                     .font(.system(size: 13))
                 
                 TextField("",text: $user.phoneNum)
@@ -166,10 +159,48 @@ struct MyInfoEditingView: View {
                     .textInputAutocapitalization(.never)
             }
             
+            Divider()
+                .frame(height:2)
+                .background(.customGray1)
+                .padding(.horizontal, 30)
             
+            Button(
+                action: {
+                    // 회원가입 완료 통신 후 메인 화면으로 이동
+                },
+                label: {
+                    Text("수정")
+                        .foregroundColor(.white)
+                }
+            )
+            .padding(.vertical, 10)
+            .padding(.horizontal, 20)
+            .background(.customPink)
+            .cornerRadius(10)
             
+            Spacer()
             
-            
+            HStack{
+                Button(
+                    action: {},
+                    label: {
+                        Text("회원탈퇴")
+                            .foregroundColor(.customGray1)
+                            .underline()
+                    }
+                ).padding(.horizontal, 30)
+                
+                Spacer()
+                
+                Button(
+                    action: {},
+                    label: {
+                        Text("로그아웃")
+                            .foregroundColor(.customGray1)
+                            .underline()
+                    }
+                ).padding(.horizontal, 30)
+            }.padding(.vertical, 30)
         }
     }
 }
