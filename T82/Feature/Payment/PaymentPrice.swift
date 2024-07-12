@@ -11,52 +11,55 @@ struct PaymentPrice: View{
         Coupons(couponName: "7월 기념 쿠폰", discountType: 0.1, discountValue: 0)
     ]
     
-    var body: some View{
-        ZStack{
-            Rectangle()
-                .foregroundColor(.customgray0)
-                .frame(width: 340, height: 150)
-                .cornerRadius(15)
-                .padding()
-            
-            VStack{
-                HStack{
-                    Text("판매 가격")
-                        .padding(.leading ,50)
-                        .font(.system(size: 20))
-                    Spacer()
-                    Text(" \(selectedSection.price) 원")
-                        .padding(.horizontal, 50)
-                        .font(.system(size: 20))
-                        .foregroundColor(.customPink)
-                }
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack {
+                Rectangle()
+                    .foregroundColor(.customgray0)
+                    .frame(width: geometry.size.width * 0.95, height: 150)
+                    .cornerRadius(15)
+                    .padding()
                 
-                .padding(.vertical,5)
-                HStack{
-                    Text("할인 가격")
-                        .padding(.leading ,50)
-                        .font(.system(size: 20))
-                    Spacer()
-                    Text("- \(Int(Double(selectedSection.price) * couponList[0].discountType)) 원")
-                        .padding(.horizontal, 50)
-                        .font(.system(size: 20))
-                        .foregroundColor(.customPink)
+                VStack {
+                    HStack {
+                        Text("판매 가격")
+                            .padding(.leading, 50)
+                            .font(.system(size: 20))
+                        Spacer()
+                        Text(" \(selectedSection.price) 원")
+                            .padding(.horizontal, 50)
+                            .font(.system(size: 20))
+                            .foregroundColor(.customPink)
+                    }
+                    .padding(.vertical, 5)
+                    
+                    HStack {
+                        Text("할인 가격")
+                            .padding(.leading, 50)
+                            .font(.system(size: 20))
+                        Spacer()
+                        Text("- \(Int(Double(selectedSection.price) * couponList[0].discountType)) 원")
+                            .padding(.horizontal, 50)
+                            .font(.system(size: 20))
+                            .foregroundColor(.customPink)
+                    }
+                    .padding(.vertical, 5)
+                    
+                    HStack {
+                        Text("결제 금액")
+                            .padding(.leading, 50)
+                            .font(.system(size: 20, weight: .bold))
+                        Spacer()
+                        Text("\(selectedSection.price - Int(Double(selectedSection.price) * couponList[0].discountType)) 원")
+                            .padding(.trailing, 50)
+                            .font(.system(size: 20, weight: .heavy))
+                            .foregroundColor(.customPink)
+                    }
+                    .padding(.vertical, 5)
                 }
-                .padding(.vertical,5)
-                
-                HStack{
-                    Text("결제 금액")
-                        .padding(.leading ,50)
-                        .font(.system(size: 20, weight: .bold))
-                    Spacer()
-                    Text("\(selectedSection.price - Int(Double(selectedSection.price) * couponList[0].discountType)) 원")
-                        .padding(.trailing,50)
-                        .font(.system(size: 20, weight: .heavy))
-                        .foregroundColor(.customPink)
-                }
-                .padding(.vertical,5)
             }
+            .padding(.vertical, 20)
         }
-        .padding(.vertical, 20)
+        .frame(height: 200) // GeometryReader의 높이 설정
     }
 }

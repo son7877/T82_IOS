@@ -29,7 +29,6 @@ struct PaymentView: View {
                 destination: PaymentCompleteView(),
                 title: "결제하기"
             )
-
         }
     }
 }

@@ -17,6 +17,10 @@
 		8944827E2C3FD942003F3EE4 /* PaymentSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944827D2C3FD942003F3EE4 /* PaymentSelection.swift */; };
 		894482802C3FD979003F3EE4 /* CouponList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944827F2C3FD979003F3EE4 /* CouponList.swift */; };
 		894482832C3FDFB5003F3EE4 /* TicketingProcessBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894482822C3FDFB5003F3EE4 /* TicketingProcessBtn.swift */; };
+		894482852C40B4E1003F3EE4 /* CompleteTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894482842C40B4E1003F3EE4 /* CompleteTicket.swift */; };
+		894482872C40BD48003F3EE4 /* CompletePrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894482862C40BD48003F3EE4 /* CompletePrice.swift */; };
+		8944828A2C40CC53003F3EE4 /* MyPageTabInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894482892C40CC53003F3EE4 /* MyPageTabInfo.swift */; };
+		8944828E2C40CCD0003F3EE4 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944828D2C40CCD0003F3EE4 /* MyPageView.swift */; };
 		89A7716F2C3B702400C7068F /* T82App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A7716E2C3B702400C7068F /* T82App.swift */; };
 		89A771732C3B702500C7068F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89A771722C3B702500C7068F /* Assets.xcassets */; };
 		89A771762C3B702500C7068F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89A771752C3B702500C7068F /* Preview Assets.xcassets */; };
@@ -41,6 +45,10 @@
 		8944827D2C3FD942003F3EE4 /* PaymentSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSelection.swift; sourceTree = "<group>"; };
 		8944827F2C3FD979003F3EE4 /* CouponList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponList.swift; sourceTree = "<group>"; };
 		894482822C3FDFB5003F3EE4 /* TicketingProcessBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketingProcessBtn.swift; sourceTree = "<group>"; };
+		894482842C40B4E1003F3EE4 /* CompleteTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompleteTicket.swift; sourceTree = "<group>"; };
+		894482862C40BD48003F3EE4 /* CompletePrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletePrice.swift; sourceTree = "<group>"; };
+		894482892C40CC53003F3EE4 /* MyPageTabInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageTabInfo.swift; sourceTree = "<group>"; };
+		8944828D2C40CCD0003F3EE4 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		89A7716B2C3B702400C7068F /* T82.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T82.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A7716E2C3B702400C7068F /* T82App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T82App.swift; sourceTree = "<group>"; };
 		89A771722C3B702500C7068F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -85,6 +93,7 @@
 		8944826F2C3FB04A003F3EE4 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				8944828D2C40CCD0003F3EE4 /* MyPageView.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -97,6 +106,8 @@
 				8944827D2C3FD942003F3EE4 /* PaymentSelection.swift */,
 				8944827F2C3FD979003F3EE4 /* CouponList.swift */,
 				894482732C3FB099003F3EE4 /* PaymentCompleteView.swift */,
+				894482842C40B4E1003F3EE4 /* CompleteTicket.swift */,
+				894482862C40BD48003F3EE4 /* CompletePrice.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -123,6 +134,14 @@
 				894482822C3FDFB5003F3EE4 /* TicketingProcessBtn.swift */,
 			);
 			path = TicketingProcessBtn;
+			sourceTree = "<group>";
+		};
+		894482882C40CC0F003F3EE4 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				894482892C40CC53003F3EE4 /* MyPageTabInfo.swift */,
+			);
+			path = MyPage;
 			sourceTree = "<group>";
 		};
 		89A771622C3B702400C7068F = {
@@ -206,6 +225,7 @@
 		89A771802C3BBF6400C7068F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				894482882C40CC0F003F3EE4 /* MyPage */,
 				8944827A2C3FC15D003F3EE4 /* Seats */,
 				894482752C3FB2C5003F3EE4 /* Payment */,
 				894482652C3F7B75003F3EE4 /* SignUp */,
@@ -337,16 +357,20 @@
 				894482792C3FC153003F3EE4 /* Sections.swift in Sources */,
 				89EAB4DA2C3D9BE3002B8515 /* CustomNavigationBar.swift in Sources */,
 				8944826E2C3FAF78003F3EE4 /* PasswordValidation.swift in Sources */,
+				8944828A2C40CC53003F3EE4 /* MyPageTabInfo.swift in Sources */,
 				89EAB4D82C3D9BD0002B8515 /* NavigationBtnType.swift in Sources */,
 				8944827E2C3FD942003F3EE4 /* PaymentSelection.swift in Sources */,
 				89A7718C2C3BE5AF00C7068F /* SignUpView.swift in Sources */,
 				894482832C3FDFB5003F3EE4 /* TicketingProcessBtn.swift in Sources */,
+				894482852C40B4E1003F3EE4 /* CompleteTicket.swift in Sources */,
 				89EAB4E02C3E6488002B8515 /* Color+extensions.swift in Sources */,
+				894482872C40BD48003F3EE4 /* CompletePrice.swift in Sources */,
 				894482742C3FB099003F3EE4 /* PaymentCompleteView.swift in Sources */,
 				89A7718A2C3BDEA400C7068F /* LoginView.swift in Sources */,
 				8944827C2C3FD906003F3EE4 /* PaymentPrice.swift in Sources */,
 				89A771842C3BC16F00C7068F /* AppDelegate.swift in Sources */,
 				894482632C3F5839003F3EE4 /* LoginContent.swift in Sources */,
+				8944828E2C40CCD0003F3EE4 /* MyPageView.swift in Sources */,
 				894482802C3FD979003F3EE4 /* CouponList.swift in Sources */,
 				89A7716F2C3B702400C7068F /* T82App.swift in Sources */,
 				894482772C3FB751003F3EE4 /* Coupons.swift in Sources */,

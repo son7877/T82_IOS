@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct CouponList: View {
+    
     // 예시
     @State private var selectedSection: Sections = Sections(sectionId: 1, name: "R석", totalSeat: 200, restSeat: 20, price: 2000000, eventId: 1)
     
@@ -12,32 +13,35 @@ struct CouponList: View {
     
     var body: some View {
         VStack {
-            ZStack {
-                Rectangle()
-                    .foregroundColor(.customgray0)
-                    .frame(width: 340, height: 50)
-                    .cornerRadius(15)
-                    .padding()
-                
-                HStack {
-                    Text("쿠폰 목록")
-                        .padding(.leading, 20)
-                    Image("coupon")
+            GeometryReader { geometry in
+                ZStack {
+                    Rectangle()
+                        .foregroundColor(.customgray0)
+                        .frame(width: geometry.size.width * 0.95, height: 50)
+                        .cornerRadius(15)
+                        .padding()
                     
-                    Spacer()
-                    
-                    Button(
-                        action: {
-                            // 쿠폰 등록 모달 창 띄우기
-                        },
-                        label: {
-                            Image("back")
-                                .rotationEffect(.degrees(180))
-                        })
-                        .padding(.trailing, 20)
+                    HStack {
+                        Text("쿠폰 목록")
+                            .padding(.leading, 30)
+                        Image("coupon")
+                        
+                        Spacer()
+                        
+                        Button(
+                            action: {
+                                // 쿠폰 등록 모달 창 띄우기
+                            },
+                            label: {
+                                Image("back")
+                                    .rotationEffect(.degrees(180))
+                            })
+                            .padding(.trailing, 30)
+                    }
+                    .padding(.horizontal, 20)
                 }
-                .padding(.horizontal, 20)
             }
+            .frame(height: 80) // GeometryReader의 높이 설정
             
             // 쿠폰 리스트
             ScrollView {
