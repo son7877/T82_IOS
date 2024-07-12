@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MyPageView: View {
     
-    @State private var selectedTab: MyPageTabInfo = .myInfoEditing
+    @State private var selectedTab: MyPageTabInfo = .myTicket
     @Namespace private var animation
     
     var body: some View {
