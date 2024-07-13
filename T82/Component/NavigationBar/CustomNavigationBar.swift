@@ -89,7 +89,7 @@ struct CustomNavigationBar: View {
                 )
             }
         }
-        .padding(.horizontal,20)
+        .padding(.horizontal,0)
         .frame(height: 20)
     }
     
