@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		894482632C3F5839003F3EE4 /* LoginContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894482622C3F5839003F3EE4 /* LoginContent.swift */; };
 		89A7716F2C3B702400C7068F /* T82App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A7716E2C3B702400C7068F /* T82App.swift */; };
 		89A771732C3B702500C7068F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89A771722C3B702500C7068F /* Assets.xcassets */; };
 		89A771762C3B702500C7068F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89A771752C3B702500C7068F /* Preview Assets.xcassets */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		894482622C3F5839003F3EE4 /* LoginContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginContent.swift; sourceTree = "<group>"; };
 		89A7716B2C3B702400C7068F /* T82.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T82.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89A7716E2C3B702400C7068F /* T82App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T82App.swift; sourceTree = "<group>"; };
 		89A771722C3B702500C7068F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,6 +48,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		894482642C3F586E003F3EE4 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				894482622C3F5839003F3EE4 /* LoginContent.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		89A771622C3B702400C7068F = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +134,7 @@
 		89A771802C3BBF6400C7068F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				894482642C3F586E003F3EE4 /* Login */,
 				89EAB4DC2C3D9D76002B8515 /* User.swift */,
 			);
 			path = Model;
@@ -253,6 +264,7 @@
 				89EAB4E02C3E6488002B8515 /* Color+extensions.swift in Sources */,
 				89A7718A2C3BDEA400C7068F /* LoginView.swift in Sources */,
 				89A771842C3BC16F00C7068F /* AppDelegate.swift in Sources */,
+				894482632C3F5839003F3EE4 /* LoginContent.swift in Sources */,
 				89A7716F2C3B702400C7068F /* T82App.swift in Sources */,
 				89EAB4DD2C3D9D76002B8515 /* User.swift in Sources */,
 			);
