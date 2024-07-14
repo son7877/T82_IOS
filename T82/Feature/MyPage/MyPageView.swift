@@ -9,23 +9,14 @@ import SwiftUI
 
 struct MyPageView: View {
     
-    @State private var selectedTab: MyPageTabInfo = .myTicket
+    @State var myPageSelectedTab: MyPageTabInfo
     @Namespace private var animation
     
     var body: some View {
-        CustomNavigationBar( // 커스텀 네비게이션 바 사용 방법
-            isDisplayLeftBtn: true,
-            isDisplayRightBtn: true,
-            isDisplayTitle: true,
-            leftBtnAction: {},
-            rightBtnAction: {},
-            lefttBtnType: .home,
-            rightBtnType: .location,
-            Title: "마이페이지"
-        )
-        .padding()
+        
         animate()
-        MyPageTabView(selection: selectedTab)
+        
+        MyPageTabView(selection: myPageSelectedTab)
     }
     
     @ViewBuilder
@@ -36,8 +27,8 @@ struct MyPageView: View {
                     Text(item.rawValue)
                         .font(.system(size: 20))
                         .frame(maxWidth: .infinity/2, minHeight: 30)
-                        .foregroundColor(selectedTab == item ? .black : .customGray1)
-                    if selectedTab == item {
+                        .foregroundColor(myPageSelectedTab == item ? .black : .customGray1)
+                    if myPageSelectedTab == item {
                         Capsule()
                             .foregroundColor(.customPink)
                             .frame(height: 3)
@@ -46,7 +37,7 @@ struct MyPageView: View {
                 }
                 .onTapGesture {
                     withAnimation(.easeInOut){
-                        self.selectedTab = item
+                        self.myPageSelectedTab = item
                     }
                 }
             }
@@ -55,5 +46,5 @@ struct MyPageView: View {
 }
 
 #Preview {
-    MyPageView()
+    MyPageView(myPageSelectedTab: .myInfoEditing)
 }

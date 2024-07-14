@@ -1,14 +1,7 @@
-//
-//  Date+Extensions.swift
-//  T82
-//
-//  Created by 안홍범 on 7/12/24.
-//
-
 import Foundation
 
 extension Date {
-    var formattedTime: String{
+    var formattedTime: String {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR")
         formatter.dateFormat = "a hh:mm"
@@ -23,13 +16,16 @@ extension Date {
         let dateStartOfDay = calendar.startOfDay(for: self)
         let numOfDaysDifference = calendar.dateComponents([.day], from: nowStartOfDay, to: dateStartOfDay).day!
         
-        // 오늘
-        if numOfDaysDifference == 0{
+        // 티켓 날짜 정보에 표시할 문자열 반환
+        if numOfDaysDifference == 0 {
             return "오늘"
-        } else{
+        } else if numOfDaysDifference < 0 {
+            return "티켓 만료됨"
+        }
+        else{
             let formatter = DateFormatter()
             formatter.locale = Locale(identifier: "ko_KR")
-            formatter.dateFormat = "M월 d일 E요일"
+            formatter.dateFormat = "mm/dd"
             return formatter.string(from: self)
         }
     }

@@ -1,13 +1,7 @@
-//
-//  MyTicket.swift
-//  T82
-//
-//  Created by 안홍범 on 7/12/24.
-//
-
 import Foundation
 
-struct MyTicket: Hashable{
+struct MyTicket: Hashable {
+    
     var title: String
     var eventStartTime: Date
     var SectionName: String

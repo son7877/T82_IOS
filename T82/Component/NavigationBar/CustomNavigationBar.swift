@@ -74,8 +74,8 @@ struct CustomNavigationBar: View {
                 Button(
                     action: rightBtnAction,
                     label: {
-                        if rightBtnType == .location{
-                            Image("mappin")
+                        if rightBtnType == .search{
+                            Image("search")
                                 .resizable()
                                 .frame(width: 25, height: 27)
                                 .foregroundColor(.black)
