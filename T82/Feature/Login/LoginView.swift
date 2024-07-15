@@ -6,6 +6,7 @@ struct LoginView: View {
     @State private var loginContent: LoginContent = LoginContent(email: "", password: "")
     
     var body: some View {
+
         NavigationView {
             VStack {
                 Image("Logo")
