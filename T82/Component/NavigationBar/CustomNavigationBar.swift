@@ -89,15 +89,14 @@ struct CustomNavigationBar: View {
                 )
             }
         }
-        .padding(.horizontal,20)
+        .padding(.horizontal,0)
         .frame(height: 20)
     }
     
     struct CustomNavigationBar_Previews: PreviewProvider {
         static var previews: some View {
             
-            // 뷰 상황에 맞게 수정
-            CustomNavigationBar(
+            CustomNavigationBar( // 커스텀 네비게이션 바 사용 방법
                 isDisplayLeftBtn: true,
                 isDisplayRightBtn: true,
                 isDisplayTitle: true,
