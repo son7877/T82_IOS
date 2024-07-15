@@ -93,7 +93,7 @@ struct CustomNavigationBar: View {
         .frame(height: 20)
     }
     
-    struct CustomNavigationBar_Previews: PreviewProvider {
+    struct CustomNavigationBarPreviews: PreviewProvider {
         static var previews: some View {
             
             CustomNavigationBar( // 커스텀 네비게이션 바 사용 방법
