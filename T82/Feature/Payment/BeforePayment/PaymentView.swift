@@ -18,6 +18,7 @@ struct PaymentView: View {
             Title: "결제 내용"
         )
         .padding()
+        .navigationBarBackButtonHidden()
         
         VStack{
             CouponList()

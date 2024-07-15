@@ -13,6 +13,7 @@ struct PaymentCompleteView: View {
             Title: "결제 완료"
         )
         .padding()
+        .navigationBarBackButtonHidden()
         
         VStack {
             CompleteTicket()

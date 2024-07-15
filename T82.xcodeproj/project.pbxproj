@@ -43,6 +43,9 @@
 		89B57D7F2C43BFD000784CC3 /* MyLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */; };
 		89B57D822C43D56A00784CC3 /* SelectSeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D812C43D56A00784CC3 /* SelectSeatView.swift */; };
 		89B57D842C43D57900784CC3 /* SelectSeatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D832C43D57900784CC3 /* SelectSeatViewModel.swift */; };
+		89B57D862C43F0CA00784CC3 /* SeatsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D852C43F0CA00784CC3 /* SeatsInfo.swift */; };
+		89B57D882C43F37700784CC3 /* Seat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D872C43F37700784CC3 /* Seat.swift */; };
+		89B57D8A2C43F66F00784CC3 /* SeatsPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D892C43F66F00784CC3 /* SeatsPrice.swift */; };
 		89EAB4D82C3D9BD0002B8515 /* NavigationBtnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */; };
 		89EAB4DA2C3D9BE3002B8515 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */; };
 		89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */; };
@@ -87,6 +90,9 @@
 		89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocalView.swift; sourceTree = "<group>"; };
 		89B57D812C43D56A00784CC3 /* SelectSeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSeatView.swift; sourceTree = "<group>"; };
 		89B57D832C43D57900784CC3 /* SelectSeatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSeatViewModel.swift; sourceTree = "<group>"; };
+		89B57D852C43F0CA00784CC3 /* SeatsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatsInfo.swift; sourceTree = "<group>"; };
+		89B57D872C43F37700784CC3 /* Seat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seat.swift; sourceTree = "<group>"; };
+		89B57D892C43F66F00784CC3 /* SeatsPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatsPrice.swift; sourceTree = "<group>"; };
 		89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBtnType.swift; sourceTree = "<group>"; };
 		89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContent.swift; sourceTree = "<group>"; };
@@ -152,16 +158,17 @@
 			isa = PBXGroup;
 			children = (
 				894482782C3FC153003F3EE4 /* Sections.swift */,
+				89B57D872C43F37700784CC3 /* Seat.swift */,
 			);
 			path = Seats;
 			sourceTree = "<group>";
 		};
-		894482812C3FDC0A003F3EE4 /* TicketingProcessBtn */ = {
+		894482812C3FDC0A003F3EE4 /* Button */ = {
 			isa = PBXGroup;
 			children = (
 				894482822C3FDFB5003F3EE4 /* TicketingProcessBtn.swift */,
 			);
-			path = TicketingProcessBtn;
+			path = Button;
 			sourceTree = "<group>";
 		};
 		894482882C40CC0F003F3EE4 /* MyPage */ = {
@@ -252,7 +259,7 @@
 		89A7717E2C3BBF5900C7068F /* Component */ = {
 			isa = PBXGroup;
 			children = (
-				894482812C3FDC0A003F3EE4 /* TicketingProcessBtn */,
+				894482812C3FDC0A003F3EE4 /* Button */,
 				89EAB4DE2C3E60F1002B8515 /* TabView */,
 				89EAB4D62C3D9BB2002B8515 /* NavigationBar */,
 			);
@@ -361,6 +368,8 @@
 			children = (
 				89B57D812C43D56A00784CC3 /* SelectSeatView.swift */,
 				89B57D832C43D57900784CC3 /* SelectSeatViewModel.swift */,
+				89B57D852C43F0CA00784CC3 /* SeatsInfo.swift */,
+				89B57D892C43F66F00784CC3 /* SeatsPrice.swift */,
 			);
 			path = SeatSelect;
 			sourceTree = "<group>";
@@ -468,6 +477,7 @@
 				89EAB4DA2C3D9BE3002B8515 /* CustomNavigationBar.swift in Sources */,
 				8944826E2C3FAF78003F3EE4 /* PasswordValidation.swift in Sources */,
 				8944828A2C40CC53003F3EE4 /* MyPageTabInfo.swift in Sources */,
+				89B57D8A2C43F66F00784CC3 /* SeatsPrice.swift in Sources */,
 				89EAB4D82C3D9BD0002B8515 /* NavigationBtnType.swift in Sources */,
 				8944827E2C3FD942003F3EE4 /* PaymentSelection.swift in Sources */,
 				89B57D7A2C43BC8500784CC3 /* HomeView.swift in Sources */,
@@ -482,11 +492,13 @@
 				894482982C40F8D8003F3EE4 /* MyTicket.swift in Sources */,
 				894482872C40BD48003F3EE4 /* CompletePrice.swift in Sources */,
 				894482742C3FB099003F3EE4 /* PaymentCompleteView.swift in Sources */,
+				89B57D862C43F0CA00784CC3 /* SeatsInfo.swift in Sources */,
 				89A7718A2C3BDEA400C7068F /* LoginView.swift in Sources */,
 				89B57D722C439ED000784CC3 /* MDShopView.swift in Sources */,
 				8944827C2C3FD906003F3EE4 /* PaymentPrice.swift in Sources */,
 				89A771842C3BC16F00C7068F /* AppDelegate.swift in Sources */,
 				894482632C3F5839003F3EE4 /* LoginContent.swift in Sources */,
+				89B57D882C43F37700784CC3 /* Seat.swift in Sources */,
 				894482962C40D6A0003F3EE4 /* MyTicketDetailView.swift in Sources */,
 				89B57D672C40FBD400784CC3 /* MyTicketViewModel.swift in Sources */,
 				8944828E2C40CCD0003F3EE4 /* MyPageView.swift in Sources */,

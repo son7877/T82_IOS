@@ -80,25 +80,24 @@ struct LoginView: View {
                 isFocused = false
             }
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
 // MARK: - 로그인 버튼
 private struct LoginButton: View{
     var body: some View{
-        Button(
-            action: {
-                // 로그인 통신 후 메인 뷰로 이동
-            },
+        NavigationLink(
+            destination: MyPageView(myPageSelectedTab: .myTicket),
             label: {
                 Text("로그인")
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 10)
+                    .background(Color.customOrange)
+                    .foregroundColor(.white)
+                    .cornerRadius(20)
             }
         )
-        .padding(.horizontal, 20)
-        .padding(.vertical, 10)
-        .background(Color.customOrange)
-        .foregroundColor(.white)
-        .cornerRadius(20)
     }
 }
 // MARK: - 회원가입 버튼
