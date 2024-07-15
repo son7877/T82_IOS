@@ -18,8 +18,9 @@ struct MainpageView: View {
                         rightBtnType: .search,
                         Title: "T82"
                     )
-                    .padding(.vertical, 25)
-                    ScrollView {
+                    .padding(.horizontal, 20)
+                    .padding(.vertical, 20)
+                    ScrollView { 
                         VStack(alignment: .leading) {
                             // 최상단에 CustomNavigationBar 추가
                             
@@ -55,7 +56,7 @@ struct MainpageView: View {
                 
                 VStack {
                     Spacer()
-                    CustomTabView(selectedIndex: $selectedIndex)
+                    tabBarView(selectedIndex: $selectedIndex)
                         .background(Color.white) // 흰색 배경 추가
                 }
             }

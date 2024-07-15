@@ -19,8 +19,9 @@ struct DetailPage: View {
                 Title: genreTitle()
             )
             .padding(.top, 70) // 상단 패딩 추가
-            
-            // Content below the CustomNavigationBar
+            .padding(.horizontal, 20)
+            .padding(.vertical, 20)
+        
             if let genre = selectedGenre {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 20) {
