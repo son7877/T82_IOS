@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MyPageTabInfo: String {
-    case myInfoEditing = "MyInfoEditing"
-    case myTicket = "MyTicket"
+enum MyPageTabInfo: String, CaseIterable {
+    case myInfoEditing = "내 정보 수정"
+    case myTicket = "내 티켓"
 }

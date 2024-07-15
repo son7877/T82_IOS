@@ -3,7 +3,7 @@ import SwiftUI
 struct SignUpView: View {
     
     @FocusState private var isFocused: Bool
-    @State private var user: User = User(email: "", password: "", passwordCheck: "", name: "", birthday: Date(), phoneNum: "", address: "", addressDetail: "")
+    @State private var user: SignUpContent = SignUpContent(email: "", password: "", passwordCheck: "", name: "", birthday: Date(), phoneNum: "", address: "", addressDetail: "")
     @Environment(\.presentationMode) var presentationMode
     @State private var passwordValidationMessage: String = ""
     @State private var passwordCheckValidationMessage: String = ""

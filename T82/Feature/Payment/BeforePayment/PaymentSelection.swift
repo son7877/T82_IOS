@@ -18,7 +18,7 @@ struct PaymentSelection: View{
                     .padding(.leading, 30)
                     .padding(.bottom, 5)
                 
-                Image("toss")
+                Image("Toss")
                     .resizable()
                     .frame(width: 100, height: 50)
                     .border(.customPink, width: 2)
