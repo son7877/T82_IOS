@@ -18,7 +18,7 @@ struct DetailPage: View {
                 rightBtnType: .search,
                 Title: genreTitle()
             )
-            .padding(.top, 70) // 상단 패딩 추가
+            .padding() // 상단 패딩 추가
             
             // Content below the CustomNavigationBar
             if let genre = selectedGenre {
@@ -53,7 +53,6 @@ struct DetailPage: View {
             }
         }
         .navigationBarHidden(true) // 기본 네비게이션 바 숨김
-        .edgesIgnoringSafeArea(.top) // 최상단에 위치하도록 설정
     }
     
     func genreTitle() -> String {

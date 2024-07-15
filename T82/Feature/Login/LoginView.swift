@@ -89,7 +89,7 @@ struct LoginView: View {
 private struct LoginButton: View{
     var body: some View{
         NavigationLink(
-            destination: MyPageView(myPageSelectedTab: .myTicket),
+            destination: MainpageView(),
             label: {
                 Text("로그인")
                     .padding(.horizontal, 20)

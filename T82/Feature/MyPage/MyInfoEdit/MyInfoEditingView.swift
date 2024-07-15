@@ -3,7 +3,7 @@ import SwiftUI
 struct MyInfoEditingView: View {
     
     @FocusState private var isFocused: Bool
-    @State private var user: SignUpContent = SignUpContent(email: "", password: "", passwordCheck: "", name: "", birthday: Date(), phoneNum: "", address: "", addressDetail: "")
+    @StateObject private var viewModel = MyInfoEditingViewModel()
     @Environment(\.presentationMode) var presentationMode
     @State private var passwordValidationMessage: String = ""
     @State private var passwordCheckValidationMessage: String = ""
@@ -19,7 +19,7 @@ struct MyInfoEditingView: View {
                 Text("이름(닉네임)")
                     .font(.system(size: 13))
                 
-                TextField("",text: $user.name)
+                TextField("",text: $viewModel.user.nickName)
                     .textFieldStyle(.roundedBorder)
                     .padding(.vertical, 0)
                     .frame(width: 220, height: 40)
@@ -34,7 +34,7 @@ struct MyInfoEditingView: View {
                 Text("이메일")
                     .font(.system(size: 13))
                 
-                TextField("",text: $user.email)
+                TextField("",text: $viewModel.user.email)
                     .textFieldStyle(.roundedBorder)
                     .padding(.vertical, 0)
                     .frame(width: 220, height: 40)
@@ -49,7 +49,7 @@ struct MyInfoEditingView: View {
                 Text("생년월일")
                     .font(.system(size: 13))
                 
-                DatePicker("", selection: $user.birthday, displayedComponents: .date)
+                DatePicker("", selection: $viewModel.user.birthday, displayedComponents: .date)
                     .datePickerStyle(.compact)
                     .frame(width: 220, height: 40)
                     .tint(.customOrange)
@@ -63,16 +63,16 @@ struct MyInfoEditingView: View {
                 Text("비밀번호")
                     .font(.system(size: 13))
                 
-                SecureField("",text: $user.password)
+                SecureField("",text: $viewModel.user.password)
                     .textFieldStyle(.roundedBorder)
                     .padding(.vertical, 0)
                     .frame(width: 220, height: 40)
                     .tint(.customOrange)
                     .focused($isFocused)
                     .textInputAutocapitalization(.never)
-                    .onChange(of: user.password) { newValue, _ in
+                    .onChange(of: viewModel.user.password) { newValue, _ in
                         passwordValidationMessage = Validation.validatePassword(newValue)
-                        passwordCheckValidationMessage = Validation.validatePasswordCheck(password: newValue, passwordCheck: user.passwordCheck)
+                        passwordCheckValidationMessage = Validation.validatePasswordCheck(password: newValue, passwordCheck: viewModel.user.passwordCheck)
                     }
             }
             
@@ -91,15 +91,15 @@ struct MyInfoEditingView: View {
                 Text("비밀번호 확인")
                     .font(.system(size: 13))
                 
-                SecureField("",text: $user.passwordCheck)
+                SecureField("",text: $viewModel.user.passwordCheck)
                     .textFieldStyle(.roundedBorder)
                     .padding(.vertical, 0)
                     .frame(width: 220, height: 40)
                     .tint(.customOrange)
                     .focused($isFocused)
                     .textInputAutocapitalization(.never)
-                    .onChange(of: user.passwordCheck) { newValue, _ in
-                        passwordCheckValidationMessage = Validation.validatePasswordCheck(password: user.password, passwordCheck: newValue)
+                    .onChange(of: viewModel.user.passwordCheck) { newValue, _ in
+                        passwordCheckValidationMessage = Validation.validatePasswordCheck(password: viewModel.user.password, passwordCheck: newValue)
                     }
             }
             
@@ -118,7 +118,7 @@ struct MyInfoEditingView: View {
                 Text("휴대폰 번호")
                     .font(.system(size: 13))
                 
-                TextField("",text: $user.phoneNum)
+                TextField("",text: $viewModel.user.phoneNum)
                     .textFieldStyle(.roundedBorder)
                     .padding(.vertical, 0)
                     .frame(width: 220, height: 40)
@@ -134,7 +134,7 @@ struct MyInfoEditingView: View {
                 Text("주소")
                     .font(.system(size: 13))
                 
-                TextField("",text: $user.address)
+                TextField("",text: $viewModel.user.address)
                     .textFieldStyle(.roundedBorder)
                     .padding(.vertical, 0)
                     .frame(width: 220, height: 40)
@@ -150,7 +150,7 @@ struct MyInfoEditingView: View {
                 Text("상세주소")
                     .font(.system(size: 13))
                 
-                TextField("",text: $user.addressDetail)
+                TextField("",text: $viewModel.user.addressDetail)
                     .textFieldStyle(.roundedBorder)
                     .padding(.vertical, 0)
                     .frame(width: 220, height: 40)

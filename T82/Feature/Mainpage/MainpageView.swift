@@ -18,11 +18,11 @@ struct MainpageView: View {
                         rightBtnType: .search,
                         Title: "T82"
                     )
-                    .padding(.vertical, 25)
+                    .padding(.vertical, 20)
+                    .padding(.horizontal, 20)
+                    
                     ScrollView {
                         VStack(alignment: .leading) {
-                            // 최상단에 CustomNavigationBar 추가
-                            
                             
                             // 중앙 버튼을 눌렀을 때 모든 섹션을 표시
                             if selectedIndex == 4 {
@@ -43,8 +43,9 @@ struct MainpageView: View {
                                         }
                                     }
                                 ))
+                            } else if selectedIndex == 3 {
+                                MyPageView(myPageSelectedTab: .myInfoEditing)
                             } else {
-                                // 다른 카테고리를 선택했을 때 빈 뷰를 반환
                                 EmptyView()
                             }
                         }
@@ -59,8 +60,9 @@ struct MainpageView: View {
                         .background(Color.white) // 흰색 배경 추가
                 }
             }
-            .edgesIgnoringSafeArea(.bottom) // 안전 영역 무시
+            .edgesIgnoringSafeArea(.bottom)
         }
+        .navigationBarBackButtonHidden()
     }
 }
 

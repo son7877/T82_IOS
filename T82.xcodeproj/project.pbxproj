@@ -39,19 +39,21 @@
 		89B57D6F2C439E2A00784CC3 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D6E2C439E2A00784CC3 /* MainTabView.swift */; };
 		89B57D722C439ED000784CC3 /* MDShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D712C439ED000784CC3 /* MDShopView.swift */; };
 		89B57D782C439F3500784CC3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D772C439F3500784CC3 /* MainView.swift */; };
-		89B57D7A2C43BC8500784CC3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D792C43BC8500784CC3 /* HomeView.swift */; };
 		89B57D7F2C43BFD000784CC3 /* MyLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */; };
 		89B57D822C43D56A00784CC3 /* SelectSeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D812C43D56A00784CC3 /* SelectSeatView.swift */; };
 		89B57D842C43D57900784CC3 /* SelectSeatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D832C43D57900784CC3 /* SelectSeatViewModel.swift */; };
 		89B57D862C43F0CA00784CC3 /* SeatsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D852C43F0CA00784CC3 /* SeatsInfo.swift */; };
 		89B57D882C43F37700784CC3 /* Seat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D872C43F37700784CC3 /* Seat.swift */; };
 		89B57D8A2C43F66F00784CC3 /* SeatsPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D892C43F66F00784CC3 /* SeatsPrice.swift */; };
+		89BC46892C44C55400CDBB38 /* MyInfoEditingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46882C44C55400CDBB38 /* MyInfoEditingViewModel.swift */; };
+		89BC468C2C44C5AC00CDBB38 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC468B2C44C5AC00CDBB38 /* User.swift */; };
+		89BC468E2C44CC4800CDBB38 /* CustomTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC468D2C44CC4800CDBB38 /* CustomTabBarButton.swift */; };
 		89EAB4D82C3D9BD0002B8515 /* NavigationBtnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */; };
 		89EAB4DA2C3D9BE3002B8515 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */; };
 		89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */; };
 		89EAB4E02C3E6488002B8515 /* Color+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4DF2C3E6488002B8515 /* Color+extensions.swift */; };
 		AAFE6D332C3FA10E00FB6BA6 /* MainpageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE6D322C3FA10D00FB6BA6 /* MainpageView.swift */; };
-		AAFE6D352C4159B900FB6BA6 /* tabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE6D342C4159B900FB6BA6 /* tabBarView.swift */; };
+		AAFE6D352C4159B900FB6BA6 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE6D342C4159B900FB6BA6 /* CustomTabView.swift */; };
 		AAFE6D382C41A68600FB6BA6 /* DetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE6D372C41A68600FB6BA6 /* DetailPage.swift */; };
 		AAFE6D3B2C44A89A00FB6BA6 /* ReservationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE6D3A2C44A89A00FB6BA6 /* ReservationPage.swift */; };
 /* End PBXBuildFile section */
@@ -90,19 +92,21 @@
 		89B57D6E2C439E2A00784CC3 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		89B57D712C439ED000784CC3 /* MDShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDShopView.swift; sourceTree = "<group>"; };
 		89B57D772C439F3500784CC3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		89B57D792C43BC8500784CC3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocalView.swift; sourceTree = "<group>"; };
 		89B57D812C43D56A00784CC3 /* SelectSeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSeatView.swift; sourceTree = "<group>"; };
 		89B57D832C43D57900784CC3 /* SelectSeatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSeatViewModel.swift; sourceTree = "<group>"; };
 		89B57D852C43F0CA00784CC3 /* SeatsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatsInfo.swift; sourceTree = "<group>"; };
 		89B57D872C43F37700784CC3 /* Seat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seat.swift; sourceTree = "<group>"; };
 		89B57D892C43F66F00784CC3 /* SeatsPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatsPrice.swift; sourceTree = "<group>"; };
+		89BC46882C44C55400CDBB38 /* MyInfoEditingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoEditingViewModel.swift; sourceTree = "<group>"; };
+		89BC468B2C44C5AC00CDBB38 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		89BC468D2C44CC4800CDBB38 /* CustomTabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarButton.swift; sourceTree = "<group>"; };
 		89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBtnType.swift; sourceTree = "<group>"; };
 		89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContent.swift; sourceTree = "<group>"; };
 		89EAB4DF2C3E6488002B8515 /* Color+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+extensions.swift"; sourceTree = "<group>"; };
 		AAFE6D322C3FA10D00FB6BA6 /* MainpageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpageView.swift; sourceTree = "<group>"; };
-		AAFE6D342C4159B900FB6BA6 /* tabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = tabBarView.swift; path = T82/Feature/Mainpage/tabBarView.swift; sourceTree = SOURCE_ROOT; };
+		AAFE6D342C4159B900FB6BA6 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomTabView.swift; path = T82/Feature/Mainpage/CustomTabView.swift; sourceTree = SOURCE_ROOT; };
 		AAFE6D372C41A68600FB6BA6 /* DetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPage.swift; sourceTree = "<group>"; };
 		AAFE6D3A2C44A89A00FB6BA6 /* ReservationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				894482912C40D2FE003F3EE4 /* MyInfoEditingView.swift */,
+				89BC46882C44C55400CDBB38 /* MyInfoEditingViewModel.swift */,
 			);
 			path = MyInfoEdit;
 			sourceTree = "<group>";
@@ -199,8 +204,8 @@
 		8944829A2C40FB35003F3EE4 /* MyTicket */ = {
 			isa = PBXGroup;
 			children = (
-				894482952C40D6A0003F3EE4 /* MyTicketDetailView.swift */,
 				894482932C40D343003F3EE4 /* MyTicketView.swift */,
+				894482952C40D6A0003F3EE4 /* MyTicketDetailView.swift */,
 				89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */,
 			);
 			path = MyTicket;
@@ -282,7 +287,6 @@
 				AAFE6D2D2C3FA00200FB6BA6 /* Mainpage */,
 				89A771872C3BC8AD00C7068F /* Login */,
 				89A771882C3BC8B400C7068F /* SignUp */,
-				89B57D762C439F2200784CC3 /* Home */,
 				89B57D7B2C43BEEF00784CC3 /* SeatSelect */,
 				894482702C3FB067003F3EE4 /* Payment */,
 				8944826F2C3FB04A003F3EE4 /* MyPage */,
@@ -295,6 +299,7 @@
 		89A771802C3BBF6400C7068F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				89BC468A2C44C5A100CDBB38 /* Auth */,
 				894482642C3F586E003F3EE4 /* Login */,
 				894482652C3F7B75003F3EE4 /* SignUp */,
 				894482882C40CC0F003F3EE4 /* MyPage */,
@@ -366,14 +371,6 @@
 			path = MDShop;
 			sourceTree = "<group>";
 		};
-		89B57D762C439F2200784CC3 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				89B57D792C43BC8500784CC3 /* HomeView.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
 		89B57D7B2C43BEEF00784CC3 /* SeatSelect */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +390,14 @@
 			path = CurrentLocation;
 			sourceTree = "<group>";
 		};
+		89BC468A2C44C5A100CDBB38 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				89BC468B2C44C5AC00CDBB38 /* User.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		89EAB4D62C3D9BB2002B8515 /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,11 +410,10 @@
 		89EAB4DE2C3E60F1002B8515 /* TabView */ = {
 			isa = PBXGroup;
 			children = (
-
-				AAFE6D342C4159B900FB6BA6 /* tabBarView.swift */,
+				AAFE6D342C4159B900FB6BA6 /* CustomTabView.swift */,
+				89BC468D2C44CC4800CDBB38 /* CustomTabBarButton.swift */,
 				89B57D6C2C439D3000784CC3 /* MainTabInfo.swift */,
 				89B57D6E2C439E2A00784CC3 /* MainTabView.swift */,
-
 			);
 			path = TabView;
 			sourceTree = "<group>";
@@ -513,17 +517,15 @@
 				894482792C3FC153003F3EE4 /* Sections.swift in Sources */,
 				894482942C40D343003F3EE4 /* MyTicketView.swift in Sources */,
 				89EAB4DA2C3D9BE3002B8515 /* CustomNavigationBar.swift in Sources */,
-
 				AAFE6D382C41A68600FB6BA6 /* DetailPage.swift in Sources */,
 				AAFE6D332C3FA10E00FB6BA6 /* MainpageView.swift in Sources */,
-
+				89BC468E2C44CC4800CDBB38 /* CustomTabBarButton.swift in Sources */,
+				89BC46892C44C55400CDBB38 /* MyInfoEditingViewModel.swift in Sources */,
 				8944826E2C3FAF78003F3EE4 /* PasswordValidation.swift in Sources */,
 				8944828A2C40CC53003F3EE4 /* MyPageTabInfo.swift in Sources */,
 				89B57D8A2C43F66F00784CC3 /* SeatsPrice.swift in Sources */,
-
 				89EAB4D82C3D9BD0002B8515 /* NavigationBtnType.swift in Sources */,
 				8944827E2C3FD942003F3EE4 /* PaymentSelection.swift in Sources */,
-				89B57D7A2C43BC8500784CC3 /* HomeView.swift in Sources */,
 				89A7718C2C3BE5AF00C7068F /* SignUpView.swift in Sources */,
 				894482832C3FDFB5003F3EE4 /* TicketingProcessBtn.swift in Sources */,
 				89B57D822C43D56A00784CC3 /* SelectSeatView.swift in Sources */,
@@ -534,6 +536,7 @@
 				89B57D842C43D57900784CC3 /* SelectSeatViewModel.swift in Sources */,
 				894482982C40F8D8003F3EE4 /* MyTicket.swift in Sources */,
 				894482872C40BD48003F3EE4 /* CompletePrice.swift in Sources */,
+				89BC468C2C44C5AC00CDBB38 /* User.swift in Sources */,
 				894482742C3FB099003F3EE4 /* PaymentCompleteView.swift in Sources */,
 				89B57D862C43F0CA00784CC3 /* SeatsInfo.swift in Sources */,
 				89A7718A2C3BDEA400C7068F /* LoginView.swift in Sources */,
@@ -547,9 +550,8 @@
 				8944828E2C40CCD0003F3EE4 /* MyPageView.swift in Sources */,
 				894482802C3FD979003F3EE4 /* CouponList.swift in Sources */,
 				89A7716F2C3B702400C7068F /* T82App.swift in Sources */,
-
-				AAFE6D352C4159B900FB6BA6 /* tabBarView.swift in Sources */,
-				89EAB4DD2C3D9D76002B8515 /* User.swift in Sources */,
+				AAFE6D352C4159B900FB6BA6 /* CustomTabView.swift in Sources */,
+				89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */,
 				AAFE6D3B2C44A89A00FB6BA6 /* ReservationPage.swift in Sources */,
 				89B57D7F2C43BFD000784CC3 /* MyLocalView.swift in Sources */,
 				89B57D692C41033B00784CC3 /* Date+Extensions.swift in Sources */,
@@ -558,7 +560,6 @@
 				89B57D6D2C439D3000784CC3 /* MainTabInfo.swift in Sources */,
 				89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */,
 				894482902C40D17D003F3EE4 /* MyPageTabView.swift in Sources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
