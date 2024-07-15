@@ -51,6 +51,7 @@
 		89BC46902C45022500CDBB38 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC468F2C45022500CDBB38 /* LoginViewModel.swift */; };
 		89BC46922C45032B00CDBB38 /* LoginBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46912C45032B00CDBB38 /* LoginBtn.swift */; };
 		89BC46942C45034B00CDBB38 /* SignUpBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46932C45034B00CDBB38 /* SignUpBtn.swift */; };
+		89BC46962C45042700CDBB38 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46952C45042700CDBB38 /* SignUpViewModel.swift */; };
 		89EAB4D82C3D9BD0002B8515 /* NavigationBtnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */; };
 		89EAB4DA2C3D9BE3002B8515 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */; };
 		89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */; };
@@ -107,6 +108,7 @@
 		89BC468F2C45022500CDBB38 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		89BC46912C45032B00CDBB38 /* LoginBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBtn.swift; sourceTree = "<group>"; };
 		89BC46932C45034B00CDBB38 /* SignUpBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpBtn.swift; sourceTree = "<group>"; };
+		89BC46952C45042700CDBB38 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBtnType.swift; sourceTree = "<group>"; };
 		89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContent.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				89A7718B2C3BE5AF00C7068F /* SignUpView.swift */,
+				89BC46952C45042700CDBB38 /* SignUpViewModel.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -523,6 +526,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				894482722C3FB083003F3EE4 /* PaymentView.swift in Sources */,
+				89BC46962C45042700CDBB38 /* SignUpViewModel.swift in Sources */,
 				894482792C3FC153003F3EE4 /* Sections.swift in Sources */,
 				894482942C40D343003F3EE4 /* MyTicketView.swift in Sources */,
 				89EAB4DA2C3D9BE3002B8515 /* CustomNavigationBar.swift in Sources */,
