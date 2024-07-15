@@ -21,6 +21,7 @@
 		AAFE6D332C3FA10E00FB6BA6 /* MainpageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE6D322C3FA10D00FB6BA6 /* MainpageView.swift */; };
 		AAFE6D352C4159B900FB6BA6 /* tabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE6D342C4159B900FB6BA6 /* tabBarView.swift */; };
 		AAFE6D382C41A68600FB6BA6 /* DetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE6D372C41A68600FB6BA6 /* DetailPage.swift */; };
+		AAFE6D3B2C44A89A00FB6BA6 /* ReservationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE6D3A2C44A89A00FB6BA6 /* ReservationPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		AAFE6D322C3FA10D00FB6BA6 /* MainpageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpageView.swift; sourceTree = "<group>"; };
 		AAFE6D342C4159B900FB6BA6 /* tabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = tabBarView.swift; path = T82/Feature/Mainpage/tabBarView.swift; sourceTree = SOURCE_ROOT; };
 		AAFE6D372C41A68600FB6BA6 /* DetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPage.swift; sourceTree = "<group>"; };
+		AAFE6D3A2C44A89A00FB6BA6 /* ReservationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		89A7717F2C3BBF5E00C7068F /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				AAFE6D392C44A87500FB6BA6 /* ReservationPage */,
 				AAFE6D362C41A67000FB6BA6 /* DetailPage */,
 				AAFE6D2D2C3FA00200FB6BA6 /* Mainpage */,
 				89A771872C3BC8AD00C7068F /* Login */,
@@ -199,6 +202,14 @@
 				AAFE6D372C41A68600FB6BA6 /* DetailPage.swift */,
 			);
 			path = DetailPage;
+			sourceTree = "<group>";
+		};
+		AAFE6D392C44A87500FB6BA6 /* ReservationPage */ = {
+			isa = PBXGroup;
+			children = (
+				AAFE6D3A2C44A89A00FB6BA6 /* ReservationPage.swift */,
+			);
+			path = ReservationPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +294,7 @@
 				89A7716F2C3B702400C7068F /* T82App.swift in Sources */,
 				AAFE6D352C4159B900FB6BA6 /* tabBarView.swift in Sources */,
 				89EAB4DD2C3D9D76002B8515 /* User.swift in Sources */,
+				AAFE6D3B2C44A89A00FB6BA6 /* ReservationPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
