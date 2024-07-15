@@ -3,7 +3,7 @@ import SwiftUI
 struct LoginView: View {
     
     @FocusState private var isFocused: Bool
-    @State private var loginContent: LoginContent = LoginContent(email: "", password: "")
+    @StateObject private var loginContentViewMoel = LoginViewModel()
     
     var body: some View {
 
@@ -15,7 +15,7 @@ struct LoginView: View {
                     .padding()
                 
                 // MARK: 로그인 입력 필드
-                TextField("이메일", text: $loginContent.email)
+                TextField("이메일", text: $loginContentViewMoel.loginContent.email)
                     .textFieldStyle(.roundedBorder)
                     .padding()
                     .frame(width: 300, height: 50)
@@ -23,7 +23,7 @@ struct LoginView: View {
                     .focused($isFocused)
                     .textInputAutocapitalization(.never)
                 
-                SecureField("비밀번호", text: $loginContent.password)
+                SecureField("비밀번호", text: $loginContentViewMoel.loginContent.password)
                     .textFieldStyle(.roundedBorder)
                     .padding()
                     .frame(width: 300, height: 50)
@@ -82,39 +82,6 @@ struct LoginView: View {
             }
         }
         .navigationBarBackButtonHidden()
-    }
-}
-
-// MARK: - 로그인 버튼
-private struct LoginButton: View{
-    var body: some View{
-        NavigationLink(
-            destination: MainpageView(),
-            label: {
-                Text("로그인")
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
-                    .background(Color.customOrange)
-                    .foregroundColor(.white)
-                    .cornerRadius(20)
-            }
-        )
-    }
-}
-// MARK: - 회원가입 버튼
-private struct SignUpButton: View {
-    var body: some View {
-        NavigationLink(
-            destination: SignUpView(),
-            label: {
-                Text("회원가입")
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
-                    .background(Color.customOrange)
-                    .foregroundColor(.white)
-                    .cornerRadius(20)
-            }
-        )
     }
 }
 

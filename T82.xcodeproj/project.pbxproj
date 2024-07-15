@@ -48,6 +48,9 @@
 		89BC46892C44C55400CDBB38 /* MyInfoEditingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46882C44C55400CDBB38 /* MyInfoEditingViewModel.swift */; };
 		89BC468C2C44C5AC00CDBB38 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC468B2C44C5AC00CDBB38 /* User.swift */; };
 		89BC468E2C44CC4800CDBB38 /* CustomTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC468D2C44CC4800CDBB38 /* CustomTabBarButton.swift */; };
+		89BC46902C45022500CDBB38 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC468F2C45022500CDBB38 /* LoginViewModel.swift */; };
+		89BC46922C45032B00CDBB38 /* LoginBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46912C45032B00CDBB38 /* LoginBtn.swift */; };
+		89BC46942C45034B00CDBB38 /* SignUpBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46932C45034B00CDBB38 /* SignUpBtn.swift */; };
 		89EAB4D82C3D9BD0002B8515 /* NavigationBtnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */; };
 		89EAB4DA2C3D9BE3002B8515 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */; };
 		89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */; };
@@ -101,6 +104,9 @@
 		89BC46882C44C55400CDBB38 /* MyInfoEditingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoEditingViewModel.swift; sourceTree = "<group>"; };
 		89BC468B2C44C5AC00CDBB38 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		89BC468D2C44CC4800CDBB38 /* CustomTabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarButton.swift; sourceTree = "<group>"; };
+		89BC468F2C45022500CDBB38 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		89BC46912C45032B00CDBB38 /* LoginBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBtn.swift; sourceTree = "<group>"; };
+		89BC46932C45034B00CDBB38 /* SignUpBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpBtn.swift; sourceTree = "<group>"; };
 		89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBtnType.swift; sourceTree = "<group>"; };
 		89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContent.swift; sourceTree = "<group>"; };
@@ -330,6 +336,9 @@
 			isa = PBXGroup;
 			children = (
 				89A771892C3BDEA400C7068F /* LoginView.swift */,
+				89BC468F2C45022500CDBB38 /* LoginViewModel.swift */,
+				89BC46912C45032B00CDBB38 /* LoginBtn.swift */,
+				89BC46932C45034B00CDBB38 /* SignUpBtn.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -529,10 +538,12 @@
 				89A7718C2C3BE5AF00C7068F /* SignUpView.swift in Sources */,
 				894482832C3FDFB5003F3EE4 /* TicketingProcessBtn.swift in Sources */,
 				89B57D822C43D56A00784CC3 /* SelectSeatView.swift in Sources */,
+				89BC46922C45032B00CDBB38 /* LoginBtn.swift in Sources */,
 				894482852C40B4E1003F3EE4 /* CompleteTicket.swift in Sources */,
 				89B57D782C439F3500784CC3 /* MainView.swift in Sources */,
 				89B57D6F2C439E2A00784CC3 /* MainTabView.swift in Sources */,
 				89EAB4E02C3E6488002B8515 /* Color+extensions.swift in Sources */,
+				89BC46902C45022500CDBB38 /* LoginViewModel.swift in Sources */,
 				89B57D842C43D57900784CC3 /* SelectSeatViewModel.swift in Sources */,
 				894482982C40F8D8003F3EE4 /* MyTicket.swift in Sources */,
 				894482872C40BD48003F3EE4 /* CompletePrice.swift in Sources */,
@@ -541,6 +552,7 @@
 				89B57D862C43F0CA00784CC3 /* SeatsInfo.swift in Sources */,
 				89A7718A2C3BDEA400C7068F /* LoginView.swift in Sources */,
 				89B57D722C439ED000784CC3 /* MDShopView.swift in Sources */,
+				89BC46942C45034B00CDBB38 /* SignUpBtn.swift in Sources */,
 				8944827C2C3FD906003F3EE4 /* PaymentPrice.swift in Sources */,
 				89A771842C3BC16F00C7068F /* AppDelegate.swift in Sources */,
 				894482632C3F5839003F3EE4 /* LoginContent.swift in Sources */,
