@@ -12,5 +12,5 @@ enum NavigationBtnType {
     case home
     case title
     case mylike   // 추후에 기능 구현
-    case location // 추후에 구현
+    case search // 추후에 구현
 }

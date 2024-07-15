@@ -101,7 +101,6 @@ private struct LoginButton: View{
         .cornerRadius(20)
     }
 }
-
 // MARK: - 회원가입 버튼
 private struct SignUpButton: View {
     var body: some View {
