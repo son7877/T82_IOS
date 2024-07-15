@@ -24,7 +24,6 @@ struct MainpageView: View {
                     ScrollView {
                         VStack(alignment: .leading) {
                             
-                            // 중앙 버튼을 눌렀을 때 모든 섹션을 표시
                             if selectedIndex == 4 {
                                 GenreRankingSectionView(selectedGenre: $selectedGenre)
                                 SectionView(title: "특별 할인", items: specialDiscountItems, topImages: nil, selectedGenre: Binding<Genre?>(
