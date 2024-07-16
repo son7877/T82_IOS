@@ -2,6 +2,10 @@ import SwiftUI
 
 struct ReservationPage: View {
     @State private var selectedDate: Date? = nil
+    @State private var availableTimes: [String] = []
+    @State private var selectedTime: String? = nil
+    @State private var availableSeats: String = ""
+
     private let dates: [Date] = {
         var dates = [Date]()
         let calendar = Calendar.current
@@ -25,6 +29,19 @@ struct ReservationPage: View {
         return !Calendar.current.isDateInToday(date)
     }
     
+    // 더미 데이터: 날짜별 예약 가능한 시간대
+    private let dummyTimeData: [String: [String]] = [
+        "7/13": ["10:30", "12:15", "13:10", "15:20"],
+        "7/14": ["09:00", "11:45", "14:00", "16:30"],
+        "7/15": ["08:00", "10:30", "12:30", "14:30"]
+    ]
+    
+    // 더미 데이터: 시간대별 예약 가능한 좌석 정보
+    private let dummySeatData: [String: String] = [
+        "10:30": "스탠딩 P석 293 / 스탠딩 R석 213 / 지정석 P석 0석 / 지정석 R석 5 / 지정석 S석 6 / 지정석 A석 0석 / 지정석 B석 0석",
+        "12:15": "스탠딩 P석 150 / 스탠딩 R석 100 / 지정석 P석 20석 / 지정석 R석 30 / 지정석 S석 40 / 지정석 A석 50석 / 지정석 B석 60석"
+    ]
+
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .top) {
@@ -32,15 +49,16 @@ struct ReservationPage: View {
                 Image("sampleImg")
                     .resizable()
                     .scaledToFill()
-                    .frame(width: UIScreen.main.bounds.width, height: 300)
+                    .frame(width: UIScreen.main.bounds.width, height: 270)
                     .clipped()
                     .overlay(
                         Rectangle()
                             .scaledToFill()
-                            .frame(width: UIScreen.main.bounds.width, height: 300)
+                            .frame(width: UIScreen.main.bounds.width, height: 270)
                             .opacity(0.8)
                             .clipped()
                     )
+                    .padding(.top, 45)
                 
                 VStack {
                     CustomNavigationBar( // 커스텀 네비게이션 바 사용 방법
@@ -55,6 +73,7 @@ struct ReservationPage: View {
                     )
                     .padding(.horizontal, 20)
                     .padding(.vertical, 20)
+                    .padding(.top, 40) // Safe Area 적용
                     
                     HStack(spacing: 20) {
                         Image("sampleImg")
@@ -87,8 +106,9 @@ struct ReservationPage: View {
                                 .foregroundColor(.white)
                         }
                     }
-                    .padding(.top, 14)
+
                     .padding(.horizontal, 20)
+                    .padding(.leading, -70)
                 }
             }
             .frame(height: 300)
@@ -105,6 +125,10 @@ struct ReservationPage: View {
                             Button(action: {
                                 if isDateSelectable(date) {
                                     selectedDate = date
+                                    // 더미 데이터를 사용하여 예약 가능한 시간대를 설정
+                                    availableTimes = dummyTimeData[dateFormatter.string(from: date)] ?? []
+                                    selectedTime = nil
+                                    availableSeats = ""
                                 }
                             }) {
                                 ZStack {
@@ -125,63 +149,53 @@ struct ReservationPage: View {
                     .padding(.vertical, 8)
                 }
                 
-                Text("시간 선택")
-                    .font(.headline)
-                    .padding(.leading, 20)
-                    .padding(.top, 16)
-                
-                HStack {
-                    Button(action: { /* 시간 선택 로직 */ }) {
-                        Text("10:30")
-                            .padding()
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .background(Color.gray.opacity(0.2))
-                            .cornerRadius(10)
-                    }
-                    Button(action: { /* 시간 선택 로직 */ }) {
-                        Text("12:15")
-                            .padding()
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .background(Color.gray.opacity(0.2))
-                            .cornerRadius(10)
-                    }
-                    Button(action: { /* 시간 선택 로직 */ }) {
-                        Text("13:10")
-                            .padding()
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .background(Color.gray.opacity(0.2))
-                            .cornerRadius(10)
-                    }
-                    Button(action: { /* 시간 선택 로직 */ }) {
-                        Text("15:20")
-                            .padding()
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .background(Color.gray.opacity(0.2))
-                            .cornerRadius(10)
-                    }
-                }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 8)
-                
-                Text("잔여 좌석")
-                    .font(.headline)
-                    .padding(.leading, 20)
-                    .padding(.top, 16)
-                
-                ZStack {
-                    Rectangle()
-                        .scaledToFill()
-                        .frame(width: UIScreen.main.bounds.width - 32, height: 100)
-                        .opacity(0.1)
-                        .cornerRadius(10)
+                if !availableTimes.isEmpty {
+                    Text("시간 선택")
+                        .font(.headline)
+                        .padding(.leading, 20)
+                        .padding(.top, 16)
                     
-                    Text("통신으로 내용 받아오면 됨")
-                        .font(.subheadline)
-                        .padding()
-                        .background(Color.gray.opacity(0.2))
-                        .cornerRadius(10)
+                    HStack(spacing: 10) {
+                        ForEach(availableTimes, id: \.self) { time in
+                            Button(action: {
+                                selectedTime = time
+                                // 더미 데이터를 사용하여 예약 가능한 좌석 정보를 설정
+                                availableSeats = dummySeatData[time] ?? ""
+                            }) {
+                                Text(time)
+                                    .padding(.horizontal, 10)
+                                    .frame(minWidth: 70, minHeight: 40)
+                                    .background(selectedTime == time ? Color.blue.opacity(0.2) : Color.gray.opacity(0.2))
+                                    .cornerRadius(10)
+                                    .foregroundColor(.black) // 텍스트 색상 검정으로 설정
+                            }
+                        }
+                    }
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
                 }
-                .padding(.horizontal, 16)
+                
+                if !availableSeats.isEmpty {
+                    Text("잔여 좌석")
+                        .font(.headline)
+                        .padding(.leading, 20)
+                        .padding(.top, 16)
+                    
+                    ZStack {
+                        Rectangle()
+                            .scaledToFill()
+                            .frame(width: UIScreen.main.bounds.width - 32, height: 100)
+                            .opacity(0.1)
+                            .cornerRadius(10)
+                        
+                        Text(availableSeats)
+                            .font(.subheadline)
+                            .padding()
+                            .background(Color.gray.opacity(0.2))
+                            .cornerRadius(10)
+                    }
+                    .padding(.horizontal, 16)
+                }
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 8)
