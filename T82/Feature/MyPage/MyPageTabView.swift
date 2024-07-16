@@ -11,8 +11,8 @@ struct MyPageTabView : View{
                     MyInfoEditingView()
                 case .myTicket:
                     MyTicketView()
-                case . myReview:
-                    EmptyView()
+                case .myReview:
+                    MyReviewView()
             }
         }
     }

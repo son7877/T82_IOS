@@ -58,6 +58,8 @@
 		89BC46A12C456DEF00CDBB38 /* TossPayments in Frameworks */ = {isa = PBXBuildFile; productRef = 89BC46A02C456DEF00CDBB38 /* TossPayments */; };
 		89BC46A32C456E0900CDBB38 /* TossPaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46A22C456E0900CDBB38 /* TossPaymentsView.swift */; };
 		89BC46A62C456E8100CDBB38 /* TossPaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46A52C456E8100CDBB38 /* TossPaymentViewModel.swift */; };
+		89BC46A82C461A5F00CDBB38 /* MyReviewFloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46A72C461A5F00CDBB38 /* MyReviewFloatingView.swift */; };
+		89BC46AE2C46216200CDBB38 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 89BC46AD2C46216200CDBB38 /* PopupView */; };
 		89EAB4D82C3D9BD0002B8515 /* NavigationBtnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */; };
 		89EAB4DA2C3D9BE3002B8515 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */; };
 		89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */; };
@@ -120,6 +122,7 @@
 		89BC469D2C45270C00CDBB38 /* MyReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReview.swift; sourceTree = "<group>"; };
 		89BC46A22C456E0900CDBB38 /* TossPaymentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossPaymentsView.swift; sourceTree = "<group>"; };
 		89BC46A52C456E8100CDBB38 /* TossPaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossPaymentViewModel.swift; sourceTree = "<group>"; };
+		89BC46A72C461A5F00CDBB38 /* MyReviewFloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewFloatingView.swift; sourceTree = "<group>"; };
 		89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBtnType.swift; sourceTree = "<group>"; };
 		89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContent.swift; sourceTree = "<group>"; };
@@ -135,6 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89BC46AE2C46216200CDBB38 /* PopupView in Frameworks */,
 				89BC46A12C456DEF00CDBB38 /* TossPayments in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +444,7 @@
 			children = (
 				89BC46992C4526B300CDBB38 /* MyReviewView.swift */,
 				89BC469B2C4526C500CDBB38 /* MyReviewViewModel.swift */,
+				89BC46A72C461A5F00CDBB38 /* MyReviewFloatingView.swift */,
 			);
 			path = MyReview;
 			sourceTree = "<group>";
@@ -513,6 +518,7 @@
 			name = T82;
 			packageProductDependencies = (
 				89BC46A02C456DEF00CDBB38 /* TossPayments */,
+				89BC46AD2C46216200CDBB38 /* PopupView */,
 			);
 			productName = T82;
 			productReference = 89A7716B2C3B702400C7068F /* T82.app */;
@@ -544,6 +550,7 @@
 			mainGroup = 89A771622C3B702400C7068F;
 			packageReferences = (
 				89BC469F2C456DEF00CDBB38 /* XCRemoteSwiftPackageReference "payment-sdk-ios" */,
+				89BC46AC2C46216200CDBB38 /* XCRemoteSwiftPackageReference "PopupView" */,
 			);
 			productRefGroup = 89A7716C2C3B702400C7068F /* Products */;
 			projectDirPath = "";
@@ -596,6 +603,7 @@
 				89B57D782C439F3500784CC3 /* MainView.swift in Sources */,
 				89B57D6F2C439E2A00784CC3 /* MainTabView.swift in Sources */,
 				89EAB4E02C3E6488002B8515 /* Color+extensions.swift in Sources */,
+				89BC46A82C461A5F00CDBB38 /* MyReviewFloatingView.swift in Sources */,
 				89BC46902C45022500CDBB38 /* LoginViewModel.swift in Sources */,
 				89B57D842C43D57900784CC3 /* SelectSeatViewModel.swift in Sources */,
 				894482982C40F8D8003F3EE4 /* MyTicket.swift in Sources */,
@@ -851,6 +859,14 @@
 				minimumVersion = 0.1.32;
 			};
 		};
+		89BC46AC2C46216200CDBB38 /* XCRemoteSwiftPackageReference "PopupView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/PopupView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -858,6 +874,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 89BC469F2C456DEF00CDBB38 /* XCRemoteSwiftPackageReference "payment-sdk-ios" */;
 			productName = TossPayments;
+		};
+		89BC46AD2C46216200CDBB38 /* PopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89BC46AC2C46216200CDBB38 /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = PopupView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

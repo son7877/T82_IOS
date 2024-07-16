@@ -5,6 +5,7 @@ class MyTicketViewModel: ObservableObject{
     @Published var MyTicketContents: [MyTicket]
     @Published var showModal = false
     @Published var selectedTicket: MyTicket? = nil
+    @Published var reviewAlert = false
     
     // 예시 -> 통신으로 불러올 예정
     init(
