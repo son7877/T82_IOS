@@ -26,25 +26,23 @@ struct ReservationPage: View {
     }
     
     var body: some View {
-        VStack {
-            ZStack {
+        VStack(spacing: 0) {
+            ZStack(alignment: .top) {
                 // 배경 이미지와 반투명 Rectangle 겹치기
-                ZStack {
-                    Image("sampleImg")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: UIScreen.main.bounds.width, height: 300)
-                        .clipped()
-                    
-                    Rectangle()
-                        .scaledToFill()
-                        .frame(width: UIScreen.main.bounds.width, height: 300)
-                        .opacity(0.8)
-                        .clipped()
-                }
-                .padding(.bottom, 60)
+                Image("sampleImg")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: UIScreen.main.bounds.width, height: 300)
+                    .clipped()
+                    .overlay(
+                        Rectangle()
+                            .scaledToFill()
+                            .frame(width: UIScreen.main.bounds.width, height: 300)
+                            .opacity(0.8)
+                            .clipped()
+                    )
                 
-                VStack(spacing: 0) {
+                VStack {
                     CustomNavigationBar( // 커스텀 네비게이션 바 사용 방법
                         isDisplayLeftBtn: true,
                         isDisplayRightBtn: true,
@@ -55,57 +53,51 @@ struct ReservationPage: View {
                         rightBtnType: .mylike,
                         Title: "Title"
                     )
-                    // 상단 위치 조정
                     .padding(.horizontal, 20)
                     .padding(.vertical, 20)
-
-                    VStack(alignment: .leading, spacing: 10) {
-                        HStack(spacing: 20) {
-                            Image("sampleImg")
-                                .resizable()
-                                .frame(width: 150, height: 200)
-                                .cornerRadius(10)
-                                            VStack(alignment: .leading, spacing: 5) {
-                                Text("제목1")
-                                    .font(.title)
-                                    .fontWeight(.bold)
-                                    .foregroundColor(.white)
-                                
-                                Text("장소1")
-                                    .font(.subheadline)
-                                    .foregroundColor(.white)
-                                
-                                Text("관람 가능 나이")
-                                    .font(.subheadline)
-                                    .foregroundColor(.white)
-                                
-                                HStack {
-                                    ForEach(0..<4) { _ in
-                                        Image(systemName: "star.fill")
-                                            .foregroundColor(.yellow)
-                                    }
+                    
+                    HStack(spacing: 20) {
+                        Image("sampleImg")
+                            .resizable()
+                            .frame(width: 150, height: 200)
+                            .cornerRadius(10)
+                        
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text("제목1")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .foregroundColor(.white)
+                            
+                            Text("장소1")
+                                .font(.subheadline)
+                                .foregroundColor(.white)
+                            
+                            Text("관람 가능 나이")
+                                .font(.subheadline)
+                                .foregroundColor(.white)
+                            
+                            HStack {
+                                ForEach(0..<4) { _ in
+                                    Image(systemName: "star.fill")
+                                        .foregroundColor(.yellow)
                                 }
-                                Text("공연 기간")
-                                    .font(.subheadline)
-                                    .foregroundColor(.white)
                             }
+                            Text("공연 기간")
+                                .font(.subheadline)
+                                .foregroundColor(.white)
                         }
-                        .padding()
-                        Spacer()
                     }
                     .padding(.top, 14)
-                    .padding(.leading, -70)// 컨텐츠 상단 위치 조정
-                    
-                    Spacer()
+                    .padding(.horizontal, 20)
                 }
             }
+            .frame(height: 300)
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 10) {
                 Text("날짜 선택")
                     .font(.headline)
                     .padding(.leading, 20)
-                    .padding(.top, -40) // 위쪽 간격 줄이기
-                    .padding(.bottom, 0) // 아래쪽 간격 줄이기
+                    .padding(.top, 16)
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 10) {
@@ -115,8 +107,8 @@ struct ReservationPage: View {
                                     selectedDate = date
                                 }
                             }) {
-                                VStack {
-                                    Image(systemName: isDateSelectable(date) ? (selectedDate == date ? "expiredDate" : "date") : "selectedDate")
+                                ZStack {
+                                    Image("date")
                                         .resizable()
                                         .aspectRatio(contentMode: .fit)
                                         .frame(width: 50, height: 50)
@@ -132,8 +124,69 @@ struct ReservationPage: View {
                     .padding(.horizontal, 16)
                     .padding(.vertical, 8)
                 }
+                
+                Text("시간 선택")
+                    .font(.headline)
+                    .padding(.leading, 20)
+                    .padding(.top, 16)
+                
+                HStack {
+                    Button(action: { /* 시간 선택 로직 */ }) {
+                        Text("10:30")
+                            .padding()
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(Color.gray.opacity(0.2))
+                            .cornerRadius(10)
+                    }
+                    Button(action: { /* 시간 선택 로직 */ }) {
+                        Text("12:15")
+                            .padding()
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(Color.gray.opacity(0.2))
+                            .cornerRadius(10)
+                    }
+                    Button(action: { /* 시간 선택 로직 */ }) {
+                        Text("13:10")
+                            .padding()
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(Color.gray.opacity(0.2))
+                            .cornerRadius(10)
+                    }
+                    Button(action: { /* 시간 선택 로직 */ }) {
+                        Text("15:20")
+                            .padding()
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .background(Color.gray.opacity(0.2))
+                            .cornerRadius(10)
+                    }
+                }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 8)
+                
+                Text("잔여 좌석")
+                    .font(.headline)
+                    .padding(.leading, 20)
+                    .padding(.top, 16)
+                
+                Rectangle()
+                    .scaledToFill()
+                    .frame(width: 100, height: 100)
+                    .opacity(0.8)
+                    .clipped()
+//                Rectangle()
+//                    .scaledToFill()
+//                    .frame(width: UIScreen.main.bounds.width, height: 300)
+                Text("통신으로 내용 받아오면 됨")
+                    .font(.subheadline)
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
             }
-            .padding(.bottom, 190) // 스크롤뷰 하단 위치 조정
+            .padding(.horizontal, 16)
+            .padding(.vertical, 8)
+            
+            Spacer()
             
             VStack {
                 Divider()
@@ -144,8 +197,9 @@ struct ReservationPage: View {
                 )
                 .padding(.bottom, 20)
             }
+            .background(Color.white)
         }
-        .edgesIgnoringSafeArea(.top) // 상단 영역 무시
+//        .edgesIgnoringSafeArea(.top)
     }
 }
 
