@@ -168,20 +168,20 @@ struct ReservationPage: View {
                     .padding(.leading, 20)
                     .padding(.top, 16)
                 
-                Rectangle()
-                    .scaledToFill()
-                    .frame(width: 100, height: 100)
-                    .opacity(0.8)
-                    .clipped()
-//                Rectangle()
-//                    .scaledToFill()
-//                    .frame(width: UIScreen.main.bounds.width, height: 300)
-                Text("통신으로 내용 받아오면 됨")
-                    .font(.subheadline)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 8)
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(10)
+                ZStack {
+                    Rectangle()
+                        .scaledToFill()
+                        .frame(width: UIScreen.main.bounds.width - 32, height: 100)
+                        .opacity(0.1)
+                        .cornerRadius(10)
+                    
+                    Text("통신으로 내용 받아오면 됨")
+                        .font(.subheadline)
+                        .padding()
+                        .background(Color.gray.opacity(0.2))
+                        .cornerRadius(10)
+                }
+                .padding(.horizontal, 16)
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 8)
@@ -199,7 +199,6 @@ struct ReservationPage: View {
             }
             .background(Color.white)
         }
-//        .edgesIgnoringSafeArea(.top)
     }
 }
 
