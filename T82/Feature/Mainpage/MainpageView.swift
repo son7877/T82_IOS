@@ -18,12 +18,13 @@ struct MainpageView: View {
                         rightBtnType: .search,
                         Title: "T82"
                     )
-                    .padding(.vertical, 20)
                     .padding(.horizontal, 20)
-                    
+                    .padding(.vertical, 20)
                     ScrollView {
                         VStack(alignment: .leading) {
+                            // 최상단에 CustomNavigationBar 추가
                             
+                            // 중앙 버튼을 눌렀을 때 모든 섹션을 표시
                             if selectedIndex == 4 {
                                 GenreRankingSectionView(selectedGenre: $selectedGenre)
                                 SectionView(title: "특별 할인", items: specialDiscountItems, topImages: nil, selectedGenre: Binding<Genre?>(
@@ -42,9 +43,8 @@ struct MainpageView: View {
                                         }
                                     }
                                 ))
-                            } else if selectedIndex == 3 {
-                                MyPageView(myPageSelectedTab: .myInfoEditing)
                             } else {
+                                // 다른 카테고리를 선택했을 때 빈 뷰를 반환
                                 EmptyView()
                             }
                         }
@@ -55,15 +55,15 @@ struct MainpageView: View {
                 
                 VStack {
                     Spacer()
-                    CustomTabView(selectedIndex: $selectedIndex)
+                    tabBarView(selectedIndex: $selectedIndex)
                         .background(Color.white) // 흰색 배경 추가
                 }
             }
-            .edgesIgnoringSafeArea(.bottom)
+            .edgesIgnoringSafeArea(.bottom) // 안전 영역 무시
         }
-        .navigationBarBackButtonHidden()
     }
 }
+    
 
 struct GenreRankingSectionView: View {
     @Binding var selectedGenre: Genre
@@ -191,30 +191,32 @@ struct SectionView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 15) {
                     ForEach(items) { item in
-                        VStack(alignment: .leading) {
-                            Image(item.imageName)
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .frame(width: 150, height: 200)
-                                .cornerRadius(10)
-                                .clipped()
-                                .shadow(radius: 10)
-                            
-                            Text(item.title)
-                                .font(.subheadline)
-                            
-                            if title == "OPEN SOON" {
-                                Text("오픈 날짜")
-                                    .font(.caption)
-                            }
-                            
-                            if title == "장르별 랭킹" {
-                                Text("공연 기간")
-                                    .font(.caption)
-                            } else if title == "특별 할인" {
-                                Text("\(item.discountPercentage ?? 0)% \(item.price ?? 0) 원")
-                                    .font(.caption)
-                                    .foregroundColor(.red)
+                        NavigationLink(destination: ReservationPage()) {
+                            VStack(alignment: .leading) {
+                                Image(item.imageName)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 150, height: 200)
+                                    .cornerRadius(10)
+                                    .clipped()
+                                    .shadow(radius: 10)
+                                
+                                Text(item.title)
+                                    .font(.subheadline)
+                                
+                                if title == "OPEN SOON" {
+                                    Text("오픈 날짜")
+                                        .font(.caption)
+                                }
+                                
+                                if title == "장르별 랭킹" {
+                                    Text("공연 기간")
+                                        .font(.caption)
+                                } else if title == "특별 할인" {
+                                    Text("\(item.discountPercentage ?? 0)% \(item.price ?? 0) 원")
+                                        .font(.caption)
+                                        .foregroundColor(.red)
+                                }
                             }
                         }
                     }

@@ -18,9 +18,11 @@ struct DetailPage: View {
                 rightBtnType: .search,
                 Title: genreTitle()
             )
-            .padding() // 상단 패딩 추가
+            .padding(.top, 70) // 상단 패딩 추가
+            .padding(.horizontal, 20)
+            .padding(.vertical, 20)
             
-            // Content below the CustomNavigationBar
+        
             if let genre = selectedGenre {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 20) {
@@ -52,7 +54,8 @@ struct DetailPage: View {
                     .padding()
             }
         }
-        .navigationBarHidden(true) // 기본 네비게이션 바 숨김
+        .navigationBarBackButtonHidden()// 기본 네비게이션 바 숨김
+        .edgesIgnoringSafeArea(.top) // 최상단에 위치하도록 설정
     }
     
     func genreTitle() -> String {

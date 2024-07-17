@@ -65,7 +65,7 @@
 		89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */; };
 		89EAB4E02C3E6488002B8515 /* Color+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4DF2C3E6488002B8515 /* Color+extensions.swift */; };
 		AAFE6D332C3FA10E00FB6BA6 /* MainpageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE6D322C3FA10D00FB6BA6 /* MainpageView.swift */; };
-		AAFE6D352C4159B900FB6BA6 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE6D342C4159B900FB6BA6 /* CustomTabView.swift */; };
+		AAFE6D352C4159B900FB6BA6 /* tabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE6D342C4159B900FB6BA6 /* tabBarView.swift */; };
 		AAFE6D382C41A68600FB6BA6 /* DetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE6D372C41A68600FB6BA6 /* DetailPage.swift */; };
 		AAFE6D3B2C44A89A00FB6BA6 /* ReservationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE6D3A2C44A89A00FB6BA6 /* ReservationPage.swift */; };
 /* End PBXBuildFile section */
@@ -128,7 +128,7 @@
 		89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContent.swift; sourceTree = "<group>"; };
 		89EAB4DF2C3E6488002B8515 /* Color+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+extensions.swift"; sourceTree = "<group>"; };
 		AAFE6D322C3FA10D00FB6BA6 /* MainpageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpageView.swift; sourceTree = "<group>"; };
-		AAFE6D342C4159B900FB6BA6 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CustomTabView.swift; path = T82/Feature/Mainpage/CustomTabView.swift; sourceTree = SOURCE_ROOT; };
+		AAFE6D342C4159B900FB6BA6 /* tabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = tabBarView.swift; path = T82/Feature/Mainpage/tabBarView.swift; sourceTree = SOURCE_ROOT; };
 		AAFE6D372C41A68600FB6BA6 /* DetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPage.swift; sourceTree = "<group>"; };
 		AAFE6D3A2C44A89A00FB6BA6 /* ReservationPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -470,7 +470,7 @@
 		89EAB4DE2C3E60F1002B8515 /* TabView */ = {
 			isa = PBXGroup;
 			children = (
-				AAFE6D342C4159B900FB6BA6 /* CustomTabView.swift */,
+				AAFE6D342C4159B900FB6BA6 /* tabBarView.swift */,
 				89BC468D2C44CC4800CDBB38 /* CustomTabBarButton.swift */,
 			);
 			path = TabView;
@@ -625,7 +625,7 @@
 				8944828E2C40CCD0003F3EE4 /* MyPageView.swift in Sources */,
 				894482802C3FD979003F3EE4 /* CouponList.swift in Sources */,
 				89A7716F2C3B702400C7068F /* T82App.swift in Sources */,
-				AAFE6D352C4159B900FB6BA6 /* CustomTabView.swift in Sources */,
+				AAFE6D352C4159B900FB6BA6 /* tabBarView.swift in Sources */,
 				89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */,
 				AAFE6D3B2C44A89A00FB6BA6 /* ReservationPage.swift in Sources */,
 				89B57D7F2C43BFD000784CC3 /* MyLocalView.swift in Sources */,
