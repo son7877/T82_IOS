@@ -5,7 +5,8 @@ struct ReservationPage: View {
     @State private var availableTimes: [String] = []
     @State private var selectedTime: String? = nil
     @State private var availableSeats: String = ""
-
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     private let dates: [Date] = {
         var dates = [Date]()
         let calendar = Calendar.current
@@ -65,7 +66,9 @@ struct ReservationPage: View {
                         isDisplayLeftBtn: true,
                         isDisplayRightBtn: true,
                         isDisplayTitle: false,
-                        leftBtnAction: {},
+                        leftBtnAction: {
+                            presentationMode.wrappedValue.dismiss()
+                        },
                         rightBtnAction: {},
                         lefttBtnType: .back,
                         rightBtnType: .mylike,
@@ -213,6 +216,7 @@ struct ReservationPage: View {
             }
             .background(Color.white)
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
