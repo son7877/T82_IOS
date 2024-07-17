@@ -1,22 +1,31 @@
-//
-//  MyPageView.swift
-//  T82
-//
-//  Created by 안홍범 on 7/12/24.
-//
-
 import SwiftUI
 
 struct MyPageView: View {
     
     @State var myPageSelectedTab: MyPageTabInfo
+    @State private var selectedIndex: Int = 3
     @Namespace private var animation
     
     var body: some View {
-        
-        animate()
-        
-        MyPageTabView(selection: myPageSelectedTab)
+        VStack{
+            CustomNavigationBar(
+                isDisplayLeftBtn: true,
+                isDisplayRightBtn: true,
+                isDisplayTitle: true,
+                leftBtnAction: {},
+                rightBtnAction: {},
+                lefttBtnType: .home,
+                rightBtnType: .search,
+                Title: "마이페이지"
+            ).padding()
+            
+            animate()
+            
+            MyPageTabView(selection: myPageSelectedTab)
+            
+            Spacer()
+            
+        }
     }
     
     @ViewBuilder

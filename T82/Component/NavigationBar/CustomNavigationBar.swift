@@ -92,20 +92,20 @@ struct CustomNavigationBar: View {
         .padding(.horizontal,0)
         .frame(height: 20)
     }
-    
-    struct CustomNavigationBar_Previews: PreviewProvider {
-        static var previews: some View {
-            
-            CustomNavigationBar( // 커스텀 네비게이션 바 사용 방법
-                isDisplayLeftBtn: true,
-                isDisplayRightBtn: true,
-                isDisplayTitle: true,
-                leftBtnAction: {},
-                rightBtnAction: {},
-                lefttBtnType: .back,
-                rightBtnType: .mylike,
-                Title: "Title"
-            )
-        }
+}
+
+struct CustomNavigationBarPreviews: PreviewProvider {
+    static var previews: some View {
+        
+        CustomNavigationBar( // 커스텀 네비게이션 바 사용 방법
+            isDisplayLeftBtn: true,
+            isDisplayRightBtn: true,
+            isDisplayTitle: true,
+            leftBtnAction: {},
+            rightBtnAction: {},
+            lefttBtnType: .back,
+            rightBtnType: .mylike,
+            Title: "Title"
+        )
     }
 }
