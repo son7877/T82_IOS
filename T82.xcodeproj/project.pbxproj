@@ -36,7 +36,6 @@
 		89B57D672C40FBD400784CC3 /* MyTicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */; };
 		89B57D692C41033B00784CC3 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D682C41033B00784CC3 /* Date+Extensions.swift */; };
 		89B57D722C439ED000784CC3 /* MDShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D712C439ED000784CC3 /* MDShopView.swift */; };
-		89B57D782C439F3500784CC3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D772C439F3500784CC3 /* MainView.swift */; };
 		89B57D7F2C43BFD000784CC3 /* MyLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */; };
 		89B57D822C43D56A00784CC3 /* SelectSeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D812C43D56A00784CC3 /* SelectSeatView.swift */; };
 		89B57D842C43D57900784CC3 /* SelectSeatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D832C43D57900784CC3 /* SelectSeatViewModel.swift */; };
@@ -58,6 +57,10 @@
 		89BC46A82C461A5F00CDBB38 /* MyReviewFloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46A72C461A5F00CDBB38 /* MyReviewFloatingView.swift */; };
 		89BC46B12C474B1D00CDBB38 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 89BC46B02C474B1D00CDBB38 /* PopupView */; };
 		89BC46B42C474B2300CDBB38 /* TossPayments in Frameworks */ = {isa = PBXBuildFile; productRef = 89BC46B32C474B2300CDBB38 /* TossPayments */; };
+		89BC46BC2C47699800CDBB38 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 89BC46BB2C47699800CDBB38 /* Alamofire */; };
+		89BC46C02C4775AE00CDBB38 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46BF2C4775AE00CDBB38 /* Config.swift */; };
+		89BC46C22C4776B500CDBB38 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46C12C4776B500CDBB38 /* UserApi.swift */; };
+		89BC46C52C4792A300CDBB38 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46C42C4792A300CDBB38 /* LoginResponse.swift */; };
 		89EAB4D82C3D9BD0002B8515 /* NavigationBtnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */; };
 		89EAB4DA2C3D9BE3002B8515 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */; };
 		89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */; };
@@ -99,7 +102,6 @@
 		89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketViewModel.swift; sourceTree = "<group>"; };
 		89B57D682C41033B00784CC3 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		89B57D712C439ED000784CC3 /* MDShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDShopView.swift; sourceTree = "<group>"; };
-		89B57D772C439F3500784CC3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocalView.swift; sourceTree = "<group>"; };
 		89B57D812C43D56A00784CC3 /* SelectSeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSeatView.swift; sourceTree = "<group>"; };
 		89B57D832C43D57900784CC3 /* SelectSeatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSeatViewModel.swift; sourceTree = "<group>"; };
@@ -119,6 +121,9 @@
 		89BC46A22C456E0900CDBB38 /* TossPaymentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossPaymentsView.swift; sourceTree = "<group>"; };
 		89BC46A52C456E8100CDBB38 /* TossPaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossPaymentViewModel.swift; sourceTree = "<group>"; };
 		89BC46A72C461A5F00CDBB38 /* MyReviewFloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReviewFloatingView.swift; sourceTree = "<group>"; };
+		89BC46BF2C4775AE00CDBB38 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		89BC46C12C4776B500CDBB38 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
+		89BC46C42C4792A300CDBB38 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBtnType.swift; sourceTree = "<group>"; };
 		89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContent.swift; sourceTree = "<group>"; };
@@ -134,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89BC46BC2C47699800CDBB38 /* Alamofire in Frameworks */,
 				89BC46B42C474B2300CDBB38 /* TossPayments in Frameworks */,
 				89BC46B12C474B1D00CDBB38 /* PopupView in Frameworks */,
 			);
@@ -253,7 +259,6 @@
 		89A7716D2C3B702400C7068F /* T82 */ = {
 			isa = PBXGroup;
 			children = (
-				89BC46972C45178F00CDBB38 /* Dump */,
 				89A7717C2C3BBF4700C7068F /* App */,
 				89A7717D2C3BBF4E00C7068F /* Core */,
 				89A7717E2C3BBF5900C7068F /* Component */,
@@ -286,6 +291,7 @@
 		89A7717D2C3BBF4E00C7068F /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				89BC46BD2C476C8400CDBB38 /* Network */,
 				89A771812C3BBF7C00C7068F /* Service */,
 				89A771822C3BBF8300C7068F /* Extension */,
 			);
@@ -425,14 +431,6 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		89BC46972C45178F00CDBB38 /* Dump */ = {
-			isa = PBXGroup;
-			children = (
-				89B57D772C439F3500784CC3 /* MainView.swift */,
-			);
-			path = Dump;
-			sourceTree = "<group>";
-		};
 		89BC46982C45266000CDBB38 /* MyReview */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,6 +448,24 @@
 				89BC46A52C456E8100CDBB38 /* TossPaymentViewModel.swift */,
 			);
 			path = TossPayment;
+			sourceTree = "<group>";
+		};
+		89BC46BD2C476C8400CDBB38 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				89BC46C32C47929600CDBB38 /* Dto */,
+				89BC46BF2C4775AE00CDBB38 /* Config.swift */,
+				89BC46C12C4776B500CDBB38 /* UserApi.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		89BC46C32C47929600CDBB38 /* Dto */ = {
+			isa = PBXGroup;
+			children = (
+				89BC46C42C4792A300CDBB38 /* LoginResponse.swift */,
+			);
+			path = Dto;
 			sourceTree = "<group>";
 		};
 		89EAB4D62C3D9BB2002B8515 /* NavigationBar */ = {
@@ -513,6 +529,7 @@
 			packageProductDependencies = (
 				89BC46B02C474B1D00CDBB38 /* PopupView */,
 				89BC46B32C474B2300CDBB38 /* TossPayments */,
+				89BC46BB2C47699800CDBB38 /* Alamofire */,
 			);
 			productName = T82;
 			productReference = 89A7716B2C3B702400C7068F /* T82.app */;
@@ -545,6 +562,7 @@
 			packageReferences = (
 				89BC46AF2C474B1D00CDBB38 /* XCRemoteSwiftPackageReference "PopupView" */,
 				89BC46B22C474B2300CDBB38 /* XCRemoteSwiftPackageReference "payment-sdk-ios" */,
+				89BC46BA2C47699800CDBB38 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 89A7716C2C3B702400C7068F /* Products */;
 			projectDirPath = "";
@@ -591,10 +609,10 @@
 				89BC46A32C456E0900CDBB38 /* TossPaymentsView.swift in Sources */,
 				89A7718C2C3BE5AF00C7068F /* SignUpView.swift in Sources */,
 				894482832C3FDFB5003F3EE4 /* TicketingProcessBtn.swift in Sources */,
+				89BC46C22C4776B500CDBB38 /* UserApi.swift in Sources */,
 				89B57D822C43D56A00784CC3 /* SelectSeatView.swift in Sources */,
 				89BC46922C45032B00CDBB38 /* LoginBtn.swift in Sources */,
 				894482852C40B4E1003F3EE4 /* CompleteTicket.swift in Sources */,
-				89B57D782C439F3500784CC3 /* MainView.swift in Sources */,
 				89EAB4E02C3E6488002B8515 /* Color+extensions.swift in Sources */,
 				89BC46A82C461A5F00CDBB38 /* MyReviewFloatingView.swift in Sources */,
 				89BC46902C45022500CDBB38 /* LoginViewModel.swift in Sources */,
@@ -608,6 +626,7 @@
 				89A7718A2C3BDEA400C7068F /* LoginView.swift in Sources */,
 				89B57D722C439ED000784CC3 /* MDShopView.swift in Sources */,
 				89BC46942C45034B00CDBB38 /* SignUpBtn.swift in Sources */,
+				89BC46C52C4792A300CDBB38 /* LoginResponse.swift in Sources */,
 				8944827C2C3FD906003F3EE4 /* PaymentPrice.swift in Sources */,
 				89A771842C3BC16F00C7068F /* AppDelegate.swift in Sources */,
 				89BC469C2C4526C500CDBB38 /* MyReviewViewModel.swift in Sources */,
@@ -618,6 +637,7 @@
 				8944828E2C40CCD0003F3EE4 /* MyPageView.swift in Sources */,
 				894482802C3FD979003F3EE4 /* CouponList.swift in Sources */,
 				89A7716F2C3B702400C7068F /* T82App.swift in Sources */,
+				89BC46C02C4775AE00CDBB38 /* Config.swift in Sources */,
 				AAFE6D352C4159B900FB6BA6 /* tabBarView.swift in Sources */,
 				89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */,
 				AAFE6D3B2C44A89A00FB6BA6 /* ReservationPage.swift in Sources */,
@@ -764,6 +784,7 @@
 				DEVELOPMENT_TEAM = 267847BU5K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = T82/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -773,6 +794,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -797,6 +819,7 @@
 				DEVELOPMENT_TEAM = 267847BU5K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = T82/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -806,6 +829,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -859,6 +883,14 @@
 				minimumVersion = 0.1.32;
 			};
 		};
+		89BC46BA2C47699800CDBB38 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.8.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -871,6 +903,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 89BC46B22C474B2300CDBB38 /* XCRemoteSwiftPackageReference "payment-sdk-ios" */;
 			productName = TossPayments;
+		};
+		89BC46BB2C47699800CDBB38 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89BC46BA2C47699800CDBB38 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
