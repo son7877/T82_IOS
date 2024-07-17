@@ -6,8 +6,7 @@ struct LoginView: View {
     @StateObject private var loginContentViewMoel = LoginViewModel()
     
     var body: some View {
-
-        NavigationView {
+        NavigationStack {
             VStack {
                 Image("Logo")
                     .imageScale(.large)
@@ -31,7 +30,7 @@ struct LoginView: View {
                     .focused($isFocused)
                 
                 HStack {
-                    LoginButton()
+                    LoginButton(viewModel: loginContentViewMoel)
                     
                     SignUpButton()
                 }
@@ -53,7 +52,9 @@ struct LoginView: View {
                 )
                 // MARK: - 소셜 로그인
                 HStack {
-                    Button(action: {}, label: {
+                    Button(action: {
+                        
+                    }, label: {
                         Image("naver")
                             .resizable()
                             .frame(width: 50, height: 50)
@@ -75,13 +76,40 @@ struct LoginView: View {
                     })
                 }
                 .padding()
+                
+                Button(
+                    action: {
+                        let urlString = "https://pay.toss.im/payfront/auth?payToken=77w2INp17zKTmGLdNk4r97"
+
+                        
+                        if let url = URL(string: urlString) {
+                            
+                            if UIApplication.shared.canOpenURL(url) {
+                                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                            } else {
+                                print("오류")
+                            }
+                        }
+                    },
+                    label: {
+                        Text("토스 연결 테스트")
+                            .foregroundColor(Color.customGray1)
+                            .font(.system(size: 15))
+                    }
+                )
             }
             .padding()
             .onTapGesture {
                 isFocused = false
             }
+            .navigationBarBackButtonHidden()
+            .alert(isPresented: .constant(loginContentViewMoel.errorMessage != nil)) {
+                Alert(title: Text("로그인 실패"), message: Text(loginContentViewMoel.errorMessage ?? ""), dismissButton: .default(Text("확인")))
+            }
+            .navigationDestination(isPresented: $loginContentViewMoel.loginSuccessful) {
+                MainpageView()
+            }
         }
-        .navigationBarBackButtonHidden()
     }
 }
 

@@ -1,6 +1,15 @@
 {
-  "originHash" : "2ee727f8cbe0097216682c55f001efc69b4e8d5850e4a88e131abc50a3e2f307",
+  "originHash" : "5490de1e6c78f21281ef4bde3c662704d2342ea969e08ee33511c121209f21ae",
   "pins" : [
+    {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "3dc6a42c7727c49bf26508e29b0a0b35f9c7e1ad",
+        "version" : "5.8.1"
+      }
+    },
     {
       "identity" : "payment-sdk-ios",
       "kind" : "remoteSourceControl",
