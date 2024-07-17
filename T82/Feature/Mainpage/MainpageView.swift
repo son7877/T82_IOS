@@ -8,25 +8,28 @@ struct MainpageView: View {
         NavigationView {
             ZStack {
                 VStack(spacing: 0) {
-                    CustomNavigationBar(
-                        isDisplayLeftBtn: true,
-                        isDisplayRightBtn: true,
-                        isDisplayTitle: true,
-                        leftBtnAction: {},
-                        rightBtnAction: {},
-                        lefttBtnType: .home,
-                        rightBtnType: .search,
-                        Title: "T82"
-                    )
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 20)
-                    ScrollView {
-                        VStack(alignment: .leading) {
-                            // 최상단에 CustomNavigationBar 추가
+
+                    VStack(alignment: .leading) {
+                        // 중앙 버튼을 눌렀을 때 모든 섹션을 표시
+                        if selectedIndex == 4 {
+                            CustomNavigationBar(
+                                isDisplayLeftBtn: true,
+                                isDisplayRightBtn: true,
+                                isDisplayTitle: true,
+                                leftBtnAction: {},
+                                rightBtnAction: {},
+                                lefttBtnType: .home,
+                                rightBtnType: .search,
+                                Title: "T82"
+                            )
+                            .padding()
                             
-                            // 중앙 버튼을 눌렀을 때 모든 섹션을 표시
-                            if selectedIndex == 4 {
+                            // 여기부터 스크롤 뷰
+                            ScrollView{
+                                // 장르별 랭킹 이벤트
                                 GenreRankingSectionView(selectedGenre: $selectedGenre)
+                                
+                                // 특별 할인 이벤트
                                 SectionView(title: "특별 할인", items: specialDiscountItems, topImages: nil, selectedGenre: Binding<Genre?>(
                                     get: { selectedGenre },
                                     set: { newValue in
@@ -35,7 +38,9 @@ struct MainpageView: View {
                                         }
                                     }
                                 ))
-                                SectionView(title: "OPEN SOON", items: opensoonItems, topImages: nil, selectedGenre: Binding<Genre?>(
+                                    
+                                // 오픈 예정 이벤트
+                                SectionView(title: "OPEN SOON", items: opensoonItems, topImages: nil,selectedGenre: Binding<Genre?>(
                                     get: { selectedGenre },
                                     set: { newValue in
                                         if let newValue = newValue {
@@ -43,15 +48,17 @@ struct MainpageView: View {
                                         }
                                     }
                                 ))
-                            } else {
-                                // 다른 카테고리를 선택했을 때 빈 뷰를 반환
-                                EmptyView()
+                                
+                                // 여기까지 스크롤 뷰
                             }
+                            .padding(.bottom, 100)
+
+                        } else if selectedIndex == 3 {
+                            MyPageView(myPageSelectedTab: .myInfoEditing)
                         }
-                        .padding(.horizontal)
                     }
-                    .padding(.bottom, 100) // 탭 바 공간 확보를 위한 패딩
-                }
+                    .padding(.horizontal)
+            }
                 
                 VStack {
                     Spacer()
