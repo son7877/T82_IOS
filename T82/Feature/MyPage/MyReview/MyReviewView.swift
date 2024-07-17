@@ -1,18 +1,11 @@
-//
-//  HomeView.swift
-//  T82
-//
-//  Created by 안홍범 on 7/14/24.
-//
-
 import SwiftUI
 
-struct HomeView: View {
+struct MyReviewView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
 #Preview {
-    HomeView()
+    MyPageView(myPageSelectedTab: .myReview)
 }

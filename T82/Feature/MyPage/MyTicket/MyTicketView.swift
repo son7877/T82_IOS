@@ -3,17 +3,15 @@ import SwiftUI
 struct MyTicketView: View {
     
     @StateObject private var viewModel = MyTicketViewModel()
-    @State private var showModal = false
-    @State private var selectedTicket: MyTicket?
-
+    
     var body: some View {
         ForEach(viewModel.MyTicketContents, id: \.self){ ticket in
             ZStack{
                 Image("myTicket")
                     .shadow(radius: 6, x: 0, y: 5)
                     .onTapGesture {
-                        self.selectedTicket = ticket
-                        self.showModal = true
+                        viewModel.selectedTicket = ticket
+                        viewModel.showModal = true
                     }
                 HStack{
                     Image("sampleImg")
@@ -37,8 +35,8 @@ struct MyTicketView: View {
             }
             .padding()
         }
-        .sheet(isPresented: $showModal){
-            if let ticket = selectedTicket {
+        .sheet(isPresented: $viewModel.showModal){
+            if let ticket = viewModel.selectedTicket {
                 MyTicketDetailView(ticket: ticket)
             }
         }

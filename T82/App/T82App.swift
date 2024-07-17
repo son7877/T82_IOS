@@ -11,9 +11,7 @@ import SwiftUI
 struct T82App: App {
     var body: some Scene {
         WindowGroup {
-            MainpageView()
-            SelectSeatView()
-
+            TossPaymentsView()
         }
     }
 }
