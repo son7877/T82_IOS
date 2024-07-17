@@ -35,8 +35,6 @@
 		89A7718C2C3BE5AF00C7068F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A7718B2C3BE5AF00C7068F /* SignUpView.swift */; };
 		89B57D672C40FBD400784CC3 /* MyTicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */; };
 		89B57D692C41033B00784CC3 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D682C41033B00784CC3 /* Date+Extensions.swift */; };
-		89B57D6D2C439D3000784CC3 /* MainTabInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D6C2C439D3000784CC3 /* MainTabInfo.swift */; };
-		89B57D6F2C439E2A00784CC3 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D6E2C439E2A00784CC3 /* MainTabView.swift */; };
 		89B57D722C439ED000784CC3 /* MDShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D712C439ED000784CC3 /* MDShopView.swift */; };
 		89B57D782C439F3500784CC3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D772C439F3500784CC3 /* MainView.swift */; };
 		89B57D7F2C43BFD000784CC3 /* MyLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */; };
@@ -55,11 +53,11 @@
 		89BC469A2C4526B300CDBB38 /* MyReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46992C4526B300CDBB38 /* MyReviewView.swift */; };
 		89BC469C2C4526C500CDBB38 /* MyReviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC469B2C4526C500CDBB38 /* MyReviewViewModel.swift */; };
 		89BC469E2C45270C00CDBB38 /* MyReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC469D2C45270C00CDBB38 /* MyReview.swift */; };
-		89BC46A12C456DEF00CDBB38 /* TossPayments in Frameworks */ = {isa = PBXBuildFile; productRef = 89BC46A02C456DEF00CDBB38 /* TossPayments */; };
 		89BC46A32C456E0900CDBB38 /* TossPaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46A22C456E0900CDBB38 /* TossPaymentsView.swift */; };
 		89BC46A62C456E8100CDBB38 /* TossPaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46A52C456E8100CDBB38 /* TossPaymentViewModel.swift */; };
 		89BC46A82C461A5F00CDBB38 /* MyReviewFloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46A72C461A5F00CDBB38 /* MyReviewFloatingView.swift */; };
-		89BC46AE2C46216200CDBB38 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 89BC46AD2C46216200CDBB38 /* PopupView */; };
+		89BC46B12C474B1D00CDBB38 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 89BC46B02C474B1D00CDBB38 /* PopupView */; };
+		89BC46B42C474B2300CDBB38 /* TossPayments in Frameworks */ = {isa = PBXBuildFile; productRef = 89BC46B32C474B2300CDBB38 /* TossPayments */; };
 		89EAB4D82C3D9BD0002B8515 /* NavigationBtnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */; };
 		89EAB4DA2C3D9BE3002B8515 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */; };
 		89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */; };
@@ -100,8 +98,6 @@
 		89A7718B2C3BE5AF00C7068F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketViewModel.swift; sourceTree = "<group>"; };
 		89B57D682C41033B00784CC3 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
-		89B57D6C2C439D3000784CC3 /* MainTabInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabInfo.swift; sourceTree = "<group>"; };
-		89B57D6E2C439E2A00784CC3 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		89B57D712C439ED000784CC3 /* MDShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDShopView.swift; sourceTree = "<group>"; };
 		89B57D772C439F3500784CC3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocalView.swift; sourceTree = "<group>"; };
@@ -138,8 +134,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89BC46AE2C46216200CDBB38 /* PopupView in Frameworks */,
-				89BC46A12C456DEF00CDBB38 /* TossPayments in Frameworks */,
+				89BC46B42C474B2300CDBB38 /* TossPayments in Frameworks */,
+				89BC46B12C474B1D00CDBB38 /* PopupView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,8 +429,6 @@
 			isa = PBXGroup;
 			children = (
 				89B57D772C439F3500784CC3 /* MainView.swift */,
-				89B57D6C2C439D3000784CC3 /* MainTabInfo.swift */,
-				89B57D6E2C439E2A00784CC3 /* MainTabView.swift */,
 			);
 			path = Dump;
 			sourceTree = "<group>";
@@ -471,8 +465,6 @@
 			isa = PBXGroup;
 			children = (
 				AAFE6D342C4159B900FB6BA6 /* tabBarView.swift */,
-				89B57D6C2C439D3000784CC3 /* MainTabInfo.swift */,
-				89B57D6E2C439E2A00784CC3 /* MainTabView.swift */,
 				89BC468D2C44CC4800CDBB38 /* CustomTabBarButton.swift */,
 			);
 			path = TabView;
@@ -519,8 +511,8 @@
 			);
 			name = T82;
 			packageProductDependencies = (
-				89BC46A02C456DEF00CDBB38 /* TossPayments */,
-				89BC46AD2C46216200CDBB38 /* PopupView */,
+				89BC46B02C474B1D00CDBB38 /* PopupView */,
+				89BC46B32C474B2300CDBB38 /* TossPayments */,
 			);
 			productName = T82;
 			productReference = 89A7716B2C3B702400C7068F /* T82.app */;
@@ -551,8 +543,8 @@
 			);
 			mainGroup = 89A771622C3B702400C7068F;
 			packageReferences = (
-				89BC469F2C456DEF00CDBB38 /* XCRemoteSwiftPackageReference "payment-sdk-ios" */,
-				89BC46AC2C46216200CDBB38 /* XCRemoteSwiftPackageReference "PopupView" */,
+				89BC46AF2C474B1D00CDBB38 /* XCRemoteSwiftPackageReference "PopupView" */,
+				89BC46B22C474B2300CDBB38 /* XCRemoteSwiftPackageReference "payment-sdk-ios" */,
 			);
 			productRefGroup = 89A7716C2C3B702400C7068F /* Products */;
 			projectDirPath = "";
@@ -603,7 +595,6 @@
 				89BC46922C45032B00CDBB38 /* LoginBtn.swift in Sources */,
 				894482852C40B4E1003F3EE4 /* CompleteTicket.swift in Sources */,
 				89B57D782C439F3500784CC3 /* MainView.swift in Sources */,
-				89B57D6F2C439E2A00784CC3 /* MainTabView.swift in Sources */,
 				89EAB4E02C3E6488002B8515 /* Color+extensions.swift in Sources */,
 				89BC46A82C461A5F00CDBB38 /* MyReviewFloatingView.swift in Sources */,
 				89BC46902C45022500CDBB38 /* LoginViewModel.swift in Sources */,
@@ -634,7 +625,6 @@
 				89B57D692C41033B00784CC3 /* Date+Extensions.swift in Sources */,
 				894482922C40D2FE003F3EE4 /* MyInfoEditingView.swift in Sources */,
 				894482772C3FB751003F3EE4 /* Coupons.swift in Sources */,
-				89B57D6D2C439D3000784CC3 /* MainTabInfo.swift in Sources */,
 				89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */,
 				89BC46A62C456E8100CDBB38 /* TossPaymentViewModel.swift in Sources */,
 				894482902C40D17D003F3EE4 /* MyPageTabView.swift in Sources */,
@@ -853,15 +843,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		89BC469F2C456DEF00CDBB38 /* XCRemoteSwiftPackageReference "payment-sdk-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/tosspayments/payment-sdk-ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.32;
-			};
-		};
-		89BC46AC2C46216200CDBB38 /* XCRemoteSwiftPackageReference "PopupView" */ = {
+		89BC46AF2C474B1D00CDBB38 /* XCRemoteSwiftPackageReference "PopupView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/exyte/PopupView.git";
 			requirement = {
@@ -869,18 +851,26 @@
 				minimumVersion = 3.0.4;
 			};
 		};
+		89BC46B22C474B2300CDBB38 /* XCRemoteSwiftPackageReference "payment-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tosspayments/payment-sdk-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.32;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		89BC46A02C456DEF00CDBB38 /* TossPayments */ = {
+		89BC46B02C474B1D00CDBB38 /* PopupView */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 89BC469F2C456DEF00CDBB38 /* XCRemoteSwiftPackageReference "payment-sdk-ios" */;
-			productName = TossPayments;
-		};
-		89BC46AD2C46216200CDBB38 /* PopupView */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 89BC46AC2C46216200CDBB38 /* XCRemoteSwiftPackageReference "PopupView" */;
+			package = 89BC46AF2C474B1D00CDBB38 /* XCRemoteSwiftPackageReference "PopupView" */;
 			productName = PopupView;
+		};
+		89BC46B32C474B2300CDBB38 /* TossPayments */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89BC46B22C474B2300CDBB38 /* XCRemoteSwiftPackageReference "payment-sdk-ios" */;
+			productName = TossPayments;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
