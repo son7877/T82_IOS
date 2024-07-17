@@ -471,6 +471,8 @@
 			isa = PBXGroup;
 			children = (
 				AAFE6D342C4159B900FB6BA6 /* tabBarView.swift */,
+				89B57D6C2C439D3000784CC3 /* MainTabInfo.swift */,
+				89B57D6E2C439E2A00784CC3 /* MainTabView.swift */,
 				89BC468D2C44CC4800CDBB38 /* CustomTabBarButton.swift */,
 			);
 			path = TabView;
