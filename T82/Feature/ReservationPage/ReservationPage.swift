@@ -209,7 +209,7 @@ struct ReservationPage: View {
                 Divider()
                     .padding()
                 TicketingProcessBtn(
-                    destination: PaymentCompleteView(),
+                    destination: SelectSeatView(),
                     title: "좌석 선택"
                 )
                 .padding(.bottom, 20)

@@ -36,6 +36,7 @@ struct SelectSeatView: View {
             
             TicketingProcessBtn(destination: PaymentView(), title: "결제 이동")
         }
+        .navigationBarBackButtonHidden()
     }
 }
 
