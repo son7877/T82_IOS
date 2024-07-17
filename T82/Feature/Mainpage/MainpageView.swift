@@ -24,7 +24,6 @@ struct MainpageView: View {
                             )
                             .padding()
                             
-                            // 여기부터 스크롤 뷰
                             ScrollView{
                                 // 장르별 랭킹 이벤트
                                 GenreRankingSectionView(selectedGenre: $selectedGenre)
@@ -48,13 +47,13 @@ struct MainpageView: View {
                                         }
                                     }
                                 ))
-                                
-                                // 여기까지 스크롤 뷰
                             }
                             .padding(.bottom, 100)
 
                         } else if selectedIndex == 3 {
                             MyPageView(myPageSelectedTab: .myInfoEditing)
+                        } else if selectedIndex == 0 {
+                            MyPageView(myPageSelectedTab: .myTicket)
                         }
                     }
                     .padding(.horizontal)
@@ -68,10 +67,10 @@ struct MainpageView: View {
             }
             .edgesIgnoringSafeArea(.bottom) // 안전 영역 무시
         }
+        .navigationBarBackButtonHidden()
     }
 }
     
-
 struct GenreRankingSectionView: View {
     @Binding var selectedGenre: Genre
     

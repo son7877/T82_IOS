@@ -20,7 +20,6 @@ struct PaymentCompleteView: View {
             CompletePrice()
             
             HStack{
-//                Spacer()
                 Button(
                     action: {},
                     label: {
@@ -29,13 +28,12 @@ struct PaymentCompleteView: View {
                             .foregroundColor(.customgray1)
                     }
                 )
-//                .padding(.trailing, 30)
             }
             
             
         }
         // 합칠 때 MainView로 변경
-        TicketingProcessBtn(destination: LoginView(), title: "홈으로")
+        TicketingProcessBtn(destination: MainpageView(), title: "홈으로")
     }
 }
 
