@@ -61,6 +61,9 @@
 		89BC46C02C4775AE00CDBB38 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46BF2C4775AE00CDBB38 /* Config.swift */; };
 		89BC46C22C4776B500CDBB38 /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46C12C4776B500CDBB38 /* UserApi.swift */; };
 		89BC46C52C4792A300CDBB38 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46C42C4792A300CDBB38 /* LoginResponse.swift */; };
+		89BC46C82C480C9A00CDBB38 /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46C72C480C9A00CDBB38 /* SignUpResponse.swift */; };
+		89BC46CA2C48B2EB00CDBB38 /* ViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46C92C48B2EB00CDBB38 /* ViewRouter.swift */; };
+		89BC46CC2C48B3D400CDBB38 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46CB2C48B3D400CDBB38 /* ContentView.swift */; };
 		89EAB4D82C3D9BD0002B8515 /* NavigationBtnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */; };
 		89EAB4DA2C3D9BE3002B8515 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */; };
 		89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */; };
@@ -124,6 +127,9 @@
 		89BC46BF2C4775AE00CDBB38 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		89BC46C12C4776B500CDBB38 /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		89BC46C42C4792A300CDBB38 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		89BC46C72C480C9A00CDBB38 /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
+		89BC46C92C48B2EB00CDBB38 /* ViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRouter.swift; sourceTree = "<group>"; };
+		89BC46CB2C48B3D400CDBB38 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBtnType.swift; sourceTree = "<group>"; };
 		89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContent.swift; sourceTree = "<group>"; };
@@ -284,6 +290,8 @@
 				89A7716E2C3B702400C7068F /* T82App.swift */,
 				89A771832C3BC16F00C7068F /* AppDelegate.swift */,
 				89A771852C3BC19D00C7068F /* LaunchScreen.storyboard */,
+				89BC46C92C48B2EB00CDBB38 /* ViewRouter.swift */,
+				89BC46CB2C48B3D400CDBB38 /* ContentView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -464,6 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				89BC46C42C4792A300CDBB38 /* LoginResponse.swift */,
+				89BC46C72C480C9A00CDBB38 /* SignUpResponse.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -615,7 +624,9 @@
 				894482852C40B4E1003F3EE4 /* CompleteTicket.swift in Sources */,
 				89EAB4E02C3E6488002B8515 /* Color+extensions.swift in Sources */,
 				89BC46A82C461A5F00CDBB38 /* MyReviewFloatingView.swift in Sources */,
+				89BC46C82C480C9A00CDBB38 /* SignUpResponse.swift in Sources */,
 				89BC46902C45022500CDBB38 /* LoginViewModel.swift in Sources */,
+				89BC46CC2C48B3D400CDBB38 /* ContentView.swift in Sources */,
 				89B57D842C43D57900784CC3 /* SelectSeatViewModel.swift in Sources */,
 				894482982C40F8D8003F3EE4 /* MyTicket.swift in Sources */,
 				894482872C40BD48003F3EE4 /* CompletePrice.swift in Sources */,
@@ -637,6 +648,7 @@
 				8944828E2C40CCD0003F3EE4 /* MyPageView.swift in Sources */,
 				894482802C3FD979003F3EE4 /* CouponList.swift in Sources */,
 				89A7716F2C3B702400C7068F /* T82App.swift in Sources */,
+				89BC46CA2C48B2EB00CDBB38 /* ViewRouter.swift in Sources */,
 				89BC46C02C4775AE00CDBB38 /* Config.swift in Sources */,
 				AAFE6D352C4159B900FB6BA6 /* tabBarView.swift in Sources */,
 				89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */,
