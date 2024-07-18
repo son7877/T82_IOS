@@ -79,7 +79,7 @@ struct LoginView: View {
                 
                 Button(
                     action: {
-                        let urlString = "https://pay.toss.im/payfront/auth?payToken=77w2INp17zKTmGLdNk4r97"
+                        let urlString = "https://ul.toss.im?scheme=supertoss%3A%2F%2Fpay%3FpayToken%3Dr7maInNa12kCN7XXDXZB9e"
 
                         
                         if let url = URL(string: urlString) {
