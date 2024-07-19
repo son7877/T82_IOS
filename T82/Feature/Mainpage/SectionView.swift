@@ -39,7 +39,7 @@ struct SectionView<Item: Identifiable>: View where Item: EventTitleProtocol {
                                 .padding(.horizontal, 5)
                             }
                         }
-                        .frame(minWidth: geometry.size.width) // Ensure HStack takes up all available width
+                        .frame(minWidth: geometry.size.width)
                     }
                     
                     Text(">")

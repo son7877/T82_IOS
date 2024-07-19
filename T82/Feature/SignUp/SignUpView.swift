@@ -7,7 +7,8 @@ struct SignUpView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var passwordValidationMessage: String = ""
     @State private var passwordCheckValidationMessage: String = ""
-    
+    @State private var showAlert: Bool = false
+
     var body: some View {
         VStack {
             CustomNavigationBar(
@@ -128,7 +129,7 @@ struct SignUpView: View {
             
             Button(
                 action: {
-                    signUpContentViewModel.register()
+                    signUpContentViewModel.signUp()
                 },
                 label: {
                     Text("회원가입")
@@ -142,8 +143,17 @@ struct SignUpView: View {
         }
         .onReceive(signUpContentViewModel.$isSignUpSuccess) { isSignUpSuccess in
             if isSignUpSuccess {
-                presentationMode.wrappedValue.dismiss()
+                showAlert = true
             }
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("회원가입 완료"),
+                message: Text("회원가입이 성공적으로 완료되었습니다."),
+                dismissButton: .default(Text("확인")) {
+                    presentationMode.wrappedValue.dismiss()
+                }
+            )
         }
     }
     

@@ -8,5 +8,5 @@
 import SwiftUI
 
 class ViewRouter: ObservableObject {
-    @Published var currentPage: String = "main"
+    @Published var currentPage: String = "login"
 }

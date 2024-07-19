@@ -53,14 +53,7 @@ struct MainpageView: View {
                                 GenreRankingSectionView(selectedGenre: $selectedGenre, viewModel: viewModel)
 
                                 // 특별 할인 이벤트
-//                                SectionView(title: "특별 할인", items: viewModel.mainTicketDiscountsRanking, topImages: nil, selectedGenre: Binding<Genre?>(
-//                                    get: { selectedGenre },
-//                                    set: { newValue in
-//                                        if let newValue = newValue {
-//                                            selectedGenre = newValue
-//                                        }
-//                                    }
-//                                ))
+                                
                 
                                 // 오픈 예정 이벤트
                                 SectionView(title: "OPEN SOON", viewModel: viewModel, items: viewModel.mainTicketOpenSoon, isShowOpenDate: true)

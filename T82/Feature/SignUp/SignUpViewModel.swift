@@ -3,31 +3,18 @@ import Alamofire
 import Foundation
 
 class SignUpViewModel: ObservableObject {
-    @Published var signUpContent = SignUpContent()
+    @Published var signUpContent = SignUpContent(email: "", password: "", passwordCheck: "", name: "", birthday: Date(), phoneNum: "", address: "", addressDetail: "")
     @Published var isLoading = false
     @Published var errorMessage: String?
     @Published var isSignUpSuccess = false
     
     var cancellables = Set<AnyCancellable>()
     
-    struct SignUpContent {
-        var email = ""
-        var password = ""
-        var passwordCheck = ""
-        var name = ""
-        var birthday = Date()
-        var phoneNum = ""
-        var address = ""
-        var addressDetail = ""
-    }
-    
-    func register() {
-        isLoading = true
-        errorMessage = nil
+    func signUp(){
+        self.isLoading = true
+        self.errorMessage = nil
         
-        print("Starting registration...")
-        
-        AuthService.signUp(
+        AuthService.shared.signUp(
             email: signUpContent.email,
             password: signUpContent.password,
             passwordCheck: signUpContent.passwordCheck,
@@ -36,19 +23,19 @@ class SignUpViewModel: ObservableObject {
             phoneNumber: signUpContent.phoneNum,
             address: signUpContent.address,
             addressDetail: signUpContent.addressDetail
-        )
-        .receive(on: DispatchQueue.main) // Ensure we receive the response on the main thread
-        .sink { completion in
-            print("Received completion: \(completion)")
-            self.isLoading = false
-            if case .failure(let error) = completion {
-                self.errorMessage = error.localizedDescription
-                print("Error: \(error.localizedDescription)")
+            
+        ) {
+            [weak self] success in
+            DispatchQueue.main.async {
+                self?.isLoading = false
+                if success {
+                    self?.isSignUpSuccess = true
+                    self?.errorMessage = nil
+                } else {
+                    self?.isSignUpSuccess = false
+                    self?.errorMessage = "회원가입 실패"
+                }
             }
-        } receiveValue: { success in
-            print("Received success: \(success)")
-            self.isSignUpSuccess = success
         }
-        .store(in: &cancellables)
     }
 }

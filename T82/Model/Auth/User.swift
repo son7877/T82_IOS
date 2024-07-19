@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct User : Hashable{
+struct User : Hashable, Decodable{
     var email: String
     var password: String
     var passwordCheck: String

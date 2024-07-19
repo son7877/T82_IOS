@@ -25,19 +25,30 @@ struct GenreRankingSectionView: View {
                             .cornerRadius(10)
                     }
                 }
+                Spacer()
+                
+                Button(action: {
+                    // 더보기 버튼 클릭 시
+                }) {
+                    Text("더보기")
+                        .padding(.vertical, 7)
+                        .padding(.horizontal, 12)
+                        .foregroundColor(.customgray1)
+                        .background(.white)
+                }
             }
             .padding(.horizontal)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
-                    ForEach(viewModel.mainTicketCategoryRanking) { event in
+                    ForEach(viewModel.mainTicketCategoryRanking) { content in
                         VStack {
                             Image("sampleImg")
                                 .resizable()
                                 .frame(width: 100, height: 150)
                                 .cornerRadius(10)
                             
-                            Text(event.title)
+                            Text(content.title)
                                 .font(.caption)
                                 .frame(width: 100)
                         }
