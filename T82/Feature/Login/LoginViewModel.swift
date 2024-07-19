@@ -2,6 +2,7 @@ import Foundation
 import Combine
 
 class LoginViewModel: ObservableObject {
+    
     @Published var loginContent: LoginContent = LoginContent(email: "", password: "")
     @Published var loginSuccessful: Bool = false
     @Published var errorMessage: String? = nil

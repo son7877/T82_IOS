@@ -5,6 +5,7 @@ struct LoginView: View {
     @FocusState private var isFocused: Bool
     @StateObject private var loginContentViewMoel = LoginViewModel()
     
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -13,7 +14,7 @@ struct LoginView: View {
                     .foregroundStyle(.tint)
                     .padding()
                 
-                // MARK: 로그인 입력 필드
+                // MARK: - 로그인 입력 필드
                 TextField("이메일", text: $loginContentViewMoel.loginContent.email)
                     .textFieldStyle(.roundedBorder)
                     .padding()
@@ -29,6 +30,7 @@ struct LoginView: View {
                     .tint(.customOrange)
                     .focused($isFocused)
                 
+                // MARK: - 로그인 & 회원가입 버튼
                 HStack {
                     LoginButton(viewModel: loginContentViewMoel)
                     
@@ -42,7 +44,7 @@ struct LoginView: View {
                 
                 Button(
                     action: {
-                        // 비밀번호 찾기 액션
+                        // 비밀번호 찾기 로직 추후 추가
                     },
                     label: {
                         Text("비밀번호를 잊으셨습니까?")
@@ -77,26 +79,6 @@ struct LoginView: View {
                 }
                 .padding()
                 
-                Button(
-                    action: {
-                        let urlString = "https://ul.toss.im?scheme=supertoss%3A%2F%2Fpay%3FpayToken%3Dr7maInNa12kCN7XXDXZB9e"
-
-                        
-                        if let url = URL(string: urlString) {
-                            
-                            if UIApplication.shared.canOpenURL(url) {
-                                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                            } else {
-                                print("오류")
-                            }
-                        }
-                    },
-                    label: {
-                        Text("토스 연결 테스트")
-                            .foregroundColor(Color.customGray1)
-                            .font(.system(size: 15))
-                    }
-                )
             }
             .padding()
             .onTapGesture {

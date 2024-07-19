@@ -8,4 +8,5 @@ extension Color {
     static let customorange = Color("customOrange")
     static let customred = Color("customRed")
     static let customyellow = Color("customYellow")
+    static let custompink = Color("customPink")
 }

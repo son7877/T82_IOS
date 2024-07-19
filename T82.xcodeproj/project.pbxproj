@@ -68,6 +68,15 @@
 		89EAB4DA2C3D9BE3002B8515 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */; };
 		89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */; };
 		89EAB4E02C3E6488002B8515 /* Color+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4DF2C3E6488002B8515 /* Color+extensions.swift */; };
+		89EE244C2C48BF0200538C87 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 89EE244B2C48BF0200538C87 /* Lottie */; };
+		89EE244E2C48DDFC00538C87 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE244D2C48DDFC00538C87 /* SectionView.swift */; };
+		89EE24502C48DE8800538C87 /* GenreRankingSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE244F2C48DE8800538C87 /* GenreRankingSectionView.swift */; };
+		89EE24522C48DF3D00538C87 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE24512C48DF3D00538C87 /* Genre.swift */; };
+		89EE24552C48E87100538C87 /* MainEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE24542C48E87100538C87 /* MainEvents.swift */; };
+		89EE24572C48E89D00538C87 /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE24562C48E89D00538C87 /* MainPageViewModel.swift */; };
+		89EE24592C48F3A500538C87 /* DiscountedEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE24582C48F3A500538C87 /* DiscountedEvents.swift */; };
+		89EE245B2C49E6E700538C87 /* MainEventApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE245A2C49E6E700538C87 /* MainEventApi.swift */; };
+		89EE245D2C49F4E000538C87 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE245C2C49F4E000538C87 /* Test.swift */; };
 		AAFE6D332C3FA10E00FB6BA6 /* MainpageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE6D322C3FA10D00FB6BA6 /* MainpageView.swift */; };
 		AAFE6D352C4159B900FB6BA6 /* tabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE6D342C4159B900FB6BA6 /* tabBarView.swift */; };
 		AAFE6D382C41A68600FB6BA6 /* DetailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE6D372C41A68600FB6BA6 /* DetailPage.swift */; };
@@ -134,6 +143,14 @@
 		89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContent.swift; sourceTree = "<group>"; };
 		89EAB4DF2C3E6488002B8515 /* Color+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+extensions.swift"; sourceTree = "<group>"; };
+		89EE244D2C48DDFC00538C87 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
+		89EE244F2C48DE8800538C87 /* GenreRankingSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreRankingSectionView.swift; sourceTree = "<group>"; };
+		89EE24512C48DF3D00538C87 /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		89EE24542C48E87100538C87 /* MainEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEvents.swift; sourceTree = "<group>"; };
+		89EE24562C48E89D00538C87 /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
+		89EE24582C48F3A500538C87 /* DiscountedEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountedEvents.swift; sourceTree = "<group>"; };
+		89EE245A2C49E6E700538C87 /* MainEventApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainEventApi.swift; sourceTree = "<group>"; };
+		89EE245C2C49F4E000538C87 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		AAFE6D322C3FA10D00FB6BA6 /* MainpageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpageView.swift; sourceTree = "<group>"; };
 		AAFE6D342C4159B900FB6BA6 /* tabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = tabBarView.swift; path = T82/Feature/Mainpage/tabBarView.swift; sourceTree = SOURCE_ROOT; };
 		AAFE6D372C41A68600FB6BA6 /* DetailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPage.swift; sourceTree = "<group>"; };
@@ -148,6 +165,7 @@
 				89BC46BC2C47699800CDBB38 /* Alamofire in Frameworks */,
 				89BC46B42C474B2300CDBB38 /* TossPayments in Frameworks */,
 				89BC46B12C474B1D00CDBB38 /* PopupView in Frameworks */,
+				89EE244C2C48BF0200538C87 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,9 +307,9 @@
 			children = (
 				89A7716E2C3B702400C7068F /* T82App.swift */,
 				89A771832C3BC16F00C7068F /* AppDelegate.swift */,
-				89A771852C3BC19D00C7068F /* LaunchScreen.storyboard */,
 				89BC46C92C48B2EB00CDBB38 /* ViewRouter.swift */,
 				89BC46CB2C48B3D400CDBB38 /* ContentView.swift */,
+				89A771852C3BC19D00C7068F /* LaunchScreen.storyboard */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -336,6 +354,7 @@
 		89A771802C3BBF6400C7068F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				89EE24532C48E85300538C87 /* Events */,
 				89BC468A2C44C5A100CDBB38 /* Auth */,
 				894482642C3F586E003F3EE4 /* Login */,
 				894482652C3F7B75003F3EE4 /* SignUp */,
@@ -464,6 +483,7 @@
 				89BC46C32C47929600CDBB38 /* Dto */,
 				89BC46BF2C4775AE00CDBB38 /* Config.swift */,
 				89BC46C12C4776B500CDBB38 /* UserApi.swift */,
+				89EE245A2C49E6E700538C87 /* MainEventApi.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -495,10 +515,24 @@
 			path = TabView;
 			sourceTree = "<group>";
 		};
+		89EE24532C48E85300538C87 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				89EE24542C48E87100538C87 /* MainEvents.swift */,
+				89EE24582C48F3A500538C87 /* DiscountedEvents.swift */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
 		AAFE6D2D2C3FA00200FB6BA6 /* Mainpage */ = {
 			isa = PBXGroup;
 			children = (
 				AAFE6D322C3FA10D00FB6BA6 /* MainpageView.swift */,
+				89EE244D2C48DDFC00538C87 /* SectionView.swift */,
+				89EE244F2C48DE8800538C87 /* GenreRankingSectionView.swift */,
+				89EE24562C48E89D00538C87 /* MainPageViewModel.swift */,
+				89EE24512C48DF3D00538C87 /* Genre.swift */,
+				89EE245C2C49F4E000538C87 /* Test.swift */,
 			);
 			path = Mainpage;
 			sourceTree = "<group>";
@@ -539,6 +573,7 @@
 				89BC46B02C474B1D00CDBB38 /* PopupView */,
 				89BC46B32C474B2300CDBB38 /* TossPayments */,
 				89BC46BB2C47699800CDBB38 /* Alamofire */,
+				89EE244B2C48BF0200538C87 /* Lottie */,
 			);
 			productName = T82;
 			productReference = 89A7716B2C3B702400C7068F /* T82.app */;
@@ -572,6 +607,7 @@
 				89BC46AF2C474B1D00CDBB38 /* XCRemoteSwiftPackageReference "PopupView" */,
 				89BC46B22C474B2300CDBB38 /* XCRemoteSwiftPackageReference "payment-sdk-ios" */,
 				89BC46BA2C47699800CDBB38 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				89EE244A2C48BF0200538C87 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 89A7716C2C3B702400C7068F /* Products */;
 			projectDirPath = "";
@@ -602,6 +638,7 @@
 			files = (
 				894482722C3FB083003F3EE4 /* PaymentView.swift in Sources */,
 				89BC46962C45042700CDBB38 /* SignUpViewModel.swift in Sources */,
+				89EE24572C48E89D00538C87 /* MainPageViewModel.swift in Sources */,
 				894482792C3FC153003F3EE4 /* Sections.swift in Sources */,
 				89BC469E2C45270C00CDBB38 /* MyReview.swift in Sources */,
 				894482942C40D343003F3EE4 /* MyTicketView.swift in Sources */,
@@ -620,6 +657,7 @@
 				894482832C3FDFB5003F3EE4 /* TicketingProcessBtn.swift in Sources */,
 				89BC46C22C4776B500CDBB38 /* UserApi.swift in Sources */,
 				89B57D822C43D56A00784CC3 /* SelectSeatView.swift in Sources */,
+				89EE245D2C49F4E000538C87 /* Test.swift in Sources */,
 				89BC46922C45032B00CDBB38 /* LoginBtn.swift in Sources */,
 				894482852C40B4E1003F3EE4 /* CompleteTicket.swift in Sources */,
 				89EAB4E02C3E6488002B8515 /* Color+extensions.swift in Sources */,
@@ -627,19 +665,24 @@
 				89BC46C82C480C9A00CDBB38 /* SignUpResponse.swift in Sources */,
 				89BC46902C45022500CDBB38 /* LoginViewModel.swift in Sources */,
 				89BC46CC2C48B3D400CDBB38 /* ContentView.swift in Sources */,
+				89EE24522C48DF3D00538C87 /* Genre.swift in Sources */,
 				89B57D842C43D57900784CC3 /* SelectSeatViewModel.swift in Sources */,
 				894482982C40F8D8003F3EE4 /* MyTicket.swift in Sources */,
+				89EE24502C48DE8800538C87 /* GenreRankingSectionView.swift in Sources */,
 				894482872C40BD48003F3EE4 /* CompletePrice.swift in Sources */,
 				89BC468C2C44C5AC00CDBB38 /* User.swift in Sources */,
 				894482742C3FB099003F3EE4 /* PaymentCompleteView.swift in Sources */,
 				89BC469A2C4526B300CDBB38 /* MyReviewView.swift in Sources */,
 				89B57D862C43F0CA00784CC3 /* SeatsInfo.swift in Sources */,
+				89EE245B2C49E6E700538C87 /* MainEventApi.swift in Sources */,
 				89A7718A2C3BDEA400C7068F /* LoginView.swift in Sources */,
+				89EE24552C48E87100538C87 /* MainEvents.swift in Sources */,
 				89B57D722C439ED000784CC3 /* MDShopView.swift in Sources */,
 				89BC46942C45034B00CDBB38 /* SignUpBtn.swift in Sources */,
 				89BC46C52C4792A300CDBB38 /* LoginResponse.swift in Sources */,
 				8944827C2C3FD906003F3EE4 /* PaymentPrice.swift in Sources */,
 				89A771842C3BC16F00C7068F /* AppDelegate.swift in Sources */,
+				89EE244E2C48DDFC00538C87 /* SectionView.swift in Sources */,
 				89BC469C2C4526C500CDBB38 /* MyReviewViewModel.swift in Sources */,
 				894482632C3F5839003F3EE4 /* LoginContent.swift in Sources */,
 				89B57D882C43F37700784CC3 /* Seat.swift in Sources */,
@@ -651,6 +694,7 @@
 				89BC46CA2C48B2EB00CDBB38 /* ViewRouter.swift in Sources */,
 				89BC46C02C4775AE00CDBB38 /* Config.swift in Sources */,
 				AAFE6D352C4159B900FB6BA6 /* tabBarView.swift in Sources */,
+				89EE24592C48F3A500538C87 /* DiscountedEvents.swift in Sources */,
 				89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */,
 				AAFE6D3B2C44A89A00FB6BA6 /* ReservationPage.swift in Sources */,
 				89B57D7F2C43BFD000784CC3 /* MyLocalView.swift in Sources */,
@@ -903,6 +947,14 @@
 				version = 5.8.1;
 			};
 		};
+		89EE244A2C48BF0200538C87 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -920,6 +972,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 89BC46BA2C47699800CDBB38 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		89EE244B2C48BF0200538C87 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 89EE244A2C48BF0200538C87 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
