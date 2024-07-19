@@ -3,7 +3,7 @@ import SwiftUI
 struct MainpageView: View {
     
     @StateObject private var viewModel = MainPageViewModel()
-    @State private var selectedGenre: Genre = .all
+    @State private var selectedGenre: Genre = .concert
     @State private var selectedIndex: Int = 4
     
     var body: some View {
@@ -26,10 +26,11 @@ struct MainpageView: View {
                             )
                             .padding()
                             
-                            ScrollView{
+                            ScrollView(.vertical, showsIndicators: false){
+                                
                                 // 메인 랭킹(현재 판매 중인 티켓 중 판매량 많은 순)
                                 if viewModel.mainTicketTopRanking.isEmpty {
-                                    Text("404 Not Found")
+                                    Text("404 MainRanking Not Found")
                                         .padding()
                                 } else {
                                     TabView {
@@ -37,19 +38,20 @@ struct MainpageView: View {
                                             VStack(alignment: .leading) {
                                                 Image("sampleImg")
                                                     .resizable()
-                                                    .frame(height: 200)
+                                                    .frame(height: 150)
                                                     .cornerRadius(10)
                                             }
                                             .padding(.vertical, 0)
                                         }
                                     }
                                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                                    .frame(height: 200)
+                                    .frame(height: 150)
+                                    .padding()
                                 }
                                 
                                 // 장르별 랭킹 이벤트
-//                                GenreRankingSectionView(selectedGenre: $selectedGenre)
-                                
+                                GenreRankingSectionView(selectedGenre: $selectedGenre, viewModel: viewModel)
+
                                 // 특별 할인 이벤트
 //                                SectionView(title: "특별 할인", items: viewModel.mainTicketDiscountsRanking, topImages: nil, selectedGenre: Binding<Genre?>(
 //                                    get: { selectedGenre },
@@ -59,16 +61,9 @@ struct MainpageView: View {
 //                                        }
 //                                    }
 //                                ))
-                                    
+                
                                 // 오픈 예정 이벤트
-//                                SectionView(title: "OPEN SOON", items: viewModel.mainTicketOpenSoon, topImages: nil, selectedGenre: Binding<Genre?>(
-//                                    get: { selectedGenre },
-//                                    set: { newValue in
-//                                        if let newValue = newValue {
-//                                            selectedGenre = newValue
-//                                        }
-//                                    }
-//                                ))
+                                SectionView(title: "OPEN SOON", viewModel: viewModel, items: viewModel.mainTicketOpenSoon, isShowOpenDate: true)
                             }
                             .padding(.bottom, 100)
 
@@ -92,10 +87,7 @@ struct MainpageView: View {
             }
         }
         .navigationBarBackButtonHidden()
-    }
-    
-    // MARK: - 배너 자동 스크롤
-    
+    }    
 }
 
 struct MainpageView_Previews: PreviewProvider {

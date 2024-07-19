@@ -1,6 +1,6 @@
 import Foundation
 
-struct MainEvents: Hashable, Decodable, Identifiable {
+struct MainContents: Hashable, Decodable, Identifiable {
     
     let id: Int
 //    var imageName: String

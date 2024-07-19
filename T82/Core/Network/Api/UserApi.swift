@@ -3,7 +3,6 @@ import Alamofire
 import Combine
 
 class AuthService {
-    
     // MARK: - 로그인
     static func login(email: String, password: String) -> AnyPublisher<LoginResponse, Error> { //**
         
