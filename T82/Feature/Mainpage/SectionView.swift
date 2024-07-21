@@ -22,21 +22,23 @@ struct SectionView<Item: Identifiable>: View where Item: EventTitleProtocol {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
                             ForEach(items) { item in
-                                VStack {
-                                    Image("sampleImg")
-                                        .resizable()
-                                        .frame(width: 100, height: 150)
-                                        .cornerRadius(10)
-                                    
-                                    Text(item.title)
-                                        .font(.caption)
-                                        .frame(width: 100)
-                                    
-                                    if isShowOpenDate {
-                                        // 오픈 시간 표시
+                                NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventId: item.id))) {
+                                    VStack {
+                                        Image("sampleImg")
+                                            .resizable()
+                                            .frame(width: 100, height: 150)
+                                            .cornerRadius(10)
+                                        
+                                        Text(item.title)
+                                            .font(.caption)
+                                            .frame(width: 100)
+                                        
+                                        if isShowOpenDate {
+                                            // 오픈 시간 표시
+                                        }
                                     }
+                                    .padding(.horizontal, 5)
                                 }
-                                .padding(.horizontal, 5)
                             }
                         }
                         .frame(minWidth: geometry.size.width)
@@ -56,6 +58,7 @@ struct SectionView<Item: Identifiable>: View where Item: EventTitleProtocol {
 
 protocol EventTitleProtocol {
     var title: String { get }
+    var id: Int { get }
 }
 
 extension MainContents: EventTitleProtocol {}

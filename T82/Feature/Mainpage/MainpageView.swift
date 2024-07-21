@@ -26,7 +26,7 @@ struct MainpageView: View {
                             )
                             .padding()
                             
-                            ScrollView(.vertical, showsIndicators: false){
+                            ScrollView(.vertical, showsIndicators: false) {
                                 
                                 // 메인 랭킹(현재 판매 중인 티켓 중 판매량 많은 순)
                                 if viewModel.mainTicketTopRanking.isEmpty {
@@ -35,13 +35,15 @@ struct MainpageView: View {
                                 } else {
                                     TabView {
                                         ForEach(viewModel.mainTicketTopRanking) { event in
-                                            VStack(alignment: .leading) {
-                                                Image("sampleImg")
-                                                    .resizable()
-                                                    .frame(height: 150)
-                                                    .cornerRadius(10)
+                                            NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventId: event.id))) {
+                                                VStack(alignment: .leading) {
+                                                    Image("sampleImg")
+                                                        .resizable()
+                                                        .frame(height: 150)
+                                                        .cornerRadius(10)
+                                                }
+                                                .padding(.vertical, 0)
                                             }
-                                            .padding(.vertical, 0)
                                         }
                                     }
                                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
@@ -51,15 +53,14 @@ struct MainpageView: View {
                                 
                                 // 장르별 랭킹 이벤트
                                 GenreRankingSectionView(selectedGenre: $selectedGenre, viewModel: viewModel)
-
+                                
                                 // 특별 할인 이벤트
                                 
-                
                                 // 오픈 예정 이벤트
                                 SectionView(title: "OPEN SOON", viewModel: viewModel, items: viewModel.mainTicketOpenSoon, isShowOpenDate: true)
                             }
                             .padding(.bottom, 100)
-
+                            
                         } else if selectedIndex == 3 {
                             MyPageView(myPageSelectedTab: .myInfoEditing)
                         } else if selectedIndex == 0 {
@@ -67,7 +68,7 @@ struct MainpageView: View {
                         }
                     }
                     .padding(.horizontal)
-            }
+                }
                 VStack {
                     Spacer()
                     tabBarView(selectedIndex: $selectedIndex)
@@ -75,12 +76,12 @@ struct MainpageView: View {
                 }
             }
             .edgesIgnoringSafeArea(.bottom) // 안전 영역 무시
-            .onAppear(){
+            .onAppear() {
                 viewModel.fetchMainPageData()
             }
         }
         .navigationBarBackButtonHidden()
-    }    
+    }
 }
 
 struct MainpageView_Previews: PreviewProvider {

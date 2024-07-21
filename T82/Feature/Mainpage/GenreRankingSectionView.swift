@@ -18,7 +18,7 @@ struct GenreRankingSectionView: View {
                     }) {
                         Text(genre.displayName)
                             // 폰트 크기
-                            .padding(.vertical,7)
+                            .padding(.vertical, 7)
                             .padding(.horizontal, 12)
                             .background(selectedGenre == genre ? Color.customred : Color.gray)
                             .foregroundColor(.white)
@@ -42,17 +42,19 @@ struct GenreRankingSectionView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(viewModel.mainTicketCategoryRanking) { content in
-                        VStack {
-                            Image("sampleImg")
-                                .resizable()
-                                .frame(width: 100, height: 150)
-                                .cornerRadius(10)
-                            
-                            Text(content.title)
-                                .font(.caption)
-                                .frame(width: 100)
+                        NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventId: content.id))) {
+                            VStack {
+                                Image("sampleImg")
+                                    .resizable()
+                                    .frame(width: 100, height: 150)
+                                    .cornerRadius(10)
+                                
+                                Text(content.title)
+                                    .font(.caption)
+                                    .frame(width: 100)
+                            }
+                            .padding(.horizontal, 5)
                         }
-                        .padding(.horizontal, 5)
                     }
                 }
                 .padding(.horizontal)

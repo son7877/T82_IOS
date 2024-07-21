@@ -12,7 +12,7 @@ class MainPageViewModel: ObservableObject {
     @Published var mainTicketOpenSoon = [MainContents]()
     
     // 전체 공연 중 할인율이 높은 순
-    @Published var mainTicketDiscountsRanking = [DiscountedEvents]()
+    @Published var mainTicketDiscountsRanking = [DiscountedContents]()
     
     
     // MARK: - 통신
@@ -66,11 +66,11 @@ class MainPageViewModel: ObservableObject {
     // 전체 공연 중 할인율이 높은 순 (1-2 task)
     func fetchMainTicketDiscounts() {
         mainTicketDiscountsRanking = [
-            DiscountedEvents(eventId: 1, title: "뮤지컬 레드북", rating: 4.5, discountRate: 0.2, discountedPrice: 20000),
-            DiscountedEvents(eventId: 2, title: "뮤지컬 레드북", rating: 4.5, discountRate: 0.2, discountedPrice: 20000),
-            DiscountedEvents(eventId: 3, title: "뮤지컬 레드북", rating: 4.5, discountRate: 0.2, discountedPrice: 20000),
-            DiscountedEvents(eventId: 4, title: "뮤지컬 레드북", rating: 4.5, discountRate: 0.2, discountedPrice: 20000),
-            DiscountedEvents(eventId: 5, title: "뮤지컬 레드북", rating: 4.5, discountRate: 0.2, discountedPrice: 20000)
+            DiscountedContents(eventId: 1, title: "뮤지컬 레드북", rating: 4.5, discountRate: 0.2, discountedPrice: 20000),
+            DiscountedContents(eventId: 2, title: "뮤지컬 레드북", rating: 4.5, discountRate: 0.2, discountedPrice: 20000),
+            DiscountedContents(eventId: 3, title: "뮤지컬 레드북", rating: 4.5, discountRate: 0.2, discountedPrice: 20000),
+            DiscountedContents(eventId: 4, title: "뮤지컬 레드북", rating: 4.5, discountRate: 0.2, discountedPrice: 20000),
+            DiscountedContents(eventId: 5, title: "뮤지컬 레드북", rating: 4.5, discountRate: 0.2, discountedPrice: 20000)
         ]
     }
 }

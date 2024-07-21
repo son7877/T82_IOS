@@ -1,6 +1,7 @@
 import SwiftUI
 
-struct ReservationPage: View {
+struct ReservationView: View {
+    @ObservedObject var viewModel: ReservationViewModel
     @State private var selectedDate: Date? = nil
     @State private var availableTimes: [String] = []
     @State private var selectedTime: String? = nil
@@ -50,16 +51,18 @@ struct ReservationPage: View {
                 Image("sampleImg")
                     .resizable()
                     .scaledToFill()
-                    .frame(width: UIScreen.main.bounds.width, height: 270)
+                    .frame(width: UIScreen.main.bounds.width, height: 300)
                     .clipped()
                     .overlay(
                         Rectangle()
                             .scaledToFill()
-                            .frame(width: UIScreen.main.bounds.width, height: 270)
+                            .frame(width: UIScreen.main.bounds.width, height: 300)
                             .opacity(0.8)
                             .clipped()
+                            .padding()
                     )
-                    .padding(.top, 45)
+                    .padding(.vertical,0)
+                    .padding(.horizontal,10)
                 
                 VStack {
                     CustomNavigationBar( // 커스텀 네비게이션 바 사용 방법
@@ -74,42 +77,44 @@ struct ReservationPage: View {
                         rightBtnType: .mylike,
                         Title: "Title"
                     )
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 20)
-                    .padding(.top, 40) // Safe Area 적용
+                    .padding(.top,20)
+                    .padding(.bottom, 30)
+                    .padding(.horizontal,20)
                     
                     HStack(spacing: 20) {
                         Image("sampleImg")
                             .resizable()
                             .frame(width: 150, height: 200)
                             .cornerRadius(10)
+                            .padding(.vertical,0)
                         
                         VStack(alignment: .leading, spacing: 5) {
-                            Text("제목1")
+                            Text(viewModel.contentsDetail.title)
                                 .font(.title)
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
                             
-                            Text("장소1")
+                            Text(viewModel.contentsDetail.placeName)
                                 .font(.subheadline)
                                 .foregroundColor(.white)
                             
-                            Text("관람 가능 나이")
+                            Text("\(viewModel.contentsDetail.ageRestriction) 이상")
                                 .font(.subheadline)
                                 .foregroundColor(.white)
                             
-                            HStack {
-                                ForEach(0..<4) { _ in
+                            // 별점(rating)
+                            HStack(spacing: 5) {
+                                ForEach(0..<5) { index in
                                     Image(systemName: "star.fill")
-                                        .foregroundColor(.yellow)
+                                        .foregroundColor(index < Int(viewModel.contentsDetail.rating) ? .yellow : .gray)
                                 }
                             }
-                            Text("공연 기간")
+                            
+                            Text("공연시간: \(viewModel.contentsDetail.runningTime)")
                                 .font(.subheadline)
                                 .foregroundColor(.white)
                         }
                     }
-
                     .padding(.horizontal, 20)
                     .padding(.leading, -70)
                 }
@@ -220,8 +225,8 @@ struct ReservationPage: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ReservationView_Previews: PreviewProvider {
     static var previews: some View {
-        ReservationPage()
+        ReservationView(viewModel: ReservationViewModel(eventId: 1))
     }
 }

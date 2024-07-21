@@ -1,13 +1,6 @@
-//
-//  DiscountedEvent.swift
-//  T82
-//
-//  Created by 안홍범 on 7/18/24.
-//
-
 import Foundation
 
-struct DiscountedEvents: Hashable {
+struct DiscountedContents: Hashable, Decodable {
     let eventId: Int
 //    var imageName: String
     var title: String
