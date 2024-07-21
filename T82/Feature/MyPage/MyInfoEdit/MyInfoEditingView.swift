@@ -9,6 +9,7 @@ struct MyInfoEditingView: View {
     @State private var passwordCheckValidationMessage: String = ""
     @State private var showDeleteConfirmation = false
     @State private var navigateToLogin = false
+    @State private var showEditSuccessAlert = false
         
     var body: some View {
         VStack {
@@ -66,7 +67,7 @@ struct MyInfoEditingView: View {
                 Text("비밀번호")
                     .font(.system(size: 13))
                 
-                SecureField("", text: $viewModel.user.password)
+                SecureField("새로 설정할 비밀번호", text: $viewModel.user.password)
                     .textFieldStyle(.roundedBorder)
                     .padding(.vertical, 0)
                     .frame(width: 220, height: 40)
@@ -226,6 +227,11 @@ struct MyInfoEditingView: View {
         .onAppear {
             viewModel.fetchUserInfo()
         }
+        .onChange(of: viewModel.isEditSuccess) { isEditSuccess in
+            if isEditSuccess {
+                showEditSuccessAlert = true
+            }
+        }
         .onChange(of: viewModel.isDeleteSuccess) { isDeleteSuccess in
             if isDeleteSuccess {
                 navigateToLogin = true
@@ -238,6 +244,13 @@ struct MyInfoEditingView: View {
                 label: { EmptyView() }
             )
         )
+        .alert(isPresented: $showEditSuccessAlert) {
+            Alert(
+                title: Text("수정 완료"),
+                message: Text("회원 정보가 성공적으로 수정되었습니다."),
+                dismissButton: .default(Text("확인"))
+            )
+        }
     }
 }
 

@@ -8,7 +8,7 @@ class MyInfoEditingViewModel: ObservableObject {
     @Published var errorMessage: String?
     
     init() {
-        self.user = User(email: "", password: "", passwordCheck: "", name: "", birthday: Date(), phoneNumber: "", address: "", addressDetail: "")
+        self.user = User(email: "", password: "", passwordCheck: "", name: "", birthday: Date(), phoneNumber: "", address: "", addressDetail: "", currentPassword: "")
         self.userInfo = UserInfo(name: "", address: "", addressDetail: "", phoneNumber: "")
     }
     
@@ -26,7 +26,8 @@ class MyInfoEditingViewModel: ObservableObject {
                         birthday: Date(),  // 생일은 별도로 설정 필요
                         phoneNumber: userInfo.phoneNumber,
                         address: userInfo.address,
-                        addressDetail: userInfo.addressDetail
+                        addressDetail: userInfo.addressDetail,
+                        currentPassword: ""
                     )
                     print("불러오기 성공")
                 } else {
@@ -38,10 +39,13 @@ class MyInfoEditingViewModel: ObservableObject {
     
     // 내 정보 수정
     func editUserInfo() {
+        let passwordToUpdate = user.password.isEmpty ? user.currentPassword : user.password
+        let passwordCheckToUpdate = user.passwordCheck.isEmpty ? user.currentPassword : user.passwordCheck
+        
         AuthService.shared.updateUserInfo(
             name: user.name,
-            password: user.password,
-            passwordCheck: user.passwordCheck,
+            password: passwordToUpdate,
+            passwordCheck: passwordCheckToUpdate,
             address: user.address,
             addressDetail: user.addressDetail
         ) { [weak self] success in

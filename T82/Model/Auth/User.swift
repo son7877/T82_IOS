@@ -16,8 +16,9 @@ struct User : Hashable, Decodable{
     var phoneNumber: String
     var address: String
     var addressDetail: String
+    var currentPassword: String
     
-    init(email: String, password: String, passwordCheck: String, name: String, birthday: Date, phoneNumber: String, address: String, addressDetail: String) {
+    init(email: String, password: String, passwordCheck: String, name: String, birthday: Date, phoneNumber: String, address: String, addressDetail: String, currentPassword: String) {
         self.email = email
         self.password = password
         self.passwordCheck = passwordCheck
@@ -26,6 +27,7 @@ struct User : Hashable, Decodable{
         self.phoneNumber = phoneNumber
         self.address = address
         self.addressDetail = addressDetail
+        self.currentPassword = currentPassword
     }
 }
 
