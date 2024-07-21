@@ -4,7 +4,7 @@ struct MainpageView: View {
     
     @StateObject private var viewModel = MainPageViewModel()
     @State private var selectedGenre: Genre = .concert
-    @State private var selectedIndex: Int = 4
+    @State var selectedIndex: Int = 4
     
     var body: some View {
         NavigationView {

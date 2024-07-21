@@ -24,7 +24,7 @@ class AuthService {
                     if let json = value as? [String: Any],
                        let token = json["token"] as? String {
                         // 토큰 저장
-                        UserDefaults.standard.set(token, forKey: "userToken")
+                        UserDefaults.standard.set(token, forKey: "token")
                         // 토큰 저장 확인
                         print("User token: \(token)")
                         completion(true)
@@ -81,6 +81,34 @@ class AuthService {
             }
     }
     
+    // MARK: - 내 정보 불러오기
+    func fetchInfo(completion: @escaping (UserInfo?) -> Void) {
+        let fetchUrl = "\(Config().AuthHost)/api/v1/user/me"
+        print("Fetching user info from: \(fetchUrl)")
+        
+        AF.request(fetchUrl, method: .get, headers: Config().getHeaders())
+            .validate()
+            .responseDecodable(of: UserInfo.self) { response in
+                switch response.result {
+                case .success(let userInfo):
+                    print("Fetch success: \(userInfo)")
+                    completion(userInfo)
+                case .failure(let error):
+                    if let httpResponse = response.response {
+                        if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                            print("HTTP Error: \(httpResponse.statusCode)")
+                            print("Error Message: \(errorMessage)")
+                        } else {
+                            print("HTTP Error: \(httpResponse.statusCode) with no message")
+                        }
+                    } else {
+                        print("Network Error: \(error.localizedDescription)")
+                    }
+                    completion(nil)
+                }
+            }
+    }
+    
     // MARK: - 회원정보 수정
     func updateUserInfo(
         name: String,
@@ -90,12 +118,7 @@ class AuthService {
         addressDetail: String,
         completion: @escaping (Bool) -> Void
     ) {
-        
         let updateUrl = "\(Config().AuthHost)/api/v1/user/me"
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        
         let parameters = [
             "name": name,
             "password": password,
@@ -104,16 +127,29 @@ class AuthService {
             "addressDetail": addressDetail
         ]
         
-        AF.request(updateUrl, method: .put, parameters: parameters, encoding: JSONEncoding.default)
+        print("Updating user info at: \(updateUrl) with parameters: \(parameters)")
+        
+        AF.request(updateUrl, method: .put, parameters: parameters, encoding: JSONEncoding.default, headers: Config().getHeaders())
             .validate()
             .response { response in
-                if let httpResponse = response.response {
-                    if (200..<300).contains(httpResponse.statusCode) {
-                        completion(true)
+                switch response.result {
+                case .success:
+                    if let httpResponse = response.response {
+                        print("HTTP Status Code: \(httpResponse.statusCode)")
+                        completion((200..<300).contains(httpResponse.statusCode))
                     } else {
+                        print("No HTTP Response received.")
                         completion(false)
                     }
-                } else {
+                case .failure(let error):
+                    if let httpResponse = response.response {
+                        print("HTTP Error: \(httpResponse.statusCode)")
+                        if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                            print("Error Message: \(errorMessage)")
+                        }
+                    } else {
+                        print("Network Error: \(error.localizedDescription)")
+                    }
                     completion(false)
                 }
             }
@@ -121,19 +157,31 @@ class AuthService {
     
     // MARK: - 회원 탈퇴
     func deleteUser(completion: @escaping (Bool) -> Void) {
-        
         let deleteUrl = "\(Config().AuthHost)/api/v1/user/me"
         
-        AF.request(deleteUrl, method: .delete)
+        print("Deleting user at: \(deleteUrl)")
+        
+        AF.request(deleteUrl, method: .delete, headers: Config().getHeaders())
             .validate()
             .response { response in
-                if let httpResponse = response.response {
-                    if (200..<300).contains(httpResponse.statusCode) {
-                        completion(true)
+                switch response.result {
+                case .success:
+                    if let httpResponse = response.response {
+                        print("HTTP Status Code: \(httpResponse.statusCode)")
+                        completion((200..<300).contains(httpResponse.statusCode))
                     } else {
+                        print("No HTTP Response received.")
                         completion(false)
                     }
-                } else {
+                case .failure(let error):
+                    if let httpResponse = response.response {
+                        print("HTTP Error: \(httpResponse.statusCode)")
+                        if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                            print("Error Message: \(errorMessage)")
+                        }
+                    } else {
+                        print("Network Error: \(error.localizedDescription)")
+                    }
                     completion(false)
                 }
             }

@@ -88,7 +88,7 @@ struct SignUpView: View {
                         .tint(.customOrange)
                         .environment(\.locale, Locale.init(identifier: "ko_KR"))
                     
-                    TextField("휴대폰 번호", text: $signUpContentViewModel.signUpContent.phoneNum)
+                    TextField("휴대폰 번호", text: $signUpContentViewModel.signUpContent.phoneNumber)
                         .textFieldStyle(.roundedBorder)
                         .padding()
                         .frame(width: 300, height: 50)

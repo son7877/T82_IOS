@@ -1,9 +1,9 @@
 import Foundation
 import Alamofire
 
-class EventDetailService {
+class ContentDetailService {
     
-    static let shared = EventDetailService()
+    static let shared = ContentDetailService()
     private init() {}
     
     // MARK: - GET

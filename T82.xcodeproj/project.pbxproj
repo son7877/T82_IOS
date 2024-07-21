@@ -76,7 +76,7 @@
 		89EE24572C48E89D00538C87 /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE24562C48E89D00538C87 /* MainPageViewModel.swift */; };
 		89EE24592C48F3A500538C87 /* DiscountedEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE24582C48F3A500538C87 /* DiscountedEvents.swift */; };
 		89EE245B2C49E6E700538C87 /* MainContentsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE245A2C49E6E700538C87 /* MainContentsApi.swift */; };
-		89EE24602C4A2E5F00538C87 /* EventDetailApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE245F2C4A2E5F00538C87 /* EventDetailApi.swift */; };
+		89EE24602C4A2E5F00538C87 /* ContentDetailApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE245F2C4A2E5F00538C87 /* ContentDetailApi.swift */; };
 		89EE24622C4A2E9000538C87 /* ContentsDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE24612C4A2E9000538C87 /* ContentsDetail.swift */; };
 		AAFE6D332C3FA10E00FB6BA6 /* MainpageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE6D322C3FA10D00FB6BA6 /* MainpageView.swift */; };
 		AAFE6D352C4159B900FB6BA6 /* tabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFE6D342C4159B900FB6BA6 /* tabBarView.swift */; };
@@ -151,7 +151,7 @@
 		89EE24562C48E89D00538C87 /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
 		89EE24582C48F3A500538C87 /* DiscountedEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountedEvents.swift; sourceTree = "<group>"; };
 		89EE245A2C49E6E700538C87 /* MainContentsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentsApi.swift; sourceTree = "<group>"; };
-		89EE245F2C4A2E5F00538C87 /* EventDetailApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailApi.swift; sourceTree = "<group>"; };
+		89EE245F2C4A2E5F00538C87 /* ContentDetailApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailApi.swift; sourceTree = "<group>"; };
 		89EE24612C4A2E9000538C87 /* ContentsDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsDetail.swift; sourceTree = "<group>"; };
 		AAFE6D322C3FA10D00FB6BA6 /* MainpageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainpageView.swift; sourceTree = "<group>"; };
 		AAFE6D342C4159B900FB6BA6 /* tabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = tabBarView.swift; path = T82/Feature/Mainpage/tabBarView.swift; sourceTree = SOURCE_ROOT; };
@@ -356,7 +356,7 @@
 		89A771802C3BBF6400C7068F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				89EE24532C48E85300538C87 /* Events */,
+				89EE24532C48E85300538C87 /* Contents */,
 				89BC468A2C44C5A100CDBB38 /* Auth */,
 				894482642C3F586E003F3EE4 /* Login */,
 				894482652C3F7B75003F3EE4 /* SignUp */,
@@ -516,14 +516,14 @@
 			path = TabView;
 			sourceTree = "<group>";
 		};
-		89EE24532C48E85300538C87 /* Events */ = {
+		89EE24532C48E85300538C87 /* Contents */ = {
 			isa = PBXGroup;
 			children = (
 				89EE24542C48E87100538C87 /* MainContents.swift */,
 				89EE24582C48F3A500538C87 /* DiscountedEvents.swift */,
 				89EE24612C4A2E9000538C87 /* ContentsDetail.swift */,
 			);
-			path = Events;
+			path = Contents;
 			sourceTree = "<group>";
 		};
 		89EE245E2C4A2E4400538C87 /* Api */ = {
@@ -531,7 +531,7 @@
 			children = (
 				89BC46C12C4776B500CDBB38 /* UserApi.swift */,
 				89EE245A2C49E6E700538C87 /* MainContentsApi.swift */,
-				89EE245F2C4A2E5F00538C87 /* EventDetailApi.swift */,
+				89EE245F2C4A2E5F00538C87 /* ContentDetailApi.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -690,7 +690,7 @@
 				89EE24552C48E87100538C87 /* MainContents.swift in Sources */,
 				89B57D722C439ED000784CC3 /* MDShopView.swift in Sources */,
 				89BC46942C45034B00CDBB38 /* SignUpBtn.swift in Sources */,
-				89EE24602C4A2E5F00538C87 /* EventDetailApi.swift in Sources */,
+				89EE24602C4A2E5F00538C87 /* ContentDetailApi.swift in Sources */,
 				89BC46C52C4792A300CDBB38 /* LoginResponse.swift in Sources */,
 				8944827C2C3FD906003F3EE4 /* PaymentPrice.swift in Sources */,
 				89A771842C3BC16F00C7068F /* AppDelegate.swift in Sources */,
