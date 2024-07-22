@@ -8,8 +8,8 @@ class MyInfoEditingViewModel: ObservableObject {
     @Published var errorMessage: String?
     
     init() {
-        self.user = User(email: "", password: "", passwordCheck: "", name: "", birthday: Date(), phoneNumber: "", address: "", addressDetail: "", currentPassword: "")
-        self.userInfo = UserInfo(name: "", address: "", addressDetail: "", phoneNumber: "")
+        self.user = User(email: "", password: "", passwordCheck: "", name: "", birthDate: Date(), phoneNumber: "", address: "", addressDetail: "")
+        self.userInfo = UserInfo(name: "", email: "", birthDate: Date(), address: "", addressDetail: "", phoneNumber: "")
     }
     
     // 내 정보 불러오기
@@ -19,17 +19,16 @@ class MyInfoEditingViewModel: ObservableObject {
                 if let userInfo = userInfo {
                     self?.userInfo = userInfo
                     self?.user = User(
-                        email: "",
+                        email: userInfo.email,
                         password: "",
                         passwordCheck: "",
                         name: userInfo.name,
-                        birthday: Date(),  // 생일은 별도로 설정 필요
+                        birthDate: userInfo.birthDate,
                         phoneNumber: userInfo.phoneNumber,
                         address: userInfo.address,
-                        addressDetail: userInfo.addressDetail,
-                        currentPassword: ""
+                        addressDetail: userInfo.addressDetail
                     )
-                    print("불러오기 성공")
+                    print("불러오기 성공: \(userInfo)")
                 } else {
                     print("불러오기 실패")
                 }
@@ -39,13 +38,11 @@ class MyInfoEditingViewModel: ObservableObject {
     
     // 내 정보 수정
     func editUserInfo() {
-        let passwordToUpdate = user.password.isEmpty ? user.currentPassword : user.password
-        let passwordCheckToUpdate = user.passwordCheck.isEmpty ? user.currentPassword : user.passwordCheck
         
         AuthService.shared.updateUserInfo(
             name: user.name,
-            password: passwordToUpdate,
-            passwordCheck: passwordCheckToUpdate,
+            password: user.password,
+            passwordCheck: user.passwordCheck,
             address: user.address,
             addressDetail: user.addressDetail
         ) { [weak self] success in

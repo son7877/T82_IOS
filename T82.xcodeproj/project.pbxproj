@@ -35,7 +35,7 @@
 		89A7718C2C3BE5AF00C7068F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A7718B2C3BE5AF00C7068F /* SignUpView.swift */; };
 		89B57D672C40FBD400784CC3 /* MyTicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */; };
 		89B57D692C41033B00784CC3 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D682C41033B00784CC3 /* Date+Extensions.swift */; };
-		89B57D722C439ED000784CC3 /* MDShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D712C439ED000784CC3 /* MDShopView.swift */; };
+		89B57D722C439ED000784CC3 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D712C439ED000784CC3 /* EventView.swift */; };
 		89B57D7F2C43BFD000784CC3 /* MyLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */; };
 		89B57D822C43D56A00784CC3 /* SelectSeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D812C43D56A00784CC3 /* SelectSeatView.swift */; };
 		89B57D842C43D57900784CC3 /* SelectSeatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D832C43D57900784CC3 /* SelectSeatViewModel.swift */; };
@@ -67,6 +67,7 @@
 		89D98B592C4D3E2D009C3CFA /* SubCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D98B582C4D3E2D009C3CFA /* SubCategoryViewModel.swift */; };
 		89D98B5B2C4DE0BA009C3CFA /* EventsByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D98B5A2C4DE0BA009C3CFA /* EventsByDate.swift */; };
 		89D98B5D2C4E0931009C3CFA /* RestSeats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D98B5C2C4E0931009C3CFA /* RestSeats.swift */; };
+		89D98B5F2C4E517E009C3CFA /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D98B5E2C4E517E009C3CFA /* UserInfo.swift */; };
 		89EAB4D82C3D9BD0002B8515 /* NavigationBtnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */; };
 		89EAB4DA2C3D9BE3002B8515 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */; };
 		89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */; };
@@ -118,7 +119,7 @@
 		89A7718B2C3BE5AF00C7068F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketViewModel.swift; sourceTree = "<group>"; };
 		89B57D682C41033B00784CC3 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
-		89B57D712C439ED000784CC3 /* MDShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MDShopView.swift; sourceTree = "<group>"; };
+		89B57D712C439ED000784CC3 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocalView.swift; sourceTree = "<group>"; };
 		89B57D812C43D56A00784CC3 /* SelectSeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSeatView.swift; sourceTree = "<group>"; };
 		89B57D832C43D57900784CC3 /* SelectSeatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSeatViewModel.swift; sourceTree = "<group>"; };
@@ -147,6 +148,7 @@
 		89D98B582C4D3E2D009C3CFA /* SubCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryViewModel.swift; sourceTree = "<group>"; };
 		89D98B5A2C4DE0BA009C3CFA /* EventsByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsByDate.swift; sourceTree = "<group>"; };
 		89D98B5C2C4E0931009C3CFA /* RestSeats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestSeats.swift; sourceTree = "<group>"; };
+		89D98B5E2C4E517E009C3CFA /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBtnType.swift; sourceTree = "<group>"; };
 		89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContent.swift; sourceTree = "<group>"; };
@@ -357,7 +359,7 @@
 				894482702C3FB067003F3EE4 /* Payment */,
 				8944826F2C3FB04A003F3EE4 /* MyPage */,
 				89B57D7D2C43BFBA00784CC3 /* CurrentLocation */,
-				89B57D702C439EBA00784CC3 /* MDShop */,
+				89B57D702C439EBA00784CC3 /* Event */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -434,12 +436,12 @@
 			path = CompletePayment;
 			sourceTree = "<group>";
 		};
-		89B57D702C439EBA00784CC3 /* MDShop */ = {
+		89B57D702C439EBA00784CC3 /* Event */ = {
 			isa = PBXGroup;
 			children = (
-				89B57D712C439ED000784CC3 /* MDShopView.swift */,
+				89B57D712C439ED000784CC3 /* EventView.swift */,
 			);
-			path = MDShop;
+			path = Event;
 			sourceTree = "<group>";
 		};
 		89B57D7B2C43BEEF00784CC3 /* SeatSelect */ = {
@@ -465,6 +467,7 @@
 			isa = PBXGroup;
 			children = (
 				89BC468B2C44C5AC00CDBB38 /* User.swift */,
+				89D98B5E2C4E517E009C3CFA /* UserInfo.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -701,7 +704,7 @@
 				89EE245B2C49E6E700538C87 /* MainContentsApi.swift in Sources */,
 				89A7718A2C3BDEA400C7068F /* LoginView.swift in Sources */,
 				89EE24552C48E87100538C87 /* MainContents.swift in Sources */,
-				89B57D722C439ED000784CC3 /* MDShopView.swift in Sources */,
+				89B57D722C439ED000784CC3 /* EventView.swift in Sources */,
 				89BC46942C45034B00CDBB38 /* SignUpBtn.swift in Sources */,
 				89EE24602C4A2E5F00538C87 /* ContentDetailApi.swift in Sources */,
 				89BC46C52C4792A300CDBB38 /* LoginResponse.swift in Sources */,
@@ -727,6 +730,7 @@
 				AAFE6D3B2C44A89A00FB6BA6 /* ReservationView.swift in Sources */,
 				89B57D7F2C43BFD000784CC3 /* MyLocalView.swift in Sources */,
 				89B57D692C41033B00784CC3 /* Date+Extensions.swift in Sources */,
+				89D98B5F2C4E517E009C3CFA /* UserInfo.swift in Sources */,
 				894482922C40D2FE003F3EE4 /* MyInfoEditingView.swift in Sources */,
 				894482772C3FB751003F3EE4 /* Coupons.swift in Sources */,
 				89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */,

@@ -12,7 +12,7 @@ struct SignUpContent : Hashable{
     var password: String
     var passwordCheck: String
     var name: String
-    var birthday: Date
+    var birthDate: Date
     var phoneNumber: String
     var address: String
     var addressDetail: String

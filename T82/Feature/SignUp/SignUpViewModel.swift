@@ -3,7 +3,7 @@ import Alamofire
 import Foundation
 
 class SignUpViewModel: ObservableObject {
-    @Published var signUpContent = SignUpContent(email: "", password: "", passwordCheck: "", name: "", birthday: Date(), phoneNumber: "", address: "", addressDetail: "")
+    @Published var signUpContent = SignUpContent(email: "", password: "", passwordCheck: "", name: "", birthDate: Date(), phoneNumber: "", address: "", addressDetail: "")
     @Published var isLoading = false
     @Published var errorMessage: String?
     @Published var isSignUpSuccess = false
@@ -19,7 +19,7 @@ class SignUpViewModel: ObservableObject {
             password: signUpContent.password,
             passwordCheck: signUpContent.passwordCheck,
             name: signUpContent.name,
-            birthDate: signUpContent.birthday,
+            birthDate: signUpContent.birthDate,
             phoneNumber: signUpContent.phoneNumber,
             address: signUpContent.address,
             addressDetail: signUpContent.addressDetail

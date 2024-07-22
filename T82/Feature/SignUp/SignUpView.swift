@@ -81,7 +81,7 @@ struct SignUpView: View {
                         .focused($isFocused)
                         .textInputAutocapitalization(.never)
                     
-                    DatePicker("생년월일", selection: $signUpContentViewModel.signUpContent.birthday, displayedComponents: .date)
+                    DatePicker("생년월일", selection: $signUpContentViewModel.signUpContent.birthDate, displayedComponents: .date)
                         .datePickerStyle(.compact)
                         .padding()
                         .frame(width: 300, height: 50)

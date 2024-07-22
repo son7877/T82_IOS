@@ -83,7 +83,7 @@ struct ReservationView: View {
             }
             .frame(height: 300)
             
-            // 이벤트 날짜 선택
+            // MARK: - 이벤트 날짜 선택
             VStack(alignment: .leading, spacing: 10) {
                 Text("날짜 선택")
                     .font(.headline)
@@ -121,7 +121,9 @@ struct ReservationView: View {
                             ForEach(viewModel.availableTimes(for: selectedDate), id: \.self) { time in
                                 Button(action: {
                                     selectedTime = time
-                                    availableSeats = "통신으로 출력"
+                                    if let eventId = viewModel.availableDates.first(where: { $0.eventStartTime == time })?.eventId {
+                                        viewModel.fetchAvailableSeats(eventId: eventId)
+                                    }
                                 }) {
                                     Text(timeFormatted(time))
                                         .padding()
@@ -135,8 +137,14 @@ struct ReservationView: View {
                     }
                 }
                 
-                // 좌석 현황
-                if !availableSeats.isEmpty {
+                // MARK: - 좌석 현황
+                if viewModel.seatsFetchError {
+                    Text("잔여 좌석 정보를 불러올 수 없습니다.")
+                        .font(.headline)
+                        .foregroundColor(.red)
+                        .padding(.leading, 20)
+                        .padding(.top, 16)
+                } else if !viewModel.getAvailableSeatsCountString().isEmpty {
                     Text("잔여 좌석")
                         .font(.headline)
                         .padding(.leading, 20)
@@ -149,7 +157,7 @@ struct ReservationView: View {
                             .opacity(0.1)
                             .cornerRadius(10)
                         
-                        Text(availableSeats)
+                        Text(viewModel.getAvailableSeatsCountString())
                             .font(.subheadline)
                             .padding()
                             .background(Color.gray.opacity(0.2))

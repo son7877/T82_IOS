@@ -81,7 +81,6 @@ class AuthService {
             }
     }
     
-    // MARK: - 내 정보 불러오기
     func fetchInfo(completion: @escaping (UserInfo?) -> Void) {
         let fetchUrl = "\(Config().AuthHost)/api/v1/user/me"
         print("Fetching user info from: \(fetchUrl)")
@@ -98,6 +97,7 @@ class AuthService {
                         if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
                             print("HTTP Error: \(httpResponse.statusCode)")
                             print("Error Message: \(errorMessage)")
+                            print("\(error.localizedDescription)")
                         } else {
                             print("HTTP Error: \(httpResponse.statusCode) with no message")
                         }
@@ -143,14 +143,22 @@ class AuthService {
                     }
                 case .failure(let error):
                     if let httpResponse = response.response {
-                        print("HTTP Error: \(httpResponse.statusCode)")
+                        print("HTTP Status Code: \(httpResponse.statusCode)")
                         if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
                             print("Error Message: \(errorMessage)")
+                        }
+                        if let data = response.data {
+                            do {
+                                let decoder = JSONDecoder()
+                                let events = try decoder.decode([EventsByDate].self, from: data)
+                                print("Decoded Events: \(events)")
+                            } catch {
+                                print("Decoding Error: \(error)")
+                            }
                         }
                     } else {
                         print("Network Error: \(error.localizedDescription)")
                     }
-                    completion(false)
                 }
             }
     }

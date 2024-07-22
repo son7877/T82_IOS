@@ -53,7 +53,7 @@ struct MyInfoEditingView: View {
                 Text("생년월일")
                     .font(.system(size: 13))
                 
-                DatePicker("", selection: $viewModel.user.birthday, displayedComponents: .date)
+                DatePicker("", selection: $viewModel.user.birthDate, displayedComponents: .date)
                     .datePickerStyle(.compact)
                     .frame(width: 220, height: 40)
                     .tint(Color.orange)

@@ -67,7 +67,7 @@ class ContentDetailService {
     
     // MARK: - 시간 별 남은 좌석 수 가져오기
     func getRestSeatsByTime(eventId: Int, completion: @escaping ([RestSeats]?) -> Void) {
-        let url = Config().EventHost + "/api/v1/events/\(eventId)/restseats"
+        let url = Config().TicketHost + "/api/v1/events/\(eventId)/restseats"
         
         AF.request(url, method: .get)
             .validate()
@@ -81,6 +81,7 @@ class ContentDetailService {
                         print("HTTP Status Code: \(httpResponse.statusCode)")
                         if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
                             print("Error Message: \(errorMessage)")
+                            print(url)
                         }
                     } else {
                         print("Network Error: \(error.localizedDescription)")
