@@ -65,4 +65,29 @@ class ContentDetailService {
             }
     }
     
+    // MARK: - 시간 별 남은 좌석 수 가져오기
+    func getRestSeatsByTime(eventId: Int, completion: @escaping ([RestSeats]?) -> Void) {
+        let url = Config().EventHost + "/api/v1/events/\(eventId)/restseats"
+        
+        AF.request(url, method: .get)
+            .validate()
+            .responseDecodable(of: [RestSeats].self) { response in
+                switch response.result {
+                case .success(let restSeats):
+                    completion(restSeats)
+                    
+                case .failure(let error):
+                    if let httpResponse = response.response {
+                        print("HTTP Status Code: \(httpResponse.statusCode)")
+                        if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                            print("Error Message: \(errorMessage)")
+                        }
+                    } else {
+                        print("Network Error: \(error.localizedDescription)")
+                    }
+                    completion(nil)
+                }
+            }
+    }
+    
 }

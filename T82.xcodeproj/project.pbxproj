@@ -66,6 +66,7 @@
 		89BC46CC2C48B3D400CDBB38 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46CB2C48B3D400CDBB38 /* ContentView.swift */; };
 		89D98B592C4D3E2D009C3CFA /* SubCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D98B582C4D3E2D009C3CFA /* SubCategoryViewModel.swift */; };
 		89D98B5B2C4DE0BA009C3CFA /* EventsByDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D98B5A2C4DE0BA009C3CFA /* EventsByDate.swift */; };
+		89D98B5D2C4E0931009C3CFA /* RestSeats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D98B5C2C4E0931009C3CFA /* RestSeats.swift */; };
 		89EAB4D82C3D9BD0002B8515 /* NavigationBtnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */; };
 		89EAB4DA2C3D9BE3002B8515 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */; };
 		89EAB4DD2C3D9D76002B8515 /* SignUpContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */; };
@@ -145,6 +146,7 @@
 		89BC46CB2C48B3D400CDBB38 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		89D98B582C4D3E2D009C3CFA /* SubCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCategoryViewModel.swift; sourceTree = "<group>"; };
 		89D98B5A2C4DE0BA009C3CFA /* EventsByDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsByDate.swift; sourceTree = "<group>"; };
+		89D98B5C2C4E0931009C3CFA /* RestSeats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestSeats.swift; sourceTree = "<group>"; };
 		89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBtnType.swift; sourceTree = "<group>"; };
 		89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 		89EAB4DC2C3D9D76002B8515 /* SignUpContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpContent.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 			children = (
 				894482782C3FC153003F3EE4 /* Sections.swift */,
 				89B57D872C43F37700784CC3 /* Seat.swift */,
+				89D98B5C2C4E0931009C3CFA /* RestSeats.swift */,
 			);
 			path = Seats;
 			sourceTree = "<group>";
@@ -708,6 +711,7 @@
 				89BC469C2C4526C500CDBB38 /* MyReviewViewModel.swift in Sources */,
 				894482632C3F5839003F3EE4 /* LoginContent.swift in Sources */,
 				89B57D882C43F37700784CC3 /* Seat.swift in Sources */,
+				89D98B5D2C4E0931009C3CFA /* RestSeats.swift in Sources */,
 				894482962C40D6A0003F3EE4 /* MyTicketDetailView.swift in Sources */,
 				89B57D672C40FBD400784CC3 /* MyTicketViewModel.swift in Sources */,
 				89EE24642C4CF49E00538C87 /* ReservationViewModel.swift in Sources */,

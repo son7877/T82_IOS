@@ -87,12 +87,13 @@ struct ReservationView: View {
             VStack(alignment: .leading, spacing: 10) {
                 Text("날짜 선택")
                     .font(.headline)
-                    .padding(.leading, 10)
+                    .padding(.leading, 20)
                     .padding(.top, 16)
                 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 10) {
-                        ForEach(viewModel.availableDates.map { $0.eventStartTime }, id: \.self) { date in
+                        let uniqueDates = Array(Set(viewModel.availableDates.map { $0.eventStartTime.stripTime() }))
+                        ForEach(uniqueDates.sorted(), id: \.self) { date in
                             Button(action: {
                                 selectedDate = date
                                 selectedTime = nil
@@ -100,7 +101,7 @@ struct ReservationView: View {
                             }) {
                                 Text(date.formmatedDay)
                                     .padding()
-                                    .background(selectedDate == date ? Color.customred : Color.gray)
+                                    .background(selectedDate?.isSameDay(as: date) == true ? Color.customred : Color.gray)
                                     .foregroundColor(.white)
                                     .cornerRadius(10)
                             }
@@ -112,7 +113,7 @@ struct ReservationView: View {
                 if let selectedDate = selectedDate {
                     Text("시간 선택")
                         .font(.headline)
-                        .padding(.leading, 10)
+                        .padding(.leading, 20)
                         .padding(.top, 16)
                     
                     ScrollView(.horizontal, showsIndicators: false) {

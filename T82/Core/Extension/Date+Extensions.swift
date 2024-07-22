@@ -29,4 +29,13 @@ extension Date {
             return formatter.string(from: self)
         }
     }
+    
+    func stripTime() -> Date {
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: self)
+        return Calendar.current.date(from: components)!
+    }
+    
+    func isSameDay(as date: Date) -> Bool {
+        return Calendar.current.isDate(self, inSameDayAs: date)
+    }
 }
