@@ -25,7 +25,7 @@ extension Date {
         else{
             let formatter = DateFormatter()
             formatter.locale = Locale(identifier: "ko_KR")
-            formatter.dateFormat = "mm/dd"
+            formatter.dateFormat = "MM/dd"
             return formatter.string(from: self)
         }
     }

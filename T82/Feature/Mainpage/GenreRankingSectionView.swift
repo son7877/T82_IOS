@@ -3,13 +3,13 @@ import SwiftUI
 struct GenreRankingSectionView: View {
     @Binding var selectedGenre: Genre
     @ObservedObject var viewModel: MainPageViewModel
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             Text("장르 별 랭킹")
                 .font(.headline)
                 .padding(.horizontal)
-            
+
             HStack {
                 ForEach(Genre.allCases) { genre in
                     Button(action: {
@@ -17,7 +17,6 @@ struct GenreRankingSectionView: View {
                         viewModel.fetchMainTicketCategoryRanking(for: genre)
                     }) {
                         Text(genre.displayName)
-                            // 폰트 크기
                             .padding(.vertical, 7)
                             .padding(.horizontal, 12)
                             .background(selectedGenre == genre ? Color.customred : Color.gray)
@@ -26,10 +25,12 @@ struct GenreRankingSectionView: View {
                     }
                 }
                 Spacer()
-                
-                Button(action: {
-                    // 더보기 버튼 클릭 시
-                }) {
+
+                NavigationLink(destination: SubCategoryView(
+                    title: selectedGenre.displayName,
+                    viewModel: SubCategoryViewModel(
+                        genre: selectedGenre,
+                        subCategory: selectedGenre.subCategories.first!))) {
                     Text("더보기")
                         .padding(.vertical, 7)
                         .padding(.horizontal, 12)
@@ -38,20 +39,21 @@ struct GenreRankingSectionView: View {
                 }
             }
             .padding(.horizontal)
-            
+
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack {
                     ForEach(viewModel.mainTicketCategoryRanking) { content in
-                        NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventId: content.id))) {
+                        NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventInfoId: content.id))) {
                             VStack {
                                 Image("sampleImg")
                                     .resizable()
                                     .frame(width: 100, height: 150)
                                     .cornerRadius(10)
-                                
+
                                 Text(content.title)
                                     .font(.caption)
                                     .frame(width: 100)
+                                    .foregroundColor(.black)
                             }
                             .padding(.horizontal, 5)
                         }

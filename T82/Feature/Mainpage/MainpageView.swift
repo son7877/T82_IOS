@@ -35,20 +35,19 @@ struct MainpageView: View {
                                 } else {
                                     TabView {
                                         ForEach(viewModel.mainTicketTopRanking) { event in
-                                            NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventId: event.id))) {
+                                            NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventInfoId: event.id))) {
                                                 VStack(alignment: .leading) {
                                                     Image("sampleImg")
                                                         .resizable()
-                                                        .frame(height: 150)
-                                                        .cornerRadius(10)
+                                                        .frame(width: UIScreen.main.bounds.width, height: 350)
                                                 }
                                                 .padding(.vertical, 0)
                                             }
                                         }
                                     }
                                     .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-                                    .frame(height: 150)
-                                    .padding()
+                                    .frame(height: 200)
+                                    .padding(.vertical, 0)
                                 }
                                 
                                 // 장르별 랭킹 이벤트
@@ -59,7 +58,7 @@ struct MainpageView: View {
                                 // 오픈 예정 이벤트
                                 SectionView(title: "OPEN SOON", viewModel: viewModel, items: viewModel.mainTicketOpenSoon, isShowOpenDate: true)
                             }
-                            .padding(.bottom, 100)
+                            .padding(.bottom, 110)
                             
                         } else if selectedIndex == 3 {
                             MyPageView(myPageSelectedTab: .myInfoEditing)
@@ -67,7 +66,7 @@ struct MainpageView: View {
                             MyPageView(myPageSelectedTab: .myTicket)
                         }
                     }
-                    .padding(.horizontal)
+                    
                 }
                 VStack {
                     Spacer()

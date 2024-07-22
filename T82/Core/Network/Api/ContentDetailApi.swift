@@ -6,11 +6,9 @@ class ContentDetailService {
     static let shared = ContentDetailService()
     private init() {}
     
-    // MARK: - GET
-    
-    // 해당 컨텐츠 상세정보 가져오기
-    func getContentDetail(eventId: Int, completion: @escaping (ContentsDetail?) -> Void) {
-        let url = Config().EventHost + "/api/v1/contents/\(eventId)"
+    // MARK: - 해당 컨텐츠 상세정보 가져오기
+    func getContentDetail(eventInfoId: Int, completion: @escaping (ContentsDetail?) -> Void) {
+        let url = Config().EventHost + "/api/v1/contents/\(eventInfoId)"
         
         AF.request(url, method: .get)
             .validate()
@@ -32,4 +30,39 @@ class ContentDetailService {
                 }
             }
     }
+    
+    // MARK: - 해당 컨텐츠의 예매 가능한 날짜 가져오기
+    func getAvailableDates(eventInfoId: Int, completion: @escaping ([EventsByDate]?) -> Void) {
+        let url = Config().EventHost + "/api/v1/contents/\(eventInfoId)/events"
+        
+        AF.request(url, method: .get)
+            .validate()
+            .responseDecodable(of: [EventsByDate].self) { response in
+                switch response.result {
+                case .success(let availableDates):
+                    completion(availableDates)
+                    
+                case .failure(let error):
+                    if let httpResponse = response.response {
+                        print("HTTP Status Code: \(httpResponse.statusCode)")
+                        if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                            print("Error Message: \(errorMessage)")
+                        }
+                        if let data = response.data {
+                            do {
+                                let decoder = JSONDecoder()
+                                let events = try decoder.decode([EventsByDate].self, from: data)
+                                print("Decoded Events: \(events)")
+                            } catch {
+                                print("Decoding Error: \(error)")
+                            }
+                        }
+                    } else {
+                        print("Network Error: \(error.localizedDescription)")
+                    }
+                    completion(nil)
+                }
+            }
+    }
+    
 }

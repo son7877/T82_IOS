@@ -22,7 +22,7 @@ struct SectionView<Item: Identifiable>: View where Item: EventTitleProtocol {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
                             ForEach(items) { item in
-                                NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventId: item.id))) {
+                                NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventInfoId: item.id))) {
                                     VStack {
                                         Image("sampleImg")
                                             .resizable()
@@ -32,6 +32,7 @@ struct SectionView<Item: Identifiable>: View where Item: EventTitleProtocol {
                                         Text(item.title)
                                             .font(.caption)
                                             .frame(width: 100)
+                                            .foregroundColor(.black)
                                         
                                         if isShowOpenDate {
                                             // 오픈 시간 표시
