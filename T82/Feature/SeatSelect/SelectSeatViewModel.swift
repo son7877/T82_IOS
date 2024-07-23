@@ -31,6 +31,7 @@ class SeatsViewModel: ObservableObject {
     // 좌석 정보 -> fetch로 선택 가능한 좌석 정보를 가져오고 그 좌석의 isAvailable을 true로 바꿔야함
     func loadSeats() {
         self.seats = [
+            
             // 10 * 10형태, 행 열 번호 0부터 시작
             (0..<10).map { Seat(id: $0, rowNum: 0, colNum: $0, name: "A구역", isSelected: false, isAvailable: false) },
             (0..<10).map { Seat(id: $0 + 10, rowNum: 1, colNum: $0, name: "A구역", isSelected: false, isAvailable: false) },
@@ -45,7 +46,7 @@ class SeatsViewModel: ObservableObject {
         ]
     }
     
-    // 좌석의 사용 가능 여부를 업데이트하는 메서드
+    // 좌석의 사용 가능 여부를 업데이트
     func updateSeatAvailability() {
         for selectableSeat in selectableSeats {
             if let rowIndex = seats.firstIndex(where: { row in
@@ -57,13 +58,13 @@ class SeatsViewModel: ObservableObject {
         objectWillChange.send()
     }
     
-    // 좌석 선택 토글 메서드
+    // 좌석 선택 토글
     func toggleSeatSelection(seat: Seat) {
         if let rowIndex = seats.firstIndex(where: { row in
             row.contains(where: { $0.id == seat.id })
         }), let seatIndex = seats[rowIndex].firstIndex(where: { $0.id == seat.id }) {
             seats[rowIndex][seatIndex].isSelected.toggle()
-            print("Toggled seat selection: \(seats[rowIndex][seatIndex])")  // 디버깅용 로그 추가
+            print("Toggled seat selection: \(seats[rowIndex][seatIndex])")  // 확인용
             
             updateSelectedSeats()
         }

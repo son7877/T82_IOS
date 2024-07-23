@@ -1,9 +1,8 @@
 import SwiftUI
 
-struct PaymentPrice: View{
+struct PaymentPrice: View {
     
-    // 예시
-    @State private var selectedSection: Sections = Sections(sectionId: 1, name: "R석", totalSeat: 200, restSeat: 20, price: 200000, eventId: 1)
+    var selectedSeats: [SelectableSeat]
     
     // 예시
     @State private var couponList: [Coupons] = [
@@ -26,7 +25,7 @@ struct PaymentPrice: View{
                             .padding(.leading, 50)
                             .font(.system(size: 20))
                         Spacer()
-                        Text(" \(selectedSection.price) 원")
+                        Text(" \(totalPrice()) 원")
                             .padding(.horizontal, 50)
                             .font(.system(size: 20))
                             .foregroundColor(.customPink)
@@ -38,7 +37,7 @@ struct PaymentPrice: View{
                             .padding(.leading, 50)
                             .font(.system(size: 20))
                         Spacer()
-                        Text("- \(Int(Double(selectedSection.price) * couponList[0].discountType)) 원")
+                        Text("- \(discountAmount()) 원")
                             .padding(.horizontal, 50)
                             .font(.system(size: 20))
                             .foregroundColor(.customPink)
@@ -50,7 +49,7 @@ struct PaymentPrice: View{
                             .padding(.leading, 50)
                             .font(.system(size: 20, weight: .bold))
                         Spacer()
-                        Text("\(selectedSection.price - Int(Double(selectedSection.price) * couponList[0].discountType)) 원")
+                        Text("\(totalPrice() - discountAmount()) 원")
                             .padding(.trailing, 50)
                             .font(.system(size: 20, weight: .heavy))
                             .foregroundColor(.customPink)
@@ -61,5 +60,14 @@ struct PaymentPrice: View{
             .padding(.vertical, 20)
         }
         .frame(height: 200) // GeometryReader의 높이 설정
+    }
+    
+    private func totalPrice() -> Int {
+        return selectedSeats.map { $0.price }.reduce(0, +)
+    }
+    
+    private func discountAmount() -> Int {
+        let discount = couponList[0].discountType
+        return Int(Double(totalPrice()) * discount)
     }
 }

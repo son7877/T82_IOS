@@ -36,7 +36,7 @@ struct SeatsPrice: View {
             Spacer()
             Text("가격: \(seat.price) 원")
         }
-        .padding(.horizontal)
+        .padding(.vertical,5)
     }
 }
 

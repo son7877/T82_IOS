@@ -16,7 +16,7 @@ struct RestSeats: Decodable, Hashable{
 }
 
 struct SelectableSeat: Decodable, Hashable, Identifiable {
-    let seatId: Int // seatId를 그대로 유지
+    let seatId: Int
     let rowNum: Int
     let colNum: Int
     let name: String // Section 이름
