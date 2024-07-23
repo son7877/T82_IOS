@@ -17,7 +17,6 @@ struct PaymentPrice: View {
                     .foregroundColor(.customgray0)
                     .frame(width: geometry.size.width * 0.95, height: 150)
                     .cornerRadius(15)
-                    .padding()
                 
                 VStack {
                     HStack {

@@ -19,7 +19,6 @@ struct CouponList: View {
                         .foregroundColor(.customgray0)
                         .frame(width: geometry.size.width * 0.95, height: 50)
                         .cornerRadius(15)
-                        .padding()
                     
                     HStack {
                         Text("쿠폰 목록")

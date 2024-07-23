@@ -44,6 +44,7 @@ struct PaymentView: View {
                 }
             })
         }
+        
     }
 }
 
