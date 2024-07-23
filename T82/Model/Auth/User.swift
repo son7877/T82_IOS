@@ -22,4 +22,25 @@ struct User : Hashable, Decodable{
     }
 }
 
+struct LoginContent : Hashable, Decodable {
+    var email: String
+    var password: String
+    
+    init(email: String, password: String) {
+        self.email = email
+        self.password = password
+    }
+}
+
+struct SignUpContent : Hashable{
+    var email: String
+    var password: String
+    var passwordCheck: String
+    var name: String
+    var birthDate: Date
+    var phoneNumber: String
+    var address: String
+    var addressDetail: String
+}
+
 

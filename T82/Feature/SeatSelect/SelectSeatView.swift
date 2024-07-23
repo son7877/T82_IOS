@@ -3,10 +3,10 @@ import SwiftUI
 struct SelectSeatView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @StateObject private var viewModel = SeatsViewModel()
     
     var body: some View {
-        NavigationStack{
-            
+        NavigationStack {
             CustomNavigationBar(
                 isDisplayLeftBtn: true,
                 isDisplayRightBtn: false,
@@ -22,14 +22,14 @@ struct SelectSeatView: View {
             .padding()
             .navigationBarBackButtonHidden()
             
-            SeatsInfo()
+            SeatsInfo(viewModel: viewModel)
                 .frame(maxWidth: 300, maxHeight: 300)
                 .padding(.bottom, 30)
                 .padding(.horizontal, 20)
-                .background(.customGray0.opacity(0.7))
+                .background(Color.customGray0.opacity(0.7))
                 .cornerRadius(10)
             
-            SeatsPrice()
+            SeatsPrice(seatsViewModel: viewModel)
                 .padding()
             
             Spacer()

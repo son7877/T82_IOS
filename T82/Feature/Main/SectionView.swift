@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SectionView<Item: Identifiable>: View where Item: EventTitleProtocol {
     let title: String
-    @ObservedObject var viewModel: MainPageViewModel
+    @ObservedObject var viewModel: MainViewModel
     let items: [Item]
     var isShowOpenDate: Bool
     

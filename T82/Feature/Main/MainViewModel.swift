@@ -1,6 +1,6 @@
 import Foundation
 
-class MainPageViewModel: ObservableObject {
+class MainViewModel: ObservableObject {
     
     // 현재 판매 중인 티켓 중 판매량 많은 순
     @Published var mainTicketTopRanking = [MainContents]()
@@ -13,7 +13,6 @@ class MainPageViewModel: ObservableObject {
     
     // 전체 공연 중 할인율이 높은 순
     @Published var mainTicketDiscountsRanking = [DiscountedContents]()
-    
     
     // MARK: - 통신
     func fetchMainPageData() {

@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct MainpageView: View {
+struct MainView: View {
     
-    @StateObject private var viewModel = MainPageViewModel()
+    @StateObject private var viewModel = MainViewModel()
     @State private var selectedGenre: Genre = .concert
     @State var selectedIndex: Int = 4
     
@@ -70,7 +70,7 @@ struct MainpageView: View {
                 }
                 VStack {
                     Spacer()
-                    tabBarView(selectedIndex: $selectedIndex)
+                    CustomTabBarView(selectedIndex: $selectedIndex)
                         .background(Color.white) // 흰색 배경 추가
                 }
             }
@@ -85,6 +85,6 @@ struct MainpageView: View {
 
 struct MainpageView_Previews: PreviewProvider {
     static var previews: some View {
-        MainpageView()
+        MainView()
     }
 }

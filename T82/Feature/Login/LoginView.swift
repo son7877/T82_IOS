@@ -89,7 +89,7 @@ struct LoginView: View {
                 Alert(title: Text("로그인 실패"), message: Text(loginContentViewMoel.errorMessage ?? ""), dismissButton: .default(Text("확인")))
             }
             .navigationDestination(isPresented: $loginContentViewMoel.loginSuccessful) {
-                MainpageView()
+                MainView()
             }
         }
     }

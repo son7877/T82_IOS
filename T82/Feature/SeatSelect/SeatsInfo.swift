@@ -2,16 +2,13 @@ import SwiftUI
 
 struct SeatsInfo: View {
     
-    @StateObject private var viewModel = SeatsViewModel()
+    @ObservedObject var viewModel: SeatsViewModel
     
     var body: some View {
-        ScrollView{
+        ScrollView {
             VStack(spacing: 20) {
                 ForEach(viewModel.seats, id: \.self) { row in
                     HStack(spacing: 10) {
-                        Text(row.first?.row ?? "")
-                            .font(.caption)
-                            .frame(width: 20) // row 텍스트의 고정된 너비
                         
                         HStack(spacing: 10) {
                             ForEach(Array(row.enumerated()), id: \.offset) { index, seat in
@@ -40,12 +37,9 @@ struct SeatsInfo: View {
                             }
                         }
                         .padding(10)
-                        .background(colorForSection(row.first?.section ?? ""))
+                        .background(colorForSection(row.first?.name ?? ""))
                         .cornerRadius(5)
                         
-                        Text(row.first?.row ?? "")
-                            .font(.caption)
-                            .frame(width: 20) // row 텍스트의 고정된 너비
                     }
                 }
             }
@@ -55,18 +49,14 @@ struct SeatsInfo: View {
         
     func colorForSection(_ section: String) -> Color {
         switch section {
-        case "SR":
+        case "A구역":
             return Color.blue.opacity(0.2)
-        case "R":
+        case "B구역":
             return Color.green.opacity(0.2)
-        case "S":
+        case "C구역":
             return Color.red.opacity(0.2)
         default:
             return Color.gray.opacity(0.2)
         }
     }
-}
-
-#Preview{
-    SeatsInfo()
 }

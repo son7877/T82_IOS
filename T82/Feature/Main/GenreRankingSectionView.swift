@@ -2,7 +2,7 @@ import SwiftUI
 
 struct GenreRankingSectionView: View {
     @Binding var selectedGenre: Genre
-    @ObservedObject var viewModel: MainPageViewModel
+    @ObservedObject var viewModel: MainViewModel
 
     var body: some View {
         VStack(alignment: .leading) {

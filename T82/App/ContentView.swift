@@ -15,7 +15,7 @@ struct ContentView: View {
             case "login":
                 LoginView()
             case "main":
-                MainpageView()
+                MainView()
             case "paymentSuccess":
                 PaymentCompleteView()
             case "myPage/myticket":

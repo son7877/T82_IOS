@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct tabBarView: View {
+struct CustomTabBarView: View {
     @Binding var selectedIndex: Int
 
     var body: some View {

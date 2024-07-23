@@ -108,5 +108,5 @@ struct SubCategoryView: View {
 }
 
 #Preview{
-    MainpageView()
+    MainView()
 }
