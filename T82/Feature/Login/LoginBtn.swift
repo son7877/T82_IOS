@@ -23,7 +23,7 @@ struct LoginButton: View {
                     .foregroundColor(.white)
                     .cornerRadius(20)
             }
-            .disabled(viewModel.isLoading) // 로딩 중일 때 버튼 비활성화
+            .disabled(viewModel.isLoading) 
         }
     }
 }

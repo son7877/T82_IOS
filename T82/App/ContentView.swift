@@ -12,8 +12,10 @@ struct ContentView: View {
     var body: some View {
         VStack{
             switch viewRouter.currentPage {
+            case "login":
+                LoginView()
             case "main":
-                MainpageView()
+                MainView()
             case "paymentSuccess":
                 PaymentCompleteView()
             case "myPage/myticket":

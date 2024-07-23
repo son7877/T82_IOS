@@ -25,8 +25,17 @@ extension Date {
         else{
             let formatter = DateFormatter()
             formatter.locale = Locale(identifier: "ko_KR")
-            formatter.dateFormat = "mm/dd"
+            formatter.dateFormat = "MM/dd"
             return formatter.string(from: self)
         }
+    }
+    
+    func stripTime() -> Date {
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: self)
+        return Calendar.current.date(from: components)!
+    }
+    
+    func isSameDay(as date: Date) -> Bool {
+        return Calendar.current.isDate(self, inSameDayAs: date)
     }
 }

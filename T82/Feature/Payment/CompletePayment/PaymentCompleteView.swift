@@ -33,7 +33,7 @@ struct PaymentCompleteView: View {
             
         }
         // 합칠 때 MainView로 변경
-        TicketingProcessBtn(destination: MainpageView(), title: "홈으로")
+        TicketingProcessBtn(destination: MainView(), title: "홈으로")
     }
 }
 

@@ -2,6 +2,7 @@ import Foundation
 import Combine
 
 class LoginViewModel: ObservableObject {
+    
     @Published var loginContent: LoginContent = LoginContent(email: "", password: "")
     @Published var loginSuccessful: Bool = false
     @Published var errorMessage: String? = nil
@@ -13,20 +14,17 @@ class LoginViewModel: ObservableObject {
         self.isLoading = true
         self.errorMessage = nil
         
-        AuthService.login(email: loginContent.email, password: loginContent.password)
-            .sink(receiveCompletion: { completion in
-                self.isLoading = false
-                switch completion {
-                case .finished:
-                    self.loginSuccessful = true
-                    print("Login successful")
-                case .failure(let error):
-                    self.errorMessage = error.localizedDescription
-                    print("Login failed with error: \(error.localizedDescription)")
+        AuthService.shared.login(email: loginContent.email, password: loginContent.password) { [weak self] success in
+            DispatchQueue.main.async {
+                self?.isLoading = false
+                if success {
+                    self?.loginSuccessful = true
+                    self?.errorMessage = nil
+                } else {
+                    self?.loginSuccessful = false
+                    self?.errorMessage = "로그인 실패"
                 }
-            }, receiveValue: { response in
-                print("Received response: \(response)")
-            })
-            .store(in: &cancellables)
+            }
+        }
     }
 }
