@@ -5,6 +5,7 @@ class Config{
     let AuthHost = "http://192.168.0.18:8000"
     let TicketHost = "http://192.168.0.18:8080"
     let EventHost = "http://192.168.0.18:8081"
+    let CouponHost = "http://192.168.0.18:8082"
     
     var token: String?{
         return UserDefaults.standard.string(forKey: "token")

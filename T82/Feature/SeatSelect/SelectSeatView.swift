@@ -34,7 +34,6 @@ struct SelectSeatView: View {
             
             Spacer()
             
-            // 선택한 좌석 정보를 받아서 결제 정보로 이동
             TicketingProcessBtn(
                 destination: PaymentView(selectedSeats: viewModel.selectedSeats),
                 title: "결제 이동"

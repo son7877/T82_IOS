@@ -4,12 +4,6 @@ struct PaymentPrice: View {
     
     var selectedSeats: [SelectableSeat]
     
-    // 예시
-    @State private var couponList: [Coupons] = [
-        Coupons(couponName: "첫 회원 가입 기념 쿠폰", discountType: 0.2, discountValue: 0),
-        Coupons(couponName: "7월 기념 쿠폰", discountType: 0.1, discountValue: 0)
-    ]
-    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -17,10 +11,11 @@ struct PaymentPrice: View {
                     .foregroundColor(.customgray0)
                     .frame(width: geometry.size.width * 0.95, height: 150)
                     .cornerRadius(15)
+                    .padding()
                 
                 VStack {
                     HStack {
-                        Text("판매 가격")
+                        Text("총 가격")
                             .padding(.leading, 50)
                             .font(.system(size: 20))
                         Spacer()
@@ -58,7 +53,7 @@ struct PaymentPrice: View {
             }
             .padding(.vertical, 20)
         }
-        .frame(height: 200) // GeometryReader의 높이 설정
+        .frame(height: 200)
     }
     
     private func totalPrice() -> Int {
@@ -66,7 +61,7 @@ struct PaymentPrice: View {
     }
     
     private func discountAmount() -> Int {
-        let discount = couponList[0].discountType
-        return Int(Double(totalPrice()) * discount)
+        // 임시
+        return 0
     }
 }

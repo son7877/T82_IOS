@@ -70,8 +70,6 @@ struct SubCategoryView: View {
                     }
                 }
                 
-                
-                
                 // 오픈 예정
                 VStack(alignment: .leading) {
                     Text("OPEN SOON")

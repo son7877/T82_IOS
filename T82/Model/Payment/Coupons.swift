@@ -1,21 +1,44 @@
-//
-//  Coupons.swift
-//  T82
-//
-//  Created by 안홍범 on 7/11/24.
-//
-
 import Foundation
 
-struct Coupons : Hashable {
-    var couponName: String
-    var discountType: Double
-    var discountValue: Int
+struct CouponResponse: Codable {
+    let totalPages: Int
+    let totalElements: Int
+    let first: Bool
+    let last: Bool
+    let size: Int
+    let content: [Coupon]
+    let number: Int
+    let numberOfElements: Int
+    let pageable: Pageable
+    let empty: Bool
+}
+
+struct Coupon: Codable, Identifiable {
+    let couponId: String
+    let couponName: String
+    let discountType: String
+    let discountValue: Int
+    let validEnd: String
+    let minPurchase: Int
+    let duplicate: Bool
+    let category: String
     
-    init(couponName: String, discountType: Double, discountValue: Int) {
-        self.couponName = couponName
-        self.discountType = discountType
-        self.discountValue = discountValue
+    var id : String {
+        return couponId
     }
-    
+}
+
+struct Pageable: Codable {
+    let pageNumber: Int
+    let pageSize: Int
+    let sort: Sort
+    let offset: Int
+    let paged: Bool
+    let unpaged: Bool
+}
+
+struct Sort: Codable {
+    let empty: Bool
+    let sorted: Bool
+    let unsorted: Bool
 }
