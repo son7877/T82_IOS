@@ -3,6 +3,7 @@ import SwiftUI
 struct PaymentPrice: View {
     
     var selectedSeats: [SelectableSeat]
+    var selectedCoupons: [Int: Coupon] // 좌석 ID별로 적용된 쿠폰
     
     var body: some View {
         GeometryReader { geometry in
@@ -61,7 +62,12 @@ struct PaymentPrice: View {
     }
     
     private func discountAmount() -> Int {
-        // 임시
-        return 0
+        return selectedSeats.reduce(0) { result, seat in
+            if let coupon = selectedCoupons[seat.id] {
+                return result + PaymentPerTicket.calculateDiscount(for: seat.price, with: coupon)!
+            } else {
+                return result
+            }
+        }
     }
 }

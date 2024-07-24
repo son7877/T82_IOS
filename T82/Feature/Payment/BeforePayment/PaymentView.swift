@@ -5,7 +5,8 @@ struct PaymentView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State private var isPaymentComplete: Bool = false
     var selectedSeats: [SelectableSeat]
-    
+    @StateObject private var couponViewModel = CouponListViewModel() // 쿠폰 정보 관리
+
     var body: some View {
         
         VStack{
@@ -26,27 +27,14 @@ struct PaymentView: View {
             Spacer()
             
             PaymentPerTicket(selectedSeats: selectedSeats)
+                .environmentObject(couponViewModel)
             PaymentSelection()
-            PaymentPrice(selectedSeats: selectedSeats)
+            PaymentPrice(selectedSeats: selectedSeats, selectedCoupons: couponViewModel.couponList)
             TicketingProcessBtn(
                 destination: PaymentCompleteView(),
                 title: "결제하기"
             )
-                
-//                .simultaneousGesture(TapGesture().onEnded {
-//                    let urlString = "https://ul.toss.im?scheme=supertoss%3A%2F%2Fpay%3FpayToken%3DzwdAh0wG3ZZIw49kl3gB46"
-//                                
-//                    if let url = URL(string: urlString) {
-//                        if UIApplication.shared.canOpenURL(url) {
-//                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//                        } else {
-//                            print("오류")
-//                        }
-//                    }
-//                })
         }
         .navigationBarBackButtonHidden()
     }
 }
-
-

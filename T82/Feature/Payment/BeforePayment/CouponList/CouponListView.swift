@@ -2,13 +2,16 @@ import SwiftUI
 
 struct CouponListView: View {
     @StateObject private var viewModel = CouponListViewModel()
-    
+    var onCouponSelected: (Coupon) -> Void
+    var selectedCouponId: String?
+    var usedCoupons: Set<String>
+
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading){
                     ForEach(viewModel.coupons, id: \.couponId) { coupon in
-                        CouponRowView(coupon: coupon)
+                        CouponRowView(coupon: coupon, onCouponSelected: onCouponSelected, isSelected: selectedCouponId == coupon.couponId, isUsed: usedCoupons.contains(coupon.couponId))
                             .padding(.vertical, 20)
                     }
                 }
@@ -24,6 +27,9 @@ struct CouponListView: View {
 struct CouponRowView: View {
     let coupon: Coupon
     @Environment(\.presentationMode) var presentationMode
+    var onCouponSelected: (Coupon) -> Void
+    var isSelected: Bool
+    var isUsed: Bool
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -37,15 +43,21 @@ struct CouponRowView: View {
                 .font(.subheadline)
                 .padding(.bottom, 10)
             Button {
+                if isSelected {
+                    onCouponSelected(Coupon(couponId: "", couponName: "", discountType: "", discountValue: 0, validEnd: "", minPurchase: 0, duplicate: false, category: ""))
+                } else {
+                    onCouponSelected(coupon)
+                }
                 presentationMode.wrappedValue.dismiss()
             } label: {
-                Text("적용")
+                Text(isSelected ? "적용중" : (isUsed ? "사용중" : "적용"))
                     .foregroundColor(.white)
-                    .background(.customRed)
+                    .background(isSelected ? Color.gray : (isUsed ? Color.gray : Color.red))
                     .padding(.horizontal, 20)
                     .padding(.vertical, 10)
                     .cornerRadius(10)
             }
+            .disabled(isUsed && !isSelected)
         }
     }
     
@@ -68,4 +80,3 @@ struct CouponRowView: View {
         return dateFormatter.string(from: date)
     }
 }
-

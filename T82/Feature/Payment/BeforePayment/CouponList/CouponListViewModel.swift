@@ -4,6 +4,10 @@ import Combine
 class CouponListViewModel: ObservableObject {
     @Published var coupons: [Coupon] = []
     @Published var isLoading = false
+    @Published var couponList: [Int: Coupon] = [:]
+    @Published var isShowDiscount: Bool = false
+    @Published var usedCoupons: Set<String> = [] // 사용 중인 쿠폰 ID를 저장할 집합
+
     private var currentPage = 0
     private var totalPages = 1
     private var cancellables = Set<AnyCancellable>()
@@ -25,8 +29,10 @@ class CouponListViewModel: ObservableObject {
                 self.coupons.append(contentsOf: response.content)
                 self.totalPages = response.totalPages
                 self.currentPage = response.number
+                print("쿠폰 불러오기 성공")
+                print("쿠폰 리스트: \(self.coupons)")
             case .failure(let error):
-                print("Failed to fetch coupons: \(error)")
+                print("쿠폰 불러오기 실패: \(error)")
             }
         }
     }
