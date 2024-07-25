@@ -4,7 +4,7 @@ struct PaymentPerTicket: View {
     
     @State var selectedSeats: [SelectableSeat]
     @State private var currentSeatIndex: Int? = nil
-    @EnvironmentObject var couponViewModel: CouponListViewModel // 좌석 ID별 쿠폰 저장
+    @EnvironmentObject var couponViewModel: CouponListViewModel
     
     var body: some View {
         GeometryReader { geometry in
@@ -18,9 +18,10 @@ struct PaymentPerTicket: View {
                 ScrollView {
                     ForEach(selectedSeats.indices, id: \.self) { index in
                         let seat = selectedSeats[index]
+                        let finalPrice = calculateFinalPrice(for: seat, with: couponViewModel.couponList[seat.id])
                         VStack {
                             HStack {
-                                Text("\(seat.name)  \(seat.rowNum)-\(seat.colNum)석")
+                                Text("\(seat.name)  \(seat.rowNum+1)-\(seat.colNum+1)석")
                                     .font(.system(size: 20))
                                     .padding(.leading, 30)
                                 Spacer()
@@ -35,13 +36,13 @@ struct PaymentPerTicket: View {
                                 )
                                 Spacer()
                                 VStack(alignment: .trailing) {
-                                    Text("\(seat.price)원")
+                                    Text("\(finalPrice) 원")
                                         .font(.system(size: 20))
                                     if let coupon = couponViewModel.couponList[seat.id],
                                        let discountAmount = PaymentPerTicket.calculateDiscount(for: seat.price, with: coupon) {
-                                        Text("할인 적용: -\(discountAmount)원")
+                                        Text("할인 적용: -\(discountAmount) 원")
                                             .font(.system(size: 16))
-                                            .foregroundColor(.green)
+                                            .foregroundColor(.customorange)
                                     }
                                 }
                                 .padding(.trailing, 30)
@@ -66,7 +67,7 @@ struct PaymentPerTicket: View {
         }
     }
     
-    // 할인 금액을 계산하는 함수
+    // 할인 금액 계산
     static func calculateDiscount(for price: Int, with coupon: Coupon) -> Int? {
         switch coupon.discountType {
         case "PERCENTAGE":
@@ -75,6 +76,15 @@ struct PaymentPerTicket: View {
             return coupon.discountValue
         default:
             return nil
+        }
+    }
+    
+    // 최종 가격 계산
+    func calculateFinalPrice(for seat: SelectableSeat, with coupon: Coupon?) -> Int {
+        if let coupon = coupon, let discountAmount = PaymentPerTicket.calculateDiscount(for: seat.price, with: coupon) {
+            return seat.price - discountAmount
+        } else {
+            return seat.price
         }
     }
 }

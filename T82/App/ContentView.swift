@@ -1,14 +1,9 @@
-//
-//  ContentView.swift
-//  T82
-//
-//  Created by 안홍범 on 7/18/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    
     @EnvironmentObject var viewRouter: ViewRouter
+    
     var body: some View {
         VStack{
             switch viewRouter.currentPage {

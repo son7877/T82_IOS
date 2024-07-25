@@ -24,13 +24,3 @@ struct TicketingProcessBtn<Destination: View>: View {
     }
 }
 
-struct TicketingProcessBtn_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            TicketingProcessBtn(
-                destination: PaymentCompleteView(),
-                title: "결제하기"
-            )
-        }
-    }
-}

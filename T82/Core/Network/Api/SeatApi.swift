@@ -9,7 +9,7 @@ class SelectSeatService {
     // MARK: - 예매 가능한 좌석 리스트 가져오기
     func getSelectableSeats(eventId: Int, completion: @escaping ([SelectableSeat]?) -> Void) {
         
-        let url = Config().TicketHost + "/api/v1/events/\(eventId)/seats"
+        let url = Config().SeatHost + "/api/v1/events/\(eventId)/seats"
         
         AF.request(url, method: .get)
             .validate()

@@ -1,10 +1,3 @@
-//
-//  CompleteTicket.swift
-//  T82
-//
-//  Created by 안홍범 on 7/12/24.
-//
-
 import SwiftUI
 
 struct CompleteTicket: View {

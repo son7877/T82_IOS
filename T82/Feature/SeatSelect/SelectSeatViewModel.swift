@@ -8,7 +8,6 @@ class SeatsViewModel: ObservableObject {
 
     init() {
         loadSeats()
-        fetchAvailableSeats(eventId: 3)
     }
     
     // MARK: - 이벤트 별 남은 좌석 수 불러오기
@@ -31,7 +30,6 @@ class SeatsViewModel: ObservableObject {
     // 좌석 정보 -> fetch로 선택 가능한 좌석 정보를 가져오고 그 좌석의 isAvailable을 true로 바꿔야함
     func loadSeats() {
         self.seats = [
-            
             // 10 * 10형태, 행 열 번호 0부터 시작
             (0..<10).map { Seat(id: $0, rowNum: 0, colNum: $0, name: "A구역", isSelected: false, isAvailable: false) },
             (0..<10).map { Seat(id: $0 + 10, rowNum: 1, colNum: $0, name: "A구역", isSelected: false, isAvailable: false) },

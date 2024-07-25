@@ -4,6 +4,7 @@ struct SelectSeatView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject private var viewModel = SeatsViewModel()
+    var eventId: Int
     
     var body: some View {
         NavigationStack {
@@ -35,14 +36,19 @@ struct SelectSeatView: View {
             Spacer()
             
             TicketingProcessBtn(
-                destination: PaymentView(selectedSeats: viewModel.selectedSeats),
+                destination: PaymentView(selectedSeats: viewModel.selectedSeats, eventId: eventId),
                 title: "결제 이동"
             )
         }
         .navigationBarBackButtonHidden()
+        .onAppear {
+            viewModel.fetchAvailableSeats(eventId: eventId)
+        }
     }
 }
 
-#Preview {
-    SelectSeatView()
+struct SelectSeatView_Previews: PreviewProvider {
+    static var previews: some View {
+        SelectSeatView(eventId: 1)
+    }
 }
