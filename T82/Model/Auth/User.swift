@@ -32,7 +32,7 @@ struct LoginContent : Hashable, Decodable {
     }
 }
 
-struct SignUpContent : Hashable{
+struct SignUpContent: Hashable, Encodable {
     var email: String
     var password: String
     var passwordCheck: String
@@ -41,6 +41,25 @@ struct SignUpContent : Hashable{
     var phoneNumber: String
     var address: String
     var addressDetail: String
+    
+    enum CodingKeys: String, CodingKey {
+        case email, password, passwordCheck, name, birthDate, phoneNumber, address, addressDetail
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(email, forKey: .email)
+        try container.encode(password, forKey: .password)
+        try container.encode(passwordCheck, forKey: .passwordCheck)
+        try container.encode(name, forKey: .name)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let birthDateString = dateFormatter.string(from: birthDate)
+        try container.encode(birthDateString, forKey: .birthDate)
+        try container.encode(phoneNumber, forKey: .phoneNumber)
+        try container.encode(address, forKey: .address)
+        try container.encode(addressDetail, forKey: .addressDetail)
+    }
 }
 
 

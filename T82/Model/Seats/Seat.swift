@@ -26,3 +26,9 @@ struct SelectableSeat: Decodable, Hashable, Identifiable {
         return seatId
     }
 }
+
+struct PendingSeat : Decodable, Hashable {
+    let seatId: Int
+    let eventId: Int
+    let price : Int
+}

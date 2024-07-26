@@ -53,7 +53,7 @@ struct MainView: View {
                                 // 장르별 랭킹 이벤트
                                 GenreRankingSectionView(selectedGenre: $selectedGenre, viewModel: viewModel)
                                 
-                                // 특별 할인 이벤트
+                                // 특별 할인 이벤트 -> 아직 미구현
                                 
                                 // 오픈 예정 이벤트
                                 SectionView(title: "OPEN SOON", viewModel: viewModel, items: viewModel.mainTicketOpenSoon, isShowOpenDate: true)

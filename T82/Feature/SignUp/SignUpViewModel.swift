@@ -15,16 +15,8 @@ class SignUpViewModel: ObservableObject {
         self.errorMessage = nil
         
         AuthService.shared.signUp(
-            email: signUpContent.email,
-            password: signUpContent.password,
-            passwordCheck: signUpContent.passwordCheck,
-            name: signUpContent.name,
-            birthDate: signUpContent.birthDate,
-            phoneNumber: signUpContent.phoneNumber,
-            address: signUpContent.address,
-            addressDetail: signUpContent.addressDetail
-        ) {
-            [weak self] success in
+            signUpRequest: signUpContent
+        ) { [weak self] success in
             DispatchQueue.main.async {
                 self?.isLoading = false
                 if success {

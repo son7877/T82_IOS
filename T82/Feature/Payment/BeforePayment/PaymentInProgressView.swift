@@ -4,7 +4,7 @@ struct PaymentInProgressView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @EnvironmentObject var paymentViewModel: PaymentViewModel
     @ObservedObject var couponViewModel: CouponListViewModel
-    @State private var showPaymentCompleteView = false
+    @State private var navigateToCompleteView = false
     var selectedSeats: [SelectableSeat]
     var eventId: Int
 
@@ -14,13 +14,16 @@ struct PaymentInProgressView: View {
                 .padding(.bottom, 50)
             Text("결제 진행중...")
                 .font(.system(size: 20))
+            NavigationLink(
+                destination: PaymentCompleteView()
+                    .environmentObject(paymentViewModel),
+                isActive: $navigateToCompleteView
+            ) {
+                EmptyView()
+            }
         }
         .onAppear {
             makePayment()
-        }
-        .fullScreenCover(isPresented: $showPaymentCompleteView) {
-            PaymentCompleteView()
-                .environmentObject(paymentViewModel)
         }
         .navigationBarBackButtonHidden(true)
     }
@@ -74,9 +77,9 @@ struct PaymentInProgressView: View {
             UIApplication.shared.open(url, options: [:], completionHandler: { success in
                 if success {
                     // 결제 완료 뷰로 이동
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                         paymentViewModel.paymentStatus = .success
-                        showPaymentCompleteView = true
+                        navigateToCompleteView = true
                     }
                 } else {
                     print("오류: URL을 열 수 없습니다.")

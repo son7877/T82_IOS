@@ -1,10 +1,3 @@
-//
-//  MyReview.swift
-//  T82
-//
-//  Created by 안홍범 on 7/15/24.
-//
-
 import Foundation
 
 struct MyReview: Hashable, Identifiable{

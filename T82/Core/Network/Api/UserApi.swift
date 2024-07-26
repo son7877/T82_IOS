@@ -38,49 +38,38 @@ class AuthService {
     }
     
     // MARK: - 회원 가입
-    func signUp(
-        email: String,
-        password: String,
-        passwordCheck: String,
-        name: String,
-        birthDate: Date,
-        phoneNumber: String,
-        address: String,
-        addressDetail: String,
-        completion: @escaping (Bool) -> Void
-    ) {
+    func signUp(signUpRequest: SignUpContent , completion: @escaping (Bool) -> Void) {
         
         let signUpUrl = "\(Config().AuthHost)/api/v1/user/signup"
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        
-        let parameters = [
-            "email": email,
-            "password": password,
-            "passwordCheck": passwordCheck,
-            "name": name,
-            "birthDate": dateFormatter.string(from: birthDate),
-            "phoneNumber": phoneNumber,
-            "address": address,
-            "addressDetail": addressDetail
-        ]
-        
-        AF.request(signUpUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        AF.request(signUpUrl, method: .post, parameters: signUpRequest, encoder: JSONParameterEncoder.default)
             .validate()
             .response { response in
-                if let httpResponse = response.response {
-                    if (200..<300).contains(httpResponse.statusCode) {
-                        completion(true)
+                switch response.result {
+                case .success:
+                    if let httpResponse = response.response {
+                        print("HTTP Status Code: \(httpResponse.statusCode)")
+                        completion((200..<300).contains(httpResponse.statusCode))
                     } else {
+                        print("No HTTP Response received.")
                         completion(false)
                     }
-                } else {
+                case .failure(let error):
+                    if let httpResponse = response.response {
+                        print("HTTP Status Code: \(httpResponse.statusCode)")
+                        print("Error: \(error.localizedDescription)")
+                        if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                            print("Error Message: \(errorMessage)")
+                        }
+                    } else {
+                        print("Network Error: \(error.localizedDescription)")
+                    }
                     completion(false)
                 }
             }
     }
     
+    // 유저 정보 불러오기
     func fetchInfo(completion: @escaping (UserInfo?) -> Void) {
         let fetchUrl = "\(Config().AuthHost)/api/v1/user/me"
         print("Fetching user info from: \(fetchUrl)")

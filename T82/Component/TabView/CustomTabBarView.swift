@@ -19,7 +19,6 @@ struct CustomTabBarView: View {
             .cornerRadius(20)
             .shadow(radius: 5)
 
-            // 가운데 버튼
             Button(action: {
                 selectedIndex = 4
             }) {
@@ -29,8 +28,9 @@ struct CustomTabBarView: View {
                     .clipShape(Circle())
                     .shadow(radius: 5)
             }
-            .offset(y: -20) // 값을 조금 더 올립니다
+            .offset(y: -20)
         }
-        .offset(y: -18) // 값을 조금 더 올립니다
+        .offset(y: -18)
+        .edgesIgnoringSafeArea(.bottom)
     }
 }

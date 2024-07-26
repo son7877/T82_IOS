@@ -5,6 +5,7 @@ class SeatsViewModel: ObservableObject {
     @Published var seats: [[Seat]] = []
     @Published var selectableSeats: [SelectableSeat] = []
     @Published var selectedSeats: [SelectableSeat] = []
+    @Published var pendingSeats: [PendingSeat] = []
 
     init() {
         loadSeats()
@@ -26,6 +27,25 @@ class SeatsViewModel: ObservableObject {
             }
         }
     }
+    
+    // MARK: - 좌석 선택 후 결제 페이지로 이동할 시 결제 전까지 Pending 테이블에 추가
+    func addPendingSeat(seats: [PendingSeat]){
+        SelectSeatService.shared.addPendingSeats(seats: seats) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(true):
+                DispatchQueue.main.async {
+                    self.pendingSeats = seats
+                }
+            case .success(false):
+                print("Failed to add seats: Unknown reason.")
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    
 
     // 좌석 정보 -> fetch로 선택 가능한 좌석 정보를 가져오고 그 좌석의 isAvailable을 true로 바꿔야함
     func loadSeats() {

@@ -210,28 +210,6 @@ struct MyInfoEditingView: View {
                 
                 Spacer()
                 
-                // 토스 테스트
-//                Button(
-//                    action: {
-//                        // 토스 테스트
-//                        let urlString = "https://ul.toss.im/?scheme=supertoss%3A%2F%2Fpay%3FpayToken%3D77w2IJLBjD5smGEQ8RBN08"
-//
-//                        if let url = URL(string: urlString) {
-//
-//                            if UIApplication.shared.canOpenURL(url) {
-//                                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//                            } else {
-//                                print("오류")
-//                            }
-//                        }
-//                        
-//                    }, label: {
-//                        Text("토스 테스트")
-//                            .foregroundColor(Color.gray)
-//                            .underline()
-//                    }
-//                )
-                
                 Button(
                     action: {
                         navigateToLogin = true
@@ -245,6 +223,11 @@ struct MyInfoEditingView: View {
                 .padding(.horizontal, 30)
             }
             .padding(.vertical, 30)
+            
+            Rectangle()
+                .frame(height: 100)
+                .foregroundColor(.white)
+            
         }
         .onAppear {
             viewModel.fetchUserInfo()

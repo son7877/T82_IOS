@@ -8,6 +8,7 @@ struct PaymentView: View {
     var eventId: Int
     @StateObject private var couponViewModel = CouponListViewModel()
     @StateObject private var paymentViewModel = PaymentViewModel()
+    @StateObject private var seatViewmodel = SeatsViewModel()
 
     var body: some View {
         
@@ -40,5 +41,13 @@ struct PaymentView: View {
             )
         }
         .navigationBarBackButtonHidden()
+        .onAppear(){
+            seatViewmodel.addPendingSeat(seats: selectedSeats.map {
+                PendingSeat(
+                    seatId: $0.seatId,
+                    eventId: eventId,
+                    price: $0.price
+                ) })
+        }
     }
 }

@@ -83,53 +83,28 @@ struct ReservationView: View {
                 }
             }
             .frame(height: 300)
-
-            // MARK: - 이벤트 날짜 선택
-            VStack(alignment: .leading, spacing: 10) {
-                Text("날짜 선택")
-                    .font(.headline)
-                    .padding(.leading, 20)
-                    .padding(.top, 16)
-
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 10) {
-                        let uniqueDates = Array(Set(viewModel.availableDates.map { $0.eventStartTime.stripTime() }))
-                        ForEach(uniqueDates.sorted(), id: \.self) { date in
-                            Button(action: {
-                                selectedDate = date
-                                selectedTime = nil
-                                availableSeats = ""
-                            }) {
-                                Text(date.formmatedDay)
-                                    .padding()
-                                    .background(selectedDate?.isSameDay(as: date) == true ? Color.customred : Color.gray)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(10)
-                            }
-                        }
-                    }
-                    .padding(.horizontal, 20)
-                }
-
-                if let selectedDate = selectedDate {
-                    Text("시간 선택")
+            
+            ScrollView{
+                // MARK: - 이벤트 날짜 선택
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("날짜 선택")
                         .font(.headline)
                         .padding(.leading, 20)
                         .padding(.top, 16)
 
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack(spacing: 10) {
-                            ForEach(viewModel.availableTimes(for: selectedDate), id: \.self) { time in
+                            let uniqueDates = Array(Set(viewModel.availableDates.map { $0.eventStartTime.stripTime() }))
+                            ForEach(uniqueDates.sorted(), id: \.self) { date in
                                 Button(action: {
-                                    selectedTime = time
-                                    if let eventId = viewModel.availableDates.first(where: { $0.eventStartTime == time })?.eventId {
-                                        viewModel.fetchAvailableSeats(eventId: eventId)
-                                        selectedEventId = eventId
-                                    }
+                                    selectedDate = date
+                                    selectedTime = nil
+                                    availableSeats = ""
                                 }) {
-                                    Text(timeFormatted(time))
+                                    Text(date.formmatedDay)
+                                        .font(.subheadline)
                                         .padding()
-                                        .background(selectedTime == time ? Color.customred : Color.gray)
+                                        .background(selectedDate?.isSameDay(as: date) == true ? Color.customred : Color.gray)
                                         .foregroundColor(.white)
                                         .cornerRadius(10)
                                 }
@@ -137,38 +112,66 @@ struct ReservationView: View {
                         }
                         .padding(.horizontal, 20)
                     }
-                }
 
-                // MARK: - 좌석 현황
-                if viewModel.seatsFetchError {
-                    Text("잔여 좌석 정보를 불러올 수 없습니다.")
-                        .font(.headline)
-                        .foregroundColor(.red)
-                        .padding(.leading, 20)
-                        .padding(.top, 16)
-                } else if !viewModel.getAvailableSeatsCountString().isEmpty {
-                    Text("잔여 좌석")
-                        .font(.headline)
-                        .padding(.leading, 20)
-                        .padding(.top, 16)
+                    if let selectedDate = selectedDate {
+                        Text("시간 선택")
+                            .font(.headline)
+                            .padding(.leading, 20)
+                            .padding(.top, 16)
 
-                    ZStack {
-                        Rectangle()
-                            .scaledToFill()
-                            .frame(width: UIScreen.main.bounds.width - 32, height: 80)
-                            .opacity(0.1)
-                            .cornerRadius(10)
-
-                        Text(viewModel.getAvailableSeatsCountString())
-                            .font(.subheadline)
-                            .padding()
-                            .background(Color.gray.opacity(0.2))
-                            .cornerRadius(10)
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack(spacing: 10) {
+                                ForEach(viewModel.availableTimes(for: selectedDate), id: \.self) { time in
+                                    Button(action: {
+                                        selectedTime = time
+                                        if let eventId = viewModel.availableDates.first(where: { $0.eventStartTime == time })?.eventId {
+                                            viewModel.fetchAvailableSeats(eventId: eventId)
+                                            selectedEventId = eventId
+                                        }
+                                    }) {
+                                        Text(timeFormatted(time))
+                                            .padding()
+                                            .background(selectedTime == time ? Color.customred : Color.gray)
+                                            .foregroundColor(.white)
+                                            .cornerRadius(10)
+                                    }
+                                }
+                            }
+                            .padding(.horizontal, 20)
+                        }
                     }
-                    .padding(.horizontal, 16)
+
+                    // MARK: - 좌석 현황
+                    if viewModel.seatsFetchError {
+                        Text("잔여 좌석 정보를 불러올 수 없습니다.")
+                            .font(.headline)
+                            .foregroundColor(.red)
+                            .padding(.leading, 20)
+                            .padding(.top, 16)
+                    } else if !viewModel.getAvailableSeatsCountString().isEmpty {
+                        Text("잔여 좌석")
+                            .font(.headline)
+                            .padding(.leading, 20)
+                            .padding(.top, 16)
+
+                        ZStack {
+                            Rectangle()
+                                .scaledToFill()
+                                .frame(width: UIScreen.main.bounds.width - 32, height: 80)
+                                .opacity(0.1)
+                                .cornerRadius(10)
+
+                            Text(viewModel.getAvailableSeatsCountString())
+                                .font(.subheadline)
+                                .padding()
+                                .background(Color.gray.opacity(0.2))
+                                .cornerRadius(10)
+                        }
+                        .padding(.horizontal, 16)
+                    }
                 }
             }
-
+            
             Spacer()
 
             VStack {
@@ -179,12 +182,11 @@ struct ReservationView: View {
                         )
                 } else {
                     Text("좌석 선택")
-                        .font(.headline)
+                        .font(.system(size: 20, weight: .bold))
                         .foregroundColor(.white)
                         .frame(width: UIScreen.main.bounds.width, height: 60)
                         .background(Color.gray)
                         .padding(.horizontal, 16)
-                        .padding(.bottom, 20)
                 }
             }
         }

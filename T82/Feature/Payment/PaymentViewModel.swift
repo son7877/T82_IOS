@@ -10,4 +10,6 @@ class PaymentViewModel: ObservableObject {
         case success
         case failure
     }
+    
+    
 }

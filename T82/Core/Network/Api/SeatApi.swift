@@ -30,4 +30,29 @@ class SelectSeatService {
                 }
             }
     }
+    
+    // MARK: - 좌석 선택 후 결제 페이지로 이동할 시 결제 전까지 Pending 테이블에 추가
+    func addPendingSeats(seats: [PendingSeat], completion: @escaping (Result<Bool, Error>) -> Void) {
+        
+        let url = Config().SeatHost + "/api/v1/seats/choice"
+        
+        AF.request(url, method: .put, headers: Config().getHeaders())
+            .validate()
+            .responseDecodable(of: [PendingSeat].self) { response in
+                switch response.result {
+                case .success(let pendingSeats):
+                    completion(.success(true))
+                case .failure(let error):
+                    if let httpResponse = response.response {
+                        print("HTTP Status Code: \(httpResponse.statusCode)")
+                        print("Error: \(error.localizedDescription)")
+                        if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                            print("Error Message: \(errorMessage)")
+                        }
+                    } else {
+                        print("Network Error: \(error.localizedDescription)")
+                    }
+                }
+            }
+    }
 }
