@@ -1,10 +1,9 @@
 import SwiftUI
 
 struct TicketingProcessBtn<Destination: View>: View {
-    
     let destination: Destination
     let title: String
-    
+
     var body: some View {
         NavigationLink(
             destination: destination,
@@ -23,4 +22,3 @@ struct TicketingProcessBtn<Destination: View>: View {
         )
     }
 }
-

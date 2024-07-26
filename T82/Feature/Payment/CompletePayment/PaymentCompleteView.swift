@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct PaymentCompleteView: View {
+    
+    @EnvironmentObject var paymentViewModel: PaymentViewModel
 
     var body: some View {
         VStack {
@@ -16,12 +18,12 @@ struct PaymentCompleteView: View {
             )
             .padding()
             .navigationBarBackButtonHidden(true)
-            
-            VStack {
 
+            VStack {
                 CompleteTicket()
                 CompletePrice()
-                
+                    .environmentObject(paymentViewModel)
+
                 HStack {
                     Button(
                         action: {
@@ -35,9 +37,9 @@ struct PaymentCompleteView: View {
                     )
                 }
             }
-            
+
             Spacer()
-            
+
             TicketingProcessBtn(destination: MainView(), title: "홈으로")
         }
     }

@@ -7,6 +7,7 @@ struct PaymentView: View {
     var selectedSeats: [SelectableSeat]
     var eventId: Int
     @StateObject private var couponViewModel = CouponListViewModel()
+    @StateObject private var paymentViewModel = PaymentViewModel()
 
     var body: some View {
         
@@ -33,7 +34,8 @@ struct PaymentView: View {
             PaymentPrice(selectedSeats: selectedSeats, selectedCoupons: couponViewModel.couponList)
             
             TicketingProcessBtn(
-                destination: PaymentInProgressView(selectedSeats: selectedSeats, eventId: eventId, couponViewModel: couponViewModel),
+                destination: PaymentInProgressView(couponViewModel: couponViewModel, selectedSeats: selectedSeats, eventId: eventId)
+                    .environmentObject(paymentViewModel),
                 title: "결제하기"
             )
         }

@@ -36,7 +36,7 @@ struct PaymentPerTicket: View {
                                 )
                                 Spacer()
                                 VStack(alignment: .trailing) {
-                                    Text("\(finalPrice) 원")
+                                    Text("\(seat.price) 원")
                                         .font(.system(size: 20))
                                     if let coupon = couponViewModel.couponList[seat.id],
                                        let discountAmount = PaymentPerTicket.calculateDiscount(for: seat.price, with: coupon) {

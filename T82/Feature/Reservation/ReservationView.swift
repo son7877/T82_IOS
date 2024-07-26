@@ -155,7 +155,7 @@ struct ReservationView: View {
                     ZStack {
                         Rectangle()
                             .scaledToFill()
-                            .frame(width: UIScreen.main.bounds.width - 32, height: 100)
+                            .frame(width: UIScreen.main.bounds.width - 32, height: 80)
                             .opacity(0.1)
                             .cornerRadius(10)
 
@@ -187,8 +187,6 @@ struct ReservationView: View {
                         .padding(.bottom, 20)
                 }
             }
-            .padding(.bottom, 20)
-            .background(Color.white)
         }
         .navigationBarBackButtonHidden()
         .edgesIgnoringSafeArea(.bottom)

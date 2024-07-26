@@ -2,11 +2,11 @@ import SwiftUI
 
 struct PaymentInProgressView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @EnvironmentObject var paymentViewModel: PaymentViewModel
+    @ObservedObject var couponViewModel: CouponListViewModel
     @State private var showPaymentCompleteView = false
-    @State private var paymentURL: URL?
     var selectedSeats: [SelectableSeat]
     var eventId: Int
-    @ObservedObject var couponViewModel: CouponListViewModel
 
     var body: some View {
         VStack {
@@ -18,7 +18,11 @@ struct PaymentInProgressView: View {
         .onAppear {
             makePayment()
         }
-        .navigationBarBackButtonHidden()
+        .fullScreenCover(isPresented: $showPaymentCompleteView) {
+            PaymentCompleteView()
+                .environmentObject(paymentViewModel)
+        }
+        .navigationBarBackButtonHidden(true)
     }
 
     func makePayment() {
@@ -46,19 +50,20 @@ struct PaymentInProgressView: View {
                 if let urlString = paymentResponse.paymentURL, let url = URL(string: urlString) {
                     print("Valid payment URL received: \(urlString)")
                     DispatchQueue.main.async {
-                        paymentURL = url
+                        paymentViewModel.totalPrice = paymentRequest.totalAmount
+                        paymentViewModel.paymentURL = url
                         openURL(url)
                     }
                 } else {
                     print("Invalid payment URL")
                     DispatchQueue.main.async {
-                        showPaymentCompleteView = true
+                        paymentViewModel.paymentStatus = .failure
                     }
                 }
             case .failure(let error):
                 print("Payment request failed with error: \(error)")
                 DispatchQueue.main.async {
-                    showPaymentCompleteView = true
+                    paymentViewModel.paymentStatus = .failure
                 }
             }
         }
@@ -66,7 +71,17 @@ struct PaymentInProgressView: View {
 
     func openURL(_ url: URL) {
         if UIApplication.shared.canOpenURL(url) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            UIApplication.shared.open(url, options: [:], completionHandler: { success in
+                if success {
+                    // 결제 완료 뷰로 이동
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        paymentViewModel.paymentStatus = .success
+                        showPaymentCompleteView = true
+                    }
+                } else {
+                    print("오류: URL을 열 수 없습니다.")
+                }
+            })
         } else {
             print("오류: URL을 열 수 없습니다.")
         }
