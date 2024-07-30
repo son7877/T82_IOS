@@ -8,6 +8,7 @@ class CouponService {
     
     // MARK: - 사용 가능한 쿠폰 리스트 가져오기
     func fetchCoupons(page: Int, size: Int, completion: @escaping (Result<CouponResponse, Error>) -> Void) {
+        
         let urlString = Config().CouponHost+"/api/v1/coupons/valid"
         let parameters: Parameters = ["page": page, "size": size]
         
@@ -36,6 +37,7 @@ class PaymentService {
     
     // MARK: - 결제하기(토스 연동)
     func tossPayment(paymentRequest: PaymentRequest, completion: @escaping (Result<PaymentResponse, Error>) -> Void) {
+        
         let urlString = Config().PaymentHost + "/api/v1/payment"
 
         AF.request(urlString, method: .post, parameters: paymentRequest, encoder: JSONParameterEncoder.default, headers: Config().getHeaders()).response { response in
@@ -76,4 +78,7 @@ class PaymentService {
             }
         }
     }
+    
+    // MARK: - 환불 기능
+    
 }

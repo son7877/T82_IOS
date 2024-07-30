@@ -1,6 +1,6 @@
 import Foundation
 
-struct Seat: Hashable, Decodable {
+struct Seat: Hashable, Codable {
     let id: Int
     let rowNum: Int
     let colNum: Int
@@ -9,13 +9,13 @@ struct Seat: Hashable, Decodable {
     var isAvailable: Bool
 }
 
-struct RestSeats: Decodable, Hashable{
+struct RestSeats: Codable, Hashable{
     let sectionId : Int
     let name : String
     let restSeat : Int
 }
 
-struct SelectableSeat: Decodable, Hashable, Identifiable {
+struct SelectableSeat: Codable, Hashable, Identifiable {
     let seatId: Int
     let rowNum: Int
     let colNum: Int
@@ -27,7 +27,7 @@ struct SelectableSeat: Decodable, Hashable, Identifiable {
     }
 }
 
-struct PendingSeat : Decodable, Hashable {
+struct PendingSeat : Codable, Hashable {
     let seatId: Int
     let eventId: Int
     let price : Int

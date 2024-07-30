@@ -197,16 +197,6 @@ struct MyInfoEditingView: View {
                     }
                 )
                 .padding(.horizontal, 30)
-                .alert(isPresented: $showDeleteConfirmation) {
-                    Alert(
-                        title: Text("회원 탈퇴"),
-                        message: Text("정말로 탈퇴하시겠습니까?"),
-                        primaryButton: .destructive(Text("탈퇴")) {
-                            viewModel.deleteUser()
-                        },
-                        secondaryButton: .cancel(Text("취소"))
-                    )
-                }
                 
                 Spacer()
                 
@@ -254,6 +244,16 @@ struct MyInfoEditingView: View {
                 title: Text("수정 완료"),
                 message: Text("회원 정보가 성공적으로 수정되었습니다."),
                 dismissButton: .default(Text("확인"))
+            )
+        }
+        .alert(isPresented: $showDeleteConfirmation) {
+            Alert(
+                title: Text("회원 탈퇴"),
+                message: Text("정말로 탈퇴하시겠습니까?"),
+                primaryButton: .destructive(Text("탈퇴")) {
+                    viewModel.deleteUser()
+                },
+                secondaryButton: .cancel(Text("취소"))
             )
         }
     }

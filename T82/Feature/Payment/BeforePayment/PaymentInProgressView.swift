@@ -14,6 +14,7 @@ struct PaymentInProgressView: View {
                 .padding(.bottom, 50)
             Text("결제 진행중...")
                 .font(.system(size: 20))
+            
             NavigationLink(
                 destination: PaymentCompleteView()
                     .environmentObject(paymentViewModel),

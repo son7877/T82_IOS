@@ -6,6 +6,8 @@ struct MyReviewFloatingView: View {
     @StateObject private var myTicketViewModel = MyTicketViewModel()
     @StateObject private var reviewViewModel = MyReviewViewModel()
     @Binding var isPresented: Bool
+    @State private var rating: Int = 0
+    @State private var reviewText: String = ""
     
     var body: some View {
         VStack{
@@ -22,24 +24,25 @@ struct MyReviewFloatingView: View {
             HStack{
                 ForEach(1..<6){ index in
                     Button(action: {
-                        
+                        rating = index
                     }, label: {
-                        Image(systemName: "star")
+                        Image(systemName: index <= rating ? "star.fill" : "star")
                             .foregroundColor(.customPink)
                     })
                 }
             }
+            .padding()
             
             // 리뷰 내용
-            TextField("리뷰를 작성해주세요", text: .constant(""))
+            TextField("리뷰를 작성해주세요", text: $reviewText)
                 .padding()
-                .background(.customGray0)
+                .background(Color.customGray0)
                 .cornerRadius(10)
                 .padding()
                 .tint(.customPink)
             
             Button(action: {
-                // 등록 통신 후 뷰 닫기 
+                // 리뷰 등록 통신 후 뷰 닫기
                 isPresented = false
                 
             }, label: {
@@ -48,9 +51,10 @@ struct MyReviewFloatingView: View {
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(.customPink.opacity(0.8))
+                    .background(Color.customPink.opacity(0.8))
+                    .cornerRadius(10)
             })
         }
-        .background(.customGray1.opacity(0.6))
+        .background(Color.customGray1.opacity(0.6))
     }
 }

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		891565EF2C571EDB005E4CFE /* TicketApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891565EE2C571EDB005E4CFE /* TicketApi.swift */; };
+		891565F12C57352B005E4CFE /* ReviewApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891565F02C57352B005E4CFE /* ReviewApi.swift */; };
+		891565F42C57BE52005E4CFE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 891565F32C57BE52005E4CFE /* GoogleService-Info.plist */; };
+		891565F72C57BEDC005E4CFE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 891565F62C57BEDC005E4CFE /* FirebaseAnalytics */; };
+		891565F92C57BEDC005E4CFE /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 891565F82C57BEDC005E4CFE /* FirebaseMessaging */; };
 		8944826E2C3FAF78003F3EE4 /* PasswordValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944826D2C3FAF78003F3EE4 /* PasswordValidation.swift */; };
 		894482722C3FB083003F3EE4 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894482712C3FB083003F3EE4 /* PaymentView.swift */; };
 		894482742C3FB099003F3EE4 /* PaymentCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894482732C3FB099003F3EE4 /* PaymentCompleteView.swift */; };
@@ -53,7 +58,7 @@
 		89B57D8A2C43F66F00784CC3 /* SeatsPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D892C43F66F00784CC3 /* SeatsPrice.swift */; };
 		89BC46892C44C55400CDBB38 /* MyInfoEditingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46882C44C55400CDBB38 /* MyInfoEditingViewModel.swift */; };
 		89BC468C2C44C5AC00CDBB38 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC468B2C44C5AC00CDBB38 /* User.swift */; };
-		89BC468E2C44CC4800CDBB38 /* CustomTabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC468D2C44CC4800CDBB38 /* CustomTabBarButton.swift */; };
+		89BC468E2C44CC4800CDBB38 /* CustomTabBarBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC468D2C44CC4800CDBB38 /* CustomTabBarBtn.swift */; };
 		89BC46902C45022500CDBB38 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC468F2C45022500CDBB38 /* LoginViewModel.swift */; };
 		89BC46922C45032B00CDBB38 /* LoginBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46912C45032B00CDBB38 /* LoginBtn.swift */; };
 		89BC46942C45034B00CDBB38 /* SignUpBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BC46932C45034B00CDBB38 /* SignUpBtn.swift */; };
@@ -78,7 +83,6 @@
 		89EAB4D82C3D9BD0002B8515 /* NavigationBtnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D72C3D9BD0002B8515 /* NavigationBtnType.swift */; };
 		89EAB4DA2C3D9BE3002B8515 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4D92C3D9BE3002B8515 /* CustomNavigationBar.swift */; };
 		89EAB4E02C3E6488002B8515 /* Color+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EAB4DF2C3E6488002B8515 /* Color+extensions.swift */; };
-		89EE244C2C48BF0200538C87 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 89EE244B2C48BF0200538C87 /* Lottie */; };
 		89EE244E2C48DDFC00538C87 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE244D2C48DDFC00538C87 /* SectionView.swift */; };
 		89EE24502C48DE8800538C87 /* GenreRankingSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE244F2C48DE8800538C87 /* GenreRankingSectionView.swift */; };
 		89EE24522C48DF3D00538C87 /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89EE24512C48DF3D00538C87 /* Genre.swift */; };
@@ -94,6 +98,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		891565EE2C571EDB005E4CFE /* TicketApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketApi.swift; sourceTree = "<group>"; };
+		891565F02C57352B005E4CFE /* ReviewApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewApi.swift; sourceTree = "<group>"; };
+		891565F22C57BACD005E4CFE /* T82.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = T82.entitlements; sourceTree = "<group>"; };
+		891565F32C57BE52005E4CFE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8944826D2C3FAF78003F3EE4 /* PasswordValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidation.swift; sourceTree = "<group>"; };
 		894482712C3FB083003F3EE4 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		894482732C3FB099003F3EE4 /* PaymentCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCompleteView.swift; sourceTree = "<group>"; };
@@ -141,7 +149,7 @@
 		89B57D892C43F66F00784CC3 /* SeatsPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatsPrice.swift; sourceTree = "<group>"; };
 		89BC46882C44C55400CDBB38 /* MyInfoEditingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyInfoEditingViewModel.swift; sourceTree = "<group>"; };
 		89BC468B2C44C5AC00CDBB38 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		89BC468D2C44CC4800CDBB38 /* CustomTabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarButton.swift; sourceTree = "<group>"; };
+		89BC468D2C44CC4800CDBB38 /* CustomTabBarBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarBtn.swift; sourceTree = "<group>"; };
 		89BC468F2C45022500CDBB38 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		89BC46912C45032B00CDBB38 /* LoginBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBtn.swift; sourceTree = "<group>"; };
 		89BC46932C45034B00CDBB38 /* SignUpBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpBtn.swift; sourceTree = "<group>"; };
@@ -182,10 +190,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				891565F92C57BEDC005E4CFE /* FirebaseMessaging in Frameworks */,
 				89BC46BC2C47699800CDBB38 /* Alamofire in Frameworks */,
 				89BC46B42C474B2300CDBB38 /* TossPayments in Frameworks */,
 				89BC46B12C474B1D00CDBB38 /* PopupView in Frameworks */,
-				89EE244C2C48BF0200538C87 /* Lottie in Frameworks */,
+				891565F72C57BEDC005E4CFE /* FirebaseAnalytics in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,12 +317,14 @@
 		89A7716D2C3B702400C7068F /* T82 */ = {
 			isa = PBXGroup;
 			children = (
+				891565F22C57BACD005E4CFE /* T82.entitlements */,
 				89A7717C2C3BBF4700C7068F /* App */,
 				89A7717D2C3BBF4E00C7068F /* Core */,
 				89A7717E2C3BBF5900C7068F /* Component */,
 				89A7717F2C3BBF5E00C7068F /* Feature */,
 				89A771802C3BBF6400C7068F /* Model */,
 				89A771722C3B702500C7068F /* Assets.xcassets */,
+				891565F32C57BE52005E4CFE /* GoogleService-Info.plist */,
 				89A771742C3B702500C7068F /* Preview Content */,
 			);
 			path = T82;
@@ -525,7 +536,7 @@
 		89EAB4DE2C3E60F1002B8515 /* TabView */ = {
 			isa = PBXGroup;
 			children = (
-				89BC468D2C44CC4800CDBB38 /* CustomTabBarButton.swift */,
+				89BC468D2C44CC4800CDBB38 /* CustomTabBarBtn.swift */,
 				89A0AAAE2C4F5145003048B6 /* CustomTabBarView.swift */,
 			);
 			path = TabView;
@@ -549,6 +560,8 @@
 				89EE245A2C49E6E700538C87 /* ContentsApi.swift */,
 				89D98B602C4E7E7C009C3CFA /* SeatApi.swift */,
 				89A0AAB02C4F8590003048B6 /* PaymentApi.swift */,
+				891565EE2C571EDB005E4CFE /* TicketApi.swift */,
+				891565F02C57352B005E4CFE /* ReviewApi.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -603,7 +616,8 @@
 				89BC46B02C474B1D00CDBB38 /* PopupView */,
 				89BC46B32C474B2300CDBB38 /* TossPayments */,
 				89BC46BB2C47699800CDBB38 /* Alamofire */,
-				89EE244B2C48BF0200538C87 /* Lottie */,
+				891565F62C57BEDC005E4CFE /* FirebaseAnalytics */,
+				891565F82C57BEDC005E4CFE /* FirebaseMessaging */,
 			);
 			productName = T82;
 			productReference = 89A7716B2C3B702400C7068F /* T82.app */;
@@ -637,7 +651,7 @@
 				89BC46AF2C474B1D00CDBB38 /* XCRemoteSwiftPackageReference "PopupView" */,
 				89BC46B22C474B2300CDBB38 /* XCRemoteSwiftPackageReference "payment-sdk-ios" */,
 				89BC46BA2C47699800CDBB38 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				89EE244A2C48BF0200538C87 /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				891565F52C57BEDC005E4CFE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 89A7716C2C3B702400C7068F /* Products */;
 			projectDirPath = "";
@@ -654,6 +668,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89A771862C3BC19D00C7068F /* LaunchScreen.storyboard in Resources */,
+				891565F42C57BE52005E4CFE /* GoogleService-Info.plist in Resources */,
 				89A771762C3B702500C7068F /* Preview Assets.xcassets in Resources */,
 				89A771732C3B702500C7068F /* Assets.xcassets in Resources */,
 			);
@@ -674,10 +689,11 @@
 				894482792C3FC153003F3EE4 /* Sections.swift in Sources */,
 				89BC469E2C45270C00CDBB38 /* MyReview.swift in Sources */,
 				894482942C40D343003F3EE4 /* MyTicketView.swift in Sources */,
+				891565EF2C571EDB005E4CFE /* TicketApi.swift in Sources */,
 				89EAB4DA2C3D9BE3002B8515 /* CustomNavigationBar.swift in Sources */,
 				AAFE6D382C41A68600FB6BA6 /* SubCategoryView.swift in Sources */,
 				AAFE6D332C3FA10E00FB6BA6 /* MainView.swift in Sources */,
-				89BC468E2C44CC4800CDBB38 /* CustomTabBarButton.swift in Sources */,
+				89BC468E2C44CC4800CDBB38 /* CustomTabBarBtn.swift in Sources */,
 				89BC46892C44C55400CDBB38 /* MyInfoEditingViewModel.swift in Sources */,
 				8944826E2C3FAF78003F3EE4 /* PasswordValidation.swift in Sources */,
 				8944828A2C40CC53003F3EE4 /* MyPageTabInfo.swift in Sources */,
@@ -688,6 +704,7 @@
 				89A7718C2C3BE5AF00C7068F /* SignUpView.swift in Sources */,
 				894482832C3FDFB5003F3EE4 /* TicketingProcessBtn.swift in Sources */,
 				89BC46C22C4776B500CDBB38 /* UserApi.swift in Sources */,
+				891565F12C57352B005E4CFE /* ReviewApi.swift in Sources */,
 				89B57D822C43D56A00784CC3 /* SelectSeatView.swift in Sources */,
 				89BC46922C45032B00CDBB38 /* LoginBtn.swift in Sources */,
 				89A0AAB82C50D3C6003048B6 /* CouponListViewModel.swift in Sources */,
@@ -873,6 +890,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = T82/T82.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"T82/Preview Content\"";
@@ -910,6 +928,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = T82/T82.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"T82/Preview Content\"";
@@ -966,6 +985,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		891565F52C57BEDC005E4CFE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.29.0;
+			};
+		};
 		89BC46AF2C474B1D00CDBB38 /* XCRemoteSwiftPackageReference "PopupView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/exyte/PopupView.git";
@@ -990,17 +1017,19 @@
 				version = 5.8.1;
 			};
 		};
-		89EE244A2C48BF0200538C87 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.5.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		891565F62C57BEDC005E4CFE /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 891565F52C57BEDC005E4CFE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		891565F82C57BEDC005E4CFE /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 891565F52C57BEDC005E4CFE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
 		89BC46B02C474B1D00CDBB38 /* PopupView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 89BC46AF2C474B1D00CDBB38 /* XCRemoteSwiftPackageReference "PopupView" */;
@@ -1015,11 +1044,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 89BC46BA2C47699800CDBB38 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		89EE244B2C48BF0200538C87 /* Lottie */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 89EE244A2C48BF0200538C87 /* XCRemoteSwiftPackageReference "lottie-ios" */;
-			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

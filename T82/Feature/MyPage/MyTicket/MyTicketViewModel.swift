@@ -1,25 +1,46 @@
 import Foundation
+import Combine
 
-class MyTicketViewModel: ObservableObject{
+class MyTicketViewModel: ObservableObject {
     
-    @Published var MyTicketContents: [MyTicket]
+    @Published var MyTicketContents: [MyTicket] = []
     @Published var showModal = false
     @Published var selectedTicket: MyTicket? = nil
+    @Published var ticketList: [Int: MyTicket] = [:]
     @Published var reviewAlert = false
+    @Published var isLoading = false
+    @Published var isEmpty = false
     
-    // 예시 -> 통신으로 불러올 예정
-    init(
-        MyTicketContents: [MyTicket] = [
-            MyTicket(title: "싸이 흠뻑쇼", eventStartTime: Date(), SectionName: "A", rowNum: 1, columnNum: 1),
-            MyTicket(title: "싸이 흠뻑쇼", eventStartTime: Date(), SectionName: "B", rowNum: 1, columnNum: 2),
-            MyTicket(title: "싸이 흠뻑쇼", eventStartTime: Date(), SectionName: "C", rowNum: 1, columnNum: 3),
-            MyTicket(title: "싸이 흠뻑쇼", eventStartTime: Date(), SectionName: "D", rowNum: 1, columnNum: 4),
-            MyTicket(title: "싸이 흠뻑쇼", eventStartTime: Date(), SectionName: "E", rowNum: 1, columnNum: 5),
-            MyTicket(title: "싸이 흠뻑쇼", eventStartTime: Date(), SectionName: "F", rowNum: 1, columnNum: 6),
-            MyTicket(title: "싸이 흠뻑쇼", eventStartTime: Date(), SectionName: "G", rowNum: 1, columnNum: 7),
-            MyTicket(title: "싸이 흠뻑쇼", eventStartTime: Date(), SectionName: "H", rowNum: 1, columnNum: 8),
-            MyTicket(title: "싸이 흠뻑쇼", eventStartTime: Date(), SectionName: "I", rowNum: 1, columnNum: 9),]
-    ) {
-        self.MyTicketContents = MyTicketContents
+    var currentPage = 0
+    private var totalPages = 0
+    
+    init() {
+        fetchMyTicket(page: currentPage, size: 5)
+    }
+    
+    func fetchMyTicket(page: Int, size: Int) {
+        guard !showModal else { return }
+        
+        isLoading = true
+        isEmpty = false
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+            guard let self = self else { return }
+            TicketService.shared.getMyTickets(page: page, size: size) { result in
+                self.isLoading = false
+                switch result {
+                case .success(let response):
+                    if response.content.isEmpty {
+                        self.isEmpty = true
+                    } else {
+                        self.MyTicketContents.append(contentsOf: response.content)
+                        self.totalPages = response.totalPages
+                        self.currentPage = response.number
+                    }
+                case .failure:
+                    self.isEmpty = true
+                }
+            }
+        }
     }
 }

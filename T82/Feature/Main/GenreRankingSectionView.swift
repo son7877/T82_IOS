@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct GenreRankingSectionView: View {
+    
     @Binding var selectedGenre: Genre
     @ObservedObject var viewModel: MainViewModel
 
@@ -11,19 +12,24 @@ struct GenreRankingSectionView: View {
                 .padding(.horizontal)
 
             HStack {
-                ForEach(Genre.allCases) { genre in
-                    Button(action: {
-                        selectedGenre = genre
-                        viewModel.fetchMainTicketCategoryRanking(for: genre)
-                    }) {
-                        Text(genre.displayName)
-                            .padding(.vertical, 7)
-                            .padding(.horizontal, 12)
-                            .background(selectedGenre == genre ? Color.customred : Color.gray)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(Genre.allCases) { genre in
+                            Button(action: {
+                                selectedGenre = genre
+                                viewModel.fetchMainTicketCategoryRanking(for: genre)
+                            }) {
+                                Text(genre.displayName)
+                                    .padding(.vertical, 7)
+                                    .padding(.horizontal, 12)
+                                    .background(selectedGenre == genre ? Color.customred : Color.gray)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(10)
+                            }
+                        }
                     }
                 }
+
                 Spacer()
 
                 NavigationLink(destination: SubCategoryView(
@@ -40,28 +46,37 @@ struct GenreRankingSectionView: View {
             }
             .padding(.horizontal)
 
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    ForEach(viewModel.mainTicketCategoryRanking) { content in
-                        NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventInfoId: content.id))) {
-                            VStack {
-                                Image("sampleImg")
-                                    .resizable()
-                                    .frame(width: 100, height: 150)
-                                    .cornerRadius(10)
+            if viewModel.mainTicketCategoryRanking.isEmpty {
+                Text("404 GenreRanking Not Found")
+                    .padding()
+            } else {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack {
+                        ForEach(viewModel.mainTicketCategoryRanking) { content in
+                            NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventInfoId: content.id))) {
+                                VStack {
+                                    Image("sampleImg")
+                                        .resizable()
+                                        .frame(width: 100, height: 150)
+                                        .cornerRadius(10)
 
-                                Text(content.title)
-                                    .font(.caption)
-                                    .frame(width: 100)
-                                    .foregroundColor(.black)
+                                    Text(content.title)
+                                        .font(.caption)
+                                        .frame(width: 100)
+                                        .foregroundColor(.black)
+                                }
+                                .padding(.horizontal, 5)
                             }
-                            .padding(.horizontal, 5)
                         }
                     }
+                    .padding(.horizontal)
                 }
-                .padding(.horizontal)
             }
         }
         .padding(.vertical)
     }
+}
+
+#Preview {
+   MainView()
 }

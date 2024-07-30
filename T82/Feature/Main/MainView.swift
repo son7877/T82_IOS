@@ -21,7 +21,7 @@ struct MainView: View {
                                 leftBtnAction: {},
                                 rightBtnAction: {},
                                 lefttBtnType: .home,
-                                rightBtnType: .search,
+                                rightBtnType: .mylike,
                                 Title: "T82"
                             )
                             .padding()
@@ -57,8 +57,12 @@ struct MainView: View {
                                 
                                 // 오픈 예정 이벤트
                                 SectionView(title: "OPEN SOON", viewModel: viewModel, items: viewModel.mainTicketOpenSoon, isShowOpenDate: true)
+                                
+                                Rectangle()
+                                    .frame(height: 100)
+                                    .foregroundColor(.white)
                             }
-                            .padding(.bottom, 110)
+                            .padding(.bottom, 95)
                             
                         } else if selectedIndex == 3 {
                             MyPageView(myPageSelectedTab: .myInfoEditing)

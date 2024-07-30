@@ -1,15 +1,13 @@
 import Alamofire
 import Foundation
 
-
-class MainContentsService{
+// MARK: - 메인 컨텐츠
+class MainContentsService {
     
     static let shared = MainContentsService()
     private init() {}
     
-    // MARK: - GET
-    
-    // 현재 판매 중인 티켓 중 판매량 많은 순
+    // MARK: - 현재 판매 중인 티켓 중 판매량 많은 순
     func getMainEventsRank(completion: @escaping ([MainContents]?) -> Void) {
         
         let mainEventUrl = "\(Config().EventHost)/api/v1/contents/rank"
@@ -17,28 +15,23 @@ class MainContentsService{
         AF.request(mainEventUrl, method: .get)
             .validate()
             .responseDecodable(of: [MainContents].self) { response in
-                if let httpResponse = response.response {
-                    if (200..<300).contains(httpResponse.statusCode) {
-                        if let mainContents = response.value {
-                            completion(mainContents)
-                            print(
-                                """
-                                Success response data: \(mainContents)
-                                """
-                            )
+                switch response.result{
+                case .success(let mainContents):
+                    completion(mainContents)
+                case .failure(let error):
+                    if let httpResponse = response.response {
+                        print("HTTP Status Code: \(httpResponse.statusCode)")
+                        if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                            print("Error Message: \(errorMessage)")
                         }
                     } else {
-                        completion(nil)
-                        print("error")
+                        print("Network Error: \(error.localizedDescription)")
                     }
-                } else {
-                    completion(nil)
-                    print("error")
                 }
             }
     }
     
-    // 상위 카테고리 별 판매량 많은 순
+    // MARK: - 상위 카테고리 별 판매량 많은 순
     func getMainEventsCategoryRank(category: Int, completion: @escaping ([MainContents]?) -> Void) {
         
         let mainEventUrl = "\(Config().EventHost)/api/v1/contents/genre/\(category)/rank"
@@ -46,28 +39,23 @@ class MainContentsService{
         AF.request(mainEventUrl, method: .get)
             .validate()
             .responseDecodable(of: [MainContents].self) { response in
-                if let httpResponse = response.response {
-                    if (200..<300).contains(httpResponse.statusCode) {
-                        if let mainContents = response.value {
-                            completion(mainContents)
-                            print(
-                                """
-                                Success response data: \(mainContents)
-                                """
-                            )
+                switch response.result{
+                case .success(let mainContents):
+                    completion(mainContents)
+                case .failure(let error):
+                    if let httpResponse = response.response {
+                        print("HTTP Status Code: \(httpResponse.statusCode)")
+                        if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                            print("Error Message: \(errorMessage)")
                         }
                     } else {
-                        completion(nil)
-                        print("error")
+                        print("Network Error: \(error.localizedDescription)")
                     }
-                } else {
-                    completion(nil)
-                    print("error")
                 }
             }
     }
-
-    // 전체 공연 중 티켓 오픈이 다가오는 순
+    
+    // MARK: - 전체 공연 중 티켓 오픈이 다가오는 순
     func getMainEventsOpenSoon(completion: @escaping ([MainContents]?) -> Void) {
         
         let mainEventUrl = "\(Config().EventHost)/api/v1/contents"
@@ -75,29 +63,72 @@ class MainContentsService{
         AF.request(mainEventUrl, method: .get)
             .validate()
             .responseDecodable(of: [MainContents].self) { response in
-                if let httpResponse = response.response {
-                    if (200..<300).contains(httpResponse.statusCode) {
-                        if let mainContents = response.value {
-                            completion(mainContents)
-                            print(
-                                """
-                                Success response data: \(mainContents)
-                                """
-                            )
+                switch response.result{
+                case .success(let mainContents):
+                    completion(mainContents)
+                case .failure(let error):
+                    if let httpResponse = response.response {
+                        print("HTTP Status Code: \(httpResponse.statusCode)")
+                        if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                            print("Error Message: \(errorMessage)")
                         }
                     } else {
-                        completion(nil)
-                        print("error")
+                        print("Network Error: \(error.localizedDescription)")
                     }
-                } else {
+                }
+            }
+    }
+    
+    // MARK: - 하위 카테고리 별 공연 정보 가져오기
+    func getSubCategoryEvents(subCategoryId: Int, completion: @escaping ([MainContents]?) -> Void) {
+        let mainEventUrl = "\(Config().EventHost)/api/v1/contents/genre/\(subCategoryId)/events"
+        
+        AF.request(mainEventUrl, method: .get)
+            .validate()
+            .responseDecodable(of: EventResponse.self) { response in
+                switch response.result {
+                case .success(let eventResponse):
+                    completion(eventResponse.content)
+                case .failure(let error):
+                    if let httpResponse = response.response {
+                        print("HTTP Status Code: \(httpResponse.statusCode)")
+                        if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                            print("Error Message: \(errorMessage)")
+                        }
+                    } else {
+                        print("Network Error: \(error.localizedDescription)")
+                    }
                     completion(nil)
-                    print("error")
+                }
+            }
+    }
+    
+    // MARK: - 카테고리 별 오픈 예정 공연 정보 가져오기
+    func getCategoryOpenSoonEvents(categoryId: Int, completion: @escaping ([MainContents]?) -> Void) {
+        let mainEventUrl = "\(Config().EventHost)/api/v1/contents/genre/\(categoryId)/earliest-ticket"
+        
+        AF.request(mainEventUrl, method: .get)
+            .validate()
+            .responseDecodable(of: [MainContents].self) { response in
+                switch response.result{
+                case .success(let mainContents):
+                    completion(mainContents)
+                case .failure(let error):
+                    if let httpResponse = response.response {
+                        print("HTTP Status Code: \(httpResponse.statusCode)")
+                        if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                            print("Error Message: \(errorMessage)")
+                        }
+                    } else {
+                        print("Network Error: \(error.localizedDescription)")
+                    }
                 }
             }
     }
 
 }
 
+// MARK: - 컨텐츠 상세
 class ContentDetailService {
     
     static let shared = ContentDetailService()
@@ -183,9 +214,7 @@ class ContentDetailService {
                     } else {
                         print("Network Error: \(error.localizedDescription)")
                     }
-                    completion(nil)
                 }
             }
     }
-    
 }

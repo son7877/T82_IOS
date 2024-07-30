@@ -103,7 +103,7 @@ struct ReservationView: View {
                                 }) {
                                     Text(date.formmatedDay)
                                         .font(.subheadline)
-                                        .padding()
+                                        .padding(10)
                                         .background(selectedDate?.isSameDay(as: date) == true ? Color.customred : Color.gray)
                                         .foregroundColor(.white)
                                         .cornerRadius(10)
@@ -130,7 +130,8 @@ struct ReservationView: View {
                                         }
                                     }) {
                                         Text(timeFormatted(time))
-                                            .padding()
+                                            .font(.subheadline)
+                                            .padding(10)
                                             .background(selectedTime == time ? Color.customred : Color.gray)
                                             .foregroundColor(.white)
                                             .cornerRadius(10)
@@ -157,14 +158,15 @@ struct ReservationView: View {
                         ZStack {
                             Rectangle()
                                 .scaledToFill()
-                                .frame(width: UIScreen.main.bounds.width - 32, height: 80)
+                                .frame(width: UIScreen.main.bounds.width - 32, height: 100)
                                 .opacity(0.1)
                                 .cornerRadius(10)
+                                .foregroundColor(.customred)
 
                             Text(viewModel.getAvailableSeatsCountString())
                                 .font(.subheadline)
-                                .padding()
-                                .background(Color.gray.opacity(0.2))
+                                .padding(10)
+                                .background(.white)
                                 .cornerRadius(10)
                         }
                         .padding(.horizontal, 16)
@@ -179,7 +181,7 @@ struct ReservationView: View {
                     TicketingProcessBtn(
                         destination: SelectSeatView(eventId: eventId),
                         title: "좌석 선택"
-                        )
+                    )
                 } else {
                     Text("좌석 선택")
                         .font(.system(size: 20, weight: .bold))
@@ -187,11 +189,12 @@ struct ReservationView: View {
                         .frame(width: UIScreen.main.bounds.width, height: 60)
                         .background(Color.gray)
                         .padding(.horizontal, 16)
+                        .padding(.vertical,1)
                 }
             }
         }
         .navigationBarBackButtonHidden()
-        .edgesIgnoringSafeArea(.bottom)
+//        .edgesIgnoringSafeArea(.bottom)
     }
 
     private func timeFormatted(_ date: Date) -> String {

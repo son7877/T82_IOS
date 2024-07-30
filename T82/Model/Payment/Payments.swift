@@ -1,7 +1,5 @@
 import Foundation
 
-import Foundation
-
 struct PaymentRequest: Encodable {
     let totalAmount: Int
     let eventId: Int

@@ -19,6 +19,7 @@ struct PaymentView: View {
                 isDisplayTitle: true,
                 leftBtnAction: {
                     presentationMode.wrappedValue.dismiss()
+                    // 추후 선택된 선택 좌석을 초기화하는 로직 추가 필요
                 },
                 rightBtnAction: {},
                 lefttBtnType: .back,
