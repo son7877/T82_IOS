@@ -65,6 +65,6 @@ class ReservationViewModel: ObservableObject {
     }
     
     func getAvailableSeatsCountString() -> String {
-        return availableSeats.map { "\($0.name): \($0.restSeat)" }.joined(separator: ", ")
+        return availableSeats.map { "\($0.name): \($0.restSeat)석" }.joined(separator: " / ")
     }
 }

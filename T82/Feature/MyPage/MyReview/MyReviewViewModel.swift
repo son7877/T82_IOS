@@ -2,14 +2,24 @@ import Foundation
 
 class MyReviewViewModel: ObservableObject{
     
-    @Published var MyReviews: [MyReview]
+    @Published var MyReviews: [MyReview] = []
+    @Published var isLoading = false
     
-    // 예시 데이터
-    init(
-        MyReviews: [MyReview] = [
-            MyReview(id: 1,eventTitle: "싸이 흠뻑쇼" ,content: "너무 좋아요", rating: 5, reviewDate: Date()),
-            MyReview(id: 2,eventTitle: "LG vs 두산" ,content: "좋아요", rating: 4, reviewDate: Date()),]
-    ){
-        self.MyReviews = MyReviews
+    init() {
+        fetchMyReview()
+    }
+    
+    func fetchMyReview(){
+        isLoading = true
+        ReviewService.shared.getMyReviews { [weak self] myReviews in
+            guard let self = self else { return }
+            if let myReviews = myReviews {
+                self.MyReviews = myReviews
+                isLoading = false
+            } else {
+                print("Failed to fetch reviews")
+                isLoading = false
+            }
+        }
     }
 }

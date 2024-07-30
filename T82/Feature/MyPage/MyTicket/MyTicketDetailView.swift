@@ -20,7 +20,7 @@ struct MyTicketDetailView: View {
                     .foregroundColor(.white)
                     .padding()
                 
-                Text(ticket.SectionName + "구역")
+                Text(ticket.sectionName + "구역")
                     .font(.title2)
                     .padding()
                 

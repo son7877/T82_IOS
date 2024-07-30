@@ -51,7 +51,7 @@ enum Genre: Int, CaseIterable, Identifiable {
     }
 }
 
-struct SubCategory: Identifiable {
+struct SubCategory: Identifiable, Equatable{
     let id: Int
     let name: String
 }

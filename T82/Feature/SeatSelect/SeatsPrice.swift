@@ -34,9 +34,11 @@ struct SeatsPrice: View {
         HStack {
             Text("좌석: \(seat.rowNum + 1) - \(seat.colNum + 1)")
             Spacer()
+            Text("구역: \(seat.name)")
+            Spacer()
             Text("가격: \(seat.price) 원")
         }
-        .padding(.horizontal)
+        .padding(.vertical,5)
     }
 }
 

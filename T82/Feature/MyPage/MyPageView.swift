@@ -34,7 +34,7 @@ struct MyPageView: View {
             ForEach(MyPageTabInfo.allCases, id: \.self){ item in
                 VStack{
                     Text(item.rawValue)
-                        .font(.system(size: 20))
+                        .font(.system(size: 15))
                         .frame(maxWidth: .infinity/2, minHeight: 30)
                         .foregroundColor(myPageSelectedTab == item ? .black : .customGray1)
                     if myPageSelectedTab == item {

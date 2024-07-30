@@ -197,40 +197,8 @@ struct MyInfoEditingView: View {
                     }
                 )
                 .padding(.horizontal, 30)
-                .alert(isPresented: $showDeleteConfirmation) {
-                    Alert(
-                        title: Text("회원 탈퇴"),
-                        message: Text("정말로 탈퇴하시겠습니까?"),
-                        primaryButton: .destructive(Text("탈퇴")) {
-                            viewModel.deleteUser()
-                        },
-                        secondaryButton: .cancel(Text("취소"))
-                    )
-                }
                 
                 Spacer()
-                
-                // 토스 테스트
-//                Button(
-//                    action: {
-//                        // 토스 테스트
-//                        let urlString = "https://ul.toss.im/?scheme=supertoss%3A%2F%2Fpay%3FpayToken%3D77w2IJLBjD5smGEQ8RBN08"
-//
-//                        if let url = URL(string: urlString) {
-//
-//                            if UIApplication.shared.canOpenURL(url) {
-//                                UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//                            } else {
-//                                print("오류")
-//                            }
-//                        }
-//                        
-//                    }, label: {
-//                        Text("토스 테스트")
-//                            .foregroundColor(Color.gray)
-//                            .underline()
-//                    }
-//                )
                 
                 Button(
                     action: {
@@ -245,6 +213,11 @@ struct MyInfoEditingView: View {
                 .padding(.horizontal, 30)
             }
             .padding(.vertical, 30)
+            
+            Rectangle()
+                .frame(height: 100)
+                .foregroundColor(.white)
+            
         }
         .onAppear {
             viewModel.fetchUserInfo()
@@ -271,6 +244,16 @@ struct MyInfoEditingView: View {
                 title: Text("수정 완료"),
                 message: Text("회원 정보가 성공적으로 수정되었습니다."),
                 dismissButton: .default(Text("확인"))
+            )
+        }
+        .alert(isPresented: $showDeleteConfirmation) {
+            Alert(
+                title: Text("회원 탈퇴"),
+                message: Text("정말로 탈퇴하시겠습니까?"),
+                primaryButton: .destructive(Text("탈퇴")) {
+                    viewModel.deleteUser()
+                },
+                secondaryButton: .cancel(Text("취소"))
             )
         }
     }

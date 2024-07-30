@@ -13,6 +13,8 @@ struct MyPageTabView : View{
                     MyTicketView()
                 case .myReview:
                     MyReviewView()
+                case .myfavorite:
+                    MyFavoriteView()
             }
         }
     }

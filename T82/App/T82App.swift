@@ -1,15 +1,19 @@
 import SwiftUI
+import FirebaseCore
 
 @main
 struct T82App: App {
+    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject private var viewRouter = ViewRouter()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
                 .environmentObject(viewRouter)
                 .onOpenURL { url in
                     handleURL(url)
-            }
+                }
         }
     }
     

@@ -12,8 +12,8 @@ struct Validation {
         else if !password.contains(where: { $0.isNumber }) {
             return "비밀번호는 하나 이상의 숫자를 포함해야 합니다."
         }
-        else if !password.contains(where: { $0.isSymbol }) {
-            return "비밀번호는 하나 이상의 특수문자를 포함해야 합니다."
+        else if !password.contains(where: { $0 == "!" || $0 == "@" || $0 == "#" || $0 == "$" || $0 == "%" || $0 == "^" || $0 == "&"}) {
+            return "비밀번호는 하나 이상의 특수문자(!,@,#,$,%,^,&)를 포함해야 합니다."
         } else {
             return ""
         }

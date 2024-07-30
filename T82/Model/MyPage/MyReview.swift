@@ -1,26 +1,14 @@
-//
-//  MyReview.swift
-//  T82
-//
-//  Created by 안홍범 on 7/15/24.
-//
-
 import Foundation
 
-struct MyReview: Hashable, Identifiable{
+struct MyReview: Hashable, Identifiable, Codable{
     
-    var id: Int
-    var eventTitle: String
-    var content: String
-    var rating: Int
-    var reviewDate: Date
+    let eventInfoId: Int
+    let content: String
+    let rating: Int
+    let reviewPictureUrl: String?
+    let createdDate: Date
     
-    init(id:Int, eventTitle:String ,content: String, rating: Int, reviewDate: Date) {
-        
-        self.id = id
-        self.eventTitle  = eventTitle
-        self.content = content
-        self.rating = rating
-        self.reviewDate = reviewDate
+    var id: Int {
+        return eventInfoId
     }
 }

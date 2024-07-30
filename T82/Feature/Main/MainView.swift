@@ -21,7 +21,7 @@ struct MainView: View {
                                 leftBtnAction: {},
                                 rightBtnAction: {},
                                 lefttBtnType: .home,
-                                rightBtnType: .search,
+                                rightBtnType: .mylike,
                                 Title: "T82"
                             )
                             .padding()
@@ -53,12 +53,16 @@ struct MainView: View {
                                 // 장르별 랭킹 이벤트
                                 GenreRankingSectionView(selectedGenre: $selectedGenre, viewModel: viewModel)
                                 
-                                // 특별 할인 이벤트
+                                // 특별 할인 이벤트 -> 아직 미구현
                                 
                                 // 오픈 예정 이벤트
                                 SectionView(title: "OPEN SOON", viewModel: viewModel, items: viewModel.mainTicketOpenSoon, isShowOpenDate: true)
+                                
+                                Rectangle()
+                                    .frame(height: 100)
+                                    .foregroundColor(.white)
                             }
-                            .padding(.bottom, 110)
+                            .padding(.bottom, 95)
                             
                         } else if selectedIndex == 3 {
                             MyPageView(myPageSelectedTab: .myInfoEditing)

@@ -5,10 +5,10 @@ class SeatsViewModel: ObservableObject {
     @Published var seats: [[Seat]] = []
     @Published var selectableSeats: [SelectableSeat] = []
     @Published var selectedSeats: [SelectableSeat] = []
+    @Published var pendingSeats: [PendingSeat] = []
 
     init() {
         loadSeats()
-        fetchAvailableSeats(eventId: 3)
     }
     
     // MARK: - 이벤트 별 남은 좌석 수 불러오기
@@ -27,6 +27,25 @@ class SeatsViewModel: ObservableObject {
             }
         }
     }
+    
+    // MARK: - 좌석 선택 후 결제 페이지로 이동할 시 결제 전까지 Pending 테이블에 추가
+    func addPendingSeat(seats: [PendingSeat]){
+        SelectSeatService.shared.addPendingSeats(seats: seats) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(true):
+                DispatchQueue.main.async {
+                    self.pendingSeats = seats
+                }
+            case .success(false):
+                print("Failed to add seats: Unknown reason.")
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    
 
     // 좌석 정보 -> fetch로 선택 가능한 좌석 정보를 가져오고 그 좌석의 isAvailable을 true로 바꿔야함
     func loadSeats() {
@@ -45,7 +64,7 @@ class SeatsViewModel: ObservableObject {
         ]
     }
     
-    // 좌석의 사용 가능 여부를 업데이트하는 메서드
+    // 좌석의 사용 가능 여부를 업데이트
     func updateSeatAvailability() {
         for selectableSeat in selectableSeats {
             if let rowIndex = seats.firstIndex(where: { row in
@@ -57,13 +76,13 @@ class SeatsViewModel: ObservableObject {
         objectWillChange.send()
     }
     
-    // 좌석 선택 토글 메서드
+    // 좌석 선택 토글
     func toggleSeatSelection(seat: Seat) {
         if let rowIndex = seats.firstIndex(where: { row in
             row.contains(where: { $0.id == seat.id })
         }), let seatIndex = seats[rowIndex].firstIndex(where: { $0.id == seat.id }) {
             seats[rowIndex][seatIndex].isSelected.toggle()
-            print("Toggled seat selection: \(seats[rowIndex][seatIndex])")  // 디버깅용 로그 추가
+            print("Toggled seat selection: \(seats[rowIndex][seatIndex])")  // 확인용
             
             updateSelectedSeats()
         }

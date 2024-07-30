@@ -1,10 +1,3 @@
-//
-//  CustomTabBarButton.swift
-//  T82
-//
-//  Created by 안홍범 on 7/15/24.
-//
-
 import SwiftUI
 
 struct CustomTabBarButton: View {
@@ -24,7 +17,7 @@ struct CustomTabBarButton: View {
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 20)
                 Text(label)
-                    .font(.caption)
+                    .font(.caption2)
             }
             .padding(.horizontal)
             .foregroundColor(selectedIndex == index ? .primary : .secondary)
