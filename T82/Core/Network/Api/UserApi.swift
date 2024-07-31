@@ -9,7 +9,7 @@ class AuthService {
     // MARK: - 로그인
     func login(email: String, password: String, completion: @escaping (Bool) -> Void) {
         
-        let loginUrl = "\(Config().AuthHost)/api/v1/user/login"
+        let loginUrl = "\(Config().AuthHost)/api/v1/users/login"
         
         let parameters = [
             "email": email,
@@ -40,7 +40,7 @@ class AuthService {
     // MARK: - 회원 가입
     func signUp(signUpRequest: SignUpContent , completion: @escaping (Bool) -> Void) {
         
-        let signUpUrl = "\(Config().AuthHost)/api/v1/user/signup"
+        let signUpUrl = "\(Config().AuthHost)/api/v1/users/signup"
         
         AF.request(signUpUrl, method: .post, parameters: signUpRequest, encoder: JSONParameterEncoder.default)
             .validate()
@@ -71,7 +71,7 @@ class AuthService {
     
     // 유저 정보 불러오기
     func fetchInfo(completion: @escaping (UserInfo?) -> Void) {
-        let fetchUrl = "\(Config().AuthHost)/api/v1/user/me"
+        let fetchUrl = "\(Config().AuthHost)/api/v1/users/me"
         print("Fetching user info from: \(fetchUrl)")
         
         AF.request(fetchUrl, method: .get, headers: Config().getHeaders())
@@ -107,7 +107,7 @@ class AuthService {
         addressDetail: String,
         completion: @escaping (Bool) -> Void
     ) {
-        let updateUrl = "\(Config().AuthHost)/api/v1/user/me"
+        let updateUrl = "\(Config().AuthHost)/api/v1/users/me"
         let parameters = [
             "name": name,
             "password": password,
@@ -154,7 +154,7 @@ class AuthService {
     
     // MARK: - 회원 탈퇴
     func deleteUser(completion: @escaping (Bool) -> Void) {
-        let deleteUrl = "\(Config().AuthHost)/api/v1/user/me"
+        let deleteUrl = "\(Config().AuthHost)/api/v1/users/me"
         
         print("Deleting user at: \(deleteUrl)")
         

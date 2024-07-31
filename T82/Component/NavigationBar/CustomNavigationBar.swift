@@ -1,10 +1,3 @@
-//
-//  CustomNavigationBar.swift
-//  T82
-//
-//  Created by 안홍범 on 7/10/24.
-//
-
 import SwiftUI
 
 struct CustomNavigationBar: View {
@@ -80,10 +73,15 @@ struct CustomNavigationBar: View {
                                 .frame(width: 25, height: 27)
                                 .foregroundColor(.black)
                         } else if rightBtnType == .mylike{
-                            Image("heart")
+                            Image(systemName: "heart.fill")
                                 .resizable()
                                 .frame(width: 26, height: 25)
-                                .foregroundColor(.black)
+                                .foregroundColor(.customred)
+                        } else if rightBtnType == .mydislike{
+                            Image(systemName: "heart")
+                                .resizable()
+                                .frame(width: 26, height: 25)
+                                .foregroundColor(.customred)
                         }
                     }
                 )

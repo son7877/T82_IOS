@@ -3,18 +3,20 @@ import PopupView
 
 struct MyTicketDetailView: View {
     
-    @StateObject private var myTicketViewModel = MyTicketViewModel()
+    @ObservedObject var myTicketViewModel: MyTicketViewModel
+    @ObservedObject var reviewViewModel: MyReviewViewModel
     let ticket: MyTicket
     
     var body: some View {
-        ZStack{
+        ZStack {
             Image("myticketDetail")
                 .resizable()
                 .scaledToFit()
                 .shadow(radius: 6, x: 0, y: 5)
                 .padding()
-            VStack{
-                // 추후에 QR 이미지로 변경
+            VStack {
+                
+                // MARK: 추후에 QR 이미지로 변경
                 Rectangle()
                     .frame(width: 300, height: 300)
                     .foregroundColor(.white)
@@ -28,10 +30,9 @@ struct MyTicketDetailView: View {
                     .font(.title2)
                     .padding()
                 
-                HStack{
+                HStack {
                     Button(
                         action: {
-                            // 리뷰 등록 alert 띄우기
                             myTicketViewModel.reviewAlert.toggle()
                         },
                         label: {
@@ -41,12 +42,14 @@ struct MyTicketDetailView: View {
                                 .padding(5)
                         }
                     )
-                    .background(.customRed)
+                    .background(Color.customRed)
                     .clipShape(Capsule())
                     .padding()
                     
                     Button(
-                        action: {},
+                        action: {
+                            myTicketViewModel.refundAlert.toggle()
+                        },
                         label: {
                             Text("환불 신청")
                                 .font(.title2)
@@ -54,13 +57,15 @@ struct MyTicketDetailView: View {
                                 .padding(5)
                         }
                     )
-                    .background(.customRed)
+                    .background(Color.customRed)
                     .clipShape(Capsule())
                     .padding()
                 }
             }
-        }.popup(isPresented: $myTicketViewModel.reviewAlert){
-            MyReviewFloatingView(isPresented: $myTicketViewModel.reviewAlert)
+        }
+        // 리뷰 팝업
+        .popup(isPresented: $myTicketViewModel.reviewAlert) {
+            MyReviewFloatingView(myTicketViewModel: myTicketViewModel, reviewViewModel: reviewViewModel, isPresented: $myTicketViewModel.reviewAlert, eventInfoId: ticket.eventInfoId)
         } customize: {
             $0
                 .type(.toast)
@@ -69,9 +74,17 @@ struct MyTicketDetailView: View {
                 .animation(.spring)
                 .closeOnTap(false)
         }
+        
+        // 환불 팝업
+        .popup(isPresented: $myTicketViewModel.refundAlert) {
+            MyRefundFloatingView(myTicketViewModel: myTicketViewModel, isPresented: $myTicketViewModel.refundAlert, ticket: ticket)
+        } customize: {
+            $0
+                .type(.toast)
+                .position(.center)
+                .appearFrom(.rightSlide)
+                .animation(.spring)
+                .closeOnTap(false)
+        }
     }
-}
-
-#Preview {
-    MyPageView(myPageSelectedTab: .myTicket)
 }

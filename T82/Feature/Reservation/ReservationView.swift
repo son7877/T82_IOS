@@ -35,9 +35,15 @@ struct ReservationView: View {
                         leftBtnAction: {
                             presentationMode.wrappedValue.dismiss()
                         },
-                        rightBtnAction: {},
+                        rightBtnAction: {
+                            if viewModel.isInterested {
+                                viewModel.removeInterest()
+                            } else {
+                                viewModel.addInterest()
+                            }
+                        },
                         lefttBtnType: .back,
-                        rightBtnType: .mylike,
+                        rightBtnType: viewModel.isInterested ? .mydislike : .mylike,
                         Title: "Title"
                     )
                     .padding(.top, 20)
@@ -84,7 +90,7 @@ struct ReservationView: View {
             }
             .frame(height: 300)
             
-            ScrollView{
+            ScrollView {
                 // MARK: - 이벤트 날짜 선택
                 VStack(alignment: .leading, spacing: 10) {
                     Text("날짜 선택")
@@ -189,12 +195,11 @@ struct ReservationView: View {
                         .frame(width: UIScreen.main.bounds.width, height: 60)
                         .background(Color.gray)
                         .padding(.horizontal, 16)
-                        .padding(.vertical,1)
+                        .padding(.vertical, 1)
                 }
             }
         }
         .navigationBarBackButtonHidden()
-//        .edgesIgnoringSafeArea(.bottom)
     }
 
     private func timeFormatted(_ date: Date) -> String {

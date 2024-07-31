@@ -10,7 +10,7 @@ struct MyReviewView: View {
                 ProgressView("로딩 중...")
                     .padding()
             } else if viewModel.MyReviews.isEmpty {
-                Text("내 예매 내역이 없습니다")
+                Text("내 댓글이 없습니다")
                     .font(.headline)
                     .padding()
             } else {

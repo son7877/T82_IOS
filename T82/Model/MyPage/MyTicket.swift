@@ -3,8 +3,9 @@ import Foundation
 struct MyTicket: Hashable, Codable, Identifiable {
     
     let ticketId: Int
+    let eventInfoId: Int
     let userId: String
-    let seatId: String
+    let seatId: Int
     let sectionName: String
     let rowNum: Int
     let columnNum: Int
@@ -19,7 +20,6 @@ struct MyTicket: Hashable, Codable, Identifiable {
         return ticketId
     }
 }
-
 
 struct MyTicketResponse: Codable {
     let totalPages: Int

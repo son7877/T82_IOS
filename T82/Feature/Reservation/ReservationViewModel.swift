@@ -5,13 +5,17 @@ class ReservationViewModel: ObservableObject {
     @Published var availableDates: [EventsByDate]
     @Published var availableSeats: [RestSeats]
     @Published var seatsFetchError: Bool = false
-    
+    @Published var isInterested: Bool = false
+    private let eventInfoId: Int  
+
     init(eventInfoId: Int) {
         self.contentsDetail = ContentsDetail(title: "", description: "", rating: 0.0, runningTime: "", ageRestriction: "", placeName: "", totalSeat: 0)
         self.availableDates = []
         self.availableSeats = []
+        self.eventInfoId = eventInfoId  
         fetchContentDetail(eventInfoId: eventInfoId)
         fetchAvailableDates(eventInfoId: eventInfoId)
+        checkInterestStatus(eventInfoId: eventInfoId)
     }
     
     // MARK: - 공연 상세 정보 가져오기
@@ -66,5 +70,35 @@ class ReservationViewModel: ObservableObject {
     
     func getAvailableSeatsCountString() -> String {
         return availableSeats.map { "\($0.name): \($0.restSeat)석" }.joined(separator: " / ")
+    }
+    
+    // MARK: - 공연 관심 상태 확인
+    func checkInterestStatus(eventInfoId: Int) {
+        
+        self.isInterested = false // 임시
+    }
+    
+    // MARK: - 공연 관심 등록
+    func addInterest() {
+        MainContentsService.shared.addInterestEvent(eventInfoId: self.eventInfoId) { [weak self] success in
+            guard let self = self else { return }
+            if success {
+                self.isInterested = true
+            } else {
+                print("관심 등록에 실패했습니다.")
+            }
+        }
+    }
+    
+    // MARK: - 공연 관심 해제
+    func removeInterest() {
+        MainContentsService.shared.removeInterestEvent(eventInfoId: self.eventInfoId) { [weak self] success in
+            guard let self = self else { return }
+            if success {
+                self.isInterested = false
+            } else {
+                print("관심 해제에 실패했습니다.")
+            }
+        }
     }
 }
