@@ -3,13 +3,14 @@ import SwiftUI
 struct MyTicketView: View {
     
     @StateObject private var viewModel = MyTicketViewModel()
+    @StateObject private var reviewViewModel = MyReviewViewModel()
     
     var body: some View {
         VStack {
             if viewModel.isLoading {
                 ProgressView("로딩 중...")
                     .padding()
-            } else if viewModel.isEmpty {
+            } else if viewModel.MyTicketContents.isEmpty {
                 Text("내 예매 내역이 없습니다")
                     .font(.headline)
                     .padding()
@@ -45,15 +46,13 @@ struct MyTicketView: View {
         }
         .sheet(isPresented: $viewModel.showModal) {
             if let ticket = viewModel.selectedTicket {
-                MyTicketDetailView(ticket: ticket)
+                MyTicketDetailView(myTicketViewModel: viewModel, reviewViewModel: reviewViewModel, ticket: ticket)
             }
         }
         .background(Rectangle()
             .frame(height: 100)
             .foregroundColor(.white))
-        .onAppear {
-            viewModel.fetchMyTicket(page: 0, size: 5)
-        }
+        
     }
 }
 

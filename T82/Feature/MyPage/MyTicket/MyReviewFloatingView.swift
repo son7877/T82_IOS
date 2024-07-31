@@ -3,14 +3,15 @@ import PopupView
 
 struct MyReviewFloatingView: View {
     
-    @StateObject private var myTicketViewModel = MyTicketViewModel()
-    @StateObject private var reviewViewModel = MyReviewViewModel()
+    @ObservedObject var myTicketViewModel: MyTicketViewModel
+    @ObservedObject var reviewViewModel: MyReviewViewModel
     @Binding var isPresented: Bool
     @State private var rating: Int = 0
     @State private var reviewText: String = ""
-    
+    var eventInfoId: Int
+
     var body: some View {
-        VStack{
+        VStack {
             HStack {
                 Spacer()
                 Text("리뷰 등록")
@@ -21,8 +22,8 @@ struct MyReviewFloatingView: View {
             .padding(.horizontal)
             
             // 별점 등록
-            HStack{
-                ForEach(1..<6){ index in
+            HStack {
+                ForEach(1..<6) { index in
                     Button(action: {
                         rating = index
                     }, label: {
@@ -42,9 +43,14 @@ struct MyReviewFloatingView: View {
                 .tint(.customPink)
             
             Button(action: {
-                // 리뷰 등록 통신 후 뷰 닫기
-                isPresented = false
-                
+                let newReview = MyReview(eventInfoId: eventInfoId, content: reviewText, rating: rating, reviewPictureUrl: nil)
+                reviewViewModel.addReview(reviewRequest: newReview)
+                if reviewViewModel.reviewSubmissionSuccess {
+                    isPresented = false
+                } else if let errorMessage = reviewViewModel.reviewSubmissionError {
+                    // 오류 메시지 처리
+                    print(errorMessage)
+                }
             }, label: {
                 Text("등록")
                     .font(.headline)

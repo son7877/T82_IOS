@@ -11,6 +11,13 @@
 		891565F12C57352B005E4CFE /* ReviewApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891565F02C57352B005E4CFE /* ReviewApi.swift */; };
 		891565F72C57BEDC005E4CFE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 891565F62C57BEDC005E4CFE /* FirebaseAnalytics */; };
 		891565F92C57BEDC005E4CFE /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 891565F82C57BEDC005E4CFE /* FirebaseMessaging */; };
+		891565FB2C58CFC9005E4CFE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 891565FA2C58CFC8005E4CFE /* GoogleService-Info.plist */; };
+		891565FD2C58D596005E4CFE /* Refund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891565FC2C58D596005E4CFE /* Refund.swift */; };
+		891565FF2C58DC16005E4CFE /* MyRefundFloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891565FE2C58DC16005E4CFE /* MyRefundFloatingView.swift */; };
+		891566012C59205C005E4CFE /* FaceIDAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891566002C59205C005E4CFE /* FaceIDAuthenticator.swift */; };
+		891566032C592F5E005E4CFE /* MyFavorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891566022C592F5E005E4CFE /* MyFavorites.swift */; };
+		891566052C593813005E4CFE /* ContentsDetailApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891566042C593813005E4CFE /* ContentsDetailApi.swift */; };
+		891566072C5A5A54005E4CFE /* Format+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891566062C5A5A54005E4CFE /* Format+Extensions.swift */; };
 		8944826E2C3FAF78003F3EE4 /* PasswordValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944826D2C3FAF78003F3EE4 /* PasswordValidation.swift */; };
 		894482722C3FB083003F3EE4 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894482712C3FB083003F3EE4 /* PaymentView.swift */; };
 		894482742C3FB099003F3EE4 /* PaymentCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894482732C3FB099003F3EE4 /* PaymentCompleteView.swift */; };
@@ -100,6 +107,13 @@
 		891565EE2C571EDB005E4CFE /* TicketApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketApi.swift; sourceTree = "<group>"; };
 		891565F02C57352B005E4CFE /* ReviewApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewApi.swift; sourceTree = "<group>"; };
 		891565F22C57BACD005E4CFE /* T82.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = T82.entitlements; sourceTree = "<group>"; };
+		891565FA2C58CFC8005E4CFE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		891565FC2C58D596005E4CFE /* Refund.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refund.swift; sourceTree = "<group>"; };
+		891565FE2C58DC16005E4CFE /* MyRefundFloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRefundFloatingView.swift; sourceTree = "<group>"; };
+		891566002C59205C005E4CFE /* FaceIDAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIDAuthenticator.swift; sourceTree = "<group>"; };
+		891566022C592F5E005E4CFE /* MyFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavorites.swift; sourceTree = "<group>"; };
+		891566042C593813005E4CFE /* ContentsDetailApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsDetailApi.swift; sourceTree = "<group>"; };
+		891566062C5A5A54005E4CFE /* Format+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Format+Extensions.swift"; sourceTree = "<group>"; };
 		8944826D2C3FAF78003F3EE4 /* PasswordValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidation.swift; sourceTree = "<group>"; };
 		894482712C3FB083003F3EE4 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		894482732C3FB099003F3EE4 /* PaymentCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCompleteView.swift; sourceTree = "<group>"; };
@@ -228,6 +242,7 @@
 			children = (
 				894482762C3FB751003F3EE4 /* Coupons.swift */,
 				89A0AAB92C51E50A003048B6 /* Payments.swift */,
+				891565FC2C58D596005E4CFE /* Refund.swift */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -255,6 +270,7 @@
 				894482972C40F8D8003F3EE4 /* MyTicket.swift */,
 				89BC469D2C45270C00CDBB38 /* MyReview.swift */,
 				89D98B5E2C4E517E009C3CFA /* MyInfo.swift */,
+				891566022C592F5E005E4CFE /* MyFavorites.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -274,6 +290,8 @@
 				894482932C40D343003F3EE4 /* MyTicketView.swift */,
 				894482952C40D6A0003F3EE4 /* MyTicketDetailView.swift */,
 				89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */,
+				89BC46A72C461A5F00CDBB38 /* MyReviewFloatingView.swift */,
+				891565FE2C58DC16005E4CFE /* MyRefundFloatingView.swift */,
 			);
 			path = MyTicket;
 			sourceTree = "<group>";
@@ -322,6 +340,7 @@
 				89A7717F2C3BBF5E00C7068F /* Feature */,
 				89A771802C3BBF6400C7068F /* Model */,
 				89A771722C3B702500C7068F /* Assets.xcassets */,
+				891565FA2C58CFC8005E4CFE /* GoogleService-Info.plist */,
 				89A771742C3B702500C7068F /* Preview Content */,
 			);
 			path = T82;
@@ -400,6 +419,7 @@
 			isa = PBXGroup;
 			children = (
 				8944826D2C3FAF78003F3EE4 /* PasswordValidation.swift */,
+				891566002C59205C005E4CFE /* FaceIDAuthenticator.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -409,6 +429,7 @@
 			children = (
 				89B57D682C41033B00784CC3 /* Date+Extensions.swift */,
 				89EAB4DF2C3E6488002B8515 /* Color+extensions.swift */,
+				891566062C5A5A54005E4CFE /* Format+Extensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -497,7 +518,6 @@
 			children = (
 				89BC46992C4526B300CDBB38 /* MyReviewView.swift */,
 				89BC469B2C4526C500CDBB38 /* MyReviewViewModel.swift */,
-				89BC46A72C461A5F00CDBB38 /* MyReviewFloatingView.swift */,
 			);
 			path = MyReview;
 			sourceTree = "<group>";
@@ -555,6 +575,7 @@
 			children = (
 				89BC46C12C4776B500CDBB38 /* UserApi.swift */,
 				89EE245A2C49E6E700538C87 /* ContentsApi.swift */,
+				891566042C593813005E4CFE /* ContentsDetailApi.swift */,
 				89D98B602C4E7E7C009C3CFA /* SeatApi.swift */,
 				89A0AAB02C4F8590003048B6 /* PaymentApi.swift */,
 				891565EE2C571EDB005E4CFE /* TicketApi.swift */,
@@ -665,6 +686,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89A771862C3BC19D00C7068F /* LaunchScreen.storyboard in Resources */,
+				891565FB2C58CFC9005E4CFE /* GoogleService-Info.plist in Resources */,
 				89A771762C3B702500C7068F /* Preview Assets.xcassets in Resources */,
 				89A771732C3B702500C7068F /* Assets.xcassets in Resources */,
 			);
@@ -682,6 +704,8 @@
 				89A0AABC2C521308003048B6 /* PaymentInProgressView.swift in Sources */,
 				89A0AAC72C537195003048B6 /* MyFavoriteViewModel.swift in Sources */,
 				89EE24572C48E89D00538C87 /* MainViewModel.swift in Sources */,
+				891566052C593813005E4CFE /* ContentsDetailApi.swift in Sources */,
+				891565FD2C58D596005E4CFE /* Refund.swift in Sources */,
 				894482792C3FC153003F3EE4 /* Sections.swift in Sources */,
 				89BC469E2C45270C00CDBB38 /* MyReview.swift in Sources */,
 				894482942C40D343003F3EE4 /* MyTicketView.swift in Sources */,
@@ -693,6 +717,7 @@
 				89BC46892C44C55400CDBB38 /* MyInfoEditingViewModel.swift in Sources */,
 				8944826E2C3FAF78003F3EE4 /* PasswordValidation.swift in Sources */,
 				8944828A2C40CC53003F3EE4 /* MyPageTabInfo.swift in Sources */,
+				891566012C59205C005E4CFE /* FaceIDAuthenticator.swift in Sources */,
 				89B57D8A2C43F66F00784CC3 /* SeatsPrice.swift in Sources */,
 				89EAB4D82C3D9BD0002B8515 /* NavigationBtnType.swift in Sources */,
 				89A0AAC22C52B4E5003048B6 /* PaymentViewModel.swift in Sources */,
@@ -707,6 +732,7 @@
 				894482852C40B4E1003F3EE4 /* CompleteTicket.swift in Sources */,
 				89EAB4E02C3E6488002B8515 /* Color+extensions.swift in Sources */,
 				89A0AAB12C4F8590003048B6 /* PaymentApi.swift in Sources */,
+				891566072C5A5A54005E4CFE /* Format+Extensions.swift in Sources */,
 				89BC46A82C461A5F00CDBB38 /* MyReviewFloatingView.swift in Sources */,
 				89BC46C82C480C9A00CDBB38 /* SignUpResponse.swift in Sources */,
 				89BC46902C45022500CDBB38 /* LoginViewModel.swift in Sources */,
@@ -716,11 +742,13 @@
 				894482982C40F8D8003F3EE4 /* MyTicket.swift in Sources */,
 				89EE24502C48DE8800538C87 /* GenreRankingSectionView.swift in Sources */,
 				89EE24622C4A2E9000538C87 /* ContentsDetail.swift in Sources */,
+				891565FF2C58DC16005E4CFE /* MyRefundFloatingView.swift in Sources */,
 				894482872C40BD48003F3EE4 /* CompletePrice.swift in Sources */,
 				89D98B592C4D3E2D009C3CFA /* SubCategoryViewModel.swift in Sources */,
 				89BC468C2C44C5AC00CDBB38 /* User.swift in Sources */,
 				894482742C3FB099003F3EE4 /* PaymentCompleteView.swift in Sources */,
 				89A0AAC52C53718A003048B6 /* MyFavoriteView.swift in Sources */,
+				891566032C592F5E005E4CFE /* MyFavorites.swift in Sources */,
 				89BC469A2C4526B300CDBB38 /* MyReviewView.swift in Sources */,
 				89B57D862C43F0CA00784CC3 /* SeatsInfo.swift in Sources */,
 				89EE245B2C49E6E700538C87 /* ContentsApi.swift in Sources */,
@@ -896,6 +924,7 @@
 				INFOPLIST_FILE = T82/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "페이스아이디 인증";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -908,7 +937,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.T82app.T82;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -934,6 +963,7 @@
 				INFOPLIST_FILE = T82/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "페이스아이디 인증";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -946,7 +976,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.T82app.T82;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

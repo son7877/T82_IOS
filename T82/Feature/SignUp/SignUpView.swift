@@ -95,6 +95,10 @@ struct SignUpView: View {
                         .tint(.customOrange)
                         .focused($isFocused)
                         .textInputAutocapitalization(.never)
+                        .keyboardType(.numberPad)
+                        .onChange(of: signUpContentViewModel.signUpContent.phoneNumber) { newValue in
+                            signUpContentViewModel.signUpContent.phoneNumber = newValue.formattedPhoneNumber()
+                        }
                     
                     TextField("주소", text: $signUpContentViewModel.signUpContent.address)
                         .textFieldStyle(.roundedBorder)
@@ -158,9 +162,9 @@ struct SignUpView: View {
     }
     
     private func validatePasswords() {
-            passwordValidationMessage = Validation.validatePassword(signUpContentViewModel.signUpContent.password)
-            passwordCheckValidationMessage = Validation.validatePasswordCheck(password: signUpContentViewModel.signUpContent.password, passwordCheck: signUpContentViewModel.signUpContent.passwordCheck)
-        }
+        passwordValidationMessage = Validation.validatePassword(signUpContentViewModel.signUpContent.password)
+        passwordCheckValidationMessage = Validation.validatePasswordCheck(password: signUpContentViewModel.signUpContent.password, passwordCheck: signUpContentViewModel.signUpContent.passwordCheck)
+    }
 }
 
 struct SignUpView_Previews: PreviewProvider {

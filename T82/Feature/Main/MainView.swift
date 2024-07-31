@@ -21,7 +21,7 @@ struct MainView: View {
                                 leftBtnAction: {},
                                 rightBtnAction: {},
                                 lefttBtnType: .home,
-                                rightBtnType: .mylike,
+                                rightBtnType: .search,
                                 Title: "T82"
                             )
                             .padding()

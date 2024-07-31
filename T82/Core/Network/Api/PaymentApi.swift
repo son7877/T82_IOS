@@ -78,8 +78,31 @@ class PaymentService {
             }
         }
     }
+    // MARK: - 결제하기 (Click!)
+    
     
     // MARK: - 환불 기능
-    
+    func requestRefund(refundRequest: Refund, completion: @escaping (Result<Bool, Error>) -> Void) {
+        let urlString = Config().PaymentHost + "/api/v1/refund"
+        
+        AF.request(urlString, method: .post, parameters: refundRequest, encoder: JSONParameterEncoder.default, headers: Config().getHeaders()).response { response in
+            switch response.result {
+            case .success:
+                completion(.success(true))
+            case .failure(let error):
+                if let httpResponse = response.response {
+                    print("HTTP Status Code: \(httpResponse.statusCode)")
+                    if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                        print("Error Message: \(errorMessage)")
+                    }
+                } else {
+                    print("Network Error: \(error.localizedDescription)")
+                }
+                completion(.failure(error))
+            }
+        }
+    }
+
+
     
 }
