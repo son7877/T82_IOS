@@ -49,20 +49,24 @@ class SeatsViewModel: ObservableObject {
 
     // 좌석 정보 -> fetch로 선택 가능한 좌석 정보를 가져오고 그 좌석의 isAvailable을 true로 바꿔야함
     func loadSeats() {
-        self.seats = [
-            // 10 * 10형태, 행 열 번호 0부터 시작
-            (0..<10).map { Seat(id: $0, rowNum: 0, colNum: $0, name: "A구역", isSelected: false, isAvailable: false) },
-            (0..<10).map { Seat(id: $0 + 10, rowNum: 1, colNum: $0, name: "A구역", isSelected: false, isAvailable: false) },
-            (0..<10).map { Seat(id: $0 + 20, rowNum: 2, colNum: $0, name: "A구역", isSelected: false, isAvailable: false) },
-            (0..<10).map { Seat(id: $0 + 30, rowNum: 3, colNum: $0, name: "B구역", isSelected: false, isAvailable: false) },
-            (0..<10).map { Seat(id: $0 + 40, rowNum: 4, colNum: $0, name: "B구역", isSelected: false, isAvailable: false) },
-            (0..<10).map { Seat(id: $0 + 50, rowNum: 5, colNum: $0, name: "B구역", isSelected: false, isAvailable: false) },
-            (0..<10).map { Seat(id: $0 + 60, rowNum: 6, colNum: $0, name: "B구역", isSelected: false, isAvailable: false) },
-            (0..<10).map { Seat(id: $0 + 70, rowNum: 7, colNum: $0, name: "C구역", isSelected: false, isAvailable: false) },
-            (0..<10).map { Seat(id: $0 + 80, rowNum: 8, colNum: $0, name: "C구역", isSelected: false, isAvailable: false) },
-            (0..<10).map { Seat(id: $0 + 90, rowNum: 9, colNum: $0, name: "C구역", isSelected: false, isAvailable: false) }
-        ]
+        self.seats = (1...15).map { row in
+            let sectionName: String
+            switch row {
+            case 1...5:
+                sectionName = "A구역"
+            case 6...10:
+                sectionName = "B구역"
+            case 11...15:
+                sectionName = "C구역"
+            default:
+                sectionName = "Unknown"
+            }
+            return (1...100).map { col in
+                Seat(id: (row - 1) * 100 + col, rowNum: row, colNum: col, name: sectionName, isSelected: false, isAvailable: false)
+            }
+        }
     }
+
     
     // 좌석의 사용 가능 여부를 업데이트
     func updateSeatAvailability() {

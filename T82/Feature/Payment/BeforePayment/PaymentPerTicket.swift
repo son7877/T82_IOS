@@ -21,7 +21,7 @@ struct PaymentPerTicket: View {
                         let finalPrice = calculateFinalPrice(for: seat, with: couponViewModel.couponList[seat.id])
                         VStack {
                             HStack {
-                                Text("\(seat.name)  \(seat.rowNum+1)-\(seat.colNum+1)석")
+                                Text("\(seat.name)  \(seat.rowNum)-\(seat.colNum)석")
                                     .font(.system(size: 20))
                                     .padding(.leading, 30)
                                 Spacer()

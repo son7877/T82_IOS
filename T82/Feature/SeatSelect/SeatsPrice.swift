@@ -32,7 +32,7 @@ struct SeatsPrice: View {
     
     func seatInfoRow(seat: SelectableSeat) -> some View {
         HStack {
-            Text("좌석: \(seat.rowNum + 1) - \(seat.colNum + 1)")
+            Text("좌석: \(seat.rowNum) - \(seat.colNum)")
             Spacer()
             Text("구역: \(seat.name)")
             Spacer()
