@@ -10,7 +10,7 @@ struct MyPageView: View {
         VStack{
             CustomNavigationBar(
                 isDisplayLeftBtn: true,
-                isDisplayRightBtn: true,
+                isDisplayRightBtn: false,
                 isDisplayTitle: true,
                 leftBtnAction: {},
                 rightBtnAction: {},

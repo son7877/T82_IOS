@@ -17,7 +17,6 @@ class ReservationViewModel: ObservableObject {
         fetchAvailableDates(eventInfoId: eventInfoId)
         checkInterestStatus(eventInfoId: eventInfoId)
     }
-    
     // MARK: - 공연 상세 정보 가져오기
     func fetchContentDetail(eventInfoId: Int) {
         ContentDetailService.shared.getContentDetail(eventInfoId: eventInfoId) { [weak self] contentsDetail in
@@ -30,7 +29,6 @@ class ReservationViewModel: ObservableObject {
             }
         }
     }
-    
     // MARK: - 공연 별 이벤트 시간 불러오기
     func fetchAvailableDates(eventInfoId: Int) {
         ContentDetailService.shared.getAvailableDates(eventInfoId: eventInfoId) { [weak self] availableDates in
@@ -48,7 +46,6 @@ class ReservationViewModel: ObservableObject {
     func availableTimes(for date: Date) -> [Date] {
         return availableDates.filter { Calendar.current.isDate($0.eventStartTime, inSameDayAs: date) }.map { $0.eventStartTime }
     }
-    
     // MARK: - 이벤트 별 남은 좌석 수 불러오기
     func fetchAvailableSeats(eventId: Int) {
         ContentDetailService.shared.getRestSeatsByTime(eventId: eventId) { [weak self] availableSeats in
@@ -71,13 +68,11 @@ class ReservationViewModel: ObservableObject {
     func getAvailableSeatsCountString() -> String {
         return availableSeats.map { "\($0.name): \($0.restSeat)석" }.joined(separator: " / ")
     }
-    
-    // MARK: - 공연 관심 상태 확인
+    // MARK: - 공연 관심 상태 불러오기
     func checkInterestStatus(eventInfoId: Int) {
         
         self.isInterested = false // 임시
     }
-    
     // MARK: - 공연 관심 등록
     func addInterest() {
         MainContentsService.shared.addInterestEvent(eventInfoId: self.eventInfoId) { [weak self] success in
@@ -89,7 +84,6 @@ class ReservationViewModel: ObservableObject {
             }
         }
     }
-    
     // MARK: - 공연 관심 해제
     func removeInterest() {
         MainContentsService.shared.removeInterestEvent(eventInfoId: self.eventInfoId) { [weak self] success in

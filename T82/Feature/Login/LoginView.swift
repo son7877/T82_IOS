@@ -1,10 +1,13 @@
 import SwiftUI
+import GoogleSignInSwift
+import KakaoSDKCommon
+import KakaoSDKAuth
+import KakaoSDKUser
 
 struct LoginView: View {
     
     @FocusState private var isFocused: Bool
     @StateObject private var loginContentViewMoel = LoginViewModel()
-    
     
     var body: some View {
         NavigationStack {
@@ -53,24 +56,39 @@ struct LoginView: View {
                     }
                 )
                 // MARK: - 소셜 로그인
+                // MARK: - 카카오
                 HStack {
                     Button(action: {
-                        
+                        if (UserApi.isKakaoTalkLoginAvailable()) {
+                            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+                                if let error = error {
+                                    print("1==================== \(error)")
+                                }
+                                if let oauthToken = oauthToken{
+                                    
+                                }
+                            }
+                        } else {
+                            UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+                                if let error = error {
+                                    print("2===================== \(error)")
+                                }
+                                if let oauthToken = oauthToken{
+                                    print("kakao success")
+                                }
+                            }
+                        }
                     }, label: {
-                        Image("naver")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                            .padding()
-                    })
-                    
-                    Button(action: {}, label: {
                         Image("kakao")
                             .resizable()
                             .frame(width: 50, height: 50)
                             .padding()
                     })
                     
-                    Button(action: {}, label: {
+                    // MARK: - 구글
+                    Button(action: {
+                        
+                    }, label: {
                         Image("google")
                             .resizable()
                             .frame(width: 50, height: 50)

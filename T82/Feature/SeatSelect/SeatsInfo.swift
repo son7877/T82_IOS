@@ -5,13 +5,13 @@ struct SeatsInfo: View {
     @ObservedObject var viewModel: SeatsViewModel
     
     var body: some View {
-        ScrollView {
+        ScrollView([.horizontal, .vertical]) {
             VStack(spacing: 20) {
                 ForEach(viewModel.seats, id: \.self) { row in
                     HStack(spacing: 10) {
                         
                         HStack(spacing: 10) {
-                            ForEach(Array(row.enumerated()), id: \.offset) { index, seat in
+                            ForEach(Array(row.enumerated()), id: \.element.id) { index, seat in
                                 VStack {
                                     if seat.isSelected {
                                         Image("selectedseat")
@@ -46,7 +46,7 @@ struct SeatsInfo: View {
             .padding(.top, 30)
         }
     }
-        
+    
     func colorForSection(_ section: String) -> Color {
         switch section {
         case "A구역":

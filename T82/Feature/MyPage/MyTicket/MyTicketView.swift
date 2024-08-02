@@ -30,9 +30,8 @@ struct MyTicketView: View {
                                 .padding(.bottom, 10)
                                 .padding(.leading, 25)
                              
-                            VStack {
+                            VStack (alignment: .leading) {
                                 Text("\(ticket.eventStartTime)")
-                                    .padding(.bottom, 1)
                                 Text("\(ticket.sectionName)구역")
                                 Text("\(ticket.rowNum)열 \(ticket.columnNum)번")
                                     .padding(.bottom, 10)

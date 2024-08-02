@@ -8,6 +8,8 @@ struct MyReviewFloatingView: View {
     @Binding var isPresented: Bool
     @State private var rating: Int = 0
     @State private var reviewText: String = ""
+    @State private var showErrorAlert: Bool = false
+    @State private var showCompleteAlert: Bool = false
     var eventInfoId: Int
 
     var body: some View {
@@ -47,9 +49,11 @@ struct MyReviewFloatingView: View {
                 reviewViewModel.addReview(reviewRequest: newReview)
                 if reviewViewModel.reviewSubmissionSuccess {
                     isPresented = false
+                    showCompleteAlert = true
                 } else if let errorMessage = reviewViewModel.reviewSubmissionError {
                     // 오류 메시지 처리
                     print(errorMessage)
+                    showErrorAlert = true
                 }
             }, label: {
                 Text("등록")
@@ -62,5 +66,19 @@ struct MyReviewFloatingView: View {
             })
         }
         .background(Color.customGray1.opacity(0.6))
+        .alert(isPresented: $showErrorAlert) {
+            Alert(
+                title: Text("리뷰 등록 실패"),
+                message: Text("다시 시도해 주세요"),
+                dismissButton: .default(Text("확인"))
+            )
+        }
+        .alert(isPresented: $showCompleteAlert) {
+            Alert(
+                title: Text("리뷰 등록 완료"),
+                message: Text("리뷰 등록이 완료되었습니다."),
+                dismissButton: .default(Text("확인"))
+            )
+        }
     }
 }

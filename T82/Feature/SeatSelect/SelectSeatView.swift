@@ -44,6 +44,9 @@ struct SelectSeatView: View {
         .onAppear {
             viewModel.fetchAvailableSeats(eventId: eventId)
         }
+        .onDisappear(){
+            viewModel.fetchAvailableSeats(eventId: eventId)
+        }
     }
 }
 
