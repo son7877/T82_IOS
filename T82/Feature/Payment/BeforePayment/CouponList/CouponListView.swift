@@ -25,6 +25,7 @@ struct CouponListView: View {
 }
 
 struct CouponRowView: View {
+    
     let coupon: Coupon
     @Environment(\.presentationMode) var presentationMode
     var onCouponSelected: (Coupon) -> Void
@@ -44,7 +45,9 @@ struct CouponRowView: View {
                 .padding(.bottom, 10)
             Button {
                 if isSelected {
-                    onCouponSelected(Coupon(couponId: "", couponName: "", discountType: "", discountValue: 0, validEnd: "", minPurchase: 0, duplicate: false, category: ""))
+                    onCouponSelected(
+                        Coupon(couponId: "", couponName: "", discountType: "", discountValue: 0, validEnd: "", minPurchase: 0, duplicate: false, category: "")
+                    )
                 } else {
                     onCouponSelected(coupon)
                 }

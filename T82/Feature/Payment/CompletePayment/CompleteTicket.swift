@@ -2,7 +2,6 @@ import SwiftUI
 
 struct CompleteTicket: View {
     
-    
     var body: some View {
         GeometryReader{ geometry in
             ZStack{
