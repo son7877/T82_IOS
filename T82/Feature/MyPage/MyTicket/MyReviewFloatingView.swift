@@ -7,6 +7,7 @@ struct MyReviewFloatingView: View {
     @ObservedObject var reviewViewModel: MyReviewViewModel
     @Binding var isPresented: Bool
     @State private var rating: Int = 0
+    @State private var createdDate: String = ""
     @State private var reviewText: String = ""
     @State private var showErrorAlert: Bool = false
     @State private var showCompleteAlert: Bool = false
@@ -45,14 +46,11 @@ struct MyReviewFloatingView: View {
                 .tint(.customPink)
             
             Button(action: {
-                let newReview = MyReview(eventInfoId: eventInfoId, content: reviewText, rating: rating, reviewPictureUrl: nil)
+                let newReview = MyReview(eventInfoId: eventInfoId, content: reviewText, rating: rating, reviewPictureUrl: nil, createdDate: createdDate)
                 reviewViewModel.addReview(reviewRequest: newReview)
                 if reviewViewModel.reviewSubmissionSuccess {
-                    isPresented = false
                     showCompleteAlert = true
-                } else if let errorMessage = reviewViewModel.reviewSubmissionError {
-                    // 오류 메시지 처리
-                    print(errorMessage)
+                } else {
                     showErrorAlert = true
                 }
             }, label: {
@@ -69,7 +67,7 @@ struct MyReviewFloatingView: View {
         .alert(isPresented: $showErrorAlert) {
             Alert(
                 title: Text("리뷰 등록 실패"),
-                message: Text("다시 시도해 주세요"),
+                message: Text("\(reviewViewModel.reviewSubmissionError)"),
                 dismissButton: .default(Text("확인"))
             )
         }

@@ -66,7 +66,10 @@ struct MainView: View {
                             
                         } else if selectedIndex == 3 {
                             MyPageView(myPageSelectedTab: .myInfoEditing)
-                        } else if selectedIndex == 0 {
+                        } else if selectedIndex == 1 {
+                            EventView(selection: .firstCoupons)
+                        }
+                        else if selectedIndex == 0 {
                             MyPageView(myPageSelectedTab: .myTicket)
                         }
                     }
@@ -75,10 +78,10 @@ struct MainView: View {
                 VStack {
                     Spacer()
                     CustomTabBarView(selectedIndex: $selectedIndex)
-                        .background(Color.white) // 흰색 배경 추가
+                        .background(Color.white)
                 }
             }
-            .edgesIgnoringSafeArea(.bottom) // 안전 영역 무시
+            .edgesIgnoringSafeArea(.bottom)
             .onAppear() {
                 viewModel.fetchMainPageData()
             }

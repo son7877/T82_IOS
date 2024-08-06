@@ -1,4 +1,4 @@
-import SwiftUI
+import Foundation
 
 class SeatsViewModel: ObservableObject {
     
@@ -6,6 +6,7 @@ class SeatsViewModel: ObservableObject {
     @Published var selectableSeats: [SelectableSeat] = []
     @Published var selectedSeats: [SelectableSeat] = []
     @Published var pendingSeats: [PendingSeat] = []
+    @Published var showMaxSeatsAlert: Bool = false
 
     init() {
         loadSeats()
@@ -38,14 +39,12 @@ class SeatsViewModel: ObservableObject {
                     self.pendingSeats = seats
                 }
             case .success(false):
-                print("Failed to add seats: Unknown reason.")
+                print("좌석 추가 실패: 알 수 없는 이유.")
             case .failure(let error):
-                print("Error: \(error.localizedDescription)")
+                print("오류: \(error.localizedDescription)")
             }
         }
     }
-
-    
 
     // 좌석 정보 -> fetch로 선택 가능한 좌석 정보를 가져오고 그 좌석의 isAvailable을 true로 바꿔야함
     func loadSeats() {
@@ -67,7 +66,6 @@ class SeatsViewModel: ObservableObject {
         }
     }
 
-    
     // 좌석의 사용 가능 여부를 업데이트
     func updateSeatAvailability() {
         for selectableSeat in selectableSeats {
@@ -85,8 +83,13 @@ class SeatsViewModel: ObservableObject {
         if let rowIndex = seats.firstIndex(where: { row in
             row.contains(where: { $0.id == seat.id })
         }), let seatIndex = seats[rowIndex].firstIndex(where: { $0.id == seat.id }) {
+            // 좌석이 선택되고 최대 선택 개수에 도달했는지 확인
+            if !seats[rowIndex][seatIndex].isSelected && selectedSeats.count >= 5 {
+                showMaxSeatsAlert = true
+                return  // 5개 이상의 좌석 선택을 허용하지 않음
+            }
             seats[rowIndex][seatIndex].isSelected.toggle()
-            print("Toggled seat selection: \(seats[rowIndex][seatIndex])")  // 확인용
+            print("좌석 선택 토글: \(seats[rowIndex][seatIndex])")  // 확인용
             
             updateSelectedSeats()
         }
@@ -96,6 +99,6 @@ class SeatsViewModel: ObservableObject {
         selectedSeats = seats.flatMap { $0.filter { $0.isSelected } }.compactMap { seat in
             selectableSeats.first { $0.rowNum == seat.rowNum && $0.colNum == seat.colNum }
         }
-        print("Updated selected seats: \(selectedSeats)")  // 확인용
+        print("선택된 좌석 업데이트: \(selectedSeats)")  // 확인용
     }
 }
