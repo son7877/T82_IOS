@@ -2,6 +2,7 @@ import Foundation
 
 extension String {
     func formattedPhoneNumber() -> String {
+        
         // 숫자만 남기기
         let digits = self.filter { $0.isNumber }
         
