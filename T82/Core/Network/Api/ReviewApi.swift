@@ -7,7 +7,7 @@ class ReviewService {
     private init() {}
     
     // MARK: - 리뷰 작성
-    func addReview(reviewRequest: MyReview,completion: @escaping (Bool) -> Void) {
+    func addReview(reviewRequest: MyReview, completion: @escaping (Bool, String?) -> Void) {
         let writeUrl = "\(Config().AuthHost)/api/v1/reviews"
         
         let parameters = [
@@ -24,23 +24,28 @@ class ReviewService {
                 case .success:
                     if let httpResponse = response.response {
                         print("HTTP Status Code: \(httpResponse.statusCode)")
-                        completion((200..<300).contains(httpResponse.statusCode))
+                        completion((200..<300).contains(httpResponse.statusCode), nil)
                     } else {
                         print("No HTTP Response received.")
-                        completion(false)
+                        completion(false, "No HTTP Response received.")
                     }
                 case .failure(let error):
                     if let httpResponse = response.response {
                         print("HTTP Error: \(httpResponse.statusCode)")
                         if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
                             print("Error Message: \(errorMessage)")
+                            completion(false, errorMessage)
+                        } else {
+                            completion(false, "Unknown error occurred.")
                         }
                     } else {
                         print("Network Error: \(error.localizedDescription)")
+                        completion(false, error.localizedDescription)
                     }
                 }
             }
     }
+
     
     // MARK: - 내 리뷰 조회
     func getMyReviews(completion: @escaping ([MyReview]?) -> Void) {

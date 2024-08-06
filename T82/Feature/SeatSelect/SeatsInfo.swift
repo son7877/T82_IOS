@@ -9,7 +9,6 @@ struct SeatsInfo: View {
             VStack(spacing: 20) {
                 ForEach(viewModel.seats, id: \.self) { row in
                     HStack(spacing: 10) {
-                        
                         HStack(spacing: 10) {
                             ForEach(Array(row.enumerated()), id: \.element.id) { index, seat in
                                 VStack {
@@ -44,6 +43,9 @@ struct SeatsInfo: View {
                 }
             }
             .padding(.top, 30)
+        }
+        .alert(isPresented: $viewModel.showMaxSeatsAlert) {
+            Alert(title: Text("최대 좌석 선택"), message: Text("최대 5개의 좌석만 선택할 수 있습니다."), dismissButton: .default(Text("확인")))
         }
     }
     

@@ -8,6 +8,7 @@ struct LoginView: View {
     
     @FocusState private var isFocused: Bool
     @StateObject private var loginContentViewMoel = LoginViewModel()
+    @StateObject private var versionCheckViewModel = VersionCheckViewModel()
     
     var body: some View {
         NavigationStack {
@@ -45,16 +46,16 @@ struct LoginView: View {
                     .padding(.top, 20)
                     .padding(.horizontal, 50)
                 
-                Button(
-                    action: {
-                        // 비밀번호 찾기 로직 추후 추가
-                    },
-                    label: {
-                        Text("비밀번호를 잊으셨습니까?")
-                            .foregroundColor(Color.customGray1)
-                            .font(.system(size: 15))
-                    }
-                )
+//                Button(
+//                    action: {
+//                        // 비밀번호 찾기 로직 추후 추가
+//                    },
+//                    label: {
+//                        Text("비밀번호를 잊으셨습니까?")
+//                            .foregroundColor(Color.customGray1)
+//                            .font(.system(size: 15))
+//                    }
+//                )
                 // MARK: - 소셜 로그인
                 // MARK: - 카카오
                 HStack {
@@ -64,7 +65,7 @@ struct LoginView: View {
                                 if let error = error {
                                     print("1==================== \(error)")
                                 }
-                                if let oauthToken = oauthToken{
+                                if let oauthToken = oauthToken {
                                     
                                 }
                             }
@@ -73,7 +74,7 @@ struct LoginView: View {
                                 if let error = error {
                                     print("2===================== \(error)")
                                 }
-                                if let oauthToken = oauthToken{
+                                if let oauthToken = oauthToken {
                                     print("kakao success")
                                 }
                             }
@@ -103,11 +104,37 @@ struct LoginView: View {
                 isFocused = false
             }
             .navigationBarBackButtonHidden()
-            .alert(isPresented: .constant(loginContentViewMoel.errorMessage != nil)) {
-                Alert(title: Text("로그인 실패"), message: Text(loginContentViewMoel.errorMessage ?? ""), dismissButton: .default(Text("확인")))
+            // MARK: - 업데이트 확인
+            .alert(isPresented: Binding<Bool>(
+                get: { versionCheckViewModel.shouldShowUpdateAlert != nil },
+                set: { _ in versionCheckViewModel.shouldShowUpdateAlert = nil }
+            )) {
+                Alert(
+                    title: Text("업데이트 확인"),
+                    message: Text("새로운 버전이 있습니다. 업데이트 하시겠습니까?"),
+                    primaryButton: .default(Text("업데이트"), action: {
+                        openTestFlight()
+                    }),
+                    secondaryButton: .cancel(Text("나중에"))
+                )
             }
             .navigationDestination(isPresented: $loginContentViewMoel.loginSuccessful) {
                 MainView()
+            }
+            .onAppear {
+                versionCheckViewModel.checkForUpdate()
+            }
+        }
+    }
+    
+    private func openTestFlight() {
+        if let url = URL(string: "itms-beta://") {
+            if UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url)
+            } else {
+                if let appStoreUrl = URL(string: "https://apps.apple.com/app/testflight/id899247664") {
+                    UIApplication.shared.open(appStoreUrl)
+                }
             }
         }
     }

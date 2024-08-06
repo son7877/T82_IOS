@@ -6,7 +6,7 @@ struct MyReview: Hashable, Identifiable, Codable{
     let content: String
     let rating: Int
     let reviewPictureUrl: String?
-    var createdDate: Date = Date()
+    var createdDate: String
     
     var id: Int {
         return eventInfoId

@@ -37,7 +37,7 @@ struct MyReviewView: View {
                                     }
                                 }
                                 
-                                Text("\(review.createdDate.formmatedDay) \(review.createdDate.formattedTime)")
+                                Text("\(review.createdDate)")
                                     .font(.system(size: 15))
                                     .foregroundColor(.customGray1)
                                     .padding(.bottom, 10)
@@ -73,11 +73,10 @@ struct Header: View {
         }
         .padding(.vertical, 10)
         .padding(.horizontal, 10)
-        .background(Color.customPink)
+        .background(Color.customred)
     }
 }
 
 #Preview {
     MyPageView(myPageSelectedTab: .myReview)
-    // MyReviewView()
 }

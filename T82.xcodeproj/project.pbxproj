@@ -23,6 +23,15 @@
 		892D75AA2C5B7DD000771955 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 892D75A92C5B7DD000771955 /* KakaoSDKAuth */; };
 		892D75AC2C5B7DD000771955 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 892D75AB2C5B7DD000771955 /* KakaoSDKCommon */; };
 		892D75AE2C5B7DD000771955 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 892D75AD2C5B7DD000771955 /* KakaoSDKUser */; };
+		892D75B12C5FDF9D00771955 /* VersionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D75B02C5FDF9D00771955 /* VersionResponse.swift */; };
+		892D75B32C5FDFD400771955 /* VersionCheckApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D75B22C5FDFD400771955 /* VersionCheckApi.swift */; };
+		892D75B52C5FE00700771955 /* VersionCheckViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D75B42C5FE00700771955 /* VersionCheckViewModel.swift */; };
+		892D75B72C619F9600771955 /* FirstEventCouponViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D75B62C619F9600771955 /* FirstEventCouponViewModel.swift */; };
+		892D75B92C61A0A400771955 /* FirstEventCouponView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D75B82C61A0A400771955 /* FirstEventCouponView.swift */; };
+		892D75BB2C61B7A800771955 /* EventTabInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D75BA2C61B7A800771955 /* EventTabInfo.swift */; };
+		892D75BD2C61B85B00771955 /* EventTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D75BC2C61B85B00771955 /* EventTabView.swift */; };
+		892D75BF2C61B8F900771955 /* PedometerEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D75BE2C61B8F900771955 /* PedometerEventView.swift */; };
+		892D75C12C61B93100771955 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892D75C02C61B93100771955 /* EventView.swift */; };
 		8944826E2C3FAF78003F3EE4 /* PasswordValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944826D2C3FAF78003F3EE4 /* PasswordValidation.swift */; };
 		894482722C3FB083003F3EE4 /* PaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894482712C3FB083003F3EE4 /* PaymentView.swift */; };
 		894482742C3FB099003F3EE4 /* PaymentCompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894482732C3FB099003F3EE4 /* PaymentCompleteView.swift */; };
@@ -60,7 +69,6 @@
 		89A7718C2C3BE5AF00C7068F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A7718B2C3BE5AF00C7068F /* SignUpView.swift */; };
 		89B57D672C40FBD400784CC3 /* MyTicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */; };
 		89B57D692C41033B00784CC3 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D682C41033B00784CC3 /* Date+Extensions.swift */; };
-		89B57D722C439ED000784CC3 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D712C439ED000784CC3 /* EventView.swift */; };
 		89B57D7F2C43BFD000784CC3 /* MyLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */; };
 		89B57D822C43D56A00784CC3 /* SelectSeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D812C43D56A00784CC3 /* SelectSeatView.swift */; };
 		89B57D842C43D57900784CC3 /* SeatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D832C43D57900784CC3 /* SeatsViewModel.swift */; };
@@ -119,6 +127,15 @@
 		891566022C592F5E005E4CFE /* MyFavorites.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFavorites.swift; sourceTree = "<group>"; };
 		891566042C593813005E4CFE /* ContentsDetailApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentsDetailApi.swift; sourceTree = "<group>"; };
 		891566062C5A5A54005E4CFE /* Format+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Format+Extensions.swift"; sourceTree = "<group>"; };
+		892D75B02C5FDF9D00771955 /* VersionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionResponse.swift; sourceTree = "<group>"; };
+		892D75B22C5FDFD400771955 /* VersionCheckApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCheckApi.swift; sourceTree = "<group>"; };
+		892D75B42C5FE00700771955 /* VersionCheckViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersionCheckViewModel.swift; sourceTree = "<group>"; };
+		892D75B62C619F9600771955 /* FirstEventCouponViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstEventCouponViewModel.swift; sourceTree = "<group>"; };
+		892D75B82C61A0A400771955 /* FirstEventCouponView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstEventCouponView.swift; sourceTree = "<group>"; };
+		892D75BA2C61B7A800771955 /* EventTabInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTabInfo.swift; sourceTree = "<group>"; };
+		892D75BC2C61B85B00771955 /* EventTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTabView.swift; sourceTree = "<group>"; };
+		892D75BE2C61B8F900771955 /* PedometerEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedometerEventView.swift; sourceTree = "<group>"; };
+		892D75C02C61B93100771955 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		8944826D2C3FAF78003F3EE4 /* PasswordValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordValidation.swift; sourceTree = "<group>"; };
 		894482712C3FB083003F3EE4 /* PaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentView.swift; sourceTree = "<group>"; };
 		894482732C3FB099003F3EE4 /* PaymentCompleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCompleteView.swift; sourceTree = "<group>"; };
@@ -157,7 +174,6 @@
 		89A7718B2C3BE5AF00C7068F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketViewModel.swift; sourceTree = "<group>"; };
 		89B57D682C41033B00784CC3 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
-		89B57D712C439ED000784CC3 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
 		89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocalView.swift; sourceTree = "<group>"; };
 		89B57D812C43D56A00784CC3 /* SelectSeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSeatView.swift; sourceTree = "<group>"; };
 		89B57D832C43D57900784CC3 /* SeatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatsViewModel.swift; sourceTree = "<group>"; };
@@ -223,6 +239,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		892D75AF2C5FDF7400771955 /* Version */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Version;
+			sourceTree = "<group>";
+		};
+		892D75C22C61BA1700771955 /* FirstComes */ = {
+			isa = PBXGroup;
+			children = (
+				892D75B82C61A0A400771955 /* FirstEventCouponView.swift */,
+				892D75B62C619F9600771955 /* FirstEventCouponViewModel.swift */,
+			);
+			path = FirstComes;
+			sourceTree = "<group>";
+		};
+		892D75C32C61BA2200771955 /* PedometerEvent */ = {
+			isa = PBXGroup;
+			children = (
+				892D75BE2C61B8F900771955 /* PedometerEventView.swift */,
+			);
+			path = PedometerEvent;
+			sourceTree = "<group>";
+		};
 		8944826F2C3FB04A003F3EE4 /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +456,7 @@
 		89A771802C3BBF6400C7068F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				892D75AF2C5FDF7400771955 /* Version */,
 				89EE24532C48E85300538C87 /* Contents */,
 				89BC468A2C44C5A100CDBB38 /* Auth */,
 				894482882C40CC0F003F3EE4 /* MyPage */,
@@ -451,6 +492,7 @@
 				89BC468F2C45022500CDBB38 /* LoginViewModel.swift */,
 				89BC46912C45032B00CDBB38 /* LoginBtn.swift */,
 				89BC46932C45034B00CDBB38 /* SignUpBtn.swift */,
+				892D75B42C5FE00700771955 /* VersionCheckViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -491,7 +533,11 @@
 		89B57D702C439EBA00784CC3 /* Event */ = {
 			isa = PBXGroup;
 			children = (
-				89B57D712C439ED000784CC3 /* EventView.swift */,
+				892D75C02C61B93100771955 /* EventView.swift */,
+				892D75BC2C61B85B00771955 /* EventTabView.swift */,
+				892D75BA2C61B7A800771955 /* EventTabInfo.swift */,
+				892D75C32C61BA2200771955 /* PedometerEvent */,
+				892D75C22C61BA1700771955 /* FirstComes */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -545,6 +591,7 @@
 		89BC46C32C47929600CDBB38 /* Dto */ = {
 			isa = PBXGroup;
 			children = (
+				892D75B02C5FDF9D00771955 /* VersionResponse.swift */,
 				89BC46C42C4792A300CDBB38 /* LoginResponse.swift */,
 				89BC46C72C480C9A00CDBB38 /* SignUpResponse.swift */,
 			);
@@ -590,6 +637,7 @@
 				89A0AAB02C4F8590003048B6 /* PaymentApi.swift */,
 				891565EE2C571EDB005E4CFE /* TicketApi.swift */,
 				891565F02C57352B005E4CFE /* ReviewApi.swift */,
+				892D75B22C5FDFD400771955 /* VersionCheckApi.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -726,10 +774,12 @@
 				894482792C3FC153003F3EE4 /* Sections.swift in Sources */,
 				89BC469E2C45270C00CDBB38 /* MyReview.swift in Sources */,
 				894482942C40D343003F3EE4 /* MyTicketView.swift in Sources */,
+				892D75BB2C61B7A800771955 /* EventTabInfo.swift in Sources */,
 				891565EF2C571EDB005E4CFE /* TicketApi.swift in Sources */,
 				89EAB4DA2C3D9BE3002B8515 /* CustomNavigationBar.swift in Sources */,
 				AAFE6D382C41A68600FB6BA6 /* SubCategoryView.swift in Sources */,
 				AAFE6D332C3FA10E00FB6BA6 /* MainView.swift in Sources */,
+				892D75C12C61B93100771955 /* EventView.swift in Sources */,
 				89BC468E2C44CC4800CDBB38 /* CustomTabBarBtn.swift in Sources */,
 				89BC46892C44C55400CDBB38 /* MyInfoEditingViewModel.swift in Sources */,
 				8944826E2C3FAF78003F3EE4 /* PasswordValidation.swift in Sources */,
@@ -746,13 +796,16 @@
 				89B57D822C43D56A00784CC3 /* SelectSeatView.swift in Sources */,
 				89BC46922C45032B00CDBB38 /* LoginBtn.swift in Sources */,
 				89A0AAB82C50D3C6003048B6 /* CouponListViewModel.swift in Sources */,
+				892D75BD2C61B85B00771955 /* EventTabView.swift in Sources */,
 				894482852C40B4E1003F3EE4 /* CompleteTicket.swift in Sources */,
 				89EAB4E02C3E6488002B8515 /* Color+extensions.swift in Sources */,
 				89A0AAB12C4F8590003048B6 /* PaymentApi.swift in Sources */,
 				891566072C5A5A54005E4CFE /* Format+Extensions.swift in Sources */,
 				89BC46A82C461A5F00CDBB38 /* MyReviewFloatingView.swift in Sources */,
+				892D75BF2C61B8F900771955 /* PedometerEventView.swift in Sources */,
 				89BC46C82C480C9A00CDBB38 /* SignUpResponse.swift in Sources */,
 				89BC46902C45022500CDBB38 /* LoginViewModel.swift in Sources */,
+				892D75B92C61A0A400771955 /* FirstEventCouponView.swift in Sources */,
 				89BC46CC2C48B3D400CDBB38 /* ContentView.swift in Sources */,
 				89EE24522C48DF3D00538C87 /* Genre.swift in Sources */,
 				89B57D842C43D57900784CC3 /* SeatsViewModel.swift in Sources */,
@@ -763,6 +816,7 @@
 				894482872C40BD48003F3EE4 /* CompletePrice.swift in Sources */,
 				89D98B592C4D3E2D009C3CFA /* SubCategoryViewModel.swift in Sources */,
 				89BC468C2C44C5AC00CDBB38 /* User.swift in Sources */,
+				892D75B12C5FDF9D00771955 /* VersionResponse.swift in Sources */,
 				894482742C3FB099003F3EE4 /* PaymentCompleteView.swift in Sources */,
 				89A0AAC52C53718A003048B6 /* MyFavoriteView.swift in Sources */,
 				891566032C592F5E005E4CFE /* MyFavorites.swift in Sources */,
@@ -771,11 +825,12 @@
 				89EE245B2C49E6E700538C87 /* ContentsApi.swift in Sources */,
 				89A7718A2C3BDEA400C7068F /* LoginView.swift in Sources */,
 				89A0AABA2C51E50A003048B6 /* Payments.swift in Sources */,
+				892D75B72C619F9600771955 /* FirstEventCouponViewModel.swift in Sources */,
 				89EE24552C48E87100538C87 /* MainContents.swift in Sources */,
-				89B57D722C439ED000784CC3 /* EventView.swift in Sources */,
 				89BC46942C45034B00CDBB38 /* SignUpBtn.swift in Sources */,
 				89BC46C52C4792A300CDBB38 /* LoginResponse.swift in Sources */,
 				8944827C2C3FD906003F3EE4 /* PaymentPrice.swift in Sources */,
+				892D75B32C5FDFD400771955 /* VersionCheckApi.swift in Sources */,
 				89A771842C3BC16F00C7068F /* AppDelegate.swift in Sources */,
 				89D98B612C4E7E7C009C3CFA /* SeatApi.swift in Sources */,
 				89EE244E2C48DDFC00538C87 /* SectionView.swift in Sources */,
@@ -792,6 +847,7 @@
 				89D98B5B2C4DE0BA009C3CFA /* EventsByDate.swift in Sources */,
 				89BC46C02C4775AE00CDBB38 /* Config.swift in Sources */,
 				89A0AAB32C4F9406003048B6 /* PaymentPerTicket.swift in Sources */,
+				892D75B52C5FE00700771955 /* VersionCheckViewModel.swift in Sources */,
 				89EE24592C48F3A500538C87 /* DiscountedContents.swift in Sources */,
 				AAFE6D3B2C44A89A00FB6BA6 /* ReservationView.swift in Sources */,
 				89B57D7F2C43BFD000784CC3 /* MyLocalView.swift in Sources */,
@@ -933,14 +989,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = T82/T82.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "\"T82/Preview Content\"";
 				DEVELOPMENT_TEAM = 267847BU5K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = T82/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "페이스아이디 인증";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -972,14 +1027,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = T82/T82.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "\"T82/Preview Content\"";
 				DEVELOPMENT_TEAM = 267847BU5K;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = T82/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
-				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "페이스아이디 인증";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

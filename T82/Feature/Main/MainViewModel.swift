@@ -19,7 +19,6 @@ class MainViewModel: ObservableObject {
         fetchMainTicketTopRanking()
         fetchMainTicketCategoryRanking(for: .concert)
         fetchMainTicketOpenSoon()
-        fetchMainTicketDiscounts()
     }
     
     // 현재 판매 중인 티켓 중 판매량 많은 순
@@ -61,15 +60,5 @@ class MainViewModel: ObservableObject {
             }
         }
     }
-    
-    // 전체 공연 중 할인율이 높은 순 (1-2 task)
-    func fetchMainTicketDiscounts() {
-        mainTicketDiscountsRanking = [
-            DiscountedContents(eventId: 1, title: "뮤지컬 레드북", rating: 4.5, discountRate: 0.2, discountedPrice: 20000),
-            DiscountedContents(eventId: 2, title: "뮤지컬 레드북", rating: 4.5, discountRate: 0.2, discountedPrice: 20000),
-            DiscountedContents(eventId: 3, title: "뮤지컬 레드북", rating: 4.5, discountRate: 0.2, discountedPrice: 20000),
-            DiscountedContents(eventId: 4, title: "뮤지컬 레드북", rating: 4.5, discountRate: 0.2, discountedPrice: 20000),
-            DiscountedContents(eventId: 5, title: "뮤지컬 레드북", rating: 4.5, discountRate: 0.2, discountedPrice: 20000)
-        ]
-    }
+
 }
