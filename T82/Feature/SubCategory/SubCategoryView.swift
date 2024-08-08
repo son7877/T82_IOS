@@ -132,6 +132,3 @@ struct SubCategoryView: View {
     }
 }
 
-#Preview {
-    MainView()
-}

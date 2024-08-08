@@ -1,4 +1,6 @@
 import SwiftUI
+import Foundation
+import UserNotifications
 
 struct MyTicketView: View {
     
@@ -51,7 +53,40 @@ struct MyTicketView: View {
         .background(Rectangle()
             .frame(height: 100)
             .foregroundColor(.white))
-        
+        .onAppear(){
+            saveStartTime()
+        }
+    }
+    
+    // 공연 시작 시간 기기 내부에 저장
+    private func saveStartTime(){
+        for ticket in viewModel.MyTicketContents {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+            if let date = dateFormatter.date(from: ticket.eventStartTime) {
+                UserDefaults.standard.set(date, forKey: "Ticket\(ticket.ticketId)_StartTime")
+                scheduleNotification(for: date, ticketId: ticket.id)
+            }
+        }
+    }
+    
+    // 공연 시작 시간 10분 전 UserNotification
+    private func scheduleNotification(for date: Date, ticketId: Int) {
+        let content = UNMutableNotificationContent()
+        content.title = "곧 시작됩니다!"
+        content.body = "입장해 주세요!"
+        content.sound = .default
+
+        let triggerDate = Calendar.current.date(byAdding: .minute, value: -10, to: date)!
+        let trigger = UNCalendarNotificationTrigger(dateMatching: Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: triggerDate), repeats: false)
+
+        let request = UNNotificationRequest(identifier: "Ticket\(ticketId)_Notification", content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { error in
+            if let error = error {
+                print("에러: \(error.localizedDescription)")
+            }
+        }
     }
 }
 

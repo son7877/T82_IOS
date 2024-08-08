@@ -189,6 +189,7 @@ struct MyInfoEditingView: View {
                 Button(
                     action: {
                         showDeleteConfirmation = true
+                        clearTimeData()
                     },
                     label: {
                         Text("회원탈퇴")
@@ -203,6 +204,7 @@ struct MyInfoEditingView: View {
                 Button(
                     action: {
                         navigateToLogin = true
+                        clearTimeData()
                     },
                     label: {
                         Text("로그아웃")
@@ -255,6 +257,15 @@ struct MyInfoEditingView: View {
                 },
                 secondaryButton: .cancel(Text("취소"))
             )
+        }
+    }
+    private func clearTimeData() {
+        let defaults = UserDefaults.standard
+        let keys = defaults.dictionaryRepresentation().keys
+        for key in keys {
+            if key.hasPrefix("Ticket") {
+                defaults.removeObject(forKey: key)
+            }
         }
     }
 }

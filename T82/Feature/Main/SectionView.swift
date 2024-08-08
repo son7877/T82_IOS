@@ -61,6 +61,3 @@ protocol EventTitleProtocol {
 
 extension MainContents: EventTitleProtocol {}
 
-#Preview{
-    MainView()
-}

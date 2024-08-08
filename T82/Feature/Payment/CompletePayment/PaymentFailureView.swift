@@ -7,7 +7,7 @@ struct PaymentFailureView: View {
             
             Spacer()
             
-            TicketingProcessBtn(destination: MainView(), title: "홈으로")
+            TicketingProcessBtn(destination: MainView(selectedIndex: 4), title: "홈으로")
         }
     }
 }

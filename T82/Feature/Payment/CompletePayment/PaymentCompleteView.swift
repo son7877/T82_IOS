@@ -20,27 +20,10 @@ struct PaymentCompleteView: View {
             .navigationBarBackButtonHidden(true)
 
             VStack {
-                CompleteTicket()
                 CompletePrice()
                     .environmentObject(paymentViewModel)
-
-                HStack {
-                    Button(
-                        action: {
-                            // 내 예매 내역으로 이동하는 액션
-                        },
-                        label: {
-                            Text("내 예매 내역으로 이동")
-                                .font(.system(size: 20))
-                                .foregroundColor(.customgray1)
-                        }
-                    )
-                }
             }
-
-            Spacer()
-
-            TicketingProcessBtn(destination: MainView(), title: "홈으로")
+            TicketingProcessBtn(destination: MainView(selectedIndex: 0), title: "예매 내역 이동")
         }
     }
 }

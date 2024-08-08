@@ -11,7 +11,7 @@ struct ContentView: View {
                 case "login":
                     LoginView()
                 case "main":
-                    MainView()
+                    MainView(selectedIndex: 4)
                 case "myPage/myticket":
                     MyPageView(myPageSelectedTab: .myTicket)
                 case "myPage/infoEdit":
