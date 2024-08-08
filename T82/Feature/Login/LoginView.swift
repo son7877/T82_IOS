@@ -1,14 +1,15 @@
 import SwiftUI
-import GoogleSignInSwift
-import KakaoSDKCommon
 import KakaoSDKAuth
 import KakaoSDKUser
+import GoogleSignIn
 
 struct LoginView: View {
     
     @FocusState private var isFocused: Bool
     @StateObject private var loginContentViewMoel = LoginViewModel()
     @StateObject private var versionCheckViewModel = VersionCheckViewModel()
+    
+    @Environment(\.openURL) var openURL
     
     var body: some View {
         NavigationStack {
@@ -18,7 +19,6 @@ struct LoginView: View {
                     .foregroundStyle(.tint)
                     .padding()
                 
-                // MARK: - 로그인 입력 필드
                 TextField("이메일", text: $loginContentViewMoel.loginContent.email)
                     .textFieldStyle(.roundedBorder)
                     .padding()
@@ -34,7 +34,6 @@ struct LoginView: View {
                     .tint(.customOrange)
                     .focused($isFocused)
                 
-                // MARK: - 로그인 & 회원가입 버튼
                 HStack {
                     LoginButton(viewModel: loginContentViewMoel)
                     
@@ -46,39 +45,9 @@ struct LoginView: View {
                     .padding(.top, 20)
                     .padding(.horizontal, 50)
                 
-//                Button(
-//                    action: {
-//                        // 비밀번호 찾기 로직 추후 추가
-//                    },
-//                    label: {
-//                        Text("비밀번호를 잊으셨습니까?")
-//                            .foregroundColor(Color.customGray1)
-//                            .font(.system(size: 15))
-//                    }
-//                )
-                // MARK: - 소셜 로그인
-                // MARK: - 카카오
                 HStack {
                     Button(action: {
-                        if (UserApi.isKakaoTalkLoginAvailable()) {
-                            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
-                                if let error = error {
-                                    print("1==================== \(error)")
-                                }
-                                if let oauthToken = oauthToken {
-                                    
-                                }
-                            }
-                        } else {
-                            UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
-                                if let error = error {
-                                    print("2===================== \(error)")
-                                }
-                                if let oauthToken = oauthToken {
-                                    print("kakao success")
-                                }
-                            }
-                        }
+                        loginWithKakao()
                     }, label: {
                         Image("kakao")
                             .resizable()
@@ -86,9 +55,8 @@ struct LoginView: View {
                             .padding()
                     })
                     
-                    // MARK: - 구글
                     Button(action: {
-                        
+                        loginWithGoogle()
                     }, label: {
                         Image("google")
                             .resizable()
@@ -97,14 +65,13 @@ struct LoginView: View {
                     })
                 }
                 .padding()
-                
             }
             .padding()
             .onTapGesture {
                 isFocused = false
             }
             .navigationBarBackButtonHidden()
-            // MARK: - 업데이트 확인
+            
             .alert(isPresented: Binding<Bool>(
                 get: { versionCheckViewModel.shouldShowUpdateAlert != nil },
                 set: { _ in versionCheckViewModel.shouldShowUpdateAlert = nil }
@@ -119,12 +86,65 @@ struct LoginView: View {
                 )
             }
             .navigationDestination(isPresented: $loginContentViewMoel.loginSuccessful) {
-                MainView()
+                MainView(selectedIndex: 4)
             }
             .onAppear {
                 versionCheckViewModel.checkForUpdate()
             }
         }
+    }
+    
+    private func loginWithKakao() {
+        if UserApi.isKakaoTalkLoginAvailable() {
+            UserApi.shared.loginWithKakaoTalk { (oauthToken, error) in
+                handleKakaoLogin(oauthToken: oauthToken, error: error)
+            }
+        } else {
+            UserApi.shared.loginWithKakaoAccount { (oauthToken, error) in
+                handleKakaoLogin(oauthToken: oauthToken, error: error)
+            }
+        }
+    }
+    
+    private func handleKakaoLogin(oauthToken: OAuthToken?, error: Error?) {
+        if let error = error {
+            print("카카오 로그인 오류: \(error)")
+        } else if let token = oauthToken {
+            UserDefaults.standard.set(token.accessToken, forKey: "token")
+            print("카카오 액세스 토큰: \(token.accessToken)")
+            DispatchQueue.main.async {
+                loginContentViewMoel.loginSuccessful = true
+            }
+        }
+    }
+    
+    private func loginWithGoogle() {
+        guard let presentingViewController = getRootViewController() else {
+            return
+        }
+        
+        GIDSignIn.sharedInstance.signIn(withPresenting: presentingViewController) { signInResult, error in
+            if let error = error {
+                print("Google 로그인 오류: \(error.localizedDescription)")
+            } else if let signInResult = signInResult {
+                let user = signInResult.user
+                if let idToken = user.idToken {
+                    UserDefaults.standard.set(idToken.tokenString, forKey: "token")
+                    print("Google ID 토큰: \(idToken.tokenString)")
+                    DispatchQueue.main.async {
+                        loginContentViewMoel.loginSuccessful = true
+                    }
+                }
+            }
+        }
+    }
+    
+    private func getRootViewController() -> UIViewController? {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let rootViewController = windowScene.windows.first?.rootViewController else {
+            return nil
+        }
+        return rootViewController
     }
     
     private func openTestFlight() {
@@ -136,6 +156,12 @@ struct LoginView: View {
                     UIApplication.shared.open(appStoreUrl)
                 }
             }
+        }
+    }
+    
+    private func openURL(_ urlString: String) {
+        if let url = URL(string: urlString) {
+            UIApplication.shared.open(url)
         }
     }
 }

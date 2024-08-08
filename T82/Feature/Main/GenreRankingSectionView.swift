@@ -77,7 +77,3 @@ struct GenreRankingSectionView: View {
         .padding(.vertical)
     }
 }
-
-#Preview {
-   MainView()
-}

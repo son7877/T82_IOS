@@ -81,7 +81,6 @@ struct PaymentInProgressView: View {
         if UIApplication.shared.canOpenURL(url) {
             UIApplication.shared.open(url, options: [:], completionHandler: { success in
                 if success {
-                    // 결제 완료 뷰로 이동
                     DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
                         paymentViewModel.paymentStatus = .success
                         navigateToCompleteView = true

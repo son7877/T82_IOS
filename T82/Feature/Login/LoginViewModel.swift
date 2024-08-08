@@ -27,4 +27,12 @@ class LoginViewModel: ObservableObject {
             }
         }
     }
+    
+    func kakaoLogin() {
+        
+    }
+    
+    func googleLogin(){
+        
+    }
 }

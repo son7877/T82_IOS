@@ -4,7 +4,7 @@ struct MainView: View {
     
     @StateObject private var viewModel = MainViewModel()
     @State private var selectedGenre: Genre = .concert
-    @State var selectedIndex: Int = 4
+    @State var selectedIndex: Int
     
     var body: some View {
         NavigationView {
@@ -68,8 +68,7 @@ struct MainView: View {
                             MyPageView(myPageSelectedTab: .myInfoEditing)
                         } else if selectedIndex == 1 {
                             EventView(selection: .firstCoupons)
-                        }
-                        else if selectedIndex == 0 {
+                        } else if selectedIndex == 0 {
                             MyPageView(myPageSelectedTab: .myTicket)
                         }
                     }
@@ -84,14 +83,24 @@ struct MainView: View {
             .edgesIgnoringSafeArea(.bottom)
             .onAppear() {
                 viewModel.fetchMainPageData()
+                requestNotificationPermission()
             }
         }
         .navigationBarBackButtonHidden()
+    }
+    
+    // 알림 권한 요청
+    private func requestNotificationPermission() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if let error = error {
+                print("알림 오류: \(error.localizedDescription)")
+            }
+        }
     }
 }
 
 struct MainpageView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(selectedIndex: 4)
     }
 }
