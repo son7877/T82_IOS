@@ -8,7 +8,6 @@ struct LoginView: View {
     @FocusState private var isFocused: Bool
     @StateObject private var loginContentViewMoel = LoginViewModel()
     @StateObject private var versionCheckViewModel = VersionCheckViewModel()
-    
     @Environment(\.openURL) var openURL
     
     var body: some View {
@@ -39,6 +38,8 @@ struct LoginView: View {
                     
                     SignUpButton()
                 }
+                
+                // 로그인 실패 시 문구 출력
                 
                 Divider()
                     .padding(.bottom, 3)
@@ -72,6 +73,7 @@ struct LoginView: View {
             }
             .navigationBarBackButtonHidden()
             
+            // 버전 업데이트 알림
             .alert(isPresented: Binding<Bool>(
                 get: { versionCheckViewModel.shouldShowUpdateAlert != nil },
                 set: { _ in versionCheckViewModel.shouldShowUpdateAlert = nil }

@@ -9,7 +9,7 @@ class VersionService {
     // 최신 버전 불러오기
     func fetchLatestVersion(completion: @escaping (Result<VersionResponse, AFError>) -> Void) {
         
-        let url = "\(Config().VersionCheckHost)/api/v1/version_latest"
+        let url = "\(Config().VersionCheckHost)/api/v1/version/latest"
         
         AF.request(url).responseDecodable(of: VersionResponse.self) { response in
             completion(response.result)
@@ -18,7 +18,7 @@ class VersionService {
     
     // 업데이트 버전 확인
     func checkForUpdate(versionRequest: CheckVersion, completion: @escaping (Result<Bool, Error>) -> Void) {
-        let url = "\(Config().VersionCheckHost)/api/v1/version_check"
+        let url = "\(Config().VersionCheckHost)/api/v1/version/check"
         
         AF.request(url, method: .post, parameters: versionRequest, encoder: JSONParameterEncoder.default).responseJSON { response in
             switch response.result {
