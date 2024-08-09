@@ -29,10 +29,34 @@ class LoginViewModel: ObservableObject {
     }
     
     func kakaoLogin() {
-        
+        AuthService.shared.loginWithKakao(){ [weak self]
+            success in
+            DispatchQueue.main.async {
+                self?.isLoading = false
+                if success {
+                    self?.loginSuccessful = true
+                    self?.errorMessage = nil
+                } else {
+                    self?.loginSuccessful = false
+                    self?.errorMessage = "로그인 실패"
+                }
+            }
+        }
     }
     
     func googleLogin(){
-        
+        AuthService.shared.loginWithGoogle(){ [weak self]
+            success in
+            DispatchQueue.main.async {
+                self?.isLoading = false
+                if success {
+                    self?.loginSuccessful = true
+                    self?.errorMessage = nil
+                } else {
+                    self?.loginSuccessful = false
+                    self?.errorMessage = "로그인 실패"
+                }
+            }
+        }
     }
 }
