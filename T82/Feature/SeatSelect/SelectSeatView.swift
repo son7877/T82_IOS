@@ -4,6 +4,7 @@ struct SelectSeatView: View {
     
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject private var viewModel = SeatsViewModel()
+    @State private var isShowingWebView = false
     var eventId: Int
     
     var body: some View {
@@ -43,9 +44,18 @@ struct SelectSeatView: View {
         .navigationBarBackButtonHidden()
         .onAppear {
             viewModel.fetchAvailableSeats(eventId: eventId)
+            viewModel.enterAndDisplayWaitingQueue(eventId: eventId)
         }
-        .onDisappear(){
-            viewModel.fetchAvailableSeats(eventId: eventId)
+        .onChange(of: viewModel.showWebView) { show in
+            isShowingWebView = show
+        }
+        .sheet(isPresented: $isShowingWebView) {
+            WaitingQueueView(
+                htmlContent: viewModel.htmlContent,
+                isPresented: $isShowingWebView,
+                viewModel: viewModel,
+                eventId: eventId
+            )
         }
     }
 }

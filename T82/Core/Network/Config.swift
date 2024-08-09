@@ -24,4 +24,26 @@ class Config{
             "Accept": "application/json"
         ]
     }
+    
+    var accessTokenKaKao: String? {
+        return UserDefaults.standard.string(forKey: "KakaoToken")
+    }
+    
+    var accessTokenGoogle: String? {
+        return UserDefaults.standard.string(forKey: "GoogleToken")
+    }
+    
+    func getAccessKakao() -> HTTPHeaders {
+        return [
+            "Authorization": "\(accessTokenKaKao ?? "")",
+            "Accept": "application/json"
+        ]
+    }
+    
+    func getAccessGoogle() -> HTTPHeaders {
+        return [
+            "Authorization": "\(accessTokenGoogle ?? "")",
+            "Accept": "application/json"
+        ]
+    }
 }

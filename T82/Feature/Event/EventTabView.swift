@@ -10,7 +10,7 @@ struct EventTabView: View {
             case .firstCoupons:
                 FirstEventCouponView()
             case .pedometer:
-                PedometerEventView()
+                PedometerEventView(pedometerViewModel: PedometerEventViewModel())
             }
         }
     }

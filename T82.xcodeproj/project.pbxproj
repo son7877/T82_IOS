@@ -66,6 +66,11 @@
 		89A771862C3BC19D00C7068F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A771852C3BC19D00C7068F /* LaunchScreen.storyboard */; };
 		89A7718A2C3BDEA400C7068F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A771892C3BDEA400C7068F /* LoginView.swift */; };
 		89A7718C2C3BE5AF00C7068F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A7718B2C3BE5AF00C7068F /* SignUpView.swift */; };
+		89AF43F82C6497E70062D5FB /* PedometerEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF43F72C6497E70062D5FB /* PedometerEventViewModel.swift */; };
+		89AF43FD2C64A12A0062D5FB /* Pedometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF43FC2C64A12A0062D5FB /* Pedometer.swift */; };
+		89AF44002C64E0D10062D5FB /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF43FF2C64E0D10062D5FB /* WebView.swift */; };
+		89AF44022C65BD410062D5FB /* WaitingQueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF44012C65BD410062D5FB /* WaitingQueueView.swift */; };
+		89AF44042C65BF110062D5FB /* WaitingStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF44032C65BF110062D5FB /* WaitingStatusResponse.swift */; };
 		89B57D672C40FBD400784CC3 /* MyTicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */; };
 		89B57D692C41033B00784CC3 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D682C41033B00784CC3 /* Date+Extensions.swift */; };
 		89B57D7F2C43BFD000784CC3 /* MyLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */; };
@@ -170,6 +175,11 @@
 		89A771852C3BC19D00C7068F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89A771892C3BDEA400C7068F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		89A7718B2C3BE5AF00C7068F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		89AF43F72C6497E70062D5FB /* PedometerEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedometerEventViewModel.swift; sourceTree = "<group>"; };
+		89AF43FC2C64A12A0062D5FB /* Pedometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pedometer.swift; sourceTree = "<group>"; };
+		89AF43FF2C64E0D10062D5FB /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		89AF44012C65BD410062D5FB /* WaitingQueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingQueueView.swift; sourceTree = "<group>"; };
+		89AF44032C65BF110062D5FB /* WaitingStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingStatusResponse.swift; sourceTree = "<group>"; };
 		89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketViewModel.swift; sourceTree = "<group>"; };
 		89B57D682C41033B00784CC3 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocalView.swift; sourceTree = "<group>"; };
@@ -257,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				892D75BE2C61B8F900771955 /* PedometerEventView.swift */,
+				89AF43F72C6497E70062D5FB /* PedometerEventViewModel.swift */,
 			);
 			path = PedometerEvent;
 			sourceTree = "<group>";
@@ -427,6 +438,7 @@
 		89A7717E2C3BBF5900C7068F /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				89AF43FE2C64E0B80062D5FB /* WebView */,
 				894482812C3FDC0A003F3EE4 /* Button */,
 				89EAB4DE2C3E60F1002B8515 /* TabView */,
 				89EAB4D62C3D9BB2002B8515 /* NavigationBar */,
@@ -454,6 +466,7 @@
 		89A771802C3BBF6400C7068F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				89AF43FB2C64A10D0062D5FB /* Event */,
 				892D75AF2C5FDF7400771955 /* Version */,
 				89EE24532C48E85300538C87 /* Contents */,
 				89BC468A2C44C5A100CDBB38 /* Auth */,
@@ -504,6 +517,22 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
+		89AF43FB2C64A10D0062D5FB /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				89AF43FC2C64A12A0062D5FB /* Pedometer.swift */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		89AF43FE2C64E0B80062D5FB /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				89AF43FF2C64E0D10062D5FB /* WebView.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		89B57D6A2C42BE2600784CC3 /* BeforePayment */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,6 +575,7 @@
 				89B57D832C43D57900784CC3 /* SeatsViewModel.swift */,
 				89B57D852C43F0CA00784CC3 /* SeatsInfo.swift */,
 				89B57D892C43F66F00784CC3 /* SeatsPrice.swift */,
+				89AF44012C65BD410062D5FB /* WaitingQueueView.swift */,
 			);
 			path = SeatSelect;
 			sourceTree = "<group>";
@@ -591,6 +621,7 @@
 				892D75B02C5FDF9D00771955 /* VersionResponse.swift */,
 				89BC46C42C4792A300CDBB38 /* LoginResponse.swift */,
 				89BC46C72C480C9A00CDBB38 /* SignUpResponse.swift */,
+				89AF44032C65BF110062D5FB /* WaitingStatusResponse.swift */,
 			);
 			path = Dto;
 			sourceTree = "<group>";
@@ -784,8 +815,10 @@
 				891566012C59205C005E4CFE /* FaceIDAuthenticator.swift in Sources */,
 				89B57D8A2C43F66F00784CC3 /* SeatsPrice.swift in Sources */,
 				89EAB4D82C3D9BD0002B8515 /* NavigationBtnType.swift in Sources */,
+				89AF44042C65BF110062D5FB /* WaitingStatusResponse.swift in Sources */,
 				89A0AAC22C52B4E5003048B6 /* PaymentViewModel.swift in Sources */,
 				8944827E2C3FD942003F3EE4 /* PaymentSelection.swift in Sources */,
+				89AF43FD2C64A12A0062D5FB /* Pedometer.swift in Sources */,
 				89A7718C2C3BE5AF00C7068F /* SignUpView.swift in Sources */,
 				894482832C3FDFB5003F3EE4 /* TicketingProcessBtn.swift in Sources */,
 				89BC46C22C4776B500CDBB38 /* UserApi.swift in Sources */,
@@ -796,6 +829,7 @@
 				892D75BD2C61B85B00771955 /* EventTabView.swift in Sources */,
 				89EAB4E02C3E6488002B8515 /* Color+extensions.swift in Sources */,
 				89A0AAB12C4F8590003048B6 /* PaymentApi.swift in Sources */,
+				89AF44022C65BD410062D5FB /* WaitingQueueView.swift in Sources */,
 				891566072C5A5A54005E4CFE /* Format+Extensions.swift in Sources */,
 				89BC46A82C461A5F00CDBB38 /* MyReviewFloatingView.swift in Sources */,
 				892D75BF2C61B8F900771955 /* PedometerEventView.swift in Sources */,
@@ -804,6 +838,7 @@
 				892D75B92C61A0A400771955 /* FirstEventCouponView.swift in Sources */,
 				89BC46CC2C48B3D400CDBB38 /* ContentView.swift in Sources */,
 				89EE24522C48DF3D00538C87 /* Genre.swift in Sources */,
+				89AF43F82C6497E70062D5FB /* PedometerEventViewModel.swift in Sources */,
 				89B57D842C43D57900784CC3 /* SeatsViewModel.swift in Sources */,
 				894482982C40F8D8003F3EE4 /* MyTicket.swift in Sources */,
 				89EE24502C48DE8800538C87 /* GenreRankingSectionView.swift in Sources */,
@@ -828,6 +863,7 @@
 				8944827C2C3FD906003F3EE4 /* PaymentPrice.swift in Sources */,
 				892D75B32C5FDFD400771955 /* VersionCheckApi.swift in Sources */,
 				89A771842C3BC16F00C7068F /* AppDelegate.swift in Sources */,
+				89AF44002C64E0D10062D5FB /* WebView.swift in Sources */,
 				89D98B612C4E7E7C009C3CFA /* SeatApi.swift in Sources */,
 				89EE244E2C48DDFC00538C87 /* SectionView.swift in Sources */,
 				89BC469C2C4526C500CDBB38 /* MyReviewViewModel.swift in Sources */,
@@ -992,7 +1028,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = T82/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "페이스아이디 인증";
+				INFOPLIST_KEY_NSMotionUsageDescription = "걸음 수 데이터 측정을 위해 데이터 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1030,7 +1068,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = T82/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "페이스아이디 인증";
+				INFOPLIST_KEY_NSMotionUsageDescription = "걸음 수 데이터 측정을 위해 데이터 접근 권한이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

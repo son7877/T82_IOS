@@ -185,6 +185,7 @@ struct ReservationView: View {
             VStack {
                 if let eventId = selectedEventId {
                     TicketingProcessBtn(
+                        // 대기열 웹 뷰 이동(모달로 띄우기)
                         destination: SelectSeatView(eventId: eventId),
                         title: "좌석 선택"
                     )

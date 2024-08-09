@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct FirstEventCouponView: View {
+    
     @State private var buttonStates = [Bool](repeating: false, count: 3)
     
     var body: some View {

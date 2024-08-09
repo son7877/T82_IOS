@@ -110,10 +110,12 @@ struct LoginView: View {
         if let error = error {
             print("카카오 로그인 오류: \(error)")
         } else if let token = oauthToken {
-            UserDefaults.standard.set(token.accessToken, forKey: "token")
+            // 서버로 보낼 access 토큰 저장
+            UserDefaults.standard.set(token.accessToken, forKey: "KakaoToken")
             print("카카오 액세스 토큰: \(token.accessToken)")
             DispatchQueue.main.async {
-                loginContentViewMoel.loginSuccessful = true
+                // 서버에 access 토큰 전송 후 토큰 재발급 후 UserDefaults에 저장
+                loginContentViewMoel.kakaoLogin()
             }
         }
     }
@@ -122,18 +124,18 @@ struct LoginView: View {
         guard let presentingViewController = getRootViewController() else {
             return
         }
-        
         GIDSignIn.sharedInstance.signIn(withPresenting: presentingViewController) { signInResult, error in
             if let error = error {
                 print("Google 로그인 오류: \(error.localizedDescription)")
             } else if let signInResult = signInResult {
                 let user = signInResult.user
-                if let idToken = user.idToken {
-                    UserDefaults.standard.set(idToken.tokenString, forKey: "token")
-                    print("Google ID 토큰: \(idToken.tokenString)")
-                    DispatchQueue.main.async {
-                        loginContentViewMoel.loginSuccessful = true
-                    }
+                let accessToken = user.accessToken
+                // 서버로 보낼 access 토큰 저장
+                UserDefaults.standard.set(accessToken.tokenString, forKey: "GoogleToken")
+                print("Google Access Token: \(accessToken.tokenString)")
+                DispatchQueue.main.async {
+                    // 서버에 access 토큰 전송 후 토큰 재발급 후 UserDefaults에 저장
+                    loginContentViewMoel.googleLogin()
                 }
             }
         }

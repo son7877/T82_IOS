@@ -7,6 +7,8 @@ class SeatsViewModel: ObservableObject {
     @Published var selectedSeats: [SelectableSeat] = []
     @Published var pendingSeats: [PendingSeat] = []
     @Published var showMaxSeatsAlert: Bool = false
+    @Published var showWebView: Bool = false
+    @Published var htmlContent: String = ""  // 추가된 부분
 
     init() {
         loadSeats()
@@ -46,7 +48,6 @@ class SeatsViewModel: ObservableObject {
         }
     }
 
-    // 좌석 정보 -> fetch로 선택 가능한 좌석 정보를 가져오고 그 좌석의 isAvailable을 true로 바꿔야함
     func loadSeats() {
         self.seats = (1...15).map { row in
             let sectionName: String
@@ -101,4 +102,58 @@ class SeatsViewModel: ObservableObject {
         }
         print("선택된 좌석 업데이트: \(selectedSeats)")  // 확인용
     }
+    
+    // MARK: - 대기열 입장 및 웹 뷰 표시
+    func enterAndDisplayWaitingQueue(eventId: Int) {
+        SelectSeatService.shared.enterWaitingQueue(eventId: eventId) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let entered):
+                if entered {
+                    self.getWaitingQueue(eventId: eventId)
+                }
+            case .failure(let error):
+                print("대기열 입장 실패: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    // 웹 뷰 호출
+    func getWaitingQueue(eventId: Int) {
+        SelectSeatService.shared.getWaitingQueue(eventId: eventId) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let html):
+                DispatchQueue.main.async {
+                    self.htmlContent = html
+                    self.showWebView = true
+                }
+            case .failure(let error):
+                print("대기열 웹 뷰 불러오기 실패: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    
+    // 대기열 상태 호출
+    func checkWaitingQueueStatus(eventId: Int) {
+        SelectSeatService.shared.getWaitingStatus(eventId: eventId) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let response):
+                let status = response.status
+                print("대기열 상태: \(status)")
+                if status == "ENDED" {
+                    DispatchQueue.main.async {
+                        self.showWebView = false
+                    }
+                }
+            case .failure(let error):
+                print("대기열 상태 불러오기 실패: \(error.localizedDescription)")
+            }
+        }
+    }
 }
+
+
+

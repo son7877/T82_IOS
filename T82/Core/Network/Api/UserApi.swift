@@ -185,6 +185,53 @@ class AuthService {
     }
     
     // MARK: - 카카오
-    
+    func loginWithKakao(completion: @escaping (Bool) -> Void) {
+        
+        let loginUrl = "\(Config().AuthHost)/api/v1/users/login/kakao"
+        
+        AF.request(loginUrl, method: .post, headers: Config().getAccessKakao())
+            .validate()
+            .responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    if let json = value as? [String: Any],
+                       let token = json["token"] as? String {
+                        // 토큰 저장
+                        UserDefaults.standard.set(token, forKey: "token")
+                        // 토큰 저장 확인
+                        print("User token: \(token)")
+                        completion(true)
+                    } else {
+                        completion(false)
+                    }
+                case .failure:
+                    completion(false)
+                }
+            }
+    }
     // MARK: - 구글
+    func loginWithGoogle(completion: @escaping (Bool) -> Void) {
+        
+        let loginUrl = "\(Config().AuthHost)/api/v1/users/login/google"
+        
+        AF.request(loginUrl, method: .post, headers: Config().getAccessGoogle())
+            .validate()
+            .responseJSON { response in
+                switch response.result {
+                case .success(let value):
+                    if let json = value as? [String: Any],
+                       let token = json["token"] as? String {
+                        // 토큰 저장
+                        UserDefaults.standard.set(token, forKey: "token")
+                        // 토큰 저장 확인
+                        print("User token: \(token)")
+                        completion(true)
+                    } else {
+                        completion(false)
+                    }
+                case .failure:
+                    completion(false)
+                }
+            }
+    }
 }
