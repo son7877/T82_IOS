@@ -6,16 +6,6 @@ class VersionService {
     static let shared = VersionService()
     private init() {}
      
-    // 최신 버전 불러오기
-    func fetchLatestVersion(completion: @escaping (Result<VersionResponse, AFError>) -> Void) {
-        
-        let url = "\(Config().VersionCheckHost)/api/v1/version/latest"
-        
-        AF.request(url).responseDecodable(of: VersionResponse.self) { response in
-            completion(response.result)
-        }
-    }
-    
     // 업데이트 버전 확인
     func checkForUpdate(versionRequest: CheckVersion, completion: @escaping (Result<Bool, Error>) -> Void) {
         let url = "\(Config().VersionCheckHost)/api/v1/version/check"

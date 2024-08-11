@@ -28,18 +28,40 @@ class CouponService {
             }
         }
     }
-    
+    // MARK: - 진행 중인 선착순 쿠폰 이벤트 가져오기
+    func fetchCouponEvents(completion: @escaping(Result<[CouponEvent], Error>) -> Void) {
+        
+        let url = Config().CouponHost+"/api/v1/coupons/events"
+        
+        AF.request(url, method: .get).responseDecodable(of: [CouponEvent].self) { response in
+            switch response.result {
+            case .success(let couponEvents):
+                completion(.success(couponEvents))
+            case .failure(let error):
+                if let httpResponse = response.response {
+                    print("HTTP Status Code: \(httpResponse.statusCode)")
+                    if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                        print("Error Message: \(errorMessage)")
+                    }
+                } else {
+                    print("Network Error: \(error.localizedDescription)")
+                }
+                completion(.failure(error))
+            }
+        }
+    }
     // MARK: - 이벤트 쿠폰 발급
     func issueEventCoupon(couponId: String, completion: @escaping (Result<Bool, Error>) -> Void) {
         
-        let urlString = Config().CouponHost+"/api/v1/events/issue"
+        let url = Config().CouponHost+"/api/v1/events/issue"
         
         let parameters = ["couponId": couponId]
         
-        AF.request(urlString, method: .post, parameters: parameters, headers: Config().getHeaders()).response { response in
+        AF.request(url, method: .post, parameters: parameters, headers: Config().getHeaders()).response { response in
             switch response.result {
             case .success:
                 completion(.success(true))
+                print("이벤트 쿠폰 발급 성공")
             case .failure(let error):
                 if let httpResponse = response.response {
                     print("HTTP Status Code: \(httpResponse.statusCode)")
@@ -127,7 +149,4 @@ class PaymentService {
             }
         }
     }
-
-
-    
 }

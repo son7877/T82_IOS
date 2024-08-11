@@ -3,6 +3,7 @@ import CoreMotion
 import Combine
 
 class PedometerEventViewModel: ObservableObject {
+    
     @Published var stepCount: Int = 0
     @Published var weeklyStepCount = WeeklyStepCount()
     private var pedometer = CMPedometer()
@@ -24,7 +25,8 @@ class PedometerEventViewModel: ObservableObject {
             }
         }
     }
-
+    
+    // 매일 걸음 수 초기화
     private func setupDailyReset() {
         let calendar = Calendar.current
         let midnight = calendar.startOfDay(for: Date())
@@ -47,6 +49,7 @@ class PedometerEventViewModel: ObservableObject {
         startPedometer()
     }
 
+    // 목표 달성 여부 확인
     func checkStepGoalAchieved() -> Bool {
         return stepCount >= stepGoal
     }
@@ -54,7 +57,7 @@ class PedometerEventViewModel: ObservableObject {
     func claimCoupon() {
         if checkStepGoalAchieved() {
             // 쿠폰 지급 로직 (예: 서버에 쿠폰 요청 등)
-            print("쿠폰이 지급되었습니다!")
+            
         }
     }
 }

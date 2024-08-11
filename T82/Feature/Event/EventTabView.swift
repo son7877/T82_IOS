@@ -8,7 +8,7 @@ struct EventTabView: View {
         ScrollView(.vertical, showsIndicators: false){
             switch selection{
             case .firstCoupons:
-                FirstEventCouponView()
+                FirstEventCouponView(firstEventCouponviewModel: FirstEventCouponViewModel())
             case .pedometer:
                 PedometerEventView(pedometerViewModel: PedometerEventViewModel())
             }
