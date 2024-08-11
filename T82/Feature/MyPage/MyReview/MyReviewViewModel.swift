@@ -10,12 +10,13 @@ class MyReviewViewModel: ObservableObject {
     // 내 리뷰 조회
     func fetchMyReview() {
         isLoading = true
-        ReviewService.shared.getMyReviews { [weak self] myReviews in
-            guard let self = self else { return }
-            if let myReviews = myReviews {
-                self.MyReviews = myReviews
+        ReviewService.shared.getMyReviews { result in
+            switch result {
+            case .success(let reviews):
+                self.MyReviews = reviews
                 self.isLoading = false
-            } else {
+            case .failure(let error):
+                print("Error: \(error.localizedDescription)")
                 self.isLoading = false
             }
         }
@@ -23,14 +24,12 @@ class MyReviewViewModel: ObservableObject {
     
     // 리뷰 작성
     func addReview(reviewRequest: MyReview) {
-        
-        ReviewService.shared.addReview(reviewRequest: reviewRequest) { [weak self] success, errorMessage in
-            guard let self = self else { return }
-            if success {
+        ReviewService.shared.addReview(reviewRequest: reviewRequest) { result in
+            switch result {
+            case .success:
                 self.reviewSubmissionSuccess = true
-                self.fetchMyReview()
-            } else {
-                self.reviewSubmissionError = errorMessage!
+            case .failure(let error):
+                self.reviewSubmissionError = error.localizedDescription
             }
         }
     }

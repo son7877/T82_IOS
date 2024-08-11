@@ -71,6 +71,9 @@
 		89AF44002C64E0D10062D5FB /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF43FF2C64E0D10062D5FB /* WebView.swift */; };
 		89AF44022C65BD410062D5FB /* WaitingQueueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF44012C65BD410062D5FB /* WaitingQueueView.swift */; };
 		89AF44042C65BF110062D5FB /* WaitingStatusResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF44032C65BF110062D5FB /* WaitingStatusResponse.swift */; };
+		89AF44062C65EFFB0062D5FB /* CouponEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF44052C65EFFB0062D5FB /* CouponEvent.swift */; };
+		89AF44082C6899180062D5FB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 89AF44072C6899180062D5FB /* FirebaseFirestore */; };
+		89AF440A2C6899920062D5FB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 89AF44092C6899920062D5FB /* FirebaseAuth */; };
 		89B57D672C40FBD400784CC3 /* MyTicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */; };
 		89B57D692C41033B00784CC3 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D682C41033B00784CC3 /* Date+Extensions.swift */; };
 		89B57D7F2C43BFD000784CC3 /* MyLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */; };
@@ -180,6 +183,7 @@
 		89AF43FF2C64E0D10062D5FB /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		89AF44012C65BD410062D5FB /* WaitingQueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingQueueView.swift; sourceTree = "<group>"; };
 		89AF44032C65BF110062D5FB /* WaitingStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingStatusResponse.swift; sourceTree = "<group>"; };
+		89AF44052C65EFFB0062D5FB /* CouponEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponEvent.swift; sourceTree = "<group>"; };
 		89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketViewModel.swift; sourceTree = "<group>"; };
 		89B57D682C41033B00784CC3 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocalView.swift; sourceTree = "<group>"; };
@@ -238,8 +242,10 @@
 				892D75AC2C5B7DD000771955 /* KakaoSDKCommon in Frameworks */,
 				89BC46B12C474B1D00CDBB38 /* PopupView in Frameworks */,
 				891565F72C57BEDC005E4CFE /* FirebaseAnalytics in Frameworks */,
+				89AF440A2C6899920062D5FB /* FirebaseAuth in Frameworks */,
 				892491D42C5B705E000546B6 /* GoogleSignIn in Frameworks */,
 				892D75AE2C5B7DD000771955 /* KakaoSDKUser in Frameworks */,
+				89AF44082C6899180062D5FB /* FirebaseFirestore in Frameworks */,
 				892D75AA2C5B7DD000771955 /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,13 +253,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		892D75AF2C5FDF7400771955 /* Version */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Version;
-			sourceTree = "<group>";
-		};
 		892D75C22C61BA1700771955 /* FirstComes */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,7 +466,6 @@
 			isa = PBXGroup;
 			children = (
 				89AF43FB2C64A10D0062D5FB /* Event */,
-				892D75AF2C5FDF7400771955 /* Version */,
 				89EE24532C48E85300538C87 /* Contents */,
 				89BC468A2C44C5A100CDBB38 /* Auth */,
 				894482882C40CC0F003F3EE4 /* MyPage */,
@@ -521,6 +519,7 @@
 			isa = PBXGroup;
 			children = (
 				89AF43FC2C64A12A0062D5FB /* Pedometer.swift */,
+				89AF44052C65EFFB0062D5FB /* CouponEvent.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -727,6 +726,8 @@
 				892D75A92C5B7DD000771955 /* KakaoSDKAuth */,
 				892D75AB2C5B7DD000771955 /* KakaoSDKCommon */,
 				892D75AD2C5B7DD000771955 /* KakaoSDKUser */,
+				89AF44072C6899180062D5FB /* FirebaseFirestore */,
+				89AF44092C6899920062D5FB /* FirebaseAuth */,
 			);
 			productName = T82;
 			productReference = 89A7716B2C3B702400C7068F /* T82.app */;
@@ -846,6 +847,7 @@
 				891565FF2C58DC16005E4CFE /* MyRefundFloatingView.swift in Sources */,
 				894482872C40BD48003F3EE4 /* CompletePrice.swift in Sources */,
 				89D98B592C4D3E2D009C3CFA /* SubCategoryViewModel.swift in Sources */,
+				89AF44062C65EFFB0062D5FB /* CouponEvent.swift in Sources */,
 				89BC468C2C44C5AC00CDBB38 /* User.swift in Sources */,
 				892D75B12C5FDF9D00771955 /* VersionResponse.swift in Sources */,
 				894482742C3FB099003F3EE4 /* PaymentCompleteView.swift in Sources */,
@@ -1203,6 +1205,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 892D75A82C5B7DD000771955 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKUser;
+		};
+		89AF44072C6899180062D5FB /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 891565F52C57BEDC005E4CFE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		89AF44092C6899920062D5FB /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 891565F52C57BEDC005E4CFE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
 		};
 		89BC46B02C474B1D00CDBB38 /* PopupView */ = {
 			isa = XCSwiftPackageProductDependency;

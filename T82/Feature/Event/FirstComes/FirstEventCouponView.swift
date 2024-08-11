@@ -2,62 +2,112 @@ import SwiftUI
 
 struct FirstEventCouponView: View {
     
-    @State private var buttonStates = [Bool](repeating: false, count: 3)
+    @StateObject var firstEventCouponviewModel = FirstEventCouponViewModel()
+    
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+    @AppStorage("issuedCoupons") private var issuedCouponsData: Data = Data()
+
+    @State private var issuedCoupons: [String: Bool?] = [:] // 쿠폰 발급 상태 관리
     
     var body: some View {
-        VStack {
-            ScrollView {
-                VStack {
-                    // 통신으로 받아온 쿠폰 이벤트 리스트
-                    
-                    ForEach(0..<1) { index in
-                        ZStack{
-                            Rectangle()
-                                .frame(height: 120)
-                                .foregroundColor(.customgray0)
-                            HStack{
-                                VStack(alignment: .leading) {
-                                    HStack{
-                                        // 카테고리
-                                        Text("ALL")
-                                            .font(.subheadline)
-                                            .fontWeight(.heavy)
-                                        Text("이벤트 쿠폰명")
-                                            .font(.subheadline)
-                                   }
-                                    .padding(.bottom, 1)
-                                    
-                                    Text("이벤트 쿠폰 금액")
-                                        .font(.title2)
-                                        .padding(.bottom,3)
-                                    HStack{
-                                        Text("유효기간 / 최소 결제 금액")
-                                            .font(.subheadline)
-                                    }
+        ScrollView {
+            VStack {
+                ForEach(firstEventCouponviewModel.couponEvent) { couponEvent in
+                    ZStack{
+                        Rectangle()
+                            .frame(height: 120)
+                            .foregroundColor(.customgray0)
+                        HStack{
+                            VStack(alignment: .leading) {
+                                HStack{
+                                    Text(couponEvent.category)
+                                        .font(.subheadline)
+                                        .fontWeight(.heavy)
+                                        .foregroundColor(.customred)
+                                    Text(couponEvent.couponName)
+                                        .font(.subheadline)
+                               }
+                                .padding(.bottom, 1)
+                                
+                                Text("\(couponEvent.discountValue)원 할인")
+                                    .font(.title2)
+                                    .padding(.bottom,3)
+                                HStack{
+                                    Text("\(dateFormatting(date: couponEvent.validEnd)) 까지 / \(couponEvent.minPurchase)원 이상 결제 시")
+                                        .font(.subheadline)
                                 }
-                                .padding()
-                                Spacer()
-                                Button(action: {
-                                    // 쿠폰 발급 통신
-                                    buttonStates[index] = true
-                                }, label: {
-                                    Text(buttonStates[index] ? "받기 완료" : "받기")
-                                        .font(.headline)
-                                        .foregroundColor(.white)
-                                        .padding()
-                                        .frame(width: 100)
-                                        .background(buttonStates[index] ? Color.gray : Color.customred)
-                                        .cornerRadius(10)
-                                })
-                                .padding()
-                                .disabled(buttonStates[index]) 
                             }
+                            .padding()
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                firstEventCouponviewModel.issueEventCoupon(couponId: couponEvent.couponId) { success in
+                                    if success {
+                                        alertMessage = "이벤트 쿠폰 발급 성공"
+                                        issuedCoupons[couponEvent.couponId] = true
+                                    } else {
+                                        alertMessage = "이미 마감되었습니다."
+                                        issuedCoupons[couponEvent.couponId] = false
+                                    }
+                                    saveIssuedCoupons()
+                                    showAlert = true
+                                }
+                            }) {
+                                Text(buttonText(for: couponEvent.couponId))
+                                    .font(.subheadline)
+                                    .foregroundColor(.white)
+                                    .padding(.horizontal, 10)
+                                    .padding(.vertical, 5)
+                                    .background(buttonBackgroundColor(for: couponEvent.couponId))
+                                    .cornerRadius(10)
+                            }
+                            .disabled(issuedCoupons[couponEvent.couponId] != nil) // 발급 상태가 있으면 버튼 비활성화
+                            .padding()
                         }
-                        .padding(.vertical, 10)
                     }
                 }
             }
         }
+        .onAppear(){
+            loadIssuedCoupons()
+            firstEventCouponviewModel.fetchCouponEvent()
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text(alertMessage))
+        }
+    }
+    
+    private func buttonText(for couponId: String) -> String {
+        if let status = issuedCoupons[couponId] {
+            return status == true ? "사용 완료" : "마감"
+        } else {
+            return "사용하기"
+        }
+    }
+    
+    private func buttonBackgroundColor(for couponId: String) -> Color {
+        if let status = issuedCoupons[couponId] {
+            return status == true ? Color.gray : Color.red
+        } else {
+            return Color.customred
+        }
+    }
+    
+    private func dateFormatting(date: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        let date = dateFormatter.date(from: date)
+        dateFormatter.dateFormat = "yyyy.MM.dd"
+        return dateFormatter.string(from: date!)
+    }
+    
+    private func saveIssuedCoupons() {
+        issuedCouponsData = (try? JSONEncoder().encode(issuedCoupons)) ?? Data()
+    }
+    
+    private func loadIssuedCoupons() {
+        issuedCoupons = (try? JSONDecoder().decode([String: Bool?].self, from: issuedCouponsData)) ?? [:]
     }
 }
-
