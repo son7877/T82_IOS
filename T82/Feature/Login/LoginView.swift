@@ -40,6 +40,11 @@ struct LoginView: View {
                 }
                 
                 // 로그인 실패 시 문구 출력
+                if let errorMessage = loginContentViewMoel.errorMessage {
+                    Text("로그인에 실패하였습니다. 다시 시도해 주세요")
+                        .foregroundColor(.red)
+                        .padding(.top, 10)
+                }
                 
                 Divider()
                     .padding(.bottom, 3)

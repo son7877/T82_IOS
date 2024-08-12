@@ -9,7 +9,7 @@ struct MyTicketView: View {
     
     var body: some View {
         VStack {
-            if viewModel.isLoading {
+            if viewModel.isLoading && viewModel.MyTicketContents.isEmpty {
                 ProgressView("로딩 중...")
                     .padding()
             } else if viewModel.MyTicketContents.isEmpty {
@@ -17,31 +17,50 @@ struct MyTicketView: View {
                     .font(.headline)
                     .padding()
             } else {
-                ForEach(viewModel.MyTicketContents, id: \.self) { ticket in
-                    ZStack {
-                        Image("myTicket")
-                            .shadow(radius: 6, x: 0, y: 5)
-                            .onTapGesture {
-                                viewModel.selectedTicket = ticket
-                                viewModel.showModal = true
+                ScrollView {
+                    LazyVStack {
+                        ForEach(viewModel.MyTicketContents, id: \.self) { ticket in
+                            ZStack {
+                                Image("myTicket")
+                                    .shadow(radius: 6, x: 0, y: 5)
+                                    .onTapGesture {
+                                        viewModel.selectedTicket = ticket
+                                        viewModel.showModal = true
+                                    }
+                                HStack {
+                                    Image("sampleImg")
+                                        .resizable()
+                                        .frame(width: 80, height: 100)
+                                        .padding(.bottom, 10)
+                                        .padding(.leading, 25)
+                                     
+                                    VStack (alignment: .leading) {
+                                        Text("\(ticket.eventName)")
+                                            .font(.headline)
+                                            .padding(.bottom, 10)
+                                        Text("\(ticket.eventStartTime)")
+                                        Text("\(ticket.sectionName)구역")
+                                        Text("\(ticket.rowNum)열 \(ticket.columnNum)번")
+                                            .padding(.bottom, 10)
+                                    }
+                                    Spacer()
+                                }
                             }
-                        HStack {
-                            Image("sampleImg")
-                                .resizable()
-                                .frame(width: 80, height: 100)
-                                .padding(.bottom, 10)
-                                .padding(.leading, 25)
-                             
-                            VStack (alignment: .leading) {
-                                Text("\(ticket.eventStartTime)")
-                                Text("\(ticket.sectionName)구역")
-                                Text("\(ticket.rowNum)열 \(ticket.columnNum)번")
-                                    .padding(.bottom, 10)
+                            .padding()
+                            .onAppear {
+                                if ticket == viewModel.MyTicketContents.last && viewModel.currentPage < viewModel.totalPages - 1 {
+                                    viewModel.fetchMyTicket(page: viewModel.currentPage + 1, size: 5)
+                                }
                             }
-                            Spacer()
                         }
+                        if viewModel.isLoading {
+                            ProgressView("로딩 중...")
+                                .padding()
+                        }
+                        Rectangle()
+                            .frame(height: 100)
+                            .foregroundColor(.white)
                     }
-                    .padding()
                 }
             }
         }
@@ -65,7 +84,7 @@ struct MyTicketView: View {
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
             if let date = dateFormatter.date(from: ticket.eventStartTime) {
                 UserDefaults.standard.set(date, forKey: "Ticket\(ticket.ticketId)_StartTime")
-                scheduleNotification(for: date, ticketId: ticket.id)
+                scheduleNotification(for: date, ticketId: ticket.ticketId)
             }
         }
     }

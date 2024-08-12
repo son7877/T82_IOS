@@ -17,7 +17,7 @@ struct MyTicketDetailView: View {
             VStack {
                 
                 // MARK: 추후에 QR 이미지로 변경
-                Rectangle()
+                AsyncImage(url: URL(string: ticket.qrCodeUrl))
                     .frame(width: 300, height: 300)
                     .foregroundColor(.white)
                     .padding()
@@ -37,9 +37,9 @@ struct MyTicketDetailView: View {
                         },
                         label: {
                             Text("리뷰 등록")
-                                .font(.title2)
+                                .font(.title3)
                                 .foregroundColor(.white)
-                                .padding(5)
+                                .padding()
                         }
                     )
                     .background(Color.customRed)
@@ -52,9 +52,9 @@ struct MyTicketDetailView: View {
                         },
                         label: {
                             Text("환불 신청")
-                                .font(.title2)
+                                .font(.title3)
                                 .foregroundColor(.white)
-                                .padding(5)
+                                .padding()
                         }
                     )
                     .background(Color.customRed)
@@ -63,6 +63,7 @@ struct MyTicketDetailView: View {
                 }
             }
         }
+        
         // 리뷰 팝업
         .popup(isPresented: $myTicketViewModel.reviewAlert) {
             MyReviewFloatingView(myTicketViewModel: myTicketViewModel, reviewViewModel: reviewViewModel, isPresented: $myTicketViewModel.reviewAlert, eventInfoId: ticket.eventInfoId)

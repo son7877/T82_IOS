@@ -14,7 +14,7 @@ class MyTicketViewModel: ObservableObject {
     @Published var refundSuccess = false
     
     var currentPage = 0
-    private var totalPages = 5
+    var totalPages = 5
     
     init() {
         fetchMyTicket(page: currentPage, size: 5)

@@ -23,7 +23,7 @@ struct LoginButton: View {
                     .foregroundColor(.white)
                     .cornerRadius(20)
             }
-            .disabled(viewModel.isLoading) 
+            .disabled(viewModel.isLoading)
         }
     }
 }
