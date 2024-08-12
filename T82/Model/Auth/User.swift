@@ -1,4 +1,5 @@
 import Foundation
+import FirebaseAuth
 
 struct User : Hashable, Decodable{
     var email: String
@@ -61,6 +62,7 @@ struct SignUpContent: Hashable, Encodable {
         try container.encode(addressDetail, forKey: .addressDetail)
     }
 }
+
 
 
 

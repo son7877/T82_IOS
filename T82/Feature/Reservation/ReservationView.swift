@@ -43,7 +43,7 @@ struct ReservationView: View {
                             }
                         },
                         lefttBtnType: .back,
-                        rightBtnType: viewModel.isInterested ? .mydislike : .mylike,
+                        rightBtnType: viewModel.isInterested ? .mylike : .mydislike,
                         Title: "Title"
                     )
                     .padding(.top, 20)

@@ -12,10 +12,6 @@ class CouponListViewModel: ObservableObject {
     private var totalPages = 1
     private var cancellables = Set<AnyCancellable>()
     
-    init() {
-        fetchCoupons(page: currentPage, size: 5)
-    }
-    
     func fetchCoupons(page: Int, size: Int) {
         guard !isLoading else { return }
         isLoading = true

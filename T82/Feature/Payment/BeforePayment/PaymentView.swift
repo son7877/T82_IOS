@@ -48,7 +48,8 @@ struct PaymentView: View {
                     seatId: $0.seatId,
                     eventId: eventId,
                     price: $0.price
-                ) })
+                )
+            })
         }
     }
 }

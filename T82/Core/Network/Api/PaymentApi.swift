@@ -53,7 +53,7 @@ class CouponService {
     // MARK: - 이벤트 쿠폰 발급
     func issueEventCoupon(couponId: String, completion: @escaping (Result<Bool, Error>) -> Void) {
         
-        let url = Config().CouponHost+"/api/v1/events/issue"
+        let url = Config().CouponHost+"/api/v1/coupons/events/issue"
         
         let parameters = ["couponId": couponId]
         

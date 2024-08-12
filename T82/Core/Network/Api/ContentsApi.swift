@@ -60,9 +60,11 @@ class MainContentsService {
         
         AF.request(mainEventUrl, method: .get)
             .validate()
-            .responseDecodable(of: [MainContents].self) { response in
-                switch response.result{
-                case .success(let mainContents):
+            .responseDecodable(of: EventResponse.self) { response in
+                switch response.result {
+                case .success(let eventResponse):
+                    let mainContents = eventResponse.content
+                    print("Successfully fetched \(mainContents.count) events")
                     completion(mainContents)
                 case .failure(let error):
                     if let httpResponse = response.response {
@@ -73,6 +75,7 @@ class MainContentsService {
                     } else {
                         print("Network Error: \(error.localizedDescription)")
                     }
+                    completion(nil)
                 }
             }
     }

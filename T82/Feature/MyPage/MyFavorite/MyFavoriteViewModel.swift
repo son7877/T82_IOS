@@ -1,20 +1,25 @@
 import Foundation
+import SwiftUI
 
-class MyFavoriteViewModel: ObservableObject{
+class MyFavoriteViewModel: ObservableObject {
     
-    @Published var favoriteList: [MyFavorites] = []
+    @Published var favoriteList: [MainContents] = []
     @Published var isLoading = false
-    
+    @AppStorage("userID") private var userID: String = "defaultUserID"
+
     // MARK: - 내 공연 관심 목록 조회
-    func fetchMyFavorites(){
+    func fetchMyFavorites() {
         isLoading = true
-        MainContentsService.shared.getMyInterestEvents { [weak self] myFavorites in
+        MainContentsService.shared.getMainEventsRank { [weak self] myFavorites in
             guard let self = self else { return }
             if let myFavorites = myFavorites {
-                self.favoriteList = myFavorites
+                self.favoriteList = myFavorites.filter {
+                    let interestKey = "interest_\(self.userID)_\($0.id)"
+                    let isInterested = UserDefaults.standard.bool(forKey: interestKey)
+                    return isInterested
+                }
                 self.isLoading = false
             } else {
-                print("찜 목록 조회 실패")
                 self.isLoading = false
             }
         }
