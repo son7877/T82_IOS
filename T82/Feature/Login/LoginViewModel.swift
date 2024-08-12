@@ -80,6 +80,8 @@ class LoginViewModel: ObservableObject {
         self.errorMessage = nil
         
         AuthService.shared.login(email: loginContent.email, password: loginContent.password) { [weak self] success in
+            let userID = self?.loginContent.email
+            UserDefaults.standard.set(userID, forKey: "userID")
             self?.handleLoginResult(success: success)
         }
     }

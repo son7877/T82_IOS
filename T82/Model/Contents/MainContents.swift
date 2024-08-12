@@ -6,11 +6,13 @@ struct MainContents: Hashable, Decodable, Identifiable {
 //    var imageName: String
     var title: String
     var rating: Double
+//    var bookStartTime: String
     
     enum CodingKeys: String, CodingKey {
-            case id = "eventInfoId"
-            case title
-            case rating
+        case id = "eventInfoId"
+        case title
+        case rating
+//        case bookStartTime
     }
 }
 

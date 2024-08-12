@@ -17,33 +17,38 @@ struct MyFavoriteView: View {
                 } else {
                     ScrollView(.vertical, showsIndicators: false) {
                         ForEach(viewModel.favoriteList, id: \.self) { favorite in
+                            Divider()
+                                .foregroundColor(.black)
                             NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventInfoId: favorite.id))) {
                                 ZStack {
                                     Rectangle()
-                                        .shadow(radius: 6, x: 0, y: 5)
-                                        .foregroundColor(.customYellow.opacity(0.5))
+                                        .padding()
+                                        .foregroundColor(.white)
                                     HStack {
                                         Image("sampleImg")
                                             .resizable()
                                             .frame(width: 80, height: 100)
-                                            .padding(.bottom, 10)
-                                            .padding(.leading, 25)
-                                        
+                                            .padding()
                                         VStack {
                                             Text(favorite.title)
                                                 .padding(.bottom, 1)
-                                            Text(favorite.bookStartTime.formmatedDay)
+                                                .foregroundColor(.customblack)
+//                                            Text(favorite.bookStartTime.formmatedDay)
                                         }
                                         Spacer()
                                     }
                                 }
-                                .padding()
+                                .padding(.vertical, 10)
                             }
+                            Divider()
+                                .foregroundColor(.black)
                         }
                     }
                 }
             }
-            .navigationBarTitle("관심 공연 목록", displayMode: .inline)
+        }
+        .onAppear {
+            viewModel.fetchMyFavorites()
         }
     }
 }

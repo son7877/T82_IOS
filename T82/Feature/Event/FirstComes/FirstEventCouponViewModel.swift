@@ -25,6 +25,7 @@ class FirstEventCouponViewModel: ObservableObject {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let success):
+                    print("\(couponId) 쿠폰 발급 성공")
                     completion(success)
                 case .failure(let error):
                     print("Error: \(error.localizedDescription)")
