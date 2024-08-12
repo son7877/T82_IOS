@@ -6,8 +6,8 @@ struct FirstEventCouponView: View {
     
     @State private var showAlert = false
     @State private var alertMessage = ""
+    
     @AppStorage("issuedCoupons") private var issuedCouponsData: Data = Data()
-
     @State private var issuedCoupons: [String: Bool?] = [:] // 쿠폰 발급 상태 관리
     
     var body: some View {
@@ -30,7 +30,7 @@ struct FirstEventCouponView: View {
                                }
                                 .padding(.bottom, 1)
                                 
-                                Text("\(couponEvent.discountValue)원 할인")
+                                Text("\(couponEvent.discountValue)\(discountAmount(couponEvent.discountType)) 할인")
                                     .font(.title2)
                                     .padding(.bottom,3)
                                 HStack{
@@ -79,11 +79,22 @@ struct FirstEventCouponView: View {
         }
     }
     
+    private func discountAmount(_ discountType: String) -> String {
+        switch discountType {
+        case "PERCENTAGE":
+            return "%"
+        case "FIXED":
+            return "원"
+        default:
+            return ""
+        }
+    }
+    
     private func buttonText(for couponId: String) -> String {
         if let status = issuedCoupons[couponId] {
-            return status == true ? "사용 완료" : "마감"
+            return status == true ? "발급 완료" : "마감"
         } else {
-            return "사용하기"
+            return "받기"
         }
     }
     
