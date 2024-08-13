@@ -45,6 +45,9 @@ struct MyReviewFloatingView: View {
                 .padding()
                 .tint(.customPink)
             
+            // 리뷰 이미지 등록
+            
+            
             Button(action: {
                 let newReview = MyReview(eventInfoId: eventInfoId, content: reviewText, rating: rating, reviewPictureUrl: nil, createdDate: createdDate)
                 reviewViewModel.addReview(reviewRequest: newReview)

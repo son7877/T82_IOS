@@ -183,7 +183,28 @@ class AuthService {
                 }
             }
     }
-    
+    // MARK: - 이미지 등록(formData)
+    func uploadImage(image: Data, completion: @escaping (String?) -> Void) {
+        let uploadUrl = "https://awhxw5gg3j.execute-api.ap-northeast-2.amazonaws.com/default/image-upload"
+        
+        AF.upload(multipartFormData: { multipartFormData in
+            multipartFormData.append(image, withName: "image", fileName: "image.jpg", mimeType: "image/jpeg")
+        }, to: uploadUrl, headers:Config().getImageHeaders())
+        .validate(statusCode: 200..<300)
+        .responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                if let json = value as? [String: Any], let imageUrl = json["url"] as? String {
+                    completion(imageUrl)
+                } else {
+                    completion(nil)
+                }
+            case .failure(let error):
+                print("Image upload failed with error: \(error)")
+                completion(nil)
+            }
+        }
+    }
     // MARK: - 카카오
     func loginWithKakao(completion: @escaping (Bool) -> Void) {
         

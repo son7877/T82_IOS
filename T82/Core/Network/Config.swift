@@ -25,6 +25,12 @@ class Config{
         ]
     }
     
+    func getImageHeaders() -> HTTPHeaders {
+        return [
+            "Accept": "multipart/form-data"
+        ]
+    }
+    
     var accessTokenKaKao: String? {
         return UserDefaults.standard.string(forKey: "KakaoToken")
     }

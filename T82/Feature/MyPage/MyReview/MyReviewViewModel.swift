@@ -33,4 +33,7 @@ class MyReviewViewModel: ObservableObject {
             }
         }
     }
+    
+    // 리뷰 이미지 등록
+    
 }

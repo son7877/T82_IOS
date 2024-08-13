@@ -49,7 +49,7 @@ struct SelectSeatView: View {
         .onChange(of: viewModel.showWebView) { show in
             isShowingWebView = show
         }
-        .sheet(isPresented: $isShowingWebView) {
+        .fullScreenCover(isPresented: $isShowingWebView) {
             WaitingQueueView(
                 htmlContent: viewModel.htmlContent,
                 isPresented: $isShowingWebView,

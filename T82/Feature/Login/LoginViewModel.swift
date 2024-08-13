@@ -80,6 +80,7 @@ class LoginViewModel: ObservableObject {
         self.errorMessage = nil
         
         AuthService.shared.login(email: loginContent.email, password: loginContent.password) { [weak self] success in
+            
             let userID = self?.loginContent.email
             UserDefaults.standard.set(userID, forKey: "userID")
             self?.handleLoginResult(success: success)
@@ -91,6 +92,11 @@ class LoginViewModel: ObservableObject {
         self.errorMessage = nil
         
         AuthService.shared.loginWithKakao { [weak self] success in
+            SocialLogin.shared.getKakaoEmail { kakaoEmail in
+                if let email = kakaoEmail {
+                    UserDefaults.standard.set(email, forKey: "userID")
+                }
+            }
             self?.handleLoginResult(success: success)
         }
     }
@@ -100,6 +106,9 @@ class LoginViewModel: ObservableObject {
         self.errorMessage = nil
         
         AuthService.shared.loginWithGoogle { [weak self] success in
+            if let email = SocialLogin.shared.getGoogleEmail() {
+                UserDefaults.standard.set(email, forKey: "userID")
+            }
             self?.handleLoginResult(success: success)
         }
     }

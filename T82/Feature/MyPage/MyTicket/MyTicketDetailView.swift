@@ -66,7 +66,11 @@ struct MyTicketDetailView: View {
         
         // 리뷰 팝업
         .popup(isPresented: $myTicketViewModel.reviewAlert) {
-            MyReviewFloatingView(myTicketViewModel: myTicketViewModel, reviewViewModel: reviewViewModel, isPresented: $myTicketViewModel.reviewAlert, eventInfoId: ticket.eventInfoId)
+            MyReviewFloatingView(
+                myTicketViewModel: myTicketViewModel,
+                reviewViewModel: reviewViewModel,
+                isPresented: $myTicketViewModel.reviewAlert,
+                eventInfoId: ticket.eventInfoId)
         } customize: {
             $0
                 .type(.toast)
@@ -78,7 +82,10 @@ struct MyTicketDetailView: View {
         
         // 환불 팝업
         .popup(isPresented: $myTicketViewModel.refundAlert) {
-            MyRefundFloatingView(myTicketViewModel: myTicketViewModel, isPresented: $myTicketViewModel.refundAlert, ticket: ticket)
+            MyRefundFloatingView(
+                myTicketViewModel: myTicketViewModel,
+                isPresented: $myTicketViewModel.refundAlert,
+                ticket: ticket)
         } customize: {
             $0
                 .type(.toast)

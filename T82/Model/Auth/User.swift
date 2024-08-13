@@ -42,9 +42,10 @@ struct SignUpContent: Hashable, Encodable {
     var phoneNumber: String
     var address: String
     var addressDetail: String
+    var imageUrl: String?
     
     enum CodingKeys: String, CodingKey {
-        case email, password, passwordCheck, name, birthDate, phoneNumber, address, addressDetail
+        case email, password, passwordCheck, name, birthDate, phoneNumber, address, addressDetail,imageUrl
     }
     
     func encode(to encoder: Encoder) throws {
@@ -60,8 +61,13 @@ struct SignUpContent: Hashable, Encodable {
         try container.encode(phoneNumber, forKey: .phoneNumber)
         try container.encode(address, forKey: .address)
         try container.encode(addressDetail, forKey: .addressDetail)
+        try container.encode(imageUrl, forKey: .imageUrl)
     }
 }
+
+
+
+
 
 
 

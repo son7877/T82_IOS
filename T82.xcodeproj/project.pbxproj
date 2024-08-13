@@ -74,6 +74,10 @@
 		89AF44062C65EFFB0062D5FB /* CouponEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF44052C65EFFB0062D5FB /* CouponEvent.swift */; };
 		89AF44082C6899180062D5FB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 89AF44072C6899180062D5FB /* FirebaseFirestore */; };
 		89AF440A2C6899920062D5FB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 89AF44092C6899920062D5FB /* FirebaseAuth */; };
+		89AF440E2C69F08B0062D5FB /* SocialLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF440D2C69F08B0062D5FB /* SocialLogin.swift */; };
+		89AF44102C69F6E50062D5FB /* EventCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF440F2C69F6E50062D5FB /* EventCommentView.swift */; };
+		89AF44122C6A02310062D5FB /* EventCommentReplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF44112C6A02310062D5FB /* EventCommentReplyView.swift */; };
+		89AF44142C6AE2400062D5FB /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF44132C6AE23F0062D5FB /* ImagePicker.swift */; };
 		89B57D672C40FBD400784CC3 /* MyTicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */; };
 		89B57D692C41033B00784CC3 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D682C41033B00784CC3 /* Date+Extensions.swift */; };
 		89B57D7F2C43BFD000784CC3 /* MyLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */; };
@@ -184,6 +188,10 @@
 		89AF44012C65BD410062D5FB /* WaitingQueueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingQueueView.swift; sourceTree = "<group>"; };
 		89AF44032C65BF110062D5FB /* WaitingStatusResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingStatusResponse.swift; sourceTree = "<group>"; };
 		89AF44052C65EFFB0062D5FB /* CouponEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponEvent.swift; sourceTree = "<group>"; };
+		89AF440D2C69F08B0062D5FB /* SocialLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLogin.swift; sourceTree = "<group>"; };
+		89AF440F2C69F6E50062D5FB /* EventCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCommentView.swift; sourceTree = "<group>"; };
+		89AF44112C6A02310062D5FB /* EventCommentReplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCommentReplyView.swift; sourceTree = "<group>"; };
+		89AF44132C6AE23F0062D5FB /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketViewModel.swift; sourceTree = "<group>"; };
 		89B57D682C41033B00784CC3 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocalView.swift; sourceTree = "<group>"; };
@@ -480,6 +488,7 @@
 			children = (
 				8944826D2C3FAF78003F3EE4 /* PasswordValidation.swift */,
 				891566002C59205C005E4CFE /* FaceIDAuthenticator.swift */,
+				89AF440D2C69F08B0062D5FB /* SocialLogin.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -511,6 +520,7 @@
 			children = (
 				89A7718B2C3BE5AF00C7068F /* SignUpView.swift */,
 				89BC46952C45042700CDBB38 /* SignUpViewModel.swift */,
+				89AF44132C6AE23F0062D5FB /* ImagePicker.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -695,6 +705,8 @@
 			children = (
 				AAFE6D3A2C44A89A00FB6BA6 /* ReservationView.swift */,
 				89EE24632C4CF49E00538C87 /* ReservationViewModel.swift */,
+				89AF440F2C69F6E50062D5FB /* EventCommentView.swift */,
+				89AF44112C6A02310062D5FB /* EventCommentReplyView.swift */,
 			);
 			path = Reservation;
 			sourceTree = "<group>";
@@ -796,6 +808,7 @@
 				894482722C3FB083003F3EE4 /* PaymentView.swift in Sources */,
 				89BC46962C45042700CDBB38 /* SignUpViewModel.swift in Sources */,
 				89A0AABC2C521308003048B6 /* PaymentInProgressView.swift in Sources */,
+				89AF44142C6AE2400062D5FB /* ImagePicker.swift in Sources */,
 				89A0AAC72C537195003048B6 /* MyFavoriteViewModel.swift in Sources */,
 				89EE24572C48E89D00538C87 /* MainViewModel.swift in Sources */,
 				891566052C593813005E4CFE /* ContentsDetailApi.swift in Sources */,
@@ -811,9 +824,11 @@
 				892D75C12C61B93100771955 /* EventView.swift in Sources */,
 				89BC468E2C44CC4800CDBB38 /* CustomTabBarBtn.swift in Sources */,
 				89BC46892C44C55400CDBB38 /* MyInfoEditingViewModel.swift in Sources */,
+				89AF44102C69F6E50062D5FB /* EventCommentView.swift in Sources */,
 				8944826E2C3FAF78003F3EE4 /* PasswordValidation.swift in Sources */,
 				8944828A2C40CC53003F3EE4 /* MyPageTabInfo.swift in Sources */,
 				891566012C59205C005E4CFE /* FaceIDAuthenticator.swift in Sources */,
+				89AF440E2C69F08B0062D5FB /* SocialLogin.swift in Sources */,
 				89B57D8A2C43F66F00784CC3 /* SeatsPrice.swift in Sources */,
 				89EAB4D82C3D9BD0002B8515 /* NavigationBtnType.swift in Sources */,
 				89AF44042C65BF110062D5FB /* WaitingStatusResponse.swift in Sources */,
@@ -852,6 +867,7 @@
 				892D75B12C5FDF9D00771955 /* VersionResponse.swift in Sources */,
 				894482742C3FB099003F3EE4 /* PaymentCompleteView.swift in Sources */,
 				89A0AAC52C53718A003048B6 /* MyFavoriteView.swift in Sources */,
+				89AF44122C6A02310062D5FB /* EventCommentReplyView.swift in Sources */,
 				891566032C592F5E005E4CFE /* MyFavorites.swift in Sources */,
 				89BC469A2C4526B300CDBB38 /* MyReviewView.swift in Sources */,
 				89B57D862C43F0CA00784CC3 /* SeatsInfo.swift in Sources */,

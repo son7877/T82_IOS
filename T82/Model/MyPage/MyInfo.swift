@@ -7,6 +7,7 @@ struct UserInfo: Hashable, Decodable {
     var address: String
     var addressDetail: String
     var phoneNumber: String
+    var profileUrl: String?
     
     private enum CodingKeys: String, CodingKey {
         case name
@@ -15,6 +16,7 @@ struct UserInfo: Hashable, Decodable {
         case address
         case addressDetail
         case phoneNumber
+        case profileUrl
     }
     
     init(name: String, email: String, birthDate: Date, address: String, addressDetail: String, phoneNumber: String) {
@@ -24,6 +26,7 @@ struct UserInfo: Hashable, Decodable {
         self.address = address
         self.addressDetail = addressDetail
         self.phoneNumber = phoneNumber
+        self.profileUrl = nil
     }
     
     init(from decoder: Decoder) throws {
@@ -33,6 +36,7 @@ struct UserInfo: Hashable, Decodable {
         address = try container.decode(String.self, forKey: .address)
         addressDetail = try container.decode(String.self, forKey: .addressDetail)
         phoneNumber = try container.decode(String.self, forKey: .phoneNumber)
+        profileUrl = try container.decodeIfPresent(String.self, forKey: .profileUrl)
         
         let birthDateString = try container.decode(String.self, forKey: .birthDate)
         let dateFormatter = DateFormatter()

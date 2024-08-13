@@ -10,7 +10,7 @@ class ReservationViewModel: ObservableObject {
 
     // 관심 등록 상태 관리
     @Published var isInterested: Bool = false
-    private let eventInfoId: Int
+    let eventInfoId: Int
     private var interestKey: String {
         return "interest_\(userID)_\(eventInfoId)"
     }
