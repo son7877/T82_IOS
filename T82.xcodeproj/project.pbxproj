@@ -78,6 +78,8 @@
 		89AF44102C69F6E50062D5FB /* EventCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF440F2C69F6E50062D5FB /* EventCommentView.swift */; };
 		89AF44122C6A02310062D5FB /* EventCommentReplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF44112C6A02310062D5FB /* EventCommentReplyView.swift */; };
 		89AF44142C6AE2400062D5FB /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF44132C6AE23F0062D5FB /* ImagePicker.swift */; };
+		89AF44172C6B31CC0062D5FB /* EventCommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF44162C6B31CC0062D5FB /* EventCommentViewModel.swift */; };
+		89AF44192C6B32B90062D5FB /* EventInfoReviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF44182C6B32B90062D5FB /* EventInfoReviews.swift */; };
 		89B57D672C40FBD400784CC3 /* MyTicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */; };
 		89B57D692C41033B00784CC3 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D682C41033B00784CC3 /* Date+Extensions.swift */; };
 		89B57D7F2C43BFD000784CC3 /* MyLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */; };
@@ -192,6 +194,8 @@
 		89AF440F2C69F6E50062D5FB /* EventCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCommentView.swift; sourceTree = "<group>"; };
 		89AF44112C6A02310062D5FB /* EventCommentReplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCommentReplyView.swift; sourceTree = "<group>"; };
 		89AF44132C6AE23F0062D5FB /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		89AF44162C6B31CC0062D5FB /* EventCommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCommentViewModel.swift; sourceTree = "<group>"; };
+		89AF44182C6B32B90062D5FB /* EventInfoReviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoReviews.swift; sourceTree = "<group>"; };
 		89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketViewModel.swift; sourceTree = "<group>"; };
 		89B57D682C41033B00784CC3 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocalView.swift; sourceTree = "<group>"; };
@@ -542,6 +546,16 @@
 			path = WebView;
 			sourceTree = "<group>";
 		};
+		89AF44152C6B31870062D5FB /* EventComments */ = {
+			isa = PBXGroup;
+			children = (
+				89AF44112C6A02310062D5FB /* EventCommentReplyView.swift */,
+				89AF440F2C69F6E50062D5FB /* EventCommentView.swift */,
+				89AF44162C6B31CC0062D5FB /* EventCommentViewModel.swift */,
+			);
+			path = EventComments;
+			sourceTree = "<group>";
+		};
 		89B57D6A2C42BE2600784CC3 /* BeforePayment */ = {
 			isa = PBXGroup;
 			children = (
@@ -660,6 +674,7 @@
 				89EE24582C48F3A500538C87 /* DiscountedContents.swift */,
 				89EE24612C4A2E9000538C87 /* ContentsDetail.swift */,
 				89D98B5A2C4DE0BA009C3CFA /* EventsByDate.swift */,
+				89AF44182C6B32B90062D5FB /* EventInfoReviews.swift */,
 			);
 			path = Contents;
 			sourceTree = "<group>";
@@ -703,10 +718,9 @@
 		AAFE6D392C44A87500FB6BA6 /* Reservation */ = {
 			isa = PBXGroup;
 			children = (
+				89AF44152C6B31870062D5FB /* EventComments */,
 				AAFE6D3A2C44A89A00FB6BA6 /* ReservationView.swift */,
 				89EE24632C4CF49E00538C87 /* ReservationViewModel.swift */,
-				89AF440F2C69F6E50062D5FB /* EventCommentView.swift */,
-				89AF44112C6A02310062D5FB /* EventCommentReplyView.swift */,
 			);
 			path = Reservation;
 			sourceTree = "<group>";
@@ -855,7 +869,9 @@
 				89BC46CC2C48B3D400CDBB38 /* ContentView.swift in Sources */,
 				89EE24522C48DF3D00538C87 /* Genre.swift in Sources */,
 				89AF43F82C6497E70062D5FB /* PedometerEventViewModel.swift in Sources */,
+				89AF44172C6B31CC0062D5FB /* EventCommentViewModel.swift in Sources */,
 				89B57D842C43D57900784CC3 /* SeatsViewModel.swift in Sources */,
+				89AF44192C6B32B90062D5FB /* EventInfoReviews.swift in Sources */,
 				894482982C40F8D8003F3EE4 /* MyTicket.swift in Sources */,
 				89EE24502C48DE8800538C87 /* GenreRankingSectionView.swift in Sources */,
 				89EE24622C4A2E9000538C87 /* ContentsDetail.swift in Sources */,

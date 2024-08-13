@@ -16,8 +16,9 @@ struct MyReviewView: View {
             } else {
                 LazyVStack(pinnedViews: [.sectionHeaders]) {
                     Section(header: Header()){
+                        
                         // 내 댓글 리스트
-                        ForEach(viewModel.MyReviews, id: \.self) { review in
+                        ForEach(viewModel.MyReviews) { review in
                             VStack {
                                 HStack {
                                     Text("\(review.eventInfoId)")
@@ -32,12 +33,11 @@ struct MyReviewView: View {
                                     HStack {
                                         ForEach(1..<6) { index in
                                             Image(systemName: "star.fill")
-                                                .foregroundColor(index <= review.rating ? .customPink : .customGray1)
+                                                .foregroundColor(index <= Int(review.rating) ? .customPink : .customGray1)
                                         }
                                     }
                                 }
-                                
-                                Text("\(review.createdDate)")
+                                Text("\(review.createDate)")
                                     .font(.system(size: 15))
                                     .foregroundColor(.customGray1)
                                     .padding(.bottom, 10)

@@ -35,20 +35,6 @@ struct PedometerEventView: View {
 
             Divider()
                 .padding()
-
-//            Text("1주일 걸음 수 통계")
-//                .font(.title)
-//                .padding()
-//
-//            List(pedometerViewModel.weeklyStepCount.dailySteps) { stepCount in
-//                HStack {
-//                    Text(dateFormatter.string(from: stepCount.date))
-//                    Spacer()
-//                    Text("\(stepCount.steps) 걸음")
-//                }
-//            }
-//
-//            Spacer()
         }
         .padding()
     }

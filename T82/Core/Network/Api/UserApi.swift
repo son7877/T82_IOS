@@ -183,7 +183,7 @@ class AuthService {
                 }
             }
     }
-    // MARK: - 이미지 등록(formData)
+    // MARK: - 유저 이미지 등록(formData)
     func uploadImage(image: Data, completion: @escaping (String?) -> Void) {
         let uploadUrl = "https://awhxw5gg3j.execute-api.ap-northeast-2.amazonaws.com/default/image-upload"
         
