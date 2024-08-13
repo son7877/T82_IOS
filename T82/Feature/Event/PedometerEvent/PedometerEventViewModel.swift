@@ -26,7 +26,7 @@ class PedometerEventViewModel: ObservableObject {
         }
     }
     
-    // 매일 걸음 수 초기화
+    // 매일 자정에 걸음 수 초기화
     private func setupDailyReset() {
         let calendar = Calendar.current
         let midnight = calendar.startOfDay(for: Date())
@@ -56,7 +56,7 @@ class PedometerEventViewModel: ObservableObject {
 
     func claimCoupon() {
         if checkStepGoalAchieved() {
-            // 쿠폰 지급 로직 (예: 서버에 쿠폰 요청 등)
+            // 서버로 부터 쿠폰 발급
             
         }
     }

@@ -56,11 +56,12 @@ struct CouponRowView: View {
                 Text(isSelected ? "적용중" : (isUsed ? "사용중" : "적용"))
                     .foregroundColor(.white)
                     .background(isSelected ? Color.gray : (isUsed ? Color.gray : Color.red))
-                    .padding(.horizontal, 20)
-                    .padding(.vertical, 10)
-                    .cornerRadius(10)
+                    .font(.caption)
+                    .padding()
             }
             .disabled(isUsed && !isSelected)
+            .padding()
+            
         }
     }
     

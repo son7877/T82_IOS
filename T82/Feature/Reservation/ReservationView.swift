@@ -49,8 +49,8 @@ struct ReservationView: View {
                     .padding(.top, 20)
                     .padding(.bottom, 30)
                     .padding(.horizontal, 20)
-
-                    // 공연 상세 정보
+                    
+                    // MARK: - 공연 상세 정보
                     HStack(spacing: 20) {
                         Image("sampleImg")
                             .resizable()
@@ -78,10 +78,19 @@ struct ReservationView: View {
                                         .foregroundColor(index < Int(viewModel.contentsDetail.rating) ? .yellow : .gray)
                                 }
                             }
-
                             Text("공연시간: \(viewModel.contentsDetail.runningTime)")
                                 .font(.subheadline)
                                 .foregroundColor(.white)
+                            
+                            // MARK: - 댓글 보기
+                            NavigationLink(
+                                destination: EventCommentView(eventInfoId: viewModel.eventInfoId),
+                                label: {
+                                    Text("댓글 보기")
+                                        .font(.subheadline)
+                                        .foregroundColor(.white)
+                                }
+                            )
                         }
                     }
                     .padding(.horizontal, 20)

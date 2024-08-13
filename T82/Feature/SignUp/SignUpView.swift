@@ -8,6 +8,9 @@ struct SignUpView: View {
     @State private var passwordValidationMessage: String = ""
     @State private var passwordCheckValidationMessage: String = ""
     @State private var showAlert: Bool = false
+    
+    @State private var selectedImage: UIImage? = nil
+    @State private var isImagePickerPresented: Bool = false
 
     var body: some View {
         VStack {
@@ -116,6 +119,34 @@ struct SignUpView: View {
                         .focused($isFocused)
                         .textInputAutocapitalization(.never)
                     
+                    HStack {
+                        Text("프로필 이미지 등록")
+                            .font(.system(size: 17))
+                            .padding()
+                                                
+                        Button(action: {
+                            isImagePickerPresented = true
+                        }) {
+                            if let selectedImage = selectedImage {
+                                Image(uiImage: selectedImage)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 100, height: 100)
+                                    .cornerRadius(15)
+                            } else {
+                                Text("이미지 선택")
+                                    .frame(width: 100, height: 100)
+                                    .background(Color.gray.opacity(0.2))
+                                    .cornerRadius(15)
+                                    .foregroundColor(.gray)
+                            }
+                        }
+                        .padding()
+                        .sheet(isPresented: $isImagePickerPresented) {
+                            ImagePicker(selectedImage: $selectedImage, isPickerPresented: $isImagePickerPresented)
+                        }
+                    }
+                    
                     if signUpContentViewModel.isLoading {
                         ProgressView()
                             .padding()
@@ -133,7 +164,16 @@ struct SignUpView: View {
             
             Button(
                 action: {
-                    signUpContentViewModel.signUp()
+                    if let selectedImage = selectedImage {
+                        if let imageData = selectedImage.jpegData(compressionQuality: 0.8) {
+                            signUpContentViewModel.signUp(withImageData: imageData)
+                        } else {
+                            signUpContentViewModel.errorMessage = "이미지 변환 실패"
+                        }
+                    } else {
+                        // 이미지 선택하지 않았을 때
+                        signUpContentViewModel.signUp(withImageData: nil)
+                    }
                 },
                 label: {
                     Text("회원가입")

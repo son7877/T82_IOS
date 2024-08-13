@@ -27,13 +27,13 @@ struct MyFavoriteView: View {
                                     HStack {
                                         Image("sampleImg")
                                             .resizable()
-                                            .frame(width: 80, height: 100)
-                                            .padding()
+                                            .frame(width: 120, height: 150)
+                                            .padding(5)
                                         VStack {
                                             Text(favorite.title)
                                                 .padding(.bottom, 1)
-                                                .foregroundColor(.customblack)
-//                                            Text(favorite.bookStartTime.formmatedDay)
+                                                .foregroundColor(.black)
+                                            // Text(favorite.bookStartTime.formmatedDay)
                                         }
                                         Spacer()
                                     }

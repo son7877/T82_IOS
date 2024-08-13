@@ -13,17 +13,6 @@ struct WaitingQueueView: View {
     
     var body: some View {
         VStack {
-            VStack {
-                // 새로 고침 버튼
-                Button(action: {
-                    reloadWebViewContent()
-                }) {
-                    Image(systemName: "arrow.clockwise")
-                }
-                .padding()
-            }
-            .padding()
-            
             WebView(
                 htmlContent: htmlContent,
                 webViewHandler: { webView in

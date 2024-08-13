@@ -53,11 +53,11 @@ class CouponService {
     // MARK: - 이벤트 쿠폰 발급
     func issueEventCoupon(couponId: String, completion: @escaping (Result<Bool, Error>) -> Void) {
         
-        let url = Config().CouponHost+"/api/v1/coupons/events/issue"
+        let url = Config().CouponHost + "/api/v1/coupons/events/issue"
         
-        let parameters = ["couponId": couponId]
+        let parameters: [String: Any] = ["couponId": couponId]
         
-        AF.request(url, method: .post, parameters: parameters, headers: Config().getHeaders()).response { response in
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: Config().getHeaders()).response { response in
             switch response.result {
             case .success:
                 completion(.success(true))
