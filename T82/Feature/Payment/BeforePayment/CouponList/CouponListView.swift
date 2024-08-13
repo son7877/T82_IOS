@@ -9,15 +9,20 @@ struct CouponListView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(alignment: .leading){
+                VStack(alignment: .leading, spacing: 16) {
                     ForEach(viewModel.coupons, id: \.couponId) { coupon in
-                        CouponRowView(coupon: coupon, onCouponSelected: onCouponSelected, isSelected: selectedCouponId == coupon.couponId, isUsed: usedCoupons.contains(coupon.couponId))
-                            .padding(.vertical, 20)
+                        CouponRowView(
+                            coupon: coupon,
+                            onCouponSelected: onCouponSelected,
+                            isSelected: selectedCouponId == coupon.couponId,
+                            isUsed: usedCoupons.contains(coupon.couponId)
+                        )
                     }
                 }
+                .padding()
                 .navigationTitle("쿠폰 목록")
                 .onAppear {
-                    viewModel.fetchCoupons(page: 0, size: 5)
+                    viewModel.fetchCoupons()
                 }
             }
         }
@@ -33,17 +38,20 @@ struct CouponRowView: View {
     var isUsed: Bool
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 12) {
             Text(coupon.couponName)
                 .font(.headline)
-                .padding(.bottom, 10)
+                .foregroundColor(.primary)
+            
             Text("할인: \(discountAmount())")
                 .font(.subheadline)
-                .padding(.bottom, 10)
+                .foregroundColor(.primary)
+            
             Text("유효기간: \(formattedDay)")
                 .font(.subheadline)
-                .padding(.bottom, 10)
-            Button {
+                .foregroundColor(.secondary)
+            
+            Button(action: {
                 if isSelected {
                     onCouponSelected(
                         Coupon(couponId: "", couponName: "", discountType: "", discountValue: 0, validEnd: "", minPurchase: 0, duplicate: false, category: "")
@@ -52,17 +60,25 @@ struct CouponRowView: View {
                     onCouponSelected(coupon)
                 }
                 presentationMode.wrappedValue.dismiss()
-            } label: {
+            }) {
                 Text(isSelected ? "적용중" : (isUsed ? "사용중" : "적용"))
                     .foregroundColor(.white)
-                    .background(isSelected ? Color.gray : (isUsed ? Color.gray : Color.red))
-                    .font(.caption)
-                    .padding()
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
+                    .background(isSelected ? Color.gray : (isUsed ? Color.gray : Color.customred))
+                    .cornerRadius(8)
+                    .font(.subheadline)
             }
             .disabled(isUsed && !isSelected)
-            .padding()
-            
         }
+        .padding()
+        .background(Color(UIColor.systemBackground))
+        .cornerRadius(12)
+        .shadow(color: Color.black.opacity(0.1), radius: 4, x: 0, y: 2)
+        .overlay(
+            RoundedRectangle(cornerRadius: 12)
+                .stroke(isSelected ? Color.customgray0 : Color.clear, lineWidth: 2)
+        )
     }
     
     private func discountAmount() -> String {

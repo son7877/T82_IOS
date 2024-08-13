@@ -7,15 +7,14 @@ class CouponService {
     private init() {}
     
     // MARK: - 사용 가능한 쿠폰 리스트 가져오기
-    func fetchCoupons(page: Int, size: Int, completion: @escaping (Result<CouponResponse, Error>) -> Void) {
+    func fetchCoupons(completion: @escaping (Result<[Coupon], Error>) -> Void) {
         
         let urlString = Config().CouponHost+"/api/v1/coupons/valid"
-        let parameters: Parameters = ["page": page, "size": size]
         
-        AF.request(urlString, parameters: parameters, headers: Config().getHeaders()).responseDecodable(of: CouponResponse.self) { response in
+        AF.request(urlString, headers: Config().getHeaders()).responseDecodable(of: [Coupon].self) { response in
             switch response.result {
-            case .success(let couponResponse):
-                completion(.success(couponResponse))
+            case .success(let coupon):
+                completion(.success(coupon))
             case .failure(let error):
                 if let httpResponse = response.response {
                     print("HTTP Status Code: \(httpResponse.statusCode)")
@@ -75,7 +74,30 @@ class CouponService {
             }
         }
     }
+    // MARK: - 만보기 쿠폰 조회
+    func getPedometerCoupons(completion: @escaping(Result<[Coupon], Error>) -> Void) {
+        
+        let url = Config().CouponHost+"/api/v1/coupons?category=PEDOMETER"
+        
+        AF.request(url, method: .get, headers: Config().getHeaders()).responseDecodable(of: [Coupon].self) { response in
+            switch response.result {
+            case .success(let coupons):
+                completion(.success(coupons))
+            case .failure(let error):
+                if let httpResponse = response.response {
+                    print("HTTP Status Code: \(httpResponse.statusCode)")
+                    if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                        print("Error Message: \(errorMessage)")
+                    }
+                } else {
+                    print("Network Error: \(error.localizedDescription)")
+                }
+                completion(.failure(error))
+            }
+        }
+    }
 }
+
 
 class PaymentService {
     

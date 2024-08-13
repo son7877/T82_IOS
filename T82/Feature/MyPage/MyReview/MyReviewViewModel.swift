@@ -23,7 +23,7 @@ class MyReviewViewModel: ObservableObject {
     }
     
     // 리뷰 작성
-    func addReview(reviewRequest: MyReview) {
+    func addReview(reviewRequest: MyReviewRequest) {
         ReviewService.shared.addReview(reviewRequest: reviewRequest) { result in
             switch result {
             case .success:

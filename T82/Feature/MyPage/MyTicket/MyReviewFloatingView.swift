@@ -49,8 +49,11 @@ struct MyReviewFloatingView: View {
             
             
             Button(action: {
-                let newReview = MyReview(eventInfoId: eventInfoId, content: reviewText, rating: rating, reviewPictureUrl: nil, createdDate: createdDate)
-                reviewViewModel.addReview(reviewRequest: newReview)
+                reviewViewModel.addReview(reviewRequest: MyReviewRequest(
+                    eventInfoId: eventInfoId,
+                    content: reviewText, 
+                    rating: Double(rating),
+                    reviewPictureUrl: nil))
                 if reviewViewModel.reviewSubmissionSuccess {
                     showCompleteAlert = true
                 } else {

@@ -8,7 +8,7 @@ class PedometerEventViewModel: ObservableObject {
     @Published var weeklyStepCount = WeeklyStepCount()
     private var pedometer = CMPedometer()
     private var cancellables = Set<AnyCancellable>()
-    @Published var stepGoal = 10000
+    @Published var stepGoal = 30
 
     init() {
         startPedometer()
@@ -56,8 +56,23 @@ class PedometerEventViewModel: ObservableObject {
 
     func claimCoupon() {
         if checkStepGoalAchieved() {
-            // 서버로 부터 쿠폰 발급
-            
+            CouponService.shared.getPedometerCoupons { result in
+                switch result {
+                case .success(let coupons):
+                    if let coupon = coupons.first {
+                        CouponService.shared.issueEventCoupon(couponId: coupon.id) { result in
+                            switch result {
+                            case .success:
+                                print("쿠폰 발급 성공")
+                            case .failure(let error):
+                                print("쿠폰 발급 실패: \(error.localizedDescription)")
+                            }
+                        }
+                    }
+                case .failure(let error):
+                    print("쿠폰 조회 실패: \(error.localizedDescription)")
+                }
+            }
         }
     }
 }
