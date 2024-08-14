@@ -1,12 +1,14 @@
 import Foundation
 import CoreMotion
 import Combine
+import SwiftUI
 
 class PedometerEventViewModel: ObservableObject {
     
     @Published var stepCount: Int = 0
     @Published var stepGoal: Int = 30
     @Published var hasClaimedCoupon: Bool = false
+    @AppStorage("userID") private var userID: String = "defaultUserID"
 
     private var pedometer = CMPedometer()
     private var cancellables = Set<AnyCancellable>()
@@ -18,16 +20,17 @@ class PedometerEventViewModel: ObservableObject {
     }
 
     func loadStepCount() {
-        stepCount = UserDefaults.standard.integer(forKey: "StepCount")
-        hasClaimedCoupon = UserDefaults.standard.bool(forKey: "HasClaimedCoupon")
+        // 유저 별 걸음 수 저장
+        stepCount = UserDefaults.standard.integer(forKey: "\(self.userID)_StepCount")
+        hasClaimedCoupon = UserDefaults.standard.bool(forKey: "\(self.userID)_HasClaimedCoupon")
     }
 
     private func saveStepCount() {
-        UserDefaults.standard.set(stepCount, forKey: "StepCount")
+        UserDefaults.standard.set(stepCount, forKey: "\(self.userID)_StepCount")
     }
 
     private func saveCouponClaimedStatus() {
-        UserDefaults.standard.set(hasClaimedCoupon, forKey: "HasClaimedCoupon")
+        UserDefaults.standard.set(hasClaimedCoupon, forKey: "\(self.userID)_HasClaimedCoupon")
     }
 
     private func startPedometer() {
