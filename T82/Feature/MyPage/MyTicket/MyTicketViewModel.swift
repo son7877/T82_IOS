@@ -18,11 +18,6 @@ class MyTicketViewModel: ObservableObject {
     
     init() {
         fetchMyTicket(page: currentPage, size: 5)
-        
-        // 티켓 개수가 5개 이상이면 다음 페이지 호출
-        if MyTicketContents.count > 5 {
-            fetchMyTicket(page: currentPage + 1, size: 5)
-        }
     }
     
     // 내 티켓 정보 가져오기
@@ -48,6 +43,15 @@ class MyTicketViewModel: ObservableObject {
                 self.isEmpty = true
             }
         }
+    }
+    
+    // 다음 페이지의 티켓을 로드할지 결정
+    func loadMoreTicketsIfNeeded(currentTicket: MyTicket) {
+        guard currentPage < totalPages - 1 else { return } // 마지막 페이지인지 확인
+        guard currentTicket == MyTicketContents.last else { return } // 마지막 티켓인지 확인
+        
+        currentPage += 1
+        fetchMyTicket(page: currentPage, size: 5)
     }
     
     // 환불 요청
