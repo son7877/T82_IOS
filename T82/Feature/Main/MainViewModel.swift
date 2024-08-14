@@ -50,11 +50,13 @@ class MainViewModel: ObservableObject {
     
     // 전체 공연 중 티켓 오픈이 다가오는 순
     func fetchMainTicketOpenSoon() {
-        MainContentsService.shared.getMainEventsOpenSoon { [weak self] mainContents in
+        MainContentsService.shared.getMainEventsOpenSoon {
+            [weak self] result in
             guard let self = self else { return }
-            if let mainContents = mainContents {
+            switch result {
+            case .success(let mainContents):
                 self.mainTicketOpenSoon = mainContents
-            } else {
+            case .failure(let error):
                 // 오류 처리
                 print("오픈 목록을 불러오지 못했습니다.")
             }

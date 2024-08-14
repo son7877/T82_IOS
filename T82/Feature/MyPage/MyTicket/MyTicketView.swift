@@ -18,8 +18,8 @@ struct MyTicketView: View {
                     .padding()
             } else {
                 ScrollView {
-                    LazyVStack {
-                        ForEach(viewModel.MyTicketContents, id: \.self) { ticket in
+                    VStack {
+                        ForEach(viewModel.MyTicketContents, id: \.ticketId) { ticket in
                             ZStack {
                                 Image("myTicket")
                                     .shadow(radius: 6, x: 0, y: 5)
@@ -47,12 +47,6 @@ struct MyTicketView: View {
                                 }
                             }
                             .padding()
-                            .onAppear {
-                                // 마지막 티켓이 화면에 보일 때 다음 페이지 로드
-                                if ticket == viewModel.MyTicketContents.last {
-                                    viewModel.loadMoreTicketsIfNeeded(currentTicket: ticket)
-                                }
-                            }
                         }
                         if viewModel.isLoading {
                             ProgressView("로딩 중...")
@@ -74,11 +68,10 @@ struct MyTicketView: View {
             .frame(height: 100)
             .foregroundColor(.white))
         .onAppear(){
-           saveStartTime()
+            saveStartTime()
         }
     }
     
-    // 공연 시작 시간 기기 내부에 저장
     private func saveStartTime(){
         for ticket in viewModel.MyTicketContents {
             let dateFormatter = DateFormatter()
@@ -90,7 +83,6 @@ struct MyTicketView: View {
         }
     }
     
-    // 공연 시작 시간 10분 전 UserNotification
     private func scheduleNotification(for date: Date, ticketId: Int) {
         let content = UNMutableNotificationContent()
         content.title = "곧 시작됩니다!"
@@ -108,8 +100,4 @@ struct MyTicketView: View {
             }
         }
     }
-}
-
-#Preview {
-    MyPageView(myPageSelectedTab: .myTicket)
 }
