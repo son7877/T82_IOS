@@ -31,10 +31,6 @@ struct PaymentInProgressView: View {
         .onAppear {
             makePayment()
         }
-//        .onDisappear(){
-//            // 이벤트 ID로 FCM 토픽 등록
-//            Messaging.messaging().subscribe(toTopic: "event\(eventId)")
-//        }
         .navigationBarBackButtonHidden(true)
     }
 

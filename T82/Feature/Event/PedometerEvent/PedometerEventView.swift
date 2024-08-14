@@ -2,7 +2,7 @@ import SwiftUI
 
 struct PedometerEventView: View {
     
-    @StateObject var pedometerViewModel : PedometerEventViewModel
+    @StateObject var pedometerViewModel: PedometerEventViewModel
     
     var body: some View {
         VStack {
@@ -10,12 +10,12 @@ struct PedometerEventView: View {
                 .font(.title2)
                 .padding()
             
-            HStack{
+            HStack {
                 Text("\(pedometerViewModel.stepCount)")
                     .font(.system(size: 64))
                     .padding(.vertical)
                 
-                Text("/   "+"\(pedometerViewModel.stepGoal)")
+                Text("/   " + "\(pedometerViewModel.stepGoal)")
                     .font(.system(size: 24))
                     .padding()
             }
@@ -23,14 +23,14 @@ struct PedometerEventView: View {
             Button(action: {
                 pedometerViewModel.claimCoupon()
             }) {
-                Text("쿠폰 받기")
+                Text(pedometerViewModel.hasClaimedCoupon ? "쿠폰 발급 완료" : "쿠폰 받기")
                     .font(.title3)
                     .padding()
-                    .background(pedometerViewModel.checkStepGoalAchieved() ? Color.customred : Color.gray)
+                    .background(pedometerViewModel.checkStepGoalAchieved() && !pedometerViewModel.hasClaimedCoupon ? Color.customred : Color.gray)
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
-            .disabled(!pedometerViewModel.checkStepGoalAchieved())
+            .disabled(!pedometerViewModel.checkStepGoalAchieved() || pedometerViewModel.hasClaimedCoupon)
             .padding()
 
             Divider()
@@ -38,11 +38,4 @@ struct PedometerEventView: View {
         }
         .padding()
     }
-
-    private var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        return formatter
-    }
 }
-

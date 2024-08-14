@@ -17,7 +17,7 @@ struct MyTicketDetailView: View {
             VStack {
                 
                 // MARK: 추후에 QR 이미지로 변경
-                AsyncImage(url: URL(string: ticket.qrCodeUrl))
+                AsyncImage(url: URL(string: ticket.qrCodeUrl ?? ""))
                     .frame(width: 300, height: 300)
                     .foregroundColor(.white)
                     .padding()

@@ -29,7 +29,7 @@ class MainViewModel: ObservableObject {
                 self.mainTicketTopRanking = mainContents
             } else {
                 // 오류 처리
-                print("목록을 불러오지 못했습니다.")
+                print("판매량 목록을 불러오지 못했습니다.")
             }
         }
     }
@@ -43,7 +43,7 @@ class MainViewModel: ObservableObject {
                 self.mainTicketCategoryRanking = mainContents
             } else {
                 // 오류 처리
-                print("목록을 불러오지 못했습니다.")
+                print("상위 목록을 불러오지 못했습니다.")
             }
         }
     }
@@ -56,7 +56,7 @@ class MainViewModel: ObservableObject {
                 self.mainTicketOpenSoon = mainContents
             } else {
                 // 오류 처리
-                print("목록을 불러오지 못했습니다.")
+                print("오픈 목록을 불러오지 못했습니다.")
             }
         }
     }

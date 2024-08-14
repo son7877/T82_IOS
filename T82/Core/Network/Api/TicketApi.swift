@@ -5,8 +5,9 @@ class TicketService {
     static let shared = TicketService()
     private init() {}
     
-    // MARK: - 내 티켓 정보 반환
+    // MARK: - 내 티켓 정보 반환 (페이징)
     func getMyTickets(page: Int, size: Int, completion: @escaping (Result<MyTicketResponse, Error>) -> Void) {
+        
         let urlString = Config().TicketHost + "/api/v1/tickets"
         let parameters: Parameters = ["page": page, "size": size]
         
@@ -19,6 +20,7 @@ class TicketService {
                     print("HTTP Status Code: \(httpResponse.statusCode)")
                     if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
                         print("Error Message: \(errorMessage)")
+                        print("Error: \(error.localizedDescription)")
                     }
                 } else {
                     print("Network Error: \(error.localizedDescription)")
