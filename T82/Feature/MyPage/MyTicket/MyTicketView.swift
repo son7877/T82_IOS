@@ -47,6 +47,12 @@ struct MyTicketView: View {
                                 }
                             }
                             .padding()
+                            .onAppear {
+                                // 마지막 티켓이 화면에 보일 때 다음 페이지 로드
+                                if ticket == viewModel.MyTicketContents.last {
+                                    viewModel.loadMoreTicketsIfNeeded(currentTicket: ticket)
+                                }
+                            }
                         }
                         if viewModel.isLoading {
                             ProgressView("로딩 중...")
