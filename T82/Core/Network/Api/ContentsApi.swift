@@ -54,18 +54,16 @@ class MainContentsService {
             }
     }
     // MARK: - 전체 공연 중 티켓 오픈이 다가오는 순
-    func getMainEventsOpenSoon(completion: @escaping ([MainContents]?) -> Void) {
+    func getMainEventsOpenSoon(completion: @escaping (Result<[MainContents],Error>) -> Void) {
         
         let mainEventUrl = "\(Config().EventHost)/api/v1/contents"
         
         AF.request(mainEventUrl, method: .get)
             .validate()
-            .responseDecodable(of: EventResponse.self) { response in
+            .responseDecodable(of: [MainContents].self) { response in
                 switch response.result {
                 case .success(let eventResponse):
-                    let mainContents = eventResponse.content
-                    print("Successfully fetched \(mainContents.count) events")
-                    completion(mainContents)
+                    completion(.success(eventResponse))
                 case .failure(let error):
                     if let httpResponse = response.response {
                         print("HTTP Status Code: \(httpResponse.statusCode)")
@@ -75,7 +73,7 @@ class MainContentsService {
                     } else {
                         print("Network Error: \(error.localizedDescription)")
                     }
-                    completion(nil)
+                    completion(.failure(error))
                 }
             }
     }
