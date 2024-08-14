@@ -38,7 +38,7 @@ struct MyTicketView: View {
                                         Text("\(ticket.eventName)")
                                             .font(.headline)
                                             .padding(.bottom, 10)
-                                        Text("\(ticket.eventStartTime)")
+                                        Text(formatEventStartTime(ticket.eventStartTime))
                                         Text("\(ticket.sectionName)구역")
                                         Text("\(ticket.rowNum)열 \(ticket.columnNum)번")
                                             .padding(.bottom, 10)
@@ -47,11 +47,6 @@ struct MyTicketView: View {
                                 }
                             }
                             .padding()
-                            .onAppear {
-                                if ticket == viewModel.MyTicketContents.last && viewModel.currentPage < viewModel.totalPages - 1 {
-                                    viewModel.fetchMyTicket(page: viewModel.currentPage + 1, size: 5)
-                                }
-                            }
                         }
                         if viewModel.isLoading {
                             ProgressView("로딩 중...")
@@ -73,7 +68,7 @@ struct MyTicketView: View {
             .frame(height: 100)
             .foregroundColor(.white))
         .onAppear(){
-            saveStartTime()
+           saveStartTime()
         }
     }
     

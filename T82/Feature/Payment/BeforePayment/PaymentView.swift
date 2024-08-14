@@ -30,9 +30,14 @@ struct PaymentView: View {
             
             Spacer()
             
+            // 결재 할 티켓
             PaymentPerTicket(selectedSeats: selectedSeats)
                 .environmentObject(couponViewModel)
+            
+            // 결제 수단 선택 (추후 Click 결제 추가)
             PaymentSelection()
+            
+            // 결제금액
             PaymentPrice(selectedSeats: selectedSeats, selectedCoupons: couponViewModel.couponList)
             
             TicketingProcessBtn(

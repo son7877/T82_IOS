@@ -84,6 +84,9 @@ struct FirstEventCouponView: View {
         .alert(isPresented: $showAlert) {
             Alert(title: Text(alertMessage))
         }
+        .refreshable {
+            firstEventCouponviewModel.fetchCouponEvent()
+        }
     }
     
     private func dateFormatting(date: String) -> String {

@@ -15,7 +15,7 @@ struct MyTicket: Hashable, Codable, Identifiable {
     let paymentDate: String
     let paymentAmount: Int
     let orderNum: String
-    let qrCodeUrl: String
+    let qrCodeUrl: String?
     
     var id: Int {
         return ticketId

@@ -18,6 +18,11 @@ class MyTicketViewModel: ObservableObject {
     
     init() {
         fetchMyTicket(page: currentPage, size: 5)
+        
+        // 티켓 개수가 5개 이상이면 다음 페이지 호출
+        if MyTicketContents.count > 5 {
+            fetchMyTicket(page: currentPage + 1, size: 5)
+        }
     }
     
     // 내 티켓 정보 가져오기
