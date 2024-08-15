@@ -16,7 +16,7 @@ struct MainView: View {
                         if selectedIndex == 4 {
                             CustomNavigationBar(
                                 isDisplayLeftBtn: true,
-                                isDisplayRightBtn: true,
+                                isDisplayRightBtn: false,
                                 isDisplayTitle: true,
                                 leftBtnAction: {},
                                 rightBtnAction: {},
@@ -53,8 +53,6 @@ struct MainView: View {
                                 // 장르별 랭킹 이벤트
                                 GenreRankingSectionView(selectedGenre: $selectedGenre, viewModel: viewModel)
                                 
-                                // 특별 할인 이벤트 -> 아직 미구현
-                                
                                 // 오픈 예정 이벤트
                                 SectionView(title: "OPEN SOON", viewModel: viewModel, items: viewModel.mainTicketOpenSoon, isShowOpenDate: true)
                                 
@@ -66,6 +64,8 @@ struct MainView: View {
                             
                         } else if selectedIndex == 3 {
                             MyPageView(myPageSelectedTab: .myInfoEditing)
+                        } else if selectedIndex == 2 {
+                            SearchResultsView(viewModel: SearchViewModel())
                         } else if selectedIndex == 1 {
                             EventView(selection: .firstCoupons)
                         } else if selectedIndex == 0 {

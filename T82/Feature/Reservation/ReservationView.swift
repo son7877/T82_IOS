@@ -89,12 +89,13 @@ struct ReservationView: View {
                                     Text("댓글 보기")
                                         .font(.subheadline)
                                         .foregroundColor(.white)
+                                        .underline()
                                 }
                             )
                         }
+                        .padding(.trailing, 10)
                     }
                     .padding(.horizontal, 20)
-                    .padding(.leading, -70)
                 }
             }
             .frame(height: 300)

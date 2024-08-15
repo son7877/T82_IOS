@@ -11,6 +11,10 @@ struct MyReviewFloatingView: View {
     @State private var reviewText: String = ""
     @State private var showErrorAlert: Bool = false
     @State private var showCompleteAlert: Bool = false
+    
+    @State private var selectedImage: UIImage? = nil
+    @State private var isImagePickerPresented: Bool = false
+
     var eventInfoId: Int
 
     var body: some View {
@@ -46,14 +50,40 @@ struct MyReviewFloatingView: View {
                 .tint(.customPink)
             
             // 리뷰 이미지 등록
-            
+            HStack{
+                Text("리뷰 이미지 등록")
+                    .font(.headline)
+                    .padding()
+                
+                Button(action: {
+                    isImagePickerPresented = true
+                }) {
+                    if let selectedImage = selectedImage {
+                        Image(uiImage: selectedImage)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 70, height: 70)
+                            .cornerRadius(15)
+                    } else {
+                        Text("이미지 선택")
+                            .frame(width: 70, height: 70)
+                            .background(Color.gray.opacity(0.2))
+                            .cornerRadius(15)
+                            .foregroundColor(.gray)
+                    }
+                }
+            }
             
             Button(action: {
+                let imageData = selectedImage?.jpegData(compressionQuality: 0.8)
+                
                 reviewViewModel.addReview(reviewRequest: MyReviewRequest(
                     eventInfoId: eventInfoId,
-                    content: reviewText, 
+                    content: reviewText,
                     rating: Double(rating),
-                    reviewPictureUrl: nil))
+                    reviewPictureUrl: nil),
+                    imageData: imageData)
+                
                 if reviewViewModel.reviewSubmissionSuccess {
                     showCompleteAlert = true
                 } else {
@@ -83,6 +113,9 @@ struct MyReviewFloatingView: View {
                 message: Text("리뷰 등록이 완료되었습니다."),
                 dismissButton: .default(Text("확인"))
             )
+        }
+        .sheet(isPresented: $isImagePickerPresented) {
+            ImagePicker(selectedImage: $selectedImage, isPickerPresented: $isImagePickerPresented)
         }
     }
 }

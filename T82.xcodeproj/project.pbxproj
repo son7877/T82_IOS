@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		891273F82C6DE6DB0003D915 /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891273F72C6DE6DB0003D915 /* SearchResultsView.swift */; };
+		891273FA2C6DE6F10003D915 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891273F92C6DE6F10003D915 /* SearchViewModel.swift */; };
 		891565EF2C571EDB005E4CFE /* TicketApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891565EE2C571EDB005E4CFE /* TicketApi.swift */; };
 		891565F12C57352B005E4CFE /* ReviewApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891565F02C57352B005E4CFE /* ReviewApi.swift */; };
 		891565F72C57BEDC005E4CFE /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 891565F62C57BEDC005E4CFE /* FirebaseAnalytics */; };
@@ -82,7 +84,6 @@
 		89AF44192C6B32B90062D5FB /* EventInfoReviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89AF44182C6B32B90062D5FB /* EventInfoReviews.swift */; };
 		89B57D672C40FBD400784CC3 /* MyTicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */; };
 		89B57D692C41033B00784CC3 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D682C41033B00784CC3 /* Date+Extensions.swift */; };
-		89B57D7F2C43BFD000784CC3 /* MyLocalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */; };
 		89B57D822C43D56A00784CC3 /* SelectSeatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D812C43D56A00784CC3 /* SelectSeatView.swift */; };
 		89B57D842C43D57900784CC3 /* SeatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D832C43D57900784CC3 /* SeatsViewModel.swift */; };
 		89B57D862C43F0CA00784CC3 /* SeatsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89B57D852C43F0CA00784CC3 /* SeatsInfo.swift */; };
@@ -130,6 +131,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		891273F72C6DE6DB0003D915 /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
+		891273F92C6DE6F10003D915 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		891565EE2C571EDB005E4CFE /* TicketApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketApi.swift; sourceTree = "<group>"; };
 		891565F02C57352B005E4CFE /* ReviewApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewApi.swift; sourceTree = "<group>"; };
 		891565F22C57BACD005E4CFE /* T82.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = T82.entitlements; sourceTree = "<group>"; };
@@ -198,7 +201,6 @@
 		89AF44182C6B32B90062D5FB /* EventInfoReviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventInfoReviews.swift; sourceTree = "<group>"; };
 		89B57D662C40FBD400784CC3 /* MyTicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTicketViewModel.swift; sourceTree = "<group>"; };
 		89B57D682C41033B00784CC3 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
-		89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocalView.swift; sourceTree = "<group>"; };
 		89B57D812C43D56A00784CC3 /* SelectSeatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSeatView.swift; sourceTree = "<group>"; };
 		89B57D832C43D57900784CC3 /* SeatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatsViewModel.swift; sourceTree = "<group>"; };
 		89B57D852C43F0CA00784CC3 /* SeatsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeatsInfo.swift; sourceTree = "<group>"; };
@@ -265,6 +267,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		891273F62C6DE6C70003D915 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				891273F72C6DE6DB0003D915 /* SearchResultsView.swift */,
+				891273F92C6DE6F10003D915 /* SearchViewModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		891273FB2C6E3E350003D915 /* Reviews */ = {
+			isa = PBXGroup;
+			children = (
+				89AF44182C6B32B90062D5FB /* EventInfoReviews.swift */,
+				89BC469D2C45270C00CDBB38 /* MyReview.swift */,
+			);
+			path = Reviews;
+			sourceTree = "<group>";
+		};
 		892D75C22C61BA1700771955 /* FirstComes */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,7 +358,6 @@
 			isa = PBXGroup;
 			children = (
 				894482972C40F8D8003F3EE4 /* MyTicket.swift */,
-				89BC469D2C45270C00CDBB38 /* MyReview.swift */,
 				89D98B5E2C4E517E009C3CFA /* MyInfo.swift */,
 				891566022C592F5E005E4CFE /* MyFavorites.swift */,
 			);
@@ -460,6 +479,7 @@
 		89A7717F2C3BBF5E00C7068F /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				891273F62C6DE6C70003D915 /* Search */,
 				AAFE6D392C44A87500FB6BA6 /* Reservation */,
 				AAFE6D362C41A67000FB6BA6 /* SubCategory */,
 				AAFE6D2D2C3FA00200FB6BA6 /* Main */,
@@ -468,7 +488,6 @@
 				89B57D7B2C43BEEF00784CC3 /* SeatSelect */,
 				894482702C3FB067003F3EE4 /* Payment */,
 				8944826F2C3FB04A003F3EE4 /* MyPage */,
-				89B57D7D2C43BFBA00784CC3 /* CurrentLocation */,
 				89B57D702C439EBA00784CC3 /* Event */,
 			);
 			path = Feature;
@@ -477,6 +496,7 @@
 		89A771802C3BBF6400C7068F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				891273FB2C6E3E350003D915 /* Reviews */,
 				89AF43FB2C64A10D0062D5FB /* Event */,
 				89EE24532C48E85300538C87 /* Contents */,
 				89BC468A2C44C5A100CDBB38 /* Auth */,
@@ -603,14 +623,6 @@
 			path = SeatSelect;
 			sourceTree = "<group>";
 		};
-		89B57D7D2C43BFBA00784CC3 /* CurrentLocation */ = {
-			isa = PBXGroup;
-			children = (
-				89B57D7E2C43BFD000784CC3 /* MyLocalView.swift */,
-			);
-			path = CurrentLocation;
-			sourceTree = "<group>";
-		};
 		89BC468A2C44C5A100CDBB38 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -674,7 +686,6 @@
 				89EE24582C48F3A500538C87 /* DiscountedContents.swift */,
 				89EE24612C4A2E9000538C87 /* ContentsDetail.swift */,
 				89D98B5A2C4DE0BA009C3CFA /* EventsByDate.swift */,
-				89AF44182C6B32B90062D5FB /* EventInfoReviews.swift */,
 			);
 			path = Contents;
 			sourceTree = "<group>";
@@ -855,6 +866,7 @@
 				891565F12C57352B005E4CFE /* ReviewApi.swift in Sources */,
 				89B57D822C43D56A00784CC3 /* SelectSeatView.swift in Sources */,
 				89BC46922C45032B00CDBB38 /* LoginBtn.swift in Sources */,
+				891273FA2C6DE6F10003D915 /* SearchViewModel.swift in Sources */,
 				89A0AAB82C50D3C6003048B6 /* CouponListViewModel.swift in Sources */,
 				892D75BD2C61B85B00771955 /* EventTabView.swift in Sources */,
 				89EAB4E02C3E6488002B8515 /* Color+extensions.swift in Sources */,
@@ -888,6 +900,7 @@
 				89BC469A2C4526B300CDBB38 /* MyReviewView.swift in Sources */,
 				89B57D862C43F0CA00784CC3 /* SeatsInfo.swift in Sources */,
 				89EE245B2C49E6E700538C87 /* ContentsApi.swift in Sources */,
+				891273F82C6DE6DB0003D915 /* SearchResultsView.swift in Sources */,
 				89A7718A2C3BDEA400C7068F /* LoginView.swift in Sources */,
 				89A0AABA2C51E50A003048B6 /* Payments.swift in Sources */,
 				892D75B72C619F9600771955 /* FirstEventCouponViewModel.swift in Sources */,
@@ -916,7 +929,6 @@
 				892D75B52C5FE00700771955 /* VersionCheckViewModel.swift in Sources */,
 				89EE24592C48F3A500538C87 /* DiscountedContents.swift in Sources */,
 				AAFE6D3B2C44A89A00FB6BA6 /* ReservationView.swift in Sources */,
-				89B57D7F2C43BFD000784CC3 /* MyLocalView.swift in Sources */,
 				89B57D692C41033B00784CC3 /* Date+Extensions.swift in Sources */,
 				89D98B5F2C4E517E009C3CFA /* MyInfo.swift in Sources */,
 				894482922C40D2FE003F3EE4 /* MyInfoEditingView.swift in Sources */,
