@@ -50,6 +50,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     private func requestNotificationAuthorization() {
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+            // 권한 허용 여부 확인
             if granted {
                 print("Notification permission granted.")
                 

@@ -11,6 +11,10 @@ class LoginViewModel: ObservableObject {
     @Published var errorMessage: String? = nil
     @Published var isLoading: Bool = false
     
+    // 알람 허용 여부 확인
+    @Published var notificationPermissionGranted: Bool = false
+    
+    // 로그인
     private func handleLoginResult(success: Bool) {
         DispatchQueue.main.async {
             self.isLoading = false
@@ -18,18 +22,16 @@ class LoginViewModel: ObservableObject {
                 self.loginSuccessful = true
                 self.errorMessage = nil
                 
-                // 추가 작업: 로그인 성공 후 FCM 토큰 저장 또는 푸시 알림 권한 요청
-                self.saveFCMTokenToFirestore()
-                
+                // FCM 토큰을 저장하고, 저장 후 postToken을 호출
+                self.saveFCMTokenToFirestoreAndPostToken()
             } else {
                 self.loginSuccessful = false
                 self.errorMessage = "로그인 실패"
             }
         }
     }
-
-    private func saveFCMTokenToFirestore() {
-        // 푸시 알림 권한 요청
+    
+    private func saveFCMTokenToFirestoreAndPostToken() {
         requestNotificationAuthorization { granted in
             if granted {
                 Messaging.messaging().token { token, error in
@@ -43,7 +45,7 @@ class LoginViewModel: ObservableObject {
                         return
                     }
 
-                    print("FCM token: \(token)")
+                    self.notificationPermissionGranted = true
 
                     if let userId = Auth.auth().currentUser?.uid {
                         let db = Firestore.firestore()
@@ -51,7 +53,9 @@ class LoginViewModel: ObservableObject {
                             if let error = error {
                                 print("Error saving FCM token: \(error.localizedDescription)")
                             } else {
-                                print("FCM token successfully saved.")
+                                print("Login: FCM token successfully saved.")
+                                // FCM 토큰이 저장된 후 postToken을 호출
+                                self.postToken()
                             }
                         }
                     } else {
@@ -110,6 +114,17 @@ class LoginViewModel: ObservableObject {
                 UserDefaults.standard.set(email, forKey: "userID")
             }
             self?.handleLoginResult(success: success)
+        }
+    }
+    
+    private func postToken(){
+        AuthService.shared.registerFCMToken { result in
+            switch result {
+            case .success:
+                print("FCM 토큰 등록 성공")
+            case .failure(let error):
+                print("FCM 토큰 등록 실패: \(error.localizedDescription)")
+            }
         }
     }
 }
