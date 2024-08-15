@@ -1,4 +1,5 @@
 import Foundation
+import FirebaseMessaging
 import Alamofire
 
 class AuthService {
@@ -254,5 +255,53 @@ class AuthService {
                     completion(false)
                 }
             }
+    }
+    // MARK: - 알림 허용 상태일 때 유저 토큰과 FCM토큰 POST
+    func registerFCMToken(completion: @escaping (Result<Bool,Error>) -> Void) {
+        let registerUrl = "\(Config().AuthHost)/api/v1/users/notification"
+        
+        Messaging.messaging().token { token, error in
+            if let error = error {
+                print("Error fetching FCM token: \(error.localizedDescription)")
+                completion(.failure(error))
+                return
+            }
+            
+            guard let token = token else {
+                print("FCM token is nil.")
+                return
+            }
+            
+            print("FCM token: \(token)")
+            
+            let parameters = [
+                "deviceToken": token
+            ]
+            
+            AF.request(registerUrl, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: Config().getHeaders())
+                .validate()
+                .response { response in
+                    switch response.result {
+                    case .success:
+                        if let httpResponse = response.response {
+                            print("HTTP Status Code: \(httpResponse.statusCode)")
+                            completion(.success((200..<300).contains(httpResponse.statusCode)))
+                        } else {
+                            print("No HTTP Response received.")
+                            completion(.failure(AFError.responseValidationFailed(reason: .unacceptableStatusCode(code: 0))))
+                        }
+                    case .failure(let error):
+                        if let httpResponse = response.response {
+                            print("HTTP Status Code: \(httpResponse.statusCode)")
+                            if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                                print("Error Message: \(errorMessage)")
+                            }
+                        } else {
+                            print("Network Error: \(error.localizedDescription)")
+                        }
+                        completion(.failure(error))
+                    }
+                }
+        }
     }
 }
