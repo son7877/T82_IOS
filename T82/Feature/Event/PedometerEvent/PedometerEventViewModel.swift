@@ -14,9 +14,21 @@ class PedometerEventViewModel: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     
     init() {
-        loadStepCount()  
+        checkAndResetStepCount()
+        loadStepCount()
         startPedometer()
         setupDailyReset()
+    }
+    
+    private func checkAndResetStepCount() {
+        let lastResetDate = UserDefaults.standard.object(forKey: "\(self.userID)_LastResetDate") as? Date ?? Date.distantPast
+        let calendar = Calendar.current
+        let today = calendar.startOfDay(for: Date())
+
+        if calendar.compare(lastResetDate, to: today, toGranularity: .day) != .orderedSame {
+            resetStepCount()
+            UserDefaults.standard.set(today, forKey: "\(self.userID)_LastResetDate")
+        }
     }
 
     func loadStepCount() {
@@ -27,9 +39,6 @@ class PedometerEventViewModel: ObservableObject {
 
     private func saveStepCount() {
         UserDefaults.standard.set(stepCount, forKey: "\(self.userID)_StepCount")
-    }
-
-    private func saveCouponClaimedStatus() {
         UserDefaults.standard.set(hasClaimedCoupon, forKey: "\(self.userID)_HasClaimedCoupon")
     }
 
@@ -63,9 +72,6 @@ class PedometerEventViewModel: ObservableObject {
         stepCount = 0
         hasClaimedCoupon = false
         saveStepCount()
-        saveCouponClaimedStatus()
-        pedometer.stopUpdates()
-        startPedometer()
     }
 
     func checkStepGoalAchieved() -> Bool {
@@ -83,7 +89,7 @@ class PedometerEventViewModel: ObservableObject {
                         switch result {
                         case .success:
                             self.hasClaimedCoupon = true
-                            self.saveCouponClaimedStatus() // 상태 저장
+                            self.saveStepCount() // 상태 저장
                             print("쿠폰 발급 성공")
                         case .failure(let error):
                             print("쿠폰 발급 실패: \(error.localizedDescription)")
