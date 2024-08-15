@@ -202,6 +202,27 @@ class MainContentsService {
                 }
             }
     }
-
+    // MARK: - 공연 정보 검색 결과 조회
+    func searchEventInfo(searchWord: String, completion: @escaping ([SearchContents]?) -> Void) {
+        let mainEventUrl = "\(Config().EventHost)/api/v1/contents/search?searchWord=\(searchWord)"
+        
+        AF.request(mainEventUrl, method: .get)
+            .validate()
+            .responseDecodable(of: [SearchContents].self) { response in
+                switch response.result{
+                case .success(let searchResponse):
+                    completion(searchResponse)
+                case .failure(let error):
+                    if let httpResponse = response.response {
+                        print("HTTP Status Code: \(httpResponse.statusCode)")
+                        if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
+                            print("Error Message: \(errorMessage)")
+                        }
+                    } else {
+                        print("Network Error: \(error.localizedDescription)")
+                    }
+                }
+            }
+    }
 }
 

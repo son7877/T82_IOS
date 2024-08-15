@@ -4,8 +4,8 @@ struct MainContents: Hashable, Decodable, Identifiable {
     
     let eventInfoId: Int
 //    var imageName: String
-    var title: String
-    var rating: Double
+    let title: String
+    let rating: Double
 //    var bookStartTime: String
     
     var id: Int {
@@ -42,3 +42,14 @@ struct EventResponse: Decodable {
     }
 }
 
+struct SearchContents: Hashable, Decodable, Identifiable {
+    
+    let eventInfoId: Int
+    let title: String
+    let placeName: String
+    let runningTime: String
+    
+    var id: Int {
+        return eventInfoId
+    }
+}

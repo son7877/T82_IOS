@@ -22,5 +22,5 @@ struct MyReviewRequest: Codable {
     let eventInfoId: Int
     let content: String
     let rating: Double
-    let reviewPictureUrl: String?
+    var reviewPictureUrl: String?
 }

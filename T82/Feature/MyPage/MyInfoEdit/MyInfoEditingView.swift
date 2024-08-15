@@ -18,7 +18,7 @@ struct MyInfoEditingView: View {
                 Text("소셜 로그인 사용자는 정보 수정이 불가능합니다.")
                     .foregroundColor(.red)
                     .padding(.top, 20)
-            } else{
+            } else {
                 Divider()
                     .frame(height: 2)
                     .background(Color.gray)
