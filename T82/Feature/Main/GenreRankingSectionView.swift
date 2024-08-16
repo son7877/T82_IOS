@@ -19,7 +19,6 @@ struct GenreRankingSectionView: View {
                                 selectedGenre = genre
                                 viewModel.fetchMainTicketCategoryRanking(for: genre)
                             }) {
-                                
                                 Text(genre.displayName)
                                     .padding(.vertical, 7)
                                     .padding(.horizontal, 12)
