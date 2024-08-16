@@ -10,7 +10,8 @@ struct MyInfoEditingView: View {
     @State private var showDeleteConfirmation = false
     @State private var navigateToLogin = false
     @State private var showEditSuccessAlert = false
-    @State private var isSocialLogin: Bool = false
+    @State private var isSocialLogin: Bool = 
+        UserDefaults.standard.bool(forKey: "isSocialLogin")
         
     var body: some View {
         VStack {
@@ -210,6 +211,7 @@ struct MyInfoEditingView: View {
                 
                 Button(
                     action: {
+                        UserDefaults.standard.set(false, forKey: "isSocialLogin")
                         navigateToLogin = true
                         clearTimeData()
                     },
@@ -261,6 +263,7 @@ struct MyInfoEditingView: View {
                 message: Text("정말로 탈퇴하시겠습니까?"),
                 primaryButton: .destructive(Text("탈퇴")) {
                     viewModel.deleteUser()
+                    UserDefaults.standard.set(false, forKey: "isSocialLogin")
                 },
                 secondaryButton: .cancel(Text("취소"))
             )

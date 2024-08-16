@@ -87,6 +87,9 @@ struct MainView: View {
             }
         }
         .navigationBarBackButtonHidden()
+        .onDisappear(){
+            selectedIndex = 4
+        }
     }
     
     // 알림 권한 요청
