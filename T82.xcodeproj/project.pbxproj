@@ -743,10 +743,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89A771792C3B702500C7068F /* Build configuration list for PBXNativeTarget "T82" */;
 			buildPhases = (
+				891273FD2C6ED9310003D915 /* ShellScript */,
 				89A771672C3B702400C7068F /* Sources */,
 				89A771682C3B702400C7068F /* Frameworks */,
 				89A771692C3B702400C7068F /* Resources */,
-				891273FD2C6ED9310003D915 /* ShellScript */,
 			);
 			buildRules = (
 			);
