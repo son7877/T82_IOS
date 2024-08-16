@@ -835,6 +835,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/T82/Core/Network/Config.swift",
 			);
 			outputFileListPaths = (
 			);
