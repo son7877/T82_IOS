@@ -19,7 +19,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         FirebaseApp.configure()
         
         // iOS 10 이상 버전에서 알림 권한 요청
-        requestNotificationAuthorization()
+//        requestNotificationAuthorization()
 
         application.registerForRemoteNotifications()
         

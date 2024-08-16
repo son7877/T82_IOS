@@ -88,6 +88,7 @@ class LoginViewModel: ObservableObject {
             let userID = self?.loginContent.email
             UserDefaults.standard.set(userID, forKey: "userID")
             self?.handleLoginResult(success: success)
+            UserDefaults.standard.set(false, forKey: "isSocialLogin")
         }
     }
     
@@ -99,6 +100,8 @@ class LoginViewModel: ObservableObject {
             SocialLogin.shared.getKakaoEmail { kakaoEmail in
                 if let email = kakaoEmail {
                     UserDefaults.standard.set(email, forKey: "userID")
+                    // UserDefaults에 소셜 로그인 여부 저장
+                    UserDefaults.standard.set(true, forKey: "isSocialLogin")
                 }
             }
             self?.handleLoginResult(success: success)
@@ -112,6 +115,7 @@ class LoginViewModel: ObservableObject {
         AuthService.shared.loginWithGoogle { [weak self] success in
             if let email = SocialLogin.shared.getGoogleEmail() {
                 UserDefaults.standard.set(email, forKey: "userID")
+                UserDefaults.standard.set(true, forKey: "isSocialLogin")
             }
             self?.handleLoginResult(success: success)
         }
