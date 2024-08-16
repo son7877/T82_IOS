@@ -69,9 +69,9 @@ struct CommentRow: View {
                     }
                 }
                 VStack(alignment: .leading) {
-                    Text(review.username)
+                    Text(review.userName)
                         .font(.headline)
-                    Text(review.createDate)
+                    Text(review.createdDate)
                         .font(.subheadline)
                         .foregroundColor(.gray)
                 }

@@ -7,10 +7,10 @@ struct EventInfoReviews: Hashable, Decodable, Identifiable {
     let content: String
     let rating: Double
     let reviewPictureUrl: String?
-    let createDate: String
+    let createdDate: String
     let userId: String
     let userImage: String?
-    let username: String
+    let userName: String
     let isArtist: Bool
     
     var id: Int{
@@ -23,7 +23,7 @@ struct Replies: Hashable, Decodable, Identifiable {
     let commentId: Int
     let content: String
     let isDeleted: Bool
-    let createDate: String
+    let createdDate: String
     let userId: String
     let userImage: String?
     let username: String

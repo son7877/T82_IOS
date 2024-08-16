@@ -51,9 +51,9 @@ struct EventCommentReplyView: View {
                                     }
                                 }
                                 VStack(alignment: .leading) {
-                                    Text(parentReview.username)
+                                    Text(parentReview.userName)
                                         .font(.headline)
-                                    Text(parentReview.createDate)
+                                    Text(parentReview.createdDate)
                                         .font(.subheadline)
                                         .foregroundColor(.gray)
                                 }
@@ -138,7 +138,7 @@ struct ReplyRow: View {
                 VStack(alignment: .leading) {
                     Text(reply.username)
                         .font(.headline)
-                    Text(reply.createDate)
+                    Text(reply.createdDate)
                         .font(.subheadline)
                         .foregroundColor(.gray)
                 }

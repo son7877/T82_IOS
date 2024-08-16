@@ -30,7 +30,7 @@ struct WaitingQueueView: View {
     }
     
     private func startStatusCheckTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 2.0, repeats: true) { _ in
+        timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { _ in
             viewModel.checkWaitingQueueStatus(eventId: eventId)
             reloadWebViewContent()
         }

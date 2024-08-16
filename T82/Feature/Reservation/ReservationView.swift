@@ -11,7 +11,7 @@ struct ReservationView: View {
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .top) {
-                Image("sampleImg")
+                Image(viewModel.contentsDetail.imageUrl)
                     .resizable()
                     .scaledToFill()
                     .frame(width: UIScreen.main.bounds.width, height: 300)
@@ -52,7 +52,7 @@ struct ReservationView: View {
                     
                     // MARK: - 공연 상세 정보
                     HStack(spacing: 20) {
-                        Image("sampleImg")
+                        Image(viewModel.contentsDetail.imageUrl)
                             .resizable()
                             .frame(width: 150, height: 200)
                             .cornerRadius(10)

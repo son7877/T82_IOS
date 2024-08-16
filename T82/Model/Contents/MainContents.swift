@@ -3,9 +3,9 @@ import Foundation
 struct MainContents: Hashable, Decodable, Identifiable {
     
     let eventInfoId: Int
-//    var imageName: String
     let title: String
     let rating: Double
+    var imageUrl: String
 //    var bookStartTime: String
     
     var id: Int {

@@ -8,4 +8,5 @@ struct ContentsDetail: Hashable, Decodable {
     var ageRestriction: String
     var placeName: String
     var totalSeat: Int
+    var imageUrl: String
 }

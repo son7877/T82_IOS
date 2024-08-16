@@ -69,7 +69,7 @@ struct SubCategoryView: View {
                                 ForEach(viewModel.subCategoryEvents) { event in
                                     NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventInfoId: event.id))) {
                                         VStack {
-                                            Image("sampleImg")
+                                            Image(event.imageUrl)
                                                 .resizable()
                                                 .frame(width: 100, height: 150)
                                                 .cornerRadius(10)
@@ -104,7 +104,7 @@ struct SubCategoryView: View {
                                 ForEach(viewModel.openSoonEvents) { event in
                                     NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventInfoId: event.id))) {
                                         VStack {
-                                            Image("sampleImg")
+                                            Image(event.imageUrl)
                                                 .resizable()
                                                 .frame(width: 100, height: 150)
                                                 .cornerRadius(10)

@@ -25,7 +25,7 @@ struct MyFavoriteView: View {
                                         .padding()
                                         .foregroundColor(.white)
                                     HStack {
-                                        Image("sampleImg")
+                                        Image(favorite.imageUrl)
                                             .resizable()
                                             .frame(width: 120, height: 150)
                                             .padding(5)

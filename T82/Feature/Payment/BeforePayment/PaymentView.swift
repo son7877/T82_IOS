@@ -14,7 +14,7 @@ struct PaymentView: View {
         
         VStack{
             CustomNavigationBar(
-                isDisplayLeftBtn: true,
+                isDisplayLeftBtn: false,
                 isDisplayRightBtn: false,
                 isDisplayTitle: true,
                 leftBtnAction: {

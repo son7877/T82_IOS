@@ -86,6 +86,7 @@ struct MyReviewFloatingView: View {
                 
                 if reviewViewModel.reviewSubmissionSuccess {
                     showCompleteAlert = true
+                    isPresented = false
                 } else {
                     showErrorAlert = true
                 }
