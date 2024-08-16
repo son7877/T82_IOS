@@ -746,6 +746,7 @@
 				89A771672C3B702400C7068F /* Sources */,
 				89A771682C3B702400C7068F /* Frameworks */,
 				89A771692C3B702400C7068F /* Resources */,
+				891273FD2C6ED9310003D915 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -824,6 +825,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		891273FD2C6ED9310003D915 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Creating Config.swift from environment variables...\"\n  echo \"import Foundation\" > \"$SRCROOT/T82/Config.swift\"\n  echo \"import Alamofire\" >> \"$SRCROOT/T82/Config.swift\"\n  echo \"class Config {\" >> \"$SRCROOT/T82/Config.swift\"\n  echo \"    let AuthHost = \\\"https://t82.store\\\"\" >> \"$SRCROOT/T82/Config.swift\"\n  echo \"    let CouponHost = \\\"https://t82.store\\\"\" >> \"$SRCROOT/T82/Config.swift\"\n  echo \"    let TicketHost = \\\"https://t82.store\\\"\" >> \"$SRCROOT/T82/Config.swift\"\n  echo \"    let SeatHost = \\\"https://t82.store\\\"\" >> \"$SRCROOT/T82/Config.swift\"\n  echo \"    let EventHost = \\\"https://t82.store\\\"\" >> \"$SRCROOT/T82/Config.swift\"\n  echo \"    let PaymentHost = \\\"https://t82.store\\\"\" >> \"$SRCROOT/T82/Config.swift\"\n  echo \"    let VersionCheckHost = \\\"http://34.132.100.39:8080\\\"\" >> \"$SRCROOT/T82/Config.swift\"\n  echo \"    let appId = \\\"$APP_ID\\\"\" >> \"$SRCROOT/T82/Config.swift\"\n  echo \"    let kakaoAppKey = \\\"$KAKAO_APP_KEY\\\"\" >> \"$SRCROOT/T82/Config.swift\"\n  echo \"    let GIDClientId = \\\"$GID_CLIENT_ID\\\"\" >> \"$SRCROOT/T82/Config.swift\"\n  echo \"    var token: String? { return UserDefaults.standard.string(forKey: \\\"token\\\") }\" >> \"$SRCROOT/T82/Config.swift\"\n  echo \"    func getHeaders() -> HTTPHeaders { return [\\\"Authorization\\\": \\\"Bearer \\(token ?? \\\"\\\")\\\", \\\"Accept\\\": \\\"application/json\\\"] }\" >> \"$SRCROOT/T82/Config.swift\"\n  echo \"    func getImageHeaders() -> HTTPHeaders { return [\\\"Accept\\\": \\\"multipart/form-data\\\"] }\" >> \"$SRCROOT/T82/Config.swift\"\n  echo \"    var accessTokenKaKao: String? { return UserDefaults.standard.string(forKey: \\\"KakaoToken\\\") }\" >> \"$SRCROOT/T82/Config.swift\"\n  echo \"    var accessTokenGoogle: String? { return UserDefaults.standard.string(forKey: \\\"GoogleToken\\\") }\" >> \"$SRCROOT/T82/Config.swift\"\n  echo \"    func getAccessKakao() -> HTTPHeaders { return [\\\"Authorization\\\": \\\"\\(accessTokenKaKao ?? \\\"\\\")\\\", \\\"Accept\\\": \\\"application/json\\\"] }\" >> \"$SRCROOT/T82/Config.swift\"\n  echo \"    func getAccessGoogle() -> HTTPHeaders { return [\\\"Authorization\\\": \\\"\\(accessTokenGoogle ?? \\\"\\\")\\\", \\\"Accept\\\": \\\"application/json\\\"] }\" >> \"$SRCROOT/T82/Config.swift\"\n  echo \"}\" >> \"$SRCROOT/T82/Config.swift\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		89A771672C3B702400C7068F /* Sources */ = {
