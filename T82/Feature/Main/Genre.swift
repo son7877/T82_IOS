@@ -1,4 +1,4 @@
-enum Genre: Int, CaseIterable, Identifiable {
+enum Genre: Int, CaseIterable, Identifiable, Equatable {
     
     case concert = 1
     case musical = 2

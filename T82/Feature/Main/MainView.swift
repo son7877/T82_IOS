@@ -37,7 +37,7 @@ struct MainView: View {
                                         ForEach(viewModel.mainTicketTopRanking) { event in
                                             NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventInfoId: event.id))) {
                                                 VStack(alignment: .leading) {
-                                                    Image("sampleImg")
+                                                    Image(event.imageUrl)
                                                         .resizable()
                                                         .frame(width: UIScreen.main.bounds.width, height: 350)
                                                 }

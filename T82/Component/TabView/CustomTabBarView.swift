@@ -7,7 +7,7 @@ struct CustomTabBarView: View {
         ZStack {
             HStack {
                 CustomTabBarButton(selectedIndex: $selectedIndex, index: 0, label: "내 예매", systemImageName: "ticket")
-                CustomTabBarButton(selectedIndex: $selectedIndex, index: 1, label: "이벤트", systemImageName: "film")
+                CustomTabBarButton(selectedIndex: $selectedIndex, index: 1, label: "이벤트", systemImageName: "star")
 
                 Spacer().frame(width: 70) // 가운데 버튼 공간 확보
 

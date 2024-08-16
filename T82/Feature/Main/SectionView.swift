@@ -25,7 +25,7 @@ struct SectionView<Item: Identifiable>: View where Item: EventTitleProtocol {
                                 ForEach(items) { item in
                                     NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventInfoId: item.id))) {
                                         VStack {
-                                            Image("sampleImg")
+                                            Image(item.imageUrl)
                                                 .resizable()
                                                 .frame(width: 100, height: 150)
                                                 .cornerRadius(10)
@@ -56,6 +56,7 @@ struct SectionView<Item: Identifiable>: View where Item: EventTitleProtocol {
 
 protocol EventTitleProtocol {
     var title: String { get }
+    var imageUrl: String { get }
     var id: Int { get }
 }
 

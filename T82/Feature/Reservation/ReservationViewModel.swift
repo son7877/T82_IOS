@@ -16,7 +16,7 @@ class ReservationViewModel: ObservableObject {
     }
 
     init(eventInfoId: Int) {
-        self.contentsDetail = ContentsDetail(title: "", description: "", rating: 0.0, runningTime: "", ageRestriction: "", placeName: "", totalSeat: 0)
+        self.contentsDetail = ContentsDetail(title: "", description: "", rating: 0.0, runningTime: "", ageRestriction: "", placeName: "", totalSeat: 0, imageUrl: "")
         self.availableDates = []
         self.availableSeats = []
         self.eventInfoId = eventInfoId

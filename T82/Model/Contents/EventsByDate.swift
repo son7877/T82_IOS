@@ -1,6 +1,7 @@
 import Foundation
 
 struct EventsByDate: Decodable {
+    
     let eventId: Int
     let eventStartTime: Date
     let eventSellCount: Int
