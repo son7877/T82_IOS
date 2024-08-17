@@ -835,14 +835,16 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/T82/Info.plist",
 			);
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(SRCROOT)/T82/Core/Network/Config.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/bin/bash\n\nCONFIG_FILE=\"${SRCROOT}/T82/Core/Network/Config.swift\"\n\ncat << EOF > \"${CONFIG_FILE}\"\nimport Foundation\nimport Alamofire\n\nclass Config {\n    let ServerHost: String\n    let VersionCheckHost: String\n    \n    let appId: String\n    let kakaoAppKey: String\n    let GIDClientId: String\n    \n    init() {\n        self.ServerHost = ProcessInfo.processInfo.environment[\"SERVER_HOST\"] ?? \"https://t82.store\"\n        self.VersionCheckHost = ProcessInfo.processInfo.environment[\"VERSION_CHECK_HOST\"] ?? \"http://34.132.100.39:8080\"\n        \n        self.appId = ProcessInfo.processInfo.environment[\"APP_ID\"] ?? \"6523415914\"\n        self.kakaoAppKey = ProcessInfo.processInfo.environment[\"KAKAO_APP_KEY\"] ?? \"7482ff10ddcc2f9b977ca52de9dd4052\"\n        self.GIDClientId = ProcessInfo.processInfo.environment[\"GID_CLIENT_ID\"] ?? \"366365938384-9mkgktkneksv2rivdqpprt2p9pb20eom.apps.googleusercontent.com\"\n    }\n    \n    var token: String? {\n        return UserDefaults.standard.string(forKey: \"token\")\n    }\n    \n    func getHeaders() -> HTTPHeaders {\n        return [\n            \"Authorization\": \"Bearer \\(token ?? \"\")\",\n            \"Accept\": \"application/json\"\n        ]\n    }\n    \n    func getImageHeaders() -> HTTPHeaders {\n        return [\n            \"Accept\": \"multipart/form-data\"\n        ]\n    }\n    \n    var accessTokenKaKao: String? {\n        return UserDefaults.standard.string(forKey: \"KakaoToken\")\n    }\n    \n    var accessTokenGoogle: String? {\n        return UserDefaults.standard.string(forKey: \"GoogleToken\")\n    }\n    \n    func getAccessKakao() -> HTTPHeaders {\n        return [\n            \"Authorization\": \"\\(accessTokenKaKao ?? \"\")\",\n            \"Accept\": \"application/json\"\n        ]\n    }\n    \n    func getAccessGoogle() -> HTTPHeaders {\n        return [\n            \"Authorization\": \"\\(accessTokenGoogle ?? \"\")\",\n            \"Accept\": \"application/json\"\n        ]\n    }\n}\nEOF\n";
+			shellScript = "#!/bin/bash\n\nCONFIG_FILE=\"${SRCROOT}/T82/Core/Network/Config.swift\"\n\ncat << EOF > \"${CONFIG_FILE}\"\nimport Foundation\nimport Alamofire\n\nclass Config {\n    let ServerHost: String\n    let VersionCheckHost: String\n    \n    let appId: String\n    let kakaoAppKey: String\n    let GIDClientId: String\n    \n    init() {\n        self.ServerHost = ProcessInfo.processInfo.environment[\"SERVER_HOST\"] ?? \"https://t82.store\"\n        self.VersionCheckHost = ProcessInfo.processInfo.environment[\"VERSION_CHECK_HOST\"] ?? \"http://34.132.100.39:8080\"\n        \n        self.appId = ProcessInfo.processInfo.environment[\"APP_ID\"] ?? \"6523415914\"\n        self.kakaoAppKey = ProcessInfo.processInfo.environment[\"KAKAO_APP_KEY\"] ?? \"7482ff10ddcc2f9b977ca52de9dd4052\"\n        self.GIDClientId = ProcessInfo.processInfo.environment[\"GID_CLIENT_ID\"] ?? \"366365938384-9mkgktkneksv2rivdqpprt2p9pb20eom.apps.googleusercontent.com\"\n    }\n    \n    var token: String? {\n        return UserDefaults.standard.string(forKey: \"token\")\n    }\n    \n    func getHeaders() -> HTTPHeaders {\n        return [\n            \"Authorization\": \"Bearer \\(token ?? \"\")\",\n            \"Accept\": \"application/json\"\n        ]\n    }\n    \n    func getImageHeaders() -> HTTPHeaders {\n        return [\n            \"Accept\": \"multipart/form-data\"\n        ]\n    }\n    \n    var accessTokenKaKao: String? {\n        return UserDefaults.standard.string(forKey: \"KakaoToken\")\n    }\n    \n    var accessTokenGoogle: String? {\n        return UserDefaults.standard.string(forKey: \"GoogleToken\")\n    }\n    \n    func getAccessKakao() -> HTTPHeaders {\n        return [\n            \"Authorization\": \"\\(accessTokenKaKao ?? \"\")\",\n            \"Accept\": \"application/json\"\n        ]\n    }\n    \n    func getAccessGoogle() -> HTTPHeaders {\n        return [\n            \"Authorization\": \"\\(accessTokenGoogle ?? \"\")\",\n            \"Accept\": \"application/json\"\n        ]\n    }\n}\nEOF\n\ntouch \"${CONFIG_FILE}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1089,6 +1091,7 @@
 				CODE_SIGN_ENTITLEMENTS = T82/T82.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				COMPILER_INDEX_STORE_ENABLE = NO;
 				CURRENT_PROJECT_VERSION = 46;
 				DEVELOPMENT_ASSET_PATHS = "\"T82/Preview Content\"";
 				DEVELOPMENT_TEAM = 267847BU5K;
@@ -1132,6 +1135,7 @@
 				CODE_SIGN_ENTITLEMENTS = T82/T82.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				COMPILER_INDEX_STORE_ENABLE = NO;
 				CURRENT_PROJECT_VERSION = 46;
 				DEVELOPMENT_ASSET_PATHS = "\"T82/Preview Content\"";
 				DEVELOPMENT_TEAM = 267847BU5K;
