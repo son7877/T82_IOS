@@ -9,7 +9,7 @@ class CouponService {
     // MARK: - 사용 가능한 쿠폰 리스트 가져오기
     func fetchCoupons(completion: @escaping (Result<[Coupon], Error>) -> Void) {
         
-        let urlString = Config().CouponHost+"/api/v1/coupons/valid"
+        let urlString = Config().ServerHost+"/api/v1/coupons/valid"
         
         AF.request(urlString, headers: Config().getHeaders()).responseDecodable(of: [Coupon].self) { response in
             switch response.result {
@@ -30,7 +30,7 @@ class CouponService {
     // MARK: - 진행 중인 선착순 쿠폰 이벤트 가져오기
     func fetchCouponEvents(completion: @escaping(Result<[CouponEvent], Error>) -> Void) {
         
-        let url = Config().CouponHost+"/api/v1/coupons/events"
+        let url = Config().ServerHost+"/api/v1/coupons/events"
         
         AF.request(url, method: .get).responseDecodable(of: [CouponEvent].self) { response in
             switch response.result {
@@ -52,7 +52,7 @@ class CouponService {
     // MARK: - 이벤트 쿠폰 발급
     func issueEventCoupon(couponId: String, completion: @escaping (Result<Bool, Error>) -> Void) {
         
-        let url = Config().CouponHost + "/api/v1/coupons/events/issue"
+        let url = Config().ServerHost + "/api/v1/coupons/events/issue"
         
         let parameters: [String: Any] = ["couponId": couponId]
         
@@ -77,7 +77,7 @@ class CouponService {
     // MARK: - 만보기 쿠폰 조회
     func getPedometerCoupons(completion: @escaping(Result<[Coupon], Error>) -> Void) {
         
-        let url = Config().CouponHost+"/api/v1/coupons?category=PEDOMETER"
+        let url = Config().ServerHost+"/api/v1/coupons?category=PEDOMETER"
         
         AF.request(url, method: .get, headers: Config().getHeaders()).responseDecodable(of: [Coupon].self) { response in
             switch response.result {
@@ -107,7 +107,7 @@ class PaymentService {
     // MARK: - 결제하기(토스 연동)
     func tossPayment(paymentRequest: PaymentRequest, completion: @escaping (Result<PaymentResponse, Error>) -> Void) {
         
-        let urlString = Config().PaymentHost + "/api/v1/payment"
+        let urlString = Config().ServerHost + "/api/v1/payment"
 
         AF.request(urlString, method: .post, parameters: paymentRequest, encoder: JSONParameterEncoder.default, headers: Config().getHeaders()).response { response in
             if let data = response.data, let dataString = String(data: data, encoding: .utf8) {
@@ -152,7 +152,7 @@ class PaymentService {
     
     // MARK: - 환불 기능
     func requestRefund(refundRequest: Refund, completion: @escaping (Result<Bool, Error>) -> Void) {
-        let urlString = Config().PaymentHost + "/api/v1/refund"
+        let urlString = Config().ServerHost + "/api/v1/refund"
         
         AF.request(urlString, method: .post, parameters: refundRequest, encoder: JSONParameterEncoder.default, headers: Config().getHeaders()).response { response in
             switch response.result {
