@@ -8,7 +8,7 @@ class TicketService {
     // MARK: - 내 티켓 정보 반환
     func getMyTickets(completion: @escaping (Result<[MyTicket], Error>) -> Void) {
         
-        let urlString = Config().TicketHost + "/api/v1/tickets"
+        let urlString = Config().ServerHost + "/api/v1/tickets"
         
         AF.request(urlString, method: .get, headers: Config().getHeaders()).responseDecodable(of: [MyTicket].self) { response in
             switch response.result {

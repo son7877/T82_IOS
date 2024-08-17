@@ -10,7 +10,7 @@ class ReviewService {
     func addReview(
         reviewRequest: MyReviewRequest
         ,completion: @escaping (Result<Bool, Error>) -> Void) {
-        let writeUrl = "\(Config().AuthHost)/api/v1/reviews"
+        let writeUrl = "\(Config().ServerHost)/api/v1/reviews"
         
         let parameters = [
             "eventInfoId": reviewRequest.eventInfoId,
@@ -41,7 +41,7 @@ class ReviewService {
     }
     // MARK: - 내 리뷰 조회
     func getMyReviews(completion: @escaping (Result<[MyReview], Error>) -> Void) {
-        let url = "\(Config().AuthHost)/api/v1/reviews"
+        let url = "\(Config().ServerHost)/api/v1/reviews"
         
         AF.request(url, headers: Config().getHeaders()).responseDecodable(of: [MyReview].self) { response in
             switch response.result {
@@ -60,7 +60,7 @@ class ReviewService {
     }
     // MARK: - EventInfo별 리뷰 조회
     func getEventInfoReviews(eventInfoId: Int, completion: @escaping (Result<[EventInfoReviews], Error>) -> Void) {
-        let url = "\(Config().AuthHost)/api/v1/reviews/\(eventInfoId)"
+        let url = "\(Config().ServerHost)/api/v1/reviews/\(eventInfoId)"
         
         AF.request(url, method: .get)
             .validate()
@@ -82,7 +82,7 @@ class ReviewService {
     
     // MARK: - 대댓글 작성
     func addReplies(reviewId: Int, content: String, completion: @escaping (Result<Bool, Error>) -> Void) {
-        let url = "\(Config().AuthHost)/api/v1/\(reviewId)/comments"
+        let url = "\(Config().ServerHost)/api/v1/\(reviewId)/comments"
         
         let parameters = [
             "content": content
@@ -110,7 +110,7 @@ class ReviewService {
     }
     // MARK: - 대댓글 조회
     func getReplies(reviewId: Int, completion: @escaping (Result<[Replies], Error>) -> Void) {
-        let url = "\(Config().AuthHost)/api/v1/\(reviewId)/comments"
+        let url = "\(Config().ServerHost)/api/v1/\(reviewId)/comments"
         
         AF.request(url, method: .get)
             .validate()
@@ -133,7 +133,7 @@ class ReviewService {
     // MARK: - 대댓글 삭제
     func deleteReplies(reviewId:Int, commentId: Int, completion: @escaping (Result<Bool, Error>) -> Void){
         
-        let url = "\(Config().AuthHost)/api/v1/\(reviewId)/comments/\(commentId)"
+        let url = "\(Config().ServerHost)/api/v1/\(reviewId)/comments/\(commentId)"
         
         AF.request(url, method: .delete, headers: Config().getHeaders())
             .validate()

@@ -8,7 +8,7 @@ class ContentDetailService {
     
     // MARK: - 해당 컨텐츠 상세정보 가져오기
     func getContentDetail(eventInfoId: Int, completion: @escaping (ContentsDetail?) -> Void) {
-        let url = Config().EventHost + "/api/v1/contents/\(eventInfoId)"
+        let url = Config().ServerHost + "/api/v1/contents/\(eventInfoId)"
         
         AF.request(url, method: .get)
             .validate()
@@ -33,7 +33,7 @@ class ContentDetailService {
     
     // MARK: - 해당 컨텐츠의 예매 가능한 날짜 가져오기
     func getAvailableDates(eventInfoId: Int, completion: @escaping ([EventsByDate]?) -> Void) {
-        let url = Config().EventHost + "/api/v1/contents/\(eventInfoId)/events"
+        let url = Config().ServerHost + "/api/v1/contents/\(eventInfoId)/events"
         
         AF.request(url, method: .get)
             .validate()
@@ -67,7 +67,7 @@ class ContentDetailService {
     
     // MARK: - 시간 별 남은 좌석 수 가져오기
     func getRestSeatsByTime(eventId: Int, completion: @escaping ([RestSeats]?) -> Void) {
-        let url = Config().SeatHost + "/api/v1/events/\(eventId)/restseats"
+        let url = Config().ServerHost + "/api/v1/events/\(eventId)/restseats"
         
         AF.request(url, method: .get)
             .validate()

@@ -10,7 +10,7 @@ class AuthService {
     // MARK: - 로그인
     func login(email: String, password: String, completion: @escaping (Bool) -> Void) {
         
-        let loginUrl = "\(Config().AuthHost)/api/v1/users/login"
+        let loginUrl = "\(Config().ServerHost)/api/v1/users/login"
         
         let parameters = [
             "email": email,
@@ -41,7 +41,7 @@ class AuthService {
     // MARK: - 회원 가입
     func signUp(signUpRequest: SignUpContent , completion: @escaping (Bool) -> Void) {
         
-        let signUpUrl = "\(Config().AuthHost)/api/v1/users/signup"
+        let signUpUrl = "\(Config().ServerHost)/api/v1/users/signup"
         
         AF.request(signUpUrl, method: .post, parameters: signUpRequest, encoder: JSONParameterEncoder.default)
             .validate()
@@ -72,7 +72,7 @@ class AuthService {
     
     // 유저 정보 불러오기
     func fetchInfo(completion: @escaping (UserInfo?) -> Void) {
-        let fetchUrl = "\(Config().AuthHost)/api/v1/users/me"
+        let fetchUrl = "\(Config().ServerHost)/api/v1/users/me"
         print("Fetching user info from: \(fetchUrl)")
         
         AF.request(fetchUrl, method: .get, headers: Config().getHeaders())
@@ -108,7 +108,7 @@ class AuthService {
         addressDetail: String,
         completion: @escaping (Bool) -> Void
     ) {
-        let updateUrl = "\(Config().AuthHost)/api/v1/users/me"
+        let updateUrl = "\(Config().ServerHost)/api/v1/users/me"
         let parameters = [
             "name": name,
             "password": password,
@@ -155,7 +155,7 @@ class AuthService {
     
     // MARK: - 회원 탈퇴
     func deleteUser(completion: @escaping (Bool) -> Void) {
-        let deleteUrl = "\(Config().AuthHost)/api/v1/users/me"
+        let deleteUrl = "\(Config().ServerHost)/api/v1/users/me"
         
         print("Deleting user at: \(deleteUrl)")
         
@@ -209,7 +209,7 @@ class AuthService {
     // MARK: - 카카오
     func loginWithKakao(completion: @escaping (Bool) -> Void) {
         
-        let loginUrl = "\(Config().AuthHost)/api/v1/users/login/kakao"
+        let loginUrl = "\(Config().ServerHost)/api/v1/users/login/kakao"
         
         AF.request(loginUrl, method: .post, headers: Config().getAccessKakao())
             .validate()
@@ -234,7 +234,7 @@ class AuthService {
     // MARK: - 구글
     func loginWithGoogle(completion: @escaping (Bool) -> Void) {
         
-        let loginUrl = "\(Config().AuthHost)/api/v1/users/login/google"
+        let loginUrl = "\(Config().ServerHost)/api/v1/users/login/google"
         
         AF.request(loginUrl, method: .post, headers: Config().getAccessGoogle())
             .validate()
@@ -258,7 +258,7 @@ class AuthService {
     }
     // MARK: - 알림 허용 상태일 때 유저 토큰과 FCM토큰 POST
     func registerFCMToken(completion: @escaping (Result<Bool,Error>) -> Void) {
-        let registerUrl = "\(Config().AuthHost)/api/v1/users/notification"
+        let registerUrl = "\(Config().ServerHost)/api/v1/users/notification"
         
         Messaging.messaging().token { token, error in
             if let error = error {
