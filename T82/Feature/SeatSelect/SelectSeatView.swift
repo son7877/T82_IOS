@@ -6,6 +6,7 @@ struct SelectSeatView: View {
     @StateObject private var viewModel = SeatsViewModel()
     @State private var isShowingWebView = false
     var eventId: Int
+    var placeId: Int
     
     var body: some View {
         NavigationStack {
@@ -43,6 +44,7 @@ struct SelectSeatView: View {
         }
         .navigationBarBackButtonHidden()
         .onAppear {
+            viewModel.loadSeats(for: placeId)
             viewModel.fetchAvailableSeats(eventId: eventId)
             viewModel.enterAndDisplayWaitingQueue(eventId: eventId)
         }
@@ -57,11 +59,5 @@ struct SelectSeatView: View {
                 eventId: eventId
             )
         }
-    }
-}
-
-struct SelectSeatView_Previews: PreviewProvider {
-    static var previews: some View {
-        SelectSeatView(eventId: 1)
     }
 }

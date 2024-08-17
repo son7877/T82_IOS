@@ -10,9 +10,6 @@ class SeatsViewModel: ObservableObject {
     @Published var showWebView: Bool = false
     @Published var htmlContent: String = ""  // 추가된 부분
 
-    init() {
-        loadSeats()
-    }
     
     // MARK: - 이벤트 별 남은 좌석 수 불러오기
     func fetchAvailableSeats(eventId: Int) {
@@ -48,24 +45,33 @@ class SeatsViewModel: ObservableObject {
         }
     }
 
-    func loadSeats() {
-        self.seats = (1...15).map { row in
-            let sectionName: String
-            switch row {
-            case 1...5:
-                sectionName = "A구역"
-            case 6...10:
-                sectionName = "B구역"
-            case 11...15:
-                sectionName = "C구역"
-            default:
-                sectionName = "Unknown"
-            }
-            return (1...100).map { col in
-                Seat(id: (row - 1) * 100 + col, rowNum: row, colNum: col, name: sectionName, isSelected: false, isAvailable: false)
-            }
+    func loadSeats(for placeId: Int) {
+        var totalSeats: Int
+        switch placeId {
+        case 1:
+            totalSeats = 10
+        case 2:
+            totalSeats = 30
+        case 3:
+            totalSeats = 50
+        default:
+            totalSeats = 15 // 기본값
         }
+
+        let sections = ["A구역", "B구역", "C구역"]
+        let seatsPerSection = totalSeats / 3
+        let remainder = totalSeats % 3
+
+        self.seats = sections.enumerated().map { index, sectionName in
+            let rowCount = seatsPerSection + (index < remainder ? 1 : 0)
+            return (1...rowCount).map { row in
+                Seat(id: row + index * rowCount, rowNum: row, colNum: index + 1, name: sectionName, isSelected: false, isAvailable: false)
+            }
+        }.compactMap { $0 }
+        
+        updateSeatAvailability() // 좌석의 사용 가능 여부를 업데이트
     }
+
 
     // 좌석의 사용 가능 여부를 업데이트
     func updateSeatAvailability() {

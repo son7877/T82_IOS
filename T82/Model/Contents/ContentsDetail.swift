@@ -7,6 +7,7 @@ struct ContentsDetail: Hashable, Decodable {
     var runningTime: String
     var ageRestriction: String
     var placeName: String
+    var placeId: Int
     var totalSeat: Int
     var imageUrl: String
 }
