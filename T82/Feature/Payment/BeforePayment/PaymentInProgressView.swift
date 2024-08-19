@@ -21,7 +21,7 @@ struct PaymentInProgressView: View {
                 .padding(.top, 20)
             
             NavigationLink(
-                destination: PaymentCompleteView()
+                destination: PaymentCompleteView(viewModel: MyTicketViewModel())
                     .environmentObject(paymentViewModel),
                 isActive: $navigateToCompleteView
             ) {

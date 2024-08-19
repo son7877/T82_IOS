@@ -92,7 +92,9 @@ struct MainView: View {
                         VStack(alignment: .leading) {
                             AsyncImage(url: URL(string: event.imageUrl)) {
                                 image in
-                                image.resizable()
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
                             } placeholder: {
                                 ProgressView()
                             }
