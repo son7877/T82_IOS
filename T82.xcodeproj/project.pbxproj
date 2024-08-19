@@ -285,13 +285,13 @@
 			path = Reviews;
 			sourceTree = "<group>";
 		};
-		892D75C22C61BA1700771955 /* FirstComes */ = {
+		892D75C22C61BA1700771955 /* FirstComesEvent */ = {
 			isa = PBXGroup;
 			children = (
 				892D75B82C61A0A400771955 /* FirstEventCouponView.swift */,
 				892D75B62C619F9600771955 /* FirstEventCouponViewModel.swift */,
 			);
-			path = FirstComes;
+			path = FirstComesEvent;
 			sourceTree = "<group>";
 		};
 		892D75C32C61BA2200771955 /* PedometerEvent */ = {
@@ -606,7 +606,7 @@
 				892D75BC2C61B85B00771955 /* EventTabView.swift */,
 				892D75BA2C61B7A800771955 /* EventTabInfo.swift */,
 				892D75C32C61BA2200771955 /* PedometerEvent */,
-				892D75C22C61BA1700771955 /* FirstComes */,
+				892D75C22C61BA1700771955 /* FirstComesEvent */,
 			);
 			path = Event;
 			sourceTree = "<group>";

@@ -19,7 +19,7 @@ struct SelectableSeat: Codable, Hashable, Identifiable {
     let seatId: Int
     let rowNum: Int
     let colNum: Int
-    let name: String // Section 이름
+    let name: String
     let price: Int
     
     var id: Int {

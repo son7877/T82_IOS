@@ -11,8 +11,7 @@ struct ReservationView: View {
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .top) {
-                Image(viewModel.contentsDetail.imageUrl)
-                    .resizable()
+                AsyncImage(url: URL(string: viewModel.contentsDetail.imageUrl)!)
                     .scaledToFill()
                     .frame(width: UIScreen.main.bounds.width, height: 300)
                     .clipped()
@@ -33,6 +32,7 @@ struct ReservationView: View {
                         isDisplayRightBtn: true,
                         isDisplayTitle: false,
                         leftBtnAction: {
+                            print("back")
                             presentationMode.wrappedValue.dismiss()
                         },
                         rightBtnAction: {
@@ -52,8 +52,7 @@ struct ReservationView: View {
                     
                     // MARK: - 공연 상세 정보
                     HStack(spacing: 20) {
-                        Image(viewModel.contentsDetail.imageUrl)
-                            .resizable()
+                        AsyncImage(url: URL(string: viewModel.contentsDetail.imageUrl)!)
                             .frame(width: 150, height: 200)
                             .cornerRadius(10)
                             .padding(.vertical, 0)
