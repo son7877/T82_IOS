@@ -25,7 +25,7 @@ struct MyFavoriteView: View {
                                         .padding()
                                         .foregroundColor(.white)
                                     HStack {
-                                        AsyncImage(url: URL(string: favorite.imageUrl)!)
+                                        AsyncImage(url: URL(string: favorite.imageUrl))
                                             .frame(width: 120, height: 150)
                                             .padding(5)
                                         VStack {
