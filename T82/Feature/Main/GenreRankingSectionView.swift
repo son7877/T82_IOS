@@ -53,11 +53,17 @@ struct GenreRankingSectionView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(viewModel.mainTicketCategoryRanking) { content in
-                            NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventInfoId: content.id))) {
+                            NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventInfoId: content.eventInfoId))) {
                                 VStack {
-                                    AsyncImage(url: URL(string: content.imageUrl)!)
-                                        .frame(width: 100, height: 150)
-                                        .cornerRadius(10)
+                                    AsyncImage(url: URL(string: content.imageUrl)) {
+                                        image in
+                                        image
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                    .frame(width: 100, height: 150)
 
                                     Text(content.title)
                                         .font(.caption)

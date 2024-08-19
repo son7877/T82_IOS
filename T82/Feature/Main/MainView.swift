@@ -87,11 +87,16 @@ struct MainView: View {
         } else {
             TabView {
                 ForEach(viewModel.mainTicketTopRanking) { event in
-                    NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventInfoId: event.id))
+                    NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventInfoId: event.eventInfoId))
                         .navigationBarHidden(true)){
                         VStack(alignment: .leading) {
-                            AsyncImage(url: URL(string: event.imageUrl)!)
-                                .frame(width: UIScreen.main.bounds.width, height: 350)
+                            AsyncImage(url: URL(string: event.imageUrl)) {
+                                image in
+                                image.resizable()
+                            } placeholder: {
+                                ProgressView()
+                            }
+                            .frame(width: UIScreen.main.bounds.width, height: 350)
                         }
                         .padding(.vertical, 0)
                     }
@@ -113,8 +118,3 @@ struct MainView: View {
     }
 }
 
-struct MainpageView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainView(selectedIndex: 4)
-    }
-}

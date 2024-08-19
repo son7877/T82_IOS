@@ -71,19 +71,31 @@ class SeatsViewModel: ObservableObject {
 
         for section in sections {
             let seatsInThisSection = (totalSeats * section.ratio) / sections.map { $0.ratio }.reduce(0, +)
-            let sectionSeats = (1...seatsInThisSection).map { seatNumber in
+            
+            var sectionSeats: [Seat] = []
+            
+            for seatNumber in 1...seatsInThisSection {
                 let rowNum = (seatNumber - 1) / 10 + 1
                 let colNum = (seatNumber - 1) % 10 + 1
                 let seat = Seat(id: seatId, rowNum: rowNum, colNum: colNum, name: section.name, isSelected: false, isAvailable: false)
                 seatId += 1
-                return seat
+                sectionSeats.append(seat)
+
+                // 10개씩 끊어서 새로운 행으로 추가
+                if sectionSeats.count == 10 {
+                    allSeats.append(sectionSeats)
+                    sectionSeats = []  // 새로운 행을 시작하기 위해 초기화
+                }
             }
-            allSeats.append(sectionSeats)
+
+            // 나머지 좌석이 있으면 추가
+            if !sectionSeats.isEmpty {
+                allSeats.append(sectionSeats)
+            }
         }
 
         self.seats = allSeats
     }
-
 
     // 좌석의 사용 가능 여부를 업데이트
     func updateSeatAvailability() {
@@ -119,8 +131,9 @@ class SeatsViewModel: ObservableObject {
                 return SelectableSeat(seatId: matchingSelectableSeat.seatId,
                                       rowNum: matchingSelectableSeat.rowNum,
                                       colNum: matchingSelectableSeat.colNum,
-                                      name: seat.name,  // loadSeats에서 설정한 구역 이름 사용
-                                      price: matchingSelectableSeat.price)
+                                      name: seat.name,
+                                      price: matchingSelectableSeat.price
+                )
             }
             return nil
         }
