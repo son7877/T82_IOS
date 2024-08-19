@@ -32,8 +32,7 @@ struct ReservationView: View {
                         isDisplayRightBtn: true,
                         isDisplayTitle: false,
                         leftBtnAction: {
-                            print("back")
-                            presentationMode.wrappedValue.dismiss()
+                            self.presentationMode.wrappedValue.dismiss()
                         },
                         rightBtnAction: {
                             if viewModel.isInterested {
@@ -49,7 +48,7 @@ struct ReservationView: View {
                     .padding(.top, 20)
                     .padding(.bottom, 30)
                     .padding(.horizontal, 20)
-                    
+
                     // MARK: - 공연 상세 정보
                     HStack(spacing: 20) {
                         AsyncImage(url: URL(string: viewModel.contentsDetail.imageUrl)!)
@@ -59,7 +58,7 @@ struct ReservationView: View {
 
                         VStack(alignment: .leading, spacing: 5) {
                             Text(viewModel.contentsDetail.title)
-                                .font(.title)
+                                .font(.title2)
                                 .fontWeight(.bold)
                                 .foregroundColor(.white)
 
@@ -81,11 +80,11 @@ struct ReservationView: View {
                                 .font(.subheadline)
                                 .foregroundColor(.white)
                             
-                            // MARK: - 댓글 보기
+                            // MARK: - 리뷰 보기
                             NavigationLink(
                                 destination: EventCommentView(eventInfoId: viewModel.eventInfoId),
                                 label: {
-                                    Text("댓글 보기")
+                                    Text("리뷰 보기")
                                         .font(.subheadline)
                                         .foregroundColor(.white)
                                         .underline()
@@ -208,7 +207,7 @@ struct ReservationView: View {
                 }
             }
         }
-        .navigationBarBackButtonHidden()
+        .navigationBarHidden(true)
     }
 
     private func timeFormatted(_ date: Date) -> String {

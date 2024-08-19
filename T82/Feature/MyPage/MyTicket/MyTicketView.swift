@@ -28,15 +28,18 @@ struct MyTicketView: View {
                                         viewModel.showModal = true
                                     }
                                 HStack {
-                                    Image("sampleImg")
-                                        .resizable()
-                                        .frame(width: 80, height: 100)
-                                        .padding(.bottom, 10)
-                                        .padding(.leading, 25)
+                                    AsyncImage(url: URL(string: ticket.imageUrl)) { image in
+                                        image.resizable()
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                    .frame(width: 80, height: 80)
+                                    .padding(.bottom, 10)
+                                    .padding(.leading, 15)
                                      
                                     VStack (alignment: .leading) {
-                                        Text("\(ticket.eventName)")
-                                            .font(.headline)
+                                        Text(ticket.eventName.count > 7 ? String(ticket.eventName.prefix(7)) + "..." : ticket.eventName)
+                                            .font(.system(size: 20))
                                             .padding(.bottom, 10)
                                         Text(formatEventStartTime(ticket.eventStartTime))
                                         Text("\(ticket.sectionName)구역")
@@ -69,7 +72,18 @@ struct MyTicketView: View {
             .foregroundColor(.white))
         .onAppear(){
             saveStartTime()
+            viewModel.fetchMyTicket()
         }
+    }
+    
+    private func formatEventStartTime(_ eventStartTime: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        if let date = dateFormatter.date(from: eventStartTime) {
+            dateFormatter.dateFormat = "MM/dd HH:mm 입장"
+            return dateFormatter.string(from: date)
+        }
+        return eventStartTime
     }
     
     private func saveStartTime(){

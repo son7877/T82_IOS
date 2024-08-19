@@ -39,17 +39,3 @@ extension Date {
         return Calendar.current.isDate(self, inSameDayAs: date)
     }
 }
-
-func formatEventStartTime(_ isoDate: String) -> String {
-    let isoFormatter = ISO8601DateFormatter()
-    isoFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
-    
-    if let date = isoFormatter.date(from: isoDate) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd HH:mm"
-        return dateFormatter.string(from: date)
-    }
-    
-    return isoDate
-}
-

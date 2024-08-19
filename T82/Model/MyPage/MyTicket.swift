@@ -16,6 +16,7 @@ struct MyTicket: Hashable, Codable, Identifiable {
     let paymentAmount: Int
     let orderNum: String
     let qrCodeUrl: String?
+    let imageUrl: String
     
     var id: Int {
         return ticketId

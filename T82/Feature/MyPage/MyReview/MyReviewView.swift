@@ -10,7 +10,7 @@ struct MyReviewView: View {
                 ProgressView("로딩 중...")
                     .padding()
             } else if viewModel.MyReviews.isEmpty {
-                Text("내 댓글이 없습니다")
+                Text("내 리뷰가 없습니다")
                     .font(.headline)
                     .padding()
             } else {
@@ -21,12 +21,13 @@ struct MyReviewView: View {
                         ForEach(viewModel.MyReviews) { review in
                             VStack {
                                 HStack {
-                                    Text("\(review.eventInfoId)")
-                                        .font(.system(size: 20))
-                                        .frame(maxWidth: .infinity / 2, minHeight: 30)
+                                    // 리뷰 이미지
+                                    AsyncImage(url: URL(string: review.reviewPictureUrl ?? ""))
+                                        .frame(width: 50, height: 50)
                                     Text(review.content)
                                         .font(.system(size: 20))
                                         .frame(maxWidth: .infinity / 2, minHeight: 30)
+                                    
                                     Spacer()
                                     
                                     // 뷰모델 별점
@@ -37,7 +38,7 @@ struct MyReviewView: View {
                                         }
                                     }
                                 }
-                                Text("\(review.createDate)")
+                                Text("\(review.createdDate)")
                                     .font(.system(size: 15))
                                     .foregroundColor(.customGray1)
                                     .padding(.bottom, 10)
@@ -58,7 +59,7 @@ struct MyReviewView: View {
 struct Header: View {
     var body: some View {
         HStack {
-            Text("공연명")
+            Text("리뷰 이미지")
                 .font(.system(size: 20))
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity / 2, minHeight: 30)

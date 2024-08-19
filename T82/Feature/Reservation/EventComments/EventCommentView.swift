@@ -20,7 +20,7 @@ struct EventCommentView: View {
                 },
                 lefttBtnType: .back,
                 rightBtnType: .back,
-                Title: "댓글 (\(eventCommentViewModel.eventInfoReviews.count))"
+                Title: "리뷰 (\(eventCommentViewModel.eventInfoReviews.count))"
             )
             .padding()
             Divider()

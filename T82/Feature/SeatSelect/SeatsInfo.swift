@@ -51,11 +51,11 @@ struct SeatsInfo: View {
     
     func colorForSection(_ section: String) -> Color {
         switch section {
-        case "A구역":
+        case "VIP":
             return Color.blue.opacity(0.2)
-        case "B구역":
+        case "S석":
             return Color.green.opacity(0.2)
-        case "C구역":
+        case "A석":
             return Color.red.opacity(0.2)
         default:
             return Color.gray.opacity(0.2)
