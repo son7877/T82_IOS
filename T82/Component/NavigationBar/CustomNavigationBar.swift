@@ -40,7 +40,7 @@ struct CustomNavigationBar: View {
                     .fontWeight(.medium)
                     .lineLimit(1)
                     .frame(maxWidth: .infinity)
-                    .padding(.horizontal, 60) // 양쪽 버튼 크기만큼 패딩 추가
+                    .padding(.horizontal, 60) 
             }
             HStack {
                 if isDisplayLeftBtn {

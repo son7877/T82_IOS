@@ -87,7 +87,8 @@ struct MainView: View {
         } else {
             TabView {
                 ForEach(viewModel.mainTicketTopRanking) { event in
-                    NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventInfoId: event.id))) {
+                    NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventInfoId: event.id))
+                        .navigationBarHidden(true)){
                         VStack(alignment: .leading) {
                             AsyncImage(url: URL(string: event.imageUrl)!)
                                 .frame(width: UIScreen.main.bounds.width, height: 350)
