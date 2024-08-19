@@ -47,39 +47,51 @@ class SeatsViewModel: ObservableObject {
 
     func loadSeats(for placeId: Int) {
         var totalSeats: Int
+        var sections: [(name: String, ratio: Int)] = []
+
         switch placeId {
         case 1:
             totalSeats = 10
+            sections = [("일반석", 1)]
+            
         case 2:
-            totalSeats = 30
-        case 3:
             totalSeats = 50
+            sections = [("VIP", 4), ("일반석", 6)]
+            
+        case 3:
+            totalSeats = 100
+            sections = [("VIP", 2), ("S석", 2), ("A석", 2), ("B석", 4)]
+            
         default:
-            totalSeats = 15 // 기본값
+            totalSeats = 0
         }
 
-        let sections = ["A구역", "B구역", "C구역"]
-        let seatsPerSection = totalSeats / 3
-        let remainder = totalSeats % 3
+        var seatId = 1
+        var allSeats: [[Seat]] = []
 
-        self.seats = sections.enumerated().map { index, sectionName in
-            let rowCount = seatsPerSection + (index < remainder ? 1 : 0)
-            return (1...rowCount).map { row in
-                Seat(id: row + index * rowCount, rowNum: row, colNum: index + 1, name: sectionName, isSelected: false, isAvailable: false)
+        for section in sections {
+            let seatsInThisSection = (totalSeats * section.ratio) / sections.map { $0.ratio }.reduce(0, +)
+            let sectionSeats = (1...seatsInThisSection).map { seatNumber in
+                let rowNum = (seatNumber - 1) / 10 + 1
+                let colNum = (seatNumber - 1) % 10 + 1
+                let seat = Seat(id: seatId, rowNum: rowNum, colNum: colNum, name: section.name, isSelected: false, isAvailable: false)
+                seatId += 1
+                return seat
             }
-        }.compactMap { $0 }
-        
-        updateSeatAvailability() // 좌석의 사용 가능 여부를 업데이트
+            allSeats.append(sectionSeats)
+        }
+
+        self.seats = allSeats
     }
 
 
     // 좌석의 사용 가능 여부를 업데이트
     func updateSeatAvailability() {
         for selectableSeat in selectableSeats {
-            if let rowIndex = seats.firstIndex(where: { row in
-                row.contains(where: { $0.rowNum == selectableSeat.rowNum && $0.colNum == selectableSeat.colNum })
-            }), let seatIndex = seats[rowIndex].firstIndex(where: { $0.rowNum == selectableSeat.rowNum && $0.colNum == selectableSeat.colNum }) {
-                seats[rowIndex][seatIndex].isAvailable = true
+            for rowIndex in 0..<seats.count {
+                if let seatIndex = seats[rowIndex].firstIndex(where: { $0.rowNum == selectableSeat.rowNum && $0.colNum == selectableSeat.colNum }) {
+                    seats[rowIndex][seatIndex].isAvailable = true
+                }
             }
         }
         objectWillChange.send()
@@ -90,23 +102,29 @@ class SeatsViewModel: ObservableObject {
         if let rowIndex = seats.firstIndex(where: { row in
             row.contains(where: { $0.id == seat.id })
         }), let seatIndex = seats[rowIndex].firstIndex(where: { $0.id == seat.id }) {
-            // 좌석이 선택되고 최대 선택 개수에 도달했는지 확인
-            if !seats[rowIndex][seatIndex].isSelected && selectedSeats.count >= 5 {
-                showMaxSeatsAlert = true
-                return  // 5개 이상의 좌석 선택을 허용하지 않음
-            }
             seats[rowIndex][seatIndex].isSelected.toggle()
-            print("좌석 선택 토글: \(seats[rowIndex][seatIndex])")  // 확인용
+            print("Toggled seat selection: \(seats[rowIndex][seatIndex])")  // 디버깅용 로그 추가
             
             updateSelectedSeats()
         }
     }
 
+
     private func updateSelectedSeats() {
         selectedSeats = seats.flatMap { $0.filter { $0.isSelected } }.compactMap { seat in
-            selectableSeats.first { $0.rowNum == seat.rowNum && $0.colNum == seat.colNum }
+            if let matchingSelectableSeat = selectableSeats.first(where: {
+                $0.rowNum == seat.rowNum && $0.colNum == seat.colNum
+            }) {
+                // 선택된 좌석의 name을 seat의 name으로 대체하여 반환
+                return SelectableSeat(seatId: matchingSelectableSeat.seatId,
+                                      rowNum: matchingSelectableSeat.rowNum,
+                                      colNum: matchingSelectableSeat.colNum,
+                                      name: seat.name,  // loadSeats에서 설정한 구역 이름 사용
+                                      price: matchingSelectableSeat.price)
+            }
+            return nil
         }
-        print("선택된 좌석 업데이트: \(selectedSeats)")  // 확인용
+        print("Updated selected seats: \(selectedSeats)")
     }
     
     // MARK: - 대기열 입장 및 웹 뷰 표시

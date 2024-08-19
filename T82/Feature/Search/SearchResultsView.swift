@@ -23,6 +23,7 @@ struct SearchResultsView: View {
                     viewModel.searchResults(searchWord: viewModel.searchWord)
                 })
                 .textFieldStyle(RoundedBorderTextFieldStyle())
+                .tint(.customred)
                 .padding()
                 
                 ScrollView{
@@ -49,6 +50,7 @@ struct SearchResultsView: View {
                                 .padding()
                             }
                         }
+                        .listStyle(PlainListStyle())
                     }
                 }
             }

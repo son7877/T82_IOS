@@ -55,8 +55,7 @@ struct GenreRankingSectionView: View {
                         ForEach(viewModel.mainTicketCategoryRanking) { content in
                             NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventInfoId: content.id))) {
                                 VStack {
-                                    Image(content.imageUrl)
-                                        .resizable()
+                                    AsyncImage(url: URL(string: content.imageUrl)!)
                                         .frame(width: 100, height: 150)
                                         .cornerRadius(10)
 

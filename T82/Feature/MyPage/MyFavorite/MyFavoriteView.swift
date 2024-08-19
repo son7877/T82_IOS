@@ -25,8 +25,7 @@ struct MyFavoriteView: View {
                                         .padding()
                                         .foregroundColor(.white)
                                     HStack {
-                                        Image(favorite.imageUrl)
-                                            .resizable()
+                                        AsyncImage(url: URL(string: favorite.imageUrl)!)
                                             .frame(width: 120, height: 150)
                                             .padding(5)
                                         VStack {
@@ -50,6 +49,9 @@ struct MyFavoriteView: View {
         .onAppear {
             viewModel.fetchMyFavorites()
         }
+        .background(Rectangle()
+            .frame(height: 100)
+            .foregroundColor(.white))
     }
 }
 

@@ -34,6 +34,14 @@ struct CustomNavigationBar: View {
     
     var body: some View {
         ZStack {
+            if isDisplayTitle {
+                Text(Title)
+                    .font(.title)
+                    .fontWeight(.medium)
+                    .lineLimit(1)
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal, 60) // 양쪽 버튼 크기만큼 패딩 추가
+            }
             HStack {
                 if isDisplayLeftBtn {
                     Button(
@@ -81,15 +89,6 @@ struct CustomNavigationBar: View {
                 }
             }
             .padding(.horizontal, 0)
-            
-            if isDisplayTitle {
-                Text(Title)
-                    .font(.title)
-                    .fontWeight(.medium)
-                    .lineLimit(1)
-                    .frame(maxWidth: .infinity)
-                    .padding(.horizontal, 60) // 양쪽 버튼 크기만큼 패딩 추가
-            }
         }
         .frame(height: 20) // 네비게이션 바의 표준 높이로 조정
     }
