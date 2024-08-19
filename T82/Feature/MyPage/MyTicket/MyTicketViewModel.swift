@@ -13,10 +13,6 @@ class MyTicketViewModel: ObservableObject {
     @Published var isEmpty = false
     @Published var refundSuccess = false
     
-    init() {
-        fetchMyTicket()
-    }
-    
     func fetchMyTicket() {
         guard !isLoading else { return } // 중복 호출 방지
         isLoading = true

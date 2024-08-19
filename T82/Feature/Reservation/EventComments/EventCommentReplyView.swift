@@ -135,6 +135,12 @@ struct ReplyRow: View {
                             .foregroundColor(.gray)
                     }
                 }
+                if reply.isArtist {
+                    Image(systemName: "checkmark.seal.fill")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                        .foregroundColor(.gray)
+                }
                 VStack(alignment: .leading) {
                     Text(reply.username)
                         .font(.headline)

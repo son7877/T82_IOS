@@ -23,7 +23,15 @@ struct MyReviewView: View {
                                 HStack {
                                     // 리뷰 이미지
                                     AsyncImage(url: URL(string: review.reviewPictureUrl ?? ""))
-                                        .frame(width: 50, height: 50)
+                                    {
+                                        image in
+                                        image
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                    } placeholder: {
+                                        ProgressView()
+                                    }
+                                    .frame(width: 50, height: 50)
                                     Text(review.content)
                                         .font(.system(size: 20))
                                         .frame(maxWidth: .infinity / 2, minHeight: 30)

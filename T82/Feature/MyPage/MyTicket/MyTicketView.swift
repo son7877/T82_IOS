@@ -42,7 +42,7 @@ struct MyTicketView: View {
                                             .font(.system(size: 20))
                                             .padding(.bottom, 10)
                                         Text(formatEventStartTime(ticket.eventStartTime))
-                                        Text("\(ticket.sectionName)구역")
+                                        Text("\(ticket.sectionName)")
                                         Text("\(ticket.rowNum)열 \(ticket.columnNum)번")
                                             .padding(.bottom, 10)
                                     }

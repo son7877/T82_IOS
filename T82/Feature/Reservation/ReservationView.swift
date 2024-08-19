@@ -12,7 +12,7 @@ struct ReservationView: View {
         VStack(spacing: 0) {
             ZStack(alignment: .top) {
                 AsyncImage(url: URL(string: viewModel.contentsDetail.imageUrl))
-                    .scaledToFill()
+                    .aspectRatio(contentMode: .fill)
                     .frame(width: UIScreen.main.bounds.width, height: 300)
                     .clipped()
                     .overlay(
@@ -51,10 +51,15 @@ struct ReservationView: View {
 
                     // MARK: - 공연 상세 정보
                     HStack(spacing: 20) {
-                        AsyncImage(url: URL(string: viewModel.contentsDetail.imageUrl))
-                            .frame(width: 150, height: 200)
-                            .cornerRadius(10)
-                            .padding(.vertical, 0)
+                        AsyncImage(url: URL(string: viewModel.contentsDetail.imageUrl)) {
+                            image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                        } placeholder: {
+                            ProgressView()
+                        }
+                        .frame(width: 150, height: 200)
 
                         VStack(alignment: .leading, spacing: 5) {
                             Text(viewModel.contentsDetail.title)
