@@ -33,7 +33,7 @@ struct EventCommentView: View {
                 ScrollView {
                     VStack {
                         ForEach(eventCommentViewModel.eventInfoReviews) { review in
-                            CommentRow(review: review)
+                            CommentRow(review: review, eventInfoId: eventInfoId)
                             Divider()
                         }
                     }
@@ -50,6 +50,7 @@ struct EventCommentView: View {
 struct CommentRow: View {
     
     let review: EventInfoReviews
+    let eventInfoId: Int
     @StateObject var eventCommentViewModel = EventCommentViewModel()
     
     var body: some View {
@@ -82,13 +83,13 @@ struct CommentRow: View {
                 .padding(.top, 5)
             
             // 대댓글 이동
-            NavigationLink(destination: EventCommentReplyView(reviewId: review.reviewId)) {
+            NavigationLink(destination: EventCommentReplyView(eventInfoId: eventInfoId, reviewId: review.reviewId)) {
                 HStack {
                     Image(systemName: "bubble.left.and.text.bubble.right")
                         .resizable()
                         .frame(width: 25, height: 20)
                         .foregroundColor(.gray)
-                    Text("답글 개수 \(eventCommentViewModel.replies.count)")
+                    Text("답글 \(eventCommentViewModel.replies.count)")
                         .font(.subheadline)
                         .foregroundColor(.gray)
                 }
@@ -96,7 +97,12 @@ struct CommentRow: View {
             .padding(.top, 5)
         }
         .padding()
+        .onAppear {
+            eventCommentViewModel.fetchEventInfoReviews(eventInfoId: eventInfoId)
+            eventCommentViewModel.fetchReplies(reviewId: review.reviewId)
+        }
     }
+    
 }
 
 #Preview {
