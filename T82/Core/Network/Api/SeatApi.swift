@@ -43,7 +43,7 @@ class SelectSeatService {
                 case .failure(let error):
                     if let httpResponse = response.response {
                         print("HTTP Status Code: \(httpResponse.statusCode)")
-                        print("Pending seats Error: \(error.localizedDescription)")
+                        print("enterWaitingQueue Error: \(error.localizedDescription)")
                         if let data = response.data, let errorMessage = String(data: data, encoding: .utf8) {
                             print("Error Message: \(errorMessage)")
                         }

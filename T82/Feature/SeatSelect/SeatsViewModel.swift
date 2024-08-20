@@ -8,7 +8,9 @@ class SeatsViewModel: ObservableObject {
     @Published var pendingSeats: [PendingSeat] = []
     @Published var showMaxSeatsAlert: Bool = false
     @Published var showWebView: Bool = false
-    @Published var htmlContent: String = ""  // 추가된 부분
+    @Published var htmlContent: String = ""
+    @Published var showAlert: Bool = false
+    var alertMessage: String = ""  // 알림 메시지 저장
 
     
     // MARK: - 이벤트 별 남은 좌석 수 불러오기
@@ -38,9 +40,15 @@ class SeatsViewModel: ObservableObject {
                     self.pendingSeats = seats
                 }
             case .success(false):
-                print("좌석 추가 실패: 알 수 없는 이유.")
+                DispatchQueue.main.async {
+                    self.alertMessage = "좌석 추가에 실패했습니다. 다시 시도해 주세요."
+                    self.showAlert = true
+                }
             case .failure(let error):
-                print("오류: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self.alertMessage = "오류: \(error.localizedDescription)"
+                    self.showAlert = true
+                }
             }
         }
     }

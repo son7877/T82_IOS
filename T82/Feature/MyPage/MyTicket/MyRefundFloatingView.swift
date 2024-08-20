@@ -52,11 +52,11 @@ struct MyRefundFloatingView: View {
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color.customPink.opacity(0.8))
+                    .background(Color.customred)
                     .cornerRadius(10)
             }
         }
-        .background(Color.customGray1.opacity(0.6))
+        .background(Color.customGray0)
         .alert(isPresented: $showErrorAlert) {
             Alert(
                 title: Text("환불 실패"),

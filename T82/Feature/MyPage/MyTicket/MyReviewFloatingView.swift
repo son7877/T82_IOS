@@ -67,7 +67,7 @@ struct MyReviewFloatingView: View {
                     } else {
                         Text("이미지 선택")
                             .frame(width: 70, height: 70)
-                            .background(Color.gray.opacity(0.2))
+                            .background(.customGray1)
                             .cornerRadius(15)
                             .foregroundColor(.gray)
                     }
@@ -96,11 +96,11 @@ struct MyReviewFloatingView: View {
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color.customPink.opacity(0.8))
+                    .background(Color.customred)
                     .cornerRadius(10)
             })
         }
-        .background(Color.customGray1.opacity(0.6))
+        .background(Color.customGray0)
         .alert(isPresented: $showErrorAlert) {
             Alert(
                 title: Text("리뷰 등록 실패"),
