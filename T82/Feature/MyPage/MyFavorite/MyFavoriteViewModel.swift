@@ -10,7 +10,7 @@ class MyFavoriteViewModel: ObservableObject {
     // MARK: - 내 공연 관심 목록 조회
     func fetchMyFavorites() {
         isLoading = true
-        MainContentsService.shared.getMainEventsRank { [weak self] myFavorites in
+        MainContentsService.shared.getMainEventsOpenSoon { [weak self] myFavorites in
             guard let self = self else { return }
             if let myFavorites = myFavorites {
                 self.favoriteList = myFavorites.filter {

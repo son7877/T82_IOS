@@ -54,7 +54,7 @@ class MainContentsService {
             }
     }
     // MARK: - 전체 공연 중 티켓 오픈이 다가오는 순
-    func getMainEventsOpenSoon(completion: @escaping (Result<[MainContents],Error>) -> Void) {
+    func getMainEventsOpenSoon(completion: @escaping ([MainContents]?) -> Void) {
         
         let mainEventUrl = "\(Config().ServerHost)/api/v1/contents"
         
@@ -63,7 +63,7 @@ class MainContentsService {
             .responseDecodable(of: [MainContents].self) { response in
                 switch response.result {
                 case .success(let eventResponse):
-                    completion(.success(eventResponse))
+                    completion(eventResponse)
                 case .failure(let error):
                     if let httpResponse = response.response {
                         print("HTTP Status Code: \(httpResponse.statusCode)")
@@ -73,7 +73,6 @@ class MainContentsService {
                     } else {
                         print("Network Error: \(error.localizedDescription)")
                     }
-                    completion(.failure(error))
                 }
             }
     }

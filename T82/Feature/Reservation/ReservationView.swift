@@ -82,7 +82,7 @@ struct ReservationView: View {
                                 .font(.subheadline)
                                 .foregroundColor(.white)
 
-                            Text("\(viewModel.contentsDetail.ageRestriction) 이상")
+                            Text("\(viewModel.contentsDetail.ageRestriction)")
                                 .font(.subheadline)
                                 .foregroundColor(.white)
 

@@ -42,7 +42,9 @@ struct SectionView<Item: Identifiable>: View where Item: EventTitleProtocol {
                                                 .foregroundColor(.black)
                                             
                                             if isShowOpenDate {
-                                                // 오픈 시간 표시
+                                                Text("\(dateFormating(date: item.bookStartTime)) 오픈")
+                                                    .font(.caption)
+                                                    .foregroundColor(.gray)
                                             }
                                         }
                                         .padding(.horizontal, 5)
@@ -58,12 +60,21 @@ struct SectionView<Item: Identifiable>: View where Item: EventTitleProtocol {
             .frame(height: 200)
         }
     }
+    private func dateFormating(date: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        let date = dateFormatter.date(from: date)
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        return dateFormatter.string(from: date!)
+    }
 }
 
 protocol EventTitleProtocol {
     var title: String { get }
     var imageUrl: String { get }
     var id: Int { get }
+    var bookStartTime: String { get }
 }
 
 extension MainContents: EventTitleProtocol {}

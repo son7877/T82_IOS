@@ -69,9 +69,16 @@ struct SubCategoryView: View {
                                 ForEach(viewModel.subCategoryEvents) { event in
                                     NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventInfoId: event.id))) {
                                         VStack {
-                                            AsyncImage(url: URL(string: event.imageUrl))
-                                                .frame(width: 100, height: 150)
-                                                .cornerRadius(10)
+                                            AsyncImage(url: URL(string: event.imageUrl)) {
+                                                image in
+                                                image
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fill)
+                                                    
+                                            } placeholder: {
+                                                ProgressView()
+                                            }
+                                            .frame(width: 100, height: 150)
                                             
                                             Text(event.title)
                                                 .font(.caption)
@@ -103,9 +110,16 @@ struct SubCategoryView: View {
                                 ForEach(viewModel.openSoonEvents) { event in
                                     NavigationLink(destination: ReservationView(viewModel: ReservationViewModel(eventInfoId: event.id))) {
                                         VStack {
-                                            AsyncImage(url: URL(string: event.imageUrl))
-                                                .frame(width: 100, height: 150)
-                                                .cornerRadius(10)
+                                            AsyncImage(url: URL(string: event.imageUrl)) {
+                                                image in
+                                                image
+                                                    .resizable()
+                                                    .aspectRatio(contentMode: .fill)
+                                                    
+                                            } placeholder: {
+                                                ProgressView()
+                                            }
+                                            .frame(width: 100, height: 150)
                                             
                                             Text(event.title)
                                                 .font(.caption)
