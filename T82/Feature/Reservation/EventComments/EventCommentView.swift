@@ -70,8 +70,20 @@ struct CommentRow: View {
                     }
                 }
                 VStack(alignment: .leading) {
+                    
                     Text(review.userName)
                         .font(.headline)
+                    
+                    HStack{
+                        ForEach(1..<6) { index in
+                            Image(systemName: "star.fill")
+                                .foregroundColor(index <= Int(review.rating) ? .customPink : .customGray1)
+                                .frame(width: 15, height: 15)
+                        }
+                    }
+                    .padding(.top, 1)
+                    .padding(.bottom , 5)
+                    
                     Text(review.createdDate)
                         .font(.subheadline)
                         .foregroundColor(.gray)
@@ -81,6 +93,18 @@ struct CommentRow: View {
             Text(review.content)
                 .font(.body)
                 .padding(.top, 5)
+            if !(review.reviewPictureUrl == "") {
+                AsyncImage(url: URL(string: review.reviewPictureUrl ?? "")) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                } placeholder: {
+                    EmptyView()
+                }
+                .frame(width: UIScreen.main.bounds.width/4, height: 100)
+                .padding(.bottom,5)
+            }
+            
             
             // 대댓글 이동
             NavigationLink(destination: EventCommentReplyView(eventInfoId: eventInfoId, reviewId: review.reviewId)) {

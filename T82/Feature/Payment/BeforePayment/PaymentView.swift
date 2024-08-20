@@ -57,7 +57,7 @@ struct PaymentView: View {
         }
         .alert(isPresented: $seatViewmodel.showAlert) {
             Alert(
-                title: Text("Error"),
+                title: Text("좌석 선택 실패"),
                 message: Text(seatViewmodel.alertMessage),
                 dismissButton: .default(Text("확인")) {
                     presentationMode.wrappedValue.dismiss()

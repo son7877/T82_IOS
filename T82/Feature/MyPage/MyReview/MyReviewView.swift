@@ -21,17 +21,25 @@ struct MyReviewView: View {
                         ForEach(viewModel.MyReviews) { review in
                             VStack {
                                 HStack {
+                                    
                                     // 리뷰 이미지
-                                    AsyncImage(url: URL(string: review.reviewPictureUrl ?? ""))
-                                    {
-                                        image in
-                                        image
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fill)
-                                    } placeholder: {
-                                        ProgressView()
+                                    if !(review.reviewPictureUrl == ""){
+                                        AsyncImage(url: URL(string: review.reviewPictureUrl ?? ""))
+                                        {
+                                            image in
+                                            image
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fill)
+                                        } placeholder: {
+                                            EmptyView()
+                                        }
+                                        .frame(width: 35, height: 50)
+                                    } else {
+                                        Text("이미지 없음")
+                                            .font(.system(size: 20))
+                                            .frame(maxWidth: .infinity / 2, minHeight: 30)
                                     }
-                                    .frame(width: 50, height: 50)
+                                    
                                     Text(review.content)
                                         .font(.system(size: 20))
                                         .frame(maxWidth: .infinity / 2, minHeight: 30)
@@ -43,6 +51,7 @@ struct MyReviewView: View {
                                         ForEach(1..<6) { index in
                                             Image(systemName: "star.fill")
                                                 .foregroundColor(index <= Int(review.rating) ? .customPink : .customGray1)
+                                                .frame(width: 15, height: 15)
                                         }
                                     }
                                 }

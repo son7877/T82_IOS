@@ -7,7 +7,6 @@ struct MyReviewFloatingView: View {
     @ObservedObject var reviewViewModel: MyReviewViewModel
     @Binding var isPresented: Bool
     @State private var rating: Int = 0
-    @State private var createdDate: String = ""
     @State private var reviewText: String = ""
     @State private var showErrorAlert: Bool = false
     @State private var showCompleteAlert: Bool = false
@@ -19,6 +18,7 @@ struct MyReviewFloatingView: View {
 
     var body: some View {
         VStack {
+            // 제목
             HStack {
                 Spacer()
                 Text("리뷰 등록")
@@ -44,7 +44,7 @@ struct MyReviewFloatingView: View {
             // 리뷰 내용
             TextField("리뷰를 작성해주세요", text: $reviewText)
                 .padding()
-                .background(Color.customGray0)
+                .background(Color.white)
                 .cornerRadius(10)
                 .padding()
                 .tint(.customPink)
@@ -67,14 +67,22 @@ struct MyReviewFloatingView: View {
                     } else {
                         Text("이미지 선택")
                             .frame(width: 70, height: 70)
-                            .background(.customGray1)
+                            .background(.customGray1.opacity(0.5))
                             .cornerRadius(15)
                             .foregroundColor(.gray)
+                            .padding(.bottom,5)
                     }
                 }
             }
             
+            // 리뷰 등록 버튼
             Button(action: {
+                // 상태 초기화
+                showErrorAlert = false
+                showCompleteAlert = false
+                reviewViewModel.reviewSubmissionSuccess = false
+                reviewViewModel.reviewSubmissionError = ""
+
                 let imageData = selectedImage?.jpegData(compressionQuality: 0.8)
                 
                 reviewViewModel.addReview(reviewRequest: MyReviewRequest(
@@ -83,22 +91,15 @@ struct MyReviewFloatingView: View {
                     rating: Double(rating),
                     reviewPictureUrl: nil),
                     imageData: imageData)
-                
-                if reviewViewModel.reviewSubmissionSuccess {
-                    showCompleteAlert = true
-                    isPresented = false
-                } else {
-                    showErrorAlert = true
-                }
             }, label: {
                 Text("등록")
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color.customred)
-                    .cornerRadius(10)
+                    .background(reviewViewModel.isLoading ? Color.gray : Color.customred)
             })
+            .disabled(reviewViewModel.isLoading)  // 등록 중에는 버튼 비활성화
         }
         .background(Color.customGray0)
         .alert(isPresented: $showErrorAlert) {
@@ -114,6 +115,14 @@ struct MyReviewFloatingView: View {
                 message: Text("리뷰 등록이 완료되었습니다."),
                 dismissButton: .default(Text("확인"))
             )
+        }
+        .onChange(of: reviewViewModel.reviewSubmissionSuccess) { success in
+            if success {
+                showCompleteAlert = true
+                isPresented = false
+            } else if !reviewViewModel.reviewSubmissionError.isEmpty {
+                showErrorAlert = true
+            }
         }
         .sheet(isPresented: $isImagePickerPresented) {
             ImagePicker(selectedImage: $selectedImage, isPickerPresented: $isImagePickerPresented)
