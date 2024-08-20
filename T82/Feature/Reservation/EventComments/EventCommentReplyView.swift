@@ -2,6 +2,7 @@ import SwiftUI
 
 struct EventCommentReplyView: View {
     
+    let eventInfoId: Int
     let reviewId: Int
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @StateObject var eventCommentViewModel = EventCommentViewModel()
@@ -32,7 +33,6 @@ struct EventCommentReplyView: View {
                 Spacer()
             } else {
                 ScrollView {
-                    
                     // 부모 댓글
                     if let parentReview = eventCommentViewModel.eventInfoReviews.first(where: { $0.reviewId == reviewId }) {
                         VStack(alignment: .leading) {
@@ -105,6 +105,7 @@ struct EventCommentReplyView: View {
         }
         .navigationBarBackButtonHidden(true)
         .onAppear {
+            eventCommentViewModel.fetchEventInfoReviews(eventInfoId: eventInfoId)
             eventCommentViewModel.fetchReplies(reviewId: reviewId)
         }
     }
@@ -159,6 +160,3 @@ struct ReplyRow: View {
     }
 }
 
-#Preview {
-    EventCommentReplyView(reviewId: 1)
-}
