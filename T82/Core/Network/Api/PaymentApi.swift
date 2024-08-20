@@ -56,7 +56,9 @@ class CouponService {
         
         let parameters: [String: Any] = ["couponId": couponId]
         
-        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: Config().getHeaders()).response { response in
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: Config().getHeaders())
+            .validate(statusCode: 200..<300)
+            .response { response in
             switch response.result {
             case .success:
                 completion(.success(true))

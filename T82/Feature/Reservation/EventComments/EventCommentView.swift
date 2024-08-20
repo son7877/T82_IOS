@@ -71,8 +71,17 @@ struct CommentRow: View {
                 }
                 VStack(alignment: .leading) {
                     
-                    Text(review.userName)
-                        .font(.headline)
+                    HStack{
+                        Text(review.userName)
+                            .font(.headline)
+                        
+                        if review.isArtist {
+                            Image(systemName: "checkmark.seal.fill")
+                                .resizable()
+                                .frame(width: 15, height: 15)
+                                .foregroundColor(.customgray1)
+                        }
+                    }
                     
                     HStack{
                         ForEach(1..<6) { index in
