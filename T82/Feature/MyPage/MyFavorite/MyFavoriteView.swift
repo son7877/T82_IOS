@@ -25,14 +25,20 @@ struct MyFavoriteView: View {
                                         .padding()
                                         .foregroundColor(.white)
                                     HStack {
-                                        AsyncImage(url: URL(string: favorite.imageUrl))
-                                            .frame(width: 120, height: 150)
-                                            .padding(5)
-                                        VStack {
+                                        AsyncImage(url: URL(string: favorite.imageUrl)) { image in
+                                            image.resizable()
+                                        } placeholder: {
+                                            ProgressView()
+                                        }
+                                        .frame(width: 80, height: 100)
+                                        .padding(.bottom, 10)
+                                        .padding(.leading, 15)
+                                        VStack (alignment: .leading){
                                             Text(favorite.title)
                                                 .padding(.bottom, 1)
                                                 .foregroundColor(.black)
-                                            // Text(favorite.bookStartTime.formmatedDay)
+                                            Text(formatEventStartTime(favorite.bookStartTime))
+                                                .foregroundColor(.gray)
                                         }
                                         Spacer()
                                     }
@@ -52,6 +58,14 @@ struct MyFavoriteView: View {
         .background(Rectangle()
             .frame(height: 100)
             .foregroundColor(.white))
+    }
+    
+    private func formatEventStartTime(_ eventStartTime: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        let date = dateFormatter.date(from: eventStartTime)
+        dateFormatter.dateFormat = "yyyy년 MM월 dd일 HH시 mm분 오픈"
+        return dateFormatter.string(from: date!)
     }
 }
 

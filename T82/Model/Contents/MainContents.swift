@@ -6,7 +6,7 @@ struct MainContents: Hashable, Decodable, Identifiable {
     let title: String
     let rating: Double
     var imageUrl: String
-//    var bookStartTime: String
+    var bookStartTime: String
     
     var id: Int {
         return eventInfoId

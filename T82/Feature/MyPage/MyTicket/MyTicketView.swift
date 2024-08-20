@@ -33,18 +33,25 @@ struct MyTicketView: View {
                                     } placeholder: {
                                         ProgressView()
                                     }
-                                    .frame(width: 80, height: 80)
+                                    .frame(width: 80, height: 100)
                                     .padding(.bottom, 10)
                                     .padding(.leading, 15)
                                      
                                     VStack (alignment: .leading) {
                                         Text(ticket.eventName.count > 7 ? String(ticket.eventName.prefix(7)) + "..." : ticket.eventName)
                                             .font(.system(size: 20))
-                                            .padding(.bottom, 10)
-                                        Text(formatEventStartTime(ticket.eventStartTime))
+                                            .padding(.bottom, 5)
+                                            .fontWeight(.bold)
+                                        
                                         Text("\(ticket.sectionName)")
+                                            .font(.system(size: 15))
                                         Text("\(ticket.rowNum)열 \(ticket.columnNum)번")
-                                            .padding(.bottom, 10)
+                                            .font(.system(size: 15))
+                                            .padding(.bottom, 5)
+                                        Text(formatEventStartTime(ticket.eventStartTime))
+                                            .padding(.bottom, 5)
+                                            .foregroundColor(.gray)
+                                            .font(.system(size: 15))
                                     }
                                     Spacer()
                                 }
