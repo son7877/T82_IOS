@@ -26,10 +26,12 @@ class MyReviewViewModel: ObservableObject {
     
     // 리뷰 작성 및 이미지 등록
     func addReview(reviewRequest: MyReviewRequest, imageData: Data?) {
+        
         // 이미지 데이터가 존재하면 먼저 이미지를 업로드
         if let imageData = imageData {
             uploadImageAndSubmitReview(reviewRequest: reviewRequest, imageData: imageData)
         } else {
+            
             // 이미지가 없으면 바로 리뷰 등록
             submitReview(reviewRequest: reviewRequest)
         }

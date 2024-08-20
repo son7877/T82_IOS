@@ -46,7 +46,7 @@ class SeatsViewModel: ObservableObject {
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.alertMessage = "오류: \(error.localizedDescription)"
+                    self.alertMessage = "이미 선택된 좌석입니다."
                     self.showAlert = true
                 }
             }

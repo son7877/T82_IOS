@@ -1,13 +1,24 @@
 import SwiftUI
 
 struct ReservationView: View {
+    
     @ObservedObject var viewModel: ReservationViewModel
+    @StateObject private var reviewViewModel = EventCommentViewModel()
     @State private var selectedDate: Date? = nil
     @State private var selectedTime: Date? = nil
     @State private var availableSeats: String = ""
     @State private var selectedEventId: Int? = nil
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
+    
+    var averageRating: Int {
+        let reviewCount = reviewViewModel.eventInfoReviews.count
+        if reviewCount > 0 && viewModel.contentsDetail.rating.isFinite {
+            return Int(viewModel.contentsDetail.rating / Double(reviewCount))
+        } else {
+            return 0
+        }
+    }
+    
     var body: some View {
         VStack(spacing: 0) {
             ZStack(alignment: .top) {
@@ -78,7 +89,7 @@ struct ReservationView: View {
                             HStack(spacing: 5) {
                                 ForEach(0..<5) { index in
                                     Image(systemName: "star.fill")
-                                        .foregroundColor(index < Int(viewModel.contentsDetail.rating) ? .yellow : .gray)
+                                        .foregroundColor(index < averageRating ? .yellow : .gray)
                                 }
                             }
                             Text("공연시간: \(viewModel.contentsDetail.runningTime)")
@@ -89,7 +100,7 @@ struct ReservationView: View {
                             NavigationLink(
                                 destination: EventCommentView(eventInfoId: viewModel.eventInfoId),
                                 label: {
-                                    Text("리뷰 보기")
+                                    Text("리뷰 \(reviewViewModel.eventInfoReviews.count)")
                                         .font(.subheadline)
                                         .foregroundColor(.white)
                                         .underline()
@@ -213,6 +224,9 @@ struct ReservationView: View {
             }
         }
         .navigationBarHidden(true)
+        .onAppear(){
+            reviewViewModel.fetchEventInfoReviews(eventInfoId: viewModel.eventInfoId)
+        }
     }
 
     private func timeFormatted(_ date: Date) -> String {

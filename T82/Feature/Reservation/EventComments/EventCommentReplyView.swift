@@ -145,7 +145,7 @@ struct ReplyRow: View {
                 VStack(alignment: .leading) {
                     Text(reply.username)
                         .font(.headline)
-                    Text(reply.createdDate)
+                    Text("\(dateFormating(date: reply.createdDate))")
                         .font(.subheadline)
                         .foregroundColor(.gray)
                 }
@@ -157,6 +157,14 @@ struct ReplyRow: View {
                 .padding(.horizontal, 25)
         }
         .padding()
+    }
+    
+    private func dateFormating(date: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        let date = dateFormatter.date(from: date)
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        return dateFormatter.string(from: date ?? Date())
     }
 }
 

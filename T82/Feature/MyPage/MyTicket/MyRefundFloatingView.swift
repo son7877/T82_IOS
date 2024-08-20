@@ -24,7 +24,7 @@ struct MyRefundFloatingView: View {
             
             TextField("환불 사유를 입력해 주세요", text: $refundReason)
                 .padding()
-                .background(Color.customGray0)
+                .background(Color.white)
                 .cornerRadius(10)
                 .padding()
                 .tint(.customPink)
@@ -53,7 +53,6 @@ struct MyRefundFloatingView: View {
                     .padding()
                     .frame(maxWidth: .infinity)
                     .background(Color.customred)
-                    .cornerRadius(10)
             }
         }
         .background(Color.customGray0)
