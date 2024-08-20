@@ -118,6 +118,7 @@ struct MyTicketView: View {
         UNUserNotificationCenter.current().add(request) { error in
             if let error = error {
                 print("에러: \(error.localizedDescription)")
+                
             }
         }
     }
