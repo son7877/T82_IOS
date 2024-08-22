@@ -126,17 +126,19 @@ struct ReservationView: View {
                         HStack(spacing: 10) {
                             let uniqueDates = Array(Set(viewModel.availableDates.map { $0.eventStartTime.stripTime() }))
                             ForEach(uniqueDates.sorted(), id: \.self) { date in
-                                Button(action: {
-                                    selectedDate = date
-                                    selectedTime = nil
-                                    availableSeats = ""
-                                }) {
-                                    Text(date.formmatedDay)
-                                        .font(.subheadline)
-                                        .padding(10)
-                                        .background(selectedDate?.isSameDay(as: date) == true ? Color.customred : Color.gray)
-                                        .foregroundColor(.white)
-                                        .cornerRadius(10)
+                                if date.formmatedDay != "티켓 만료됨" { // "티켓 만료됨"이 아닌 경우에만 버튼 표시
+                                    Button(action: {
+                                        selectedDate = date
+                                        selectedTime = nil
+                                        availableSeats = ""
+                                    }) {
+                                        Text(date.formmatedDay)
+                                            .font(.subheadline)
+                                            .padding(10)
+                                            .background(selectedDate?.isSameDay(as: date) == true ? Color.customred : Color.gray)
+                                            .foregroundColor(.white)
+                                            .cornerRadius(10)
+                                    }
                                 }
                             }
                         }
