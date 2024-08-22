@@ -112,6 +112,7 @@ struct CommentRow: View {
                 }
                 .frame(width: UIScreen.main.bounds.width/4, height: 100)
                 .padding(.bottom,5)
+                .padding(.horizontal)
             }
             
             

@@ -64,7 +64,7 @@ class SeatsViewModel: ObservableObject {
             
         case 2:
             totalSeats = 50
-            sections = [("VIP", 4), ("일반석", 6)]
+            sections = [("VIP", 2), ("일반석", 3)]
             
         case 3:
             totalSeats = 100
@@ -92,7 +92,7 @@ class SeatsViewModel: ObservableObject {
                 // 10개씩 끊어서 새로운 행으로 추가
                 if sectionSeats.count == 10 {
                     allSeats.append(sectionSeats)
-                    sectionSeats = []  // 새로운 행을 시작하기 위해 초기화
+                    sectionSeats = []
                 }
             }
 
