@@ -29,25 +29,29 @@ https://github.com/T82-encore/IOS_T82/wiki/Project-File-Tree
 
 ### D. 개발 내용
 - 로그인 및 회원 가입
-  <br>
-  <img src="https://github.com/user-attachments/assets/8377f666-3bf7-4c2a-92da-37b36274d89c" alt="로그인" style="width: 180px; height: auto;"> 
+
+  <img src="https://github.com/user-attachments/assets/8377f666-3bf7-4c2a-92da-37b36274d89c" alt="로그인" style="width: 180px; height: auto;"> <img src="https://github.com/user-attachments/assets/923d82ab-e0dc-42fe-8391-8976d7cdd6ba" alt="버전 확인" style="width: 180px; height: auto;"> <img src="https://github.com/user-attachments/assets/0532e222-09bd-4a3b-a75e-bc2be7f11698" alt="회원 가입" style="width: 180px; height: auto;"> 
 
 
-- 메인 탭
+- 메인 탭 뷰
   - 공연 정보 뷰
+
+   <img src="https://github.com/user-attachments/assets/25963b9a-e115-40e7-9fea-31269fe4b3f6" alt="알림 권한" style="width: 180px; height: auto;"> <img src="https://github.com/user-attachments/assets/3bce9e83-2aae-4f86-89e7-349d6031b4bf" alt="상위 카테고리" style="width: 180px; height: auto;"> <img src="https://github.com/user-attachments/assets/fa5334fa-8ec3-45c8-b1dc-4e1b9dbdad8e" alt="하위 카테고리" style="width: 180px; height: auto;">
+  
   - 쿠폰 이벤트 뷰
-  - 공연 검색 뷰
-  - 마이페이지 탭 뷰
+    
+    <img src="https://github.com/user-attachments/assets/5677d968-6f31-476f-a0f5-608a88b46c0e" alt="쿠폰 이벤트1" style="width: 200px; height: auto;"> <img src="https://github.com/user-attachments/assets/ce8a22ee-6009-4f52-9ad5-9df57720d446" alt="쿠폰 이벤트2" style="width: 192px; height: auto;"> 
+    
 - 공연 시간 선택 뷰
 - 공연 별 댓글 뷰
 - 대기열 뷰
-- 좌석 선택 뷰
-- 결제 정보 뷰
 - 결제 및 결제 완료 뷰
+- 마이 페이지 탭 뷰
+  - 내 예매 내역 뷰
+  - 내 찜 목록 뷰
 - 공연 임박 Push Notification
 
 ### E. Trouble Shooting
 https://github.com/T82-encore/IOS_T82/wiki/%08Trouble-Shooting
 
 ### F. 느낀 점 회고
-
