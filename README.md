@@ -117,5 +117,3 @@ https://github.com/T82-encore/IOS_T82/wiki/Project-File-Tree
 
 ### E. Trouble Shooting
 https://github.com/T82-encore/IOS_T82/wiki/%08Trouble-Shooting
-
-### F. 프로젝트를 통해 느낀 점
