@@ -118,3 +118,6 @@ https://github.com/T82-encore/IOS_T82/wiki/Project-File-Tree
 
 ### E. Trouble Shooting
 https://github.com/T82-encore/IOS_T82/wiki/%08Trouble-Shooting
+
+### F. Notion
+https://www.notion.so/T82_IOS-76ca1cdcf14e4b2698732810eea07ad6
