@@ -58,6 +58,7 @@ https://github.com/T82-encore/IOS_T82/wiki/Project-File-Tree
 ### D. 개발 내용
 - 로그인 및 회원 가입
   - 어플 실행 시 TestFlight에 등록되어있는 어플 버전(빌드번호)과 현재 기기에 설치되어있는 어플 버전(빌드번호)를 비교하여 업데이트 알림 유무 결정
+    - 관련 링크: https://github.com/son7877/T82_IOS_VersionCheck
   - 일반 회원 로그인 외에도 카카오, 구글 로그인이 가능하도록 구현
   - 로그인 시 사용자 아이디를 Key로 설정해서 유저별로 필요한 정보(공연 찜 목록)를 UserDefaults에 저장하도록 설정
     
