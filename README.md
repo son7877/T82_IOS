@@ -8,7 +8,7 @@
 ### B. 프로젝트 구성
 
 #### b-1 Project File Tree
-https://github.com/T82-encore/IOS_T82/wiki/Project-File-Tree
+프로젝트 구조 트리 링크 : https://github.com/T82-encore/IOS_T82/wiki/Project-File-Tree
 
 #### b-2 폴더 구조 선정
 
