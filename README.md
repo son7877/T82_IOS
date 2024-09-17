@@ -119,5 +119,6 @@
 ### E. Trouble Shooting
 https://github.com/T82-encore/IOS_T82/wiki/%08Trouble-Shooting
 
-### F. Notion
-https://www.notion.so/T82_IOS-76ca1cdcf14e4b2698732810eea07ad6
+### F. Notion (일자 별 작업 내용)
+[https://www.notion.so/T82_IOS-76ca1cdcf14e4b2698732810eea07ad6
+](https://heavenly-cover-5fe.notion.site/SwiftUI-de03184d74d54d27bac92c13ac259c3e)
