@@ -123,5 +123,5 @@ https://github.com/T82-encore/IOS_T82/wiki/%08Trouble-Shooting
 [https://www.notion.so/T82_IOS-76ca1cdcf14e4b2698732810eea07ad6
 ](https://heavenly-cover-5fe.notion.site/SwiftUI-de03184d74d54d27bac92c13ac259c3e)
 
-### G. 프로젝트 ReadMe
+### G. 프로젝트 Organization ReadMe
 https://github.com/son7877/T82_ReadMe
