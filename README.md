@@ -1,5 +1,8 @@
 # IOS_T82
 
+#### 프로젝트 Organization ReadMe
+https://github.com/son7877/T82_ReadMe
+
 ### A. 프로젝트 목표
 - 모바일 어플리케이션 고유의 기능을 최대한 이끌어내기
 - MVVM 아키텍처를 활용하여 뷰 로직과 비즈니스 로직을 분리해서 테스트 중 유지 보수가 원활하게 진행하도록 노력하기
@@ -123,5 +126,4 @@ https://github.com/T82-encore/IOS_T82/wiki/%08Trouble-Shooting
 [https://www.notion.so/T82_IOS-76ca1cdcf14e4b2698732810eea07ad6
 ](https://heavenly-cover-5fe.notion.site/SwiftUI-de03184d74d54d27bac92c13ac259c3e)
 
-### G. 프로젝트 Organization ReadMe
-https://github.com/son7877/T82_ReadMe
+
