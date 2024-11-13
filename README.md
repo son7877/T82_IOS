@@ -1,5 +1,7 @@
 # IOS_T82
 
+<img width="1275" alt="스크린샷 2024-11-13 오후 6 15 16" src="https://github.com/user-attachments/assets/20bb260a-6fbd-41b5-92b4-47d2dc5fed64">
+
 #### 프로젝트 Organization ReadMe
 https://github.com/son7877/T82_ReadMe
 
